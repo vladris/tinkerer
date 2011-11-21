@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% macro timestamp() %}
+    {% if metadata.date %}
+        <div class="timestamp">
+            <span>{{ metadata.date.strftime("%B %d, %Y") }}</span>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro tag_list() %}
+    {% if blog_tags %}
+        <div class="tags">
+            <span>
+                Tags:
+                {% for tag in blog_tags %}
+                    <a href="../../../tags/{{ tag }}.html">{{ tag }}</a>
+                    {%- if not loop.last %}, {% endif %}
+                {% endfor %}
+            </span>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% block body %}
+    {{ body }}
+    <div class="meta">
+        {{ timestamp() }}
+        {{ tag_list() }}
+    </div>
+    {{ comments }}
+{% endblock %}

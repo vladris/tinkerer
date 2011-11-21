@@ -1,0 +1,3 @@
+recursive-include tinkerer/themes *
+recursive-include tinkerer/templates *
+recursive-include tinkerer/static *

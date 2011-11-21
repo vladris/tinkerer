@@ -1,0 +1,277 @@
+/*
+ * metropolish.css_t
+ * ~~~~~~~~~~~
+ *
+ * Sphinx stylesheet -- metropolish theme.
+ *
+ * :copyright: Copyright 2011 by Vlad Riscutia
+ */
+
+@import url("basic.css");
+
+/* General style */
+hmtl {
+    margin: 0px; 
+    padding: 0px;
+}
+
+body {
+    background-color: white;
+    border: 1px solid #cccccc;
+    font-family: Helvetica, sans-serif;
+    font-size: 0.9em;
+    margin: auto; 
+    max-width: 70em;
+    min-width: 60em;
+    padding: 0px;
+}
+
+a:link, a:visited, a:active {
+    font-weight: bold;
+    text-decoration: none;
+    color: {{ theme_accentcolor }};
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 1.4em;
+    font-weight: normal;
+}
+
+/* Header */
+div.header {
+    border-left: 10px solid {{ theme_accentcolor }};
+    margin-top: 20px;
+    padding-left: 38px;
+}
+
+div.header h1 {
+    font-size: 4em;
+    margin: 0px;
+}
+
+div.header a {
+    font-weight: normal;
+    color: black;
+}
+
+div.header a:hover {
+    color: {{ theme_accentcolor }};
+    text-decoration: none;
+}
+
+div.header h2 {
+    color: #808080;
+    margin: 0px;
+}
+
+/* Top links style */
+div.toplinks {
+    float: right;
+    margin-right: 42px;
+    margin-top: 12px;
+}
+
+div.toplinks table {
+    border-spacing: 6px;
+}
+
+/* Square style */
+div.square {
+    background-color: {{ theme_accentcolor }};
+    height: 80px;
+    padding: 8px;
+    width: 80px;
+}
+
+div.square img {
+    margin-left: 8px;
+}
+
+a.square {
+    color: white;
+    text-decoration: none;
+}
+
+/* Page style */
+div.page h1 {
+    border-bottom: 1px solid #cccccc;
+    font-size: 2em;
+    font-weight: normal;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+div.page h2 {
+    margin-bottom: 0.5em;
+}
+
+div.page h3 {
+    font-size: 1.1em;
+}
+
+div.page p {
+    text-align: justify;
+}
+
+div.page tt.literal {
+    background: #f8f8f8;
+    padding: 1px;
+    text-align: left;
+}
+
+div.admonition {
+    background: #f8f8f8;
+    border: 1px solid black;
+    margin-left: 24px;
+    margin-right: 24px;
+    padding: 12px;
+}
+
+/* Navbar style */
+div.nav {
+    height: 48px;
+    margin: 36px 350px 48px 48px;
+}
+
+div.nav a {
+    color: black;
+}
+
+div.nav a:hover {
+    color: {{ theme_accentcolor }};
+    text-decoration: none;
+}
+
+div.nav img {
+    vertical-align: middle;
+}
+
+div.nav span {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+div.nav_prev {
+    height: 48px;
+    float: left;
+}
+
+div.nav_next {
+    height: 48px;
+    float: right;
+}
+
+/* Content style */
+div.content {
+    line-height: 1.5em;
+    margin: 49px 350px 48px 48px;
+}
+
+/* Sidebar style */
+div.metrosidebar {
+    float: right;
+    margin: 2.5em 48px 0 48px;
+    width: 250px;
+}
+
+div#sidebar_line {
+    border-top: 1px solid #cccccc;
+    margin-left: 48px;
+}
+
+div.metrosidebar h2 {
+    background-image: url(edit.png);
+    background-repeat: no-repeat;
+    height: 48px;
+    line-height: 48px;
+    margin-bottom: -12px;
+    margin-top: 0;
+    padding-left: 48px;
+}
+
+div.metrosidebar a {
+    text-decoration: none;
+}
+
+div.metrosidebar a:hover {
+    color: white;
+    background-color: {{ theme_accentcolor }}; 
+}
+
+div.metrosidebar ul {
+    list-style: none;
+    margin-bottom: 48px;
+    padding: 0px;
+}
+
+div.metrosidebar li {
+    background-color: inherit;
+    height: 48px;
+    line-height: 48px; 
+    margin-left: 36px;
+    overflow: hidden;
+    padding-left: 12px;
+}
+
+/* Footnotes */
+a.footnote-reference {
+    font-size: 0.7em;
+    font-weight: normal;
+    vertical-align: super;
+}
+
+a.fn-backref {
+    font-weight: normal;
+    margin-left: 10px;
+    vertical-align: super;
+}
+
+table.footnote {
+    border-left: 2px solid {{ theme_accentcolor }};
+}
+
+.footnote:target {
+    background-color: white;
+}
+
+/* Post metadata style */
+div.meta {
+    border-left: 2px solid {{ theme_accentcolor }};
+    color: #808080;
+    margin-bottom: 3em;
+    margin-top: 3em;
+    padding-left: 1em;
+}
+
+/* Footer style */
+div.footer {
+    color: #808080;
+    border-right: 2px solid {{ theme_accentcolor }};
+    margin: 12px;
+    padding-right: 12px;
+    text-align: right;
+}
+
+/* Disqus */
+#dsq-comments-title {
+    height: 0px;
+    visibility: hidden;
+    width: 0px;
+}
+
+div.dsq-options {
+    height: 0px;
+    visibility: hidden;
+    width: 0px;
+}
+
+div.dsq-item-trackback {
+    height: 0px;
+    visibility: hidden;
+    width: 0px;
+}
+
