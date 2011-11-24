@@ -34,12 +34,8 @@ def get_path(directory, subdirectories):
 
 # setup a new blog
 def setup():
-    if not os.path.exists(tinkerer.paths.source):
-        os.mkdir(tinkerer.paths.source)
-
-    static_path = os.path.join(tinkerer.paths.source, "_static")
-    if not os.path.exists(static_path):
-        os.mkdir(static_path)
+    if not os.path.exists("_static"):
+        os.mkdir("_static")
 
     with open(paths.master_file, "w") as f:
         f.write("""\
@@ -98,7 +94,7 @@ html_show_sourcelink = False""")
 def build():
     if os.path.exists(paths.blog):
         shutil.rmtree(paths.blog)
-    sphinx.main(["sphinx-build", "-d", paths.doctree, "-b", "html", os.path.abspath(paths.source), paths.html])
+    sphinx.main(["sphinx-build", "-d", paths.doctree, "-b", "html", ".", paths.html])
 
 
 # add new post
@@ -106,7 +102,7 @@ def post(post_name):
     year, month, day = datetime.today().strftime("%Y/%m/%d").split("/")
 
     # create post file
-    post_path = os.path.join(get_path(paths.root, [paths.source, year, month, day]), post_name)
+    post_path = os.path.join(get_path(paths.root, [year, month, day]), post_name)
     with open(post_path + tinkerer.source_suffix, "w") as f:
         f.write("""\
 Title 
@@ -145,7 +141,7 @@ Title
 # add new page
 def page(page_name):
     # create page file
-    page_path = os.path.join(get_path(paths.root, [paths.source, "pages"]), page_name)
+    page_path = os.path.join(get_path(paths.root, ["pages"]), page_name)
     with open(page_path + tinkerer.source_suffix, "w") as f:
         f.write("""\
 Title
