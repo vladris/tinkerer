@@ -105,7 +105,7 @@ div.related li.next {
 /* Document */
 div.document {
     margin-top: 20px;
-    padding-right: 320px;
+    padding: 0 320px 0 40px;
 }
 
 /* Timestamp */
@@ -122,6 +122,7 @@ div.admonition {
 div.sphinxsidebarwrapper {
     display: inline;
     padding: 0;
+    padding-right: 40px;
 }
 
 div.sphinxsidebar {
