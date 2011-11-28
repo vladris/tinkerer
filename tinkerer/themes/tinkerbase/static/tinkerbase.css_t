@@ -48,11 +48,12 @@ div.page_nav li.right {
     }
 }
 
-/* Hide sidebar on smaller displays */
-@media screen and (max-width: 800px)
+/* Hide sidebar on smaller displays and iPhone */
+@media screen and (max-width: 800px), screen and (max-device-width: 480px)
 {
     /* Document ------------------------------------------------------------ */
     div.document {
+        margin-right: 0;
         padding-left: 40px;
         padding-right: 40px;   
     }
