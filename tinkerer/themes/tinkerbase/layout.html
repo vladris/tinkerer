@@ -9,8 +9,12 @@
 
 {% extends "basic/layout.html" %}
 
+{# characters desplayed before/after prev/next links #}
 {%- set prevchar = prevchar is not defined and ' &laquo; ' or prevchar %}
 {%- set nextchar = naxtchar is not defined and ' &raquo; ' or nextchar %}
+
+{# page_nav before or after header #}
+{%- set page_nav_first = page_nav_first is defined or False %}
 
 {# Blog header #}
 {%- macro blog_header() %}
@@ -90,9 +94,10 @@
 {%- endmacro %}
 
 {%- block header %}
-   {{ blog_header() }}
-   {{ page_nav() }}
-   <div class="clearer"></div>
+    {%- if page_nav_first %}{{ page_nav() }}{%- endif %}
+    {{ blog_header() }}
+    {%- if not page_nav_first%}{{ page_nav() }}{%- endif %}
+    <div class="clearer"></div>
 {%- endblock %}
 
 {%- block relbar1 %}{%- endblock %}

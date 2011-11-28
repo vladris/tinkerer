@@ -20,8 +20,8 @@ body {
     -webkit-text-size-adjust: none;
 }
 
-/* Right-floating li ------------------------------------------------------- */
-li.right {
+/* Right-floating page_nav li ---------------------------------------------- */
+div.page_nav li.right {
     float: right;
 }
 
