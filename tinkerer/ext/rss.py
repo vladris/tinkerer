@@ -5,6 +5,7 @@
     RSS feed generator for blog. 
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 import time
 import cgi

@@ -5,6 +5,7 @@
     Handles template rendering and blog setup.
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 from jinja2 import Environment, PackageLoader
 from tinkerer import paths, utils

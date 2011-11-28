@@ -5,6 +5,7 @@
     Handles creating new pages and inserting them in the master document.
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 import os
 import tinkerer.paths

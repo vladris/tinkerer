@@ -5,6 +5,7 @@
     Base test case class inherited by all test cases. Utility functions.
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 import datetime
 import os

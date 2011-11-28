@@ -5,6 +5,7 @@
     Blog metadata extension.
 
     :copyright: Copyright 2011 by Vlad Riscutia.
+    :license: FreeBSD, see LICENSE file
 '''
 import re
 from datetime import date

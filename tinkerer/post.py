@@ -5,6 +5,7 @@
     Handles creating new posts and inserting them in the master document.
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENCE file
 '''
 from datetime import datetime
 import os

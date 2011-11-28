@@ -6,6 +6,7 @@
     Disqus shortname must be provided in `conf.py` as `disqus_shortname`.
     
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 from sphinx.util.compat import Directive
 from docutils import nodes

@@ -1,5 +1,15 @@
+'''
+    Tinkerer Setup
+    ~~~~~~~~~~~~~~
+
+    Package setup script.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
+'''
 from setuptools import setup, find_packages
 import tinkerer
+
 
 setup(
     name="Tinkerer",

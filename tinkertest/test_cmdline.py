@@ -5,6 +5,7 @@
     Tests Tinkerer command line (setup, post, page and build)
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 import datetime
 import os

@@ -10,6 +10,7 @@
     -c, --clean cleans up test directory
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 import argparse
 from contextlib import contextmanager

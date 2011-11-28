@@ -5,6 +5,7 @@
     Blog extension.
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 import tinkerer.ext.author
 import tinkerer.ext.metadata

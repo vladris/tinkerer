@@ -2,9 +2,10 @@
     tags
     ~~~~
 
-    Handles blog tags
+    Extension handling post tagging.
 
     :copyright: Copyright 2011 by Vlad Riscutia.
+    :license: FreeBSD, see LICENSE file
 '''
 from sphinx.util.compat import Directive
 import tinkerer.utils

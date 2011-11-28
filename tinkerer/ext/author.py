@@ -2,9 +2,10 @@
     author
     ~~~~~~
 
-    Post author
+    Post author extension.
 
     :copyright: Copyright 2011 by Vlad Riscutia.
+    :license: FreeBSD, see LICENSE file
 '''
 from sphinx.util.compat import Directive
 import tinkerer.utils

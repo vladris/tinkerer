@@ -5,6 +5,7 @@
     Tests metadata collected by Tinkerer during build.
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 import datetime
 from tinkerer import page, paths, post

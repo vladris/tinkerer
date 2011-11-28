@@ -10,6 +10,7 @@
     page - to create a new page
 
     :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
 '''
 import argparse
 from datetime import datetime
