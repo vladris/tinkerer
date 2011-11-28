@@ -8,7 +8,7 @@
  * :license: FreeBSD, see LICENSE file
  */
 
-@import url("basic.css")
+@import url("basic.css");
 
 /* WebFont ----------------------------------------------------------------- */
 @font-face {
