@@ -15,8 +15,6 @@ body {
     background-color:white;
     font-family: Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
     margin: auto;
-    max-width: 1000px;
-    min-width: 400px;
     padding: 0;
 }
 
@@ -35,7 +33,7 @@ div.header {
 }
 
 div.header h1 {
-    font-size: 4em;
+    font-size: 300%;
     margin: 6px;
 }
 
@@ -44,7 +42,7 @@ div.header a {
 }
 
 div.header span.tagline {
-    font-size: 1em;
+    font-size: 110%;
     font-style: italic;
 }
 

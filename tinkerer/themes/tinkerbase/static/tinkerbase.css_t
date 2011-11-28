@@ -18,26 +18,55 @@ html {
 
 body {
     -webkit-text-size-adjust: none;
+    max-width: 1000px;
 }
 
-/* Right-floating page_nav li ---------------------------------------------- */
+/* Page navigation --------------------------------------------------------- */
 div.page_nav li.right {
     float: right;
 }
 
-/* Document ---------------------------------------------------------------- */
-div.document {
-    margin-right: 90px;
-    padding-left: 40px;
-    padding-right: 230px;
+/* Wide screen display------------------------------------------------------ */
+@media screen and (min-width: 800px)
+{
+    /* Document ------------------------------------------------------------ */
+    div.document {
+        margin-right: 90px;
+        padding-left: 40px;
+        padding-right: 230px;
+    }
+
+    /* Sidebar ------------------------------------------------------------- */
+    div.sphinxsidebarwrapper {
+        display: inline;
+        padding: 0;
+    }
+
+    div.sphinxsidebar {
+        float: right;
+    }
 }
 
-/* Sidebar ----------------------------------------------------------------- */
-div.sphinxsidebarwrapper {
-    display: inline;
-    padding: 0;
+/* Hide sidebar on smaller displays */
+@media screen and (max-width: 800px)
+{
+    /* Document ------------------------------------------------------------ */
+    div.document {
+        padding-left: 40px;
+        padding-right: 40px;   
+    }
+
+    /* Sidebar ------------------------------------------------------------- */
+    div.sphinxsidebarwrapper {
+        visibility: hidden;
+    }
 }
 
-div.sphinxsidebar {
-    float: right;
+/* Retina displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2)
+{
+    /* Body ---------------------------------------------------------------- */
+    body {
+        font-size: 2em;
+    }
 }
