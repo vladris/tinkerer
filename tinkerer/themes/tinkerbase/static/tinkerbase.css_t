@@ -86,5 +86,6 @@ div.sphinxsidebar {
 /* Footer ------------------------------------------------------------------ */
 div.footer {
     font-size: 80%;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
+    margin-top: 48px;
 }
