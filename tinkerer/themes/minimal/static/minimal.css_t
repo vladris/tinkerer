@@ -50,10 +50,9 @@ div.header span.tagline {
 /* Page navigation */
 div.page_nav {
     background-color: black;
-    font-size: 16px;
     font-weight: bold;
-    height: 36px;
-    line-height: 36px;
+    height: 2em;
+    line-height: 2em;
     width: 100%;
 }
 
@@ -64,20 +63,13 @@ div.page_nav a {
 div.page_nav ul {
     margin: 0;
     padding: 0;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 div.page_nav li {
     display: inline;
     padding: 0 20px 0 20px;
-}
-
-/* RSS link */
-div.rss {
-    background: url(rss.png) no-repeat 0 10px;
-}
-
-div.rss a {
-    padding-left: 24px;
 }
 
 /* Related */

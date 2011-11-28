@@ -10,12 +10,40 @@
 
 {% extends "basic/layout.html" %}
 
+{# Prev/next nav ------------------------------------------------------------ #}
+
 {# characters desplayed before/after prev/next links #}
 {%- set prevchar = prevchar is not defined and ' &laquo; ' or prevchar %}
 {%- set nextchar = naxtchar is not defined and ' &raquo; ' or nextchar %}
 
-{# page_nav before or after header #}
+{# Page nav ----------------------------------------------------------------- #}
+
+{# page_nav before or after header (default after) #}
 {%- set page_nav_first = page_nav_first is defined or False %}
+
+{# Twitter link ------------------------------------------------------------- #}
+
+{# inclute Twitter link in page_nav (default True) #}
+{%- set twitter_in_page_nav = twitter_in_page_nav is not defined and True or twitter_in_page_nav %}
+
+{# Twitter link text (default None) #}
+{%- set twitter_link_text = twitter_link_text is not defined and None or twitter_link_text %}}
+
+{# Twitter symbol in link (default True) #}
+{%- set twitter_symbol = twitter_symbol is not defined and True or twitter_symbol %}
+
+{# RSS feed ----------------------------------------------------------------- #}
+
+{# include RSS feed link in page_nav (default True) #}
+{%- set rss_in_page_nav = rss_in_page_nav is not defined and True or rss_in_page_nav %}
+
+{# RSS link text (default None) #}
+{%- set rss_link_text = rss_link_text is not defined and None or rss_link_text %}
+
+{# RSS symbol in link (default True) #}
+{%- set rss_symbol = rss_symbol is not defined and True or rss_symbol %}
+
+{# Macros ------------------------------------------------------------------- #}
 
 {# Blog header #}
 {%- macro blog_header() %}
@@ -28,6 +56,26 @@
         <span class="tagline">{{ tagline }}</span>
     </div>
 {%- endmacro %}
+
+{# Twitter link #}
+{%- macro twitter_link() %}
+    <a href="http://twitter.com/{{ twitter_id }}" title="@{{ twitter_id }} on Twitter">
+        <div class="twitter">
+            {%- if twitter_symbol %}<span class="webfont">t</span>{%- endif %}
+            {% if twitter_link_text %}{{ twitter_link_text }}{% endif %}
+        </div>
+    </a>
+{%- endmacro %}
+ 
+{# RSS link #}
+{%- macro rss_link() %}
+    <a href="{%- if rss_service %}{{ rss_service }}{%- else %}{{ pathto('rss') }}{%- endif %}" title="Subscribe via RSS">
+        <div class="rss">
+            {%- if rss_symbol %}<span class="webfont">B</span>{%- endif %}
+            {% if rss_link_text %}{{ rss_link_text }}{% endif %}
+        </div>
+    </a>
+{%- endmacro %}
  
 {# List of blog pages #}
 {%- macro page_nav() %}
@@ -39,6 +87,16 @@
                 {%- if not loop.last %}{{ reldelim2 }}{%- endif %}
             </li>
             {% endfor %}
+            {%- if rss_in_page_nav %}
+            <li class="right">
+                {{ rss_link() }}
+            </li>
+            {%- endif %}
+            {%- if twitter_in_page_nav and twitter_id %}
+            <li class="right">
+                {{ twitter_link() }}
+            </li>
+            {%- endif %}
         </ul>
     </div>
 {%- endmacro %}
@@ -93,6 +151,8 @@
         </div>
     {%- endif %}
 {%- endmacro %}
+
+{# Blocks ------------------------------------------------------------------- #}
 
 {%- block header %}
     {%- if page_nav_first %}{{ page_nav() }}{%- endif %}

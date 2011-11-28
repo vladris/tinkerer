@@ -22,6 +22,12 @@
     font-style: normal;
 }
 
+.webfont {
+    font-family: WebSymbolsRegular;
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* General style ----------------------------------------------------------- */
 
 html {
@@ -58,6 +64,13 @@ div.sphinxsidebar {
     float: right;
 }
 
+/* Footer ------------------------------------------------------------------ */
+div.footer {
+    font-size: 80%;
+    margin-bottom: 24px;
+    margin-top: 48px;
+}
+
 /* Hide sidebar on smaller displays and iPhone ============================= */
 @media screen and (max-width: 800px), screen and (max-device-width: 480px)
 {
@@ -83,9 +96,3 @@ div.sphinxsidebar {
     }
 }
 
-/* Footer ------------------------------------------------------------------ */
-div.footer {
-    font-size: 80%;
-    margin-bottom: 24px;
-    margin-top: 48px;
-}
