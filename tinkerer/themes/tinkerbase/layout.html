@@ -43,12 +43,12 @@
     <div class="related">
         <ul>
             {%- if prev %}
-            <li class="prev">
+            <li class="left">
                 {{ prevchar }}<a href="{{ prev.link|e }}">{{ prev.title }}</a>
             </li>
             {%- endif %}
             {%- if next %}
-            <li class="next">
+            <li class="right">
                 <a href="{{ next.link|e }}">{{ next.title }}</a>{{ nextchar }}
             </li>
             {%- endif %}

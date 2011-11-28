@@ -11,15 +11,17 @@
 
 {%- macro minimal_nav() %}
     <div class="page_nav">
-        <div class="rss">
-            <a href="{%- if rss == 'rss'%}{{ pathto(rss)}}{%- else %}{{ rss }}{%- endif %}">Subscribe</a>
-        </div>
         <ul>
             {% for page in pages %}
             <li>
                 <a href="{{ pathto(page[0]) }}">{{ page[1] }}</a>
             </li>
             {% endfor %}
+            <li class="right">
+                <div class="rss">
+                    <a href="{%- if rss == 'rss'%}{{ pathto(rss)}}{%- else %}{{ rss }}{%- endif %}">Subscribe</a>
+                </div>
+            </li>
         </ul>
     </div>
 {%- endmacro %}

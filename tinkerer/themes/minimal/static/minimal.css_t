@@ -8,13 +8,9 @@
  */
 
 @import url("basic.css");
+@import url("tinkerbase.css");
 
 /* General style */
-html {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background-color:white;
     font-family: Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
@@ -79,8 +75,6 @@ div.page_nav li {
 /* RSS link */
 div.rss {
     background: url(rss.png) no-repeat 0 10px;
-    float: right;
-    padding-right: 20px;
 }
 
 div.rss a {
@@ -94,18 +88,11 @@ div.related {
     margin-bottom: 20px;
 }
 
-div.related ul {
-    padding: 0;
-}
-
-div.related li.next {
-    float: right;
-}
-
 /* Document */
 div.document {
     margin-top: 20px;
-    padding: 0 320px 0 40px;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 /* Timestamp */
@@ -120,13 +107,10 @@ div.admonition {
 
 /* Sidebar */
 div.sphinxsidebarwrapper {
-    display: inline;
-    padding: 0;
     padding-right: 40px;
 }
 
 div.sphinxsidebar {
-    float: right;
     margin-top: 40px;
 }
 

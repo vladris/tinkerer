@@ -1,0 +1,43 @@
+/*
+ * tinkerbase.css_t
+ * ~~~~~~~~~~~~~~~~
+ * 
+ * Stylesheet for base theme.
+ *
+ * :copyright: Copyright 2011 by Vlad Riscutia.
+ */
+
+@import url("basic.css")
+
+/* General style ----------------------------------------------------------- */
+
+html {
+    maring: 0;
+    padding: 0;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+}
+
+/* Right-floating li ------------------------------------------------------- */
+li.right {
+    float: right;
+}
+
+/* Document ---------------------------------------------------------------- */
+div.document {
+    margin-right: 90px;
+    padding-left: 40px;
+    padding-right: 230px;
+}
+
+/* Sidebar ----------------------------------------------------------------- */
+div.sphinxsidebarwrapper {
+    display: inline;
+    padding: 0;
+}
+
+div.sphinxsidebar {
+    float: right;
+}
