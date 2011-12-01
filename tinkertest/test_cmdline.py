@@ -1,5 +1,5 @@
 '''
-    Test Command Line
+    Command Line Test
     ~~~~~~~~~~~~~~~~~
 
     Tests Tinkerer command line (setup, post, page and build)
@@ -37,12 +37,12 @@ class TestCmdLine(utils.BaseTinkererTest):
 
         # check content
         with open(file_path, "r") as f:
-            self.assertEquals("My Test Post\n", f.readline())
-            self.assertEquals("============\n", f.readline())
-            self.assertEquals("\n", f.readline())
-            self.assertEquals(".. tags:: none\n", f.readline())
-            self.assertEquals(".. comments::\n", f.readline())
-            self.assertEquals("", f.readline())
+            self.assertEquals(f.readlines(),
+                    ["My Test Post\n",
+                     "============\n",
+                     "\n",
+                     ".. tags:: none\n",
+                     ".. comments::\n"])
 
 
     # test page
@@ -56,9 +56,9 @@ class TestCmdLine(utils.BaseTinkererTest):
 
         # check content
         with open(file_path, "r") as f:
-            self.assertEquals("My Test Page\n", f.readline())
-            self.assertEquals("============\n", f.readline())
-            self.assertEquals("", f.readline())
+            self.assertEquals(f.readlines(),
+                    ["My Test Page\n",
+                     "============\n"])
 
 
     # test build

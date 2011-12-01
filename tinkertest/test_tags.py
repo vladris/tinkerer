@@ -1,5 +1,5 @@
 '''
-    Test Tags
+    Tags Test
     ~~~~~~~~~
 
     Tests Tinkerer post tags
@@ -40,17 +40,11 @@ def build_finished(app, exception):
     blog_tags = app.builder.env.blog_tags
 
     # check collected tags
-    utils.test.assertIn("tag1", blog_tags)
-    utils.test.assertIn("tag2", blog_tags)
-    utils.test.assertEquals(2, len(blog_tags))
+    utils.test.assertEquals({"tag1", "tag2"}, set(blog_tags))
 
     # check tagged posts
-    utils.test.assertIn("2010/10/01/post1", blog_tags["tag1"])
-    utils.test.assertIn("2010/10/01/post12", blog_tags["tag1"])
-    utils.test.assertEquals(2, len(blog_tags["tag1"]))
-    utils.test.assertIn("2010/10/01/post2", blog_tags["tag2"])
-    utils.test.assertIn("2010/10/01/post12", blog_tags["tag2"])
-    utils.test.assertEquals(2, len(blog_tags["tag2"]))
+    utils.test.assertEquals({"2010/10/01/post1", "2010/10/01/post12"}, set(blog_tags["tag1"]))
+    utils.test.assertEquals({"2010/10/01/post2", "2010/10/01/post12"}, set(blog_tags["tag2"]))
 
     # check post metadata
     metadata = app.builder.env.blog_metadata
@@ -59,10 +53,10 @@ def build_finished(app, exception):
     utils.test.assertEquals(["tag1", "tag2"], metadata["2010/10/01/post12"].tags)
 
     # check tag pages were generated
-    utils.test.assertTrue(os.path.exists(os.path.join(tinkerer.paths.html,
-        "tags", "tag1.html")))
-    utils.test.assertTrue(os.path.exists(os.path.join(tinkerer.paths.html,
-        "tags", "tag2.html")))
+    for page in ["tag1.html", "tag2.html"]:
+        utils.test.assertTrue(os.path.exists(os.path.join(tinkerer.paths.html,
+            "tags", page)))
+
 
 # extension setup
 def setup(app):
