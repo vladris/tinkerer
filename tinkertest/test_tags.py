@@ -21,16 +21,16 @@ class TestTags(utils.BaseTinkererTest):
         utils.test = self
 
         # create some tagged posts
-        self.retag_post("Post1", datetime.date(2010, 10, 1), "tag #1")
-        self.retag_post("Post2", datetime.date(2010, 10, 1), "tag #2")
-        self.retag_post("Post12", datetime.date(2010, 10, 1), "tag #1, tag #2")
+        self.retag_post("Post1", "tag #1")
+        self.retag_post("Post2", "tag #2")
+        self.retag_post("Post12", "tag #1, tag #2")
 
         utils.hook_extension("test_tags")
         self.build()
 
     # use Tinkerer to add a post then re-render it with given tags
-    def retag_post(self, title, timestamp, tag_string):
-        post_path = tinkerer.cmdline.post(title, timestamp)
+    def retag_post(self, title, tag_string):
+        post_path = tinkerer.cmdline.post(title, datetime.date(2010, 10, 1))
         tinkerer.renderer.render_post(post_path, title,
                 tags=tag_string)
 

@@ -48,6 +48,10 @@ def get_post_feed(app, pagename, templatename, context, doctree):
 # generate RSS feed
 def generate_feed(app):
     env = app.builder.env
+ 
+    # return if no items
+    if not env.rss_items:
+        return
   
     # feed metadata 
     context = dict()

@@ -67,13 +67,17 @@ def get_metadata(app, docname, source):
 
 # process metadata after environment is ready
 def process_metadata(app, env):
-    env.blog_metadata[env.blog_posts[0]].first_post = True
-    env.blog_metadata[env.blog_posts[-1]].last_post = True
-
-    env.blog_latest_posts = [(page, env.titles[page].astext()) for page in env.blog_posts[-1:-6:-1]]
-
     env.blog_page_list = [(page, env.titles[page].astext()) for page in env.blog_pages]
-    env.blog_page_list[0] = (env.blog_posts[-1], "Blog")
+
+    if env.blog_posts:
+        env.blog_metadata[env.blog_posts[0]].first_post = True
+        env.blog_metadata[env.blog_posts[-1]].last_post = True
+
+        env.blog_page_list[0] = (env.blog_posts[-1], "Blog")
+        env.blog_latest_posts = [(page, env.titles[page].astext()) for page in env.blog_posts[-1:-6:-1]]
+    else:
+        env.blog_page_list.pop(0)
+        env.blog_latest_posts = [("index", "")]        
 
 
 # pass metadata to templating engine
