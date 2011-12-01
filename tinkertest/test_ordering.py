@@ -9,7 +9,7 @@
 import datetime
 import unittest
 import utils
-import tinkerer.cmdline
+from tinkerer import page, post
 
 
 # test case
@@ -18,11 +18,11 @@ class TestOrdering(utils.BaseTinkererTest):
         utils.test = self
 
         # create some pages and posts 
-        tinkerer.cmdline.page("First Page")
-        tinkerer.cmdline.post("Oldest Post", datetime.date(2010, 10, 1))
-        tinkerer.cmdline.post("Newer Post", datetime.date(2010, 11, 2))
-        tinkerer.cmdline.page("Second Page")
-        tinkerer.cmdline.post("Newest Post", datetime.date(2010, 12, 3))
+        page.create("First Page")
+        post.create("Oldest Post", datetime.date(2010, 10, 1))
+        post.create("Newer Post", datetime.date(2010, 11, 2))
+        page.create("Second Page")
+        post.create("Newest Post", datetime.date(2010, 12, 3))
 
         utils.hook_extension("test_ordering")
         self.build()

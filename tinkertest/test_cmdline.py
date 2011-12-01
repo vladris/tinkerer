@@ -8,7 +8,8 @@
 '''
 import datetime
 import os
-import tinkerer.cmdline
+import tinkerer
+from tinkerer import cmdline, post
 import unittest
 import utils
 
@@ -17,53 +18,42 @@ import utils
 class TestCmdLine(utils.BaseTinkererTest):
     # test blog setup
     def test_setup(self):
-        # no need to do anything as blog is creat as part of test setup
+        # blog is setup as part of test setup, tear it down and re-create it via 
+        # cmdline
+        self.tearDown()
+        cmdline.main(["--setup"])
+
         for item in os.listdir(utils.TEST_ROOT):
             self.assertIn(item, ["_static", "conf.py", "index.rst"])
 
 
     # test post
     def test_post(self):
-        file_path = tinkerer.cmdline.post("My Test Post", datetime.date(2010, 10, 1))
+        cmdline.main(["--post", "My Test Post"])
 
-        # assert correct file path was returned
-        self.assertEquals(file_path, 
-                os.path.abspath(
-                        os.path.join(utils.TEST_ROOT, 
-                                "2010", "10", "01", "my_test_post.rst")))
+        # this might fail at midnight :P
+        year, month, day = tinkerer.utils.split_date()
+
+        file_path = os.path.join(utils.TEST_ROOT, year, month, day, "my_test_post.rst")
 
         # assert file exists
         self.assertTrue(os.path.exists(file_path))
 
-        # check content
-        with open(file_path, "r") as f:
-            self.assertEquals(f.readlines(),
-                    ["My Test Post\n",
-                     "============\n",
-                     "\n",
-                     ".. tags:: none\n",
-                     ".. comments::\n"])
-
 
     # test page
     def test_page(self):
-        tinkerer.cmdline.page("My Test Page")
+        cmdline.main(["--page", "My Test Page"])
 
         file_path = os.path.join(utils.TEST_ROOT, "pages", "my_test_page.rst")
 
         # assert file exsits
         self.assertTrue(os.path.exists(file_path))
 
-        # check content
-        with open(file_path, "r") as f:
-            self.assertEquals(f.readlines(),
-                    ["My Test Page\n",
-                     "============\n"])
-
 
     # test build
     def test_build(self):
-        tinkerer.cmdline.post("My Post", datetime.date(2010, 10, 1))
+        # create a new post
+        new_post = post.create("My Post", datetime.date(2010, 10, 1))
 
         self.build()
 

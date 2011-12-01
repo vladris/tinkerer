@@ -10,9 +10,7 @@ import datetime
 import os
 import unittest
 import utils
-import tinkerer.cmdline
-import tinkerer.paths
-import tinkerer.renderer
+from tinkerer import paths, post
 
 
 # test case
@@ -21,18 +19,13 @@ class TestTags(utils.BaseTinkererTest):
         utils.test = self
 
         # create some tagged posts
-        self.retag_post("Post1", "tag #1")
-        self.retag_post("Post2", "tag #2")
-        self.retag_post("Post12", "tag #1, tag #2")
+        for new_post in [("Post1", "tag #1"),
+                         ("Post2", "tag #2"),
+                         ("Post12", "tag #1, tag #2")]:
+            post.create(new_post[0], datetime.date(2010, 10, 1)).write(tags=new_post[1])
 
         utils.hook_extension("test_tags")
         self.build()
-
-    # use Tinkerer to add a post then re-render it with given tags
-    def retag_post(self, title, tag_string):
-        post_path = tinkerer.cmdline.post(title, datetime.date(2010, 10, 1))
-        tinkerer.renderer.render_post(post_path, title,
-                tags=tag_string)
 
 
 # test tags through extension
@@ -43,19 +36,19 @@ def build_finished(app, exception):
     utils.test.assertEquals({"tag #1", "tag #2"}, set(blog_tags))
 
     # check tagged posts
-    utils.test.assertEquals({"2010/10/01/post1", "2010/10/01/post12"}, set(blog_tags["tag #1"]))
-    utils.test.assertEquals({"2010/10/01/post2", "2010/10/01/post12"}, set(blog_tags["tag #2"]))
+    for result in [({"2010/10/01/post1", "2010/10/01/post12"}, "tag #1"),
+                   ({"2010/10/01/post2", "2010/10/01/post12"}, "tag #2")]:
+        utils.test.assertEquals(result[0], set(blog_tags[result[1]]))
 
     # check post metadata
-    metadata = app.builder.env.blog_metadata
-    utils.test.assertEquals(["tag #1"], metadata["2010/10/01/post1"].tags)
-    utils.test.assertEquals(["tag #2"], metadata["2010/10/01/post2"].tags)
-    utils.test.assertEquals(["tag #1", "tag #2"], metadata["2010/10/01/post12"].tags)
+    for result in [(["tag #1"], "2010/10/01/post1"),
+                   (["tag #2"], "2010/10/01/post2"),
+                   (["tag #1", "tag #2"], "2010/10/01/post12")]:
+        utils.test.assertEquals(result[0], app.builder.env.blog_metadata[result[1]].tags)
 
     # check tag pages were generated
     for page in ["tag__1.html", "tag__2.html"]:
-        utils.test.assertTrue(os.path.exists(os.path.join(tinkerer.paths.html,
-            "tags", page)))
+        utils.test.assertTrue(os.path.exists(os.path.join(paths.html, "tags", page)))
 
 
 # extension setup

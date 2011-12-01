@@ -10,9 +10,7 @@ import datetime
 import os
 import shutil
 import sys
-import tinkerer.cmdline
-import tinkerer.paths
-import tinkerer.renderer
+from tinkerer import cmdline, paths, writer
 import unittest
 
 
@@ -31,26 +29,31 @@ class BaseTinkererTest(unittest.TestCase):
         if not os.path.exists(TEST_ROOT):
             os.mkdir(TEST_ROOT)
 
-        tinkerer.paths.set_paths(TEST_ROOT)
+        paths.set_paths(TEST_ROOT)
 
         # setup blog
-        tinkerer.cmdline.setup(quiet=True)
+        writer.setup_blog()
 
 
     # invoke build
     def build(self):
         print("")
-        self.assertEquals(0, tinkerer.cmdline.build(quiet=True))
+        self.assertEquals(0, cmdline.build(quiet=True))
 
 
     # common teardown - cleanup working directory
     def tearDown(self):
-        shutil.rmtree(TEST_ROOT)
+        cleanup()
 
 
 # hook extension to conf.py
 def hook_extension(ext):
-    tinkerer.renderer.render_conf_file(extensions=["tinkerer.ext.blog", ext])
+    writer.write_conf_file(extensions=["tinkerer.ext.blog", ext])
+
+
+# cleanup test directory
+def cleanup():
+    shutil.rmtree(TEST_ROOT)
 
 
 # used by Sphinx to lookup extensions

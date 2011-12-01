@@ -4,6 +4,7 @@
 
     :copyright: Copyright 2011 by Vlad Riscutia
 '''
+import datetime
 import os
 import re
 import tinkerer
@@ -22,3 +23,9 @@ def get_path(*args):
     return path
 
 
+# split date in year, month, day components as formatted strings
+def split_date(date=None):
+    if not date:
+        date = datetime.datetime.today()
+
+    return date.strftime("%Y/%m/%d").split("/")

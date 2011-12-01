@@ -39,7 +39,7 @@ def get_post_feed(app, pagename, templatename, context, doctree):
                     usegmt=True)
     title = cgi.escape(env.titles[pagename].astext())
     description = context["body"]
-    link = "%s/blog/html/%s.html" % (app.config.website, pagename)
+    link = "%s/blog/html/%s.html" % (app.config.website.strip("/"), pagename)
 
     # add item
     env.rss_items.append(RssItem(link, title, description, timestamp))
@@ -56,7 +56,7 @@ def generate_feed(app):
     # feed metadata 
     context = dict()
     context["title"] = app.config.project
-    context["link"] = app.config.website
+    context["link"] = app.config.website.strip("/")
     context["description"] = app.config.tagline
     context["language"] = "en-us"
     context["pubDate"] = env.rss_items[-1].pub_date
