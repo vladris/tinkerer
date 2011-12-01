@@ -26,9 +26,11 @@ def write_master_file():
 
 
 # write conf.py
-def write_conf_file(extensions=["tinkerer.ext.blog", "tinkerer.ext.disqus"]):
+def write_conf_file(extensions=["tinkerer.ext.blog", "tinkerer.ext.disqus"],
+                    theme="metropolish"):
     render("conf.py", paths.conf_file,
-           {"extensions": ", ".join(["'%s'" % ext for ext in extensions])})
+           {"extensions": ", ".join(["'%s'" % ext for ext in extensions]),
+            "theme": theme })
 
 
 # setup blog
