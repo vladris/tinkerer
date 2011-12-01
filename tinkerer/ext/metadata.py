@@ -43,6 +43,7 @@ class CommentsDirective(Directive):
 
         return []
 
+
 # add metadata to environment
 def get_metadata(app, docname, source):
     env = app.builder.env

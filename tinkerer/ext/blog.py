@@ -6,13 +6,13 @@
 
     :copyright: Copyright 2011 by Vlad Riscutia
 '''
-import metadata
-import tags
-import rss
+import tinkerer.ext.metadata
+import tinkerer.ext.tags
+import tinkerer.ext.rss
 
 
 # setup extension
 def setup(app):
-    metadata.setup(app)
-    tags.setup(app)
-    rss.setup(app)
+    tinkerer.ext.metadata.setup(app)
+    tinkerer.ext.tags.setup(app)
+    tinkerer.ext.rss.setup(app)
