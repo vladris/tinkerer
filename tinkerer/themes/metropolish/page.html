@@ -9,12 +9,12 @@
 {% endmacro %}
 
 {% macro tag_list() %}
-    {% if blog_tags %}
+    {% if post_tags %}
         <div class="tags">
             <span>
                 Tags:
-                {% for tag in blog_tags %}
-                    <a href="../../../tags/{{ tag }}.html">{{ tag }}</a>
+                {% for link, tag in post_tags %}
+                    <a href="../../../tags/{{ link }}.html">{{ tag }}</a>
                     {%- if not loop.last %}, {% endif %}
                 {% endfor %}
             </span>

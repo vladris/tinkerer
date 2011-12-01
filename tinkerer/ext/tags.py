@@ -7,6 +7,7 @@
     :copyright: Copyright 2011 by Vlad Riscutia.
 '''
 from sphinx.util.compat import Directive
+import tinkerer.utils
 
 
 # initialize tags
@@ -24,8 +25,11 @@ class TagsDirective(Directive):
         # store tags to build tag pages
         env = self.state.document.settings.env
 
-        for tag in self.arguments:
-            tag = tag.strip(",")
+        for tag in " ".join(self.arguments).split(","):
+            tag = tag.strip()
+            if tag == "none":
+                continue
+
             if tag not in env.blog_tags:
                 env.blog_tags[tag] = []
             env.blog_tags[tag].append(env.docname)
@@ -40,7 +44,7 @@ def make_tag_pages(app):
 
     # create a page for each tag
     for tag in env.blog_tags:
-        pagename = "tags/" + tag
+        pagename = "tags/" + tinkerer.utils.filename_from_title(tag)
         context = {
             "parents": [],
             "title": "Posts tagged with %s" % tag,
@@ -63,7 +67,8 @@ def add_tags(app, pagename, templatename, context, doctree):
 
     # add all tags associated with this page to the context
     if pagename in env.blog_posts:
-        context["blog_tags"] = env.blog_metadata[pagename].tags
+        context["post_tags"] = [(tinkerer.utils.filename_from_title(tag), tag)
+                for tag in env.blog_metadata[pagename].tags]
 
 
 # setup tags
