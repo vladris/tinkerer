@@ -9,6 +9,7 @@
 import datetime
 import unittest
 import utils
+import tinkerer
 from tinkerer import page, post
 
 
@@ -29,12 +30,12 @@ class TestOrdering(utils.BaseTinkererTest):
 
 
 ordering = {
-    "index" : [None, None, "2010/10/01/newest_post"],
-    "2010/10/01/newest_post": ["index", "index", "2010/10/01/newer_post"],
-    "2010/10/01/newer_post": ["index", "2010/10/01/newest_post", "2010/10/01/oldest_post"],
-    "2010/10/01/oldest_post": ["index", "2010/10/01/newer_post", "pages/first_page"],
-    "pages/first_page": ["index", "2010/10/01/oldest_post", "pages/another_page"],
-    "pages/another_page": ["index", "pages/first_page", None]
+    tinkerer.master_doc : [None, None, "2010/10/01/newest_post"],
+    "2010/10/01/newest_post": [tinkerer.master_doc, tinkerer.master_doc, "2010/10/01/newer_post"],
+    "2010/10/01/newer_post": [tinkerer.master_doc, "2010/10/01/newest_post", "2010/10/01/oldest_post"],
+    "2010/10/01/oldest_post": [tinkerer.master_doc, "2010/10/01/newer_post", "pages/first_page"],
+    "pages/first_page": [tinkerer.master_doc, "2010/10/01/oldest_post", "pages/another_page"],
+    "pages/another_page": [tinkerer.master_doc, "pages/first_page", None]
 }
 
 

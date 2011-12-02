@@ -8,5 +8,5 @@
 '''
 __version__ = "0.1a"
 
-master_doc = "index"
+master_doc = "master"
 source_suffix = ".rst"

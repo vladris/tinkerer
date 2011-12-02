@@ -107,7 +107,7 @@ def process_metadata(app, env):
         env.blog_page_list.insert(0, (env.blog_posts[-1], "Blog"))
         env.blog_latest_posts = [(page, env.titles[page].astext()) for page in env.blog_posts[:6]]
     else:
-        env.blog_latest_posts = [("index", "")]        
+        env.blog_latest_posts = [(tinkerer.master_doc, "")]        
 
 
 # pass metadata to templating engine, store body for RSS feed
