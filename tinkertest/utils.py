@@ -15,7 +15,7 @@ import unittest
 
 
 # test root directory
-TEST_ROOT = "root"
+TEST_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "root"))
 
 
 # stored test instance to assert from extensions while running Sphinx build
@@ -76,7 +76,6 @@ def build_theme(use_theme):
     cmdline.build(quiet=True)
 
 
-
 # setup blog using TEST_ROOT working directory
 def setup():
     # create path
@@ -91,7 +90,8 @@ def setup():
 
 # cleanup test directory
 def cleanup():
-    shutil.rmtree(TEST_ROOT)
+    if os.path.exists(TEST_ROOT):
+        shutil.rmtree(TEST_ROOT)
 
 
 # used by Sphinx to lookup extensions

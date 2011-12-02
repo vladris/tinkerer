@@ -11,14 +11,15 @@
     :copyright: Copyright 2011 by Vlad Riscutia
 '''
 import argparse
+from contextlib import contextmanager
 import glob
 import os
 import unittest
 import tinkertest.utils
 
-# save current directory and change working directory to test dir
-cur_dir = os.getcwd()
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+# tests to run
+tests = None
 
 # argument parser
 parser = argparse.ArgumentParser()
@@ -42,16 +43,18 @@ else:
     else:
         mask = "test_*.py"
 
+    # save current directory and change working directory to test dir
+    cur_dir = os.getcwd()
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
     # glob all test cases
     tests = [unittest.defaultTestLoader.loadTestsFromName(name[:-3]) for name in 
              glob.glob(mask)]
 
+    # restore current directory
+    os.chdir(cur_dir)
+
     # create a test suite and run it
-    testSuite = unittest.TestSuite(tests)
-
-    unittest.TextTestRunner().run(testSuite)
-
-# restore current directory
-os.chdir(cur_dir)
+    unittest.TextTestRunner().run(unittest.TestSuite(tests))
 
 
