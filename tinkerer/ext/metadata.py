@@ -23,7 +23,7 @@ def initialize(app):
 # Metadata associated with each post/page
 class Metadata:
     def __init__(self):
-        self.is_post, self.first_post, self.last_post = False, False, False
+        self.is_post = False
         self.year, self.month, self.day, self.date = None, None, None, None
         self.body, self.summary = None, None
         self.author = None
@@ -94,10 +94,6 @@ def process_metadata(app, env):
 
     # if there is at least one post
     if env.blog_posts:
-        # mark first and last posts
-        env.blog_metadata[env.blog_posts[0]].first_post = True
-        env.blog_metadata[env.blog_posts[-1]].last_post = True
-
         # add a page linking to the first post
         env.blog_page_list.insert(0, (env.blog_posts[0], "Blog"))
 
@@ -154,10 +150,20 @@ def add_metadata(app, pagename, templatename, context, doctree):
     if pagename in env.metadata:
         context["metadata"] = env.blog_metadata[pagename]
 
-        # if this is a post, save body for RSS feed
+        # if this is a post
         if pagename in env.blog_posts:
+            # save body and summary
             env.blog_metadata[pagename].body = context["body"]
             env.blog_metadata[pagename].summary = get_summary(context["body"])
+
+            # no prev link if first post, no next link for last post
+            if pagename == env.blog_posts[0]:
+                context["prev"] = None
+            elif pagename == env.blog_posts[-1]:
+                context["next"] = None
+        else:
+            # no prev/next for non-posts
+            context["prev"], context["next"] = None, None
 
     # otherwise provide default metadata
     else:

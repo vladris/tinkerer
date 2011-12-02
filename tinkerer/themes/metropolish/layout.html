@@ -25,7 +25,7 @@
 {% endmacro %}
 
 {% macro nav() %}
-    {% if metadata.is_post and not metadata.first_post %}
+    {% if prev %}
     <a href="{{ prev.link|e }}">
         <div class="nav_prev">
             <img src="{{ pathto("_static/back.png", 1) }}" />
@@ -39,7 +39,7 @@
         </div>
     </a>
     {% endif %}
-    {% if metadata.is_post and not metadata.last_post %}
+    {% if next %}
     <a href="{{ next.link|e }}">
         <div class="nav_next">
             <span>{{ next.title }}</span>
