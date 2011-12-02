@@ -3,6 +3,7 @@
 
 {{ content }}
 
+.. author:: {{ author }}
 .. tags:: {{ tags }}
 .. comments::
 

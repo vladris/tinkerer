@@ -8,6 +8,14 @@
     {% endif %}
 {% endmacro %}
 
+{% macro author() %}
+    {% if metadata.author %}
+        <div class="author">
+            <span>Posted by {{ metadata.author }}</span>
+        </div>
+    {% endif %}
+{% endmacro %}
+
 {% macro tag_list() %}
     {% if post_tags %}
         <div class="tags">
@@ -26,6 +34,7 @@
     {{ body }}
     <div class="meta">
         {{ timestamp() }}
+        {{ author() }}
         {{ tag_list() }}
     </div>
     {{ comments }}

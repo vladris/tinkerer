@@ -24,6 +24,7 @@ class Metadata:
     def __init__(self):
         self.is_post, self.first_post, self.last_post = False, False, False
         self.year, self.month, self.day, self.date = None, None, None, None
+        self.author = None
         self.tags = []
         self.comments = False
 

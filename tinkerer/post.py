@@ -35,10 +35,11 @@ class Post():
 
 
     # write post file
-    def write(self, content="", tags="none"):
+    def write(self, content="", author="default", tags="none"):
         tinkerer.writer.render("post.rst", self.path,
                { "title"  : self.title,
                  "content": content,
+                 "author" : author,
                  "tags"   : tags})
 
 
