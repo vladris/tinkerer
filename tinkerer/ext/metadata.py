@@ -112,6 +112,7 @@ def process_metadata(app, env):
 def get_summary(body):
     dom = xml.dom.minidom.parseString(body.encode("ascii", "ignore"))
     summarize(dom, 0)
+
     # skip auto-inserted xml version
     return dom.toxml()[22:]
 
@@ -136,7 +137,7 @@ def summarize(dom, length, depth=0):
                 length += l
         # if node is not text, recurse
         else:
-            done = summarize(child, length, depth+1)
+            done = summarize(child, length, depth + 1)
     return done
 
 
