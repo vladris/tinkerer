@@ -9,6 +9,7 @@
 import re
 from datetime import date
 from sphinx.util.compat import Directive
+import tinkerer
 
 
 # initialize metadata
@@ -16,8 +17,6 @@ def initialize(app):
     env = app.builder.env
 
     env.blog_metadata = dict()
-    env.blog_pages = []
-    env.blog_posts = []
 
 
 # Metadata associated with each post/page
@@ -56,12 +55,8 @@ def get_metadata(app, docname, source):
 
     # if not post
     if not match:
-        # add to page list if it's a page
-        if docname.startswith("pages/"):
-            env.blog_pages.append(docname)
         return
 
-    env.blog_posts.append(docname)
     metadata.is_post = True
 
     g = match.groupdict()
@@ -69,44 +64,44 @@ def get_metadata(app, docname, source):
     metadata.date = date(metadata.year, metadata.month, metadata.day)
 
 
-# order posts/pages
-def order(relations, doc_list):
-    if not doc_list:
-        return []
-
-    ordered = []
-
-    # find first document in list based on relations
-    for doc in doc_list:
-        if relations[doc][1] not in doc_list:
-            ordered.append(doc)
-            break
-
-    # order documents while they are part of the list
-    while relations[doc][2] in doc_list:
-        ordered.append(relations[doc][2])
-        doc = relations[doc][2]
-
-    return ordered
-
-
 # process metadata after environment is ready
 def process_metadata(app, env):
-    # order posts
+    # get ordered lists of posts and pages
+    env.blog_posts, env.blog_pages = [], []
     relations = env.collect_relations()
- 
-    env.blog_pages = order(relations, env.blog_pages)
+
+    # start from root
+    doc = tinkerer.master_doc
+
+    # while not last doc
+    while relations[doc][2]:
+        doc = relations[doc][2]
+
+        # if this is a post or a page (has metadata)
+        if doc in env.blog_metadata:
+            # ignore if parent is not master (eg. nested pages)
+            if relations[doc][0] == tinkerer.master_doc:
+                if env.blog_metadata[doc].is_post:
+                    env.blog_posts.append(doc)
+                else:
+                    env.blog_pages.append(doc)
+     
     env.blog_page_list = [(page, env.titles[page].astext()) for page in env.blog_pages]
 
+
+    # if there is at least one post
     if env.blog_posts:
-        env.blog_posts = order(relations, env.blog_posts)
-        
+        # mark first and last posts
         env.blog_metadata[env.blog_posts[0]].first_post = True
         env.blog_metadata[env.blog_posts[-1]].last_post = True
 
-        env.blog_page_list.insert(0, (env.blog_posts[-1], "Blog"))
+        # add a page linking to the first post
+        env.blog_page_list.insert(0, (env.blog_posts[0], "Blog"))
+
+        # get the latest 6 posts
         env.blog_latest_posts = [(page, env.titles[page].astext()) for page in env.blog_posts[:6]]
     else:
+        # go to master document instead of latest post
         env.blog_latest_posts = [(tinkerer.master_doc, "")]        
 
 

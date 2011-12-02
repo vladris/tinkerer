@@ -40,6 +40,10 @@ def build_finished(app, exception):
     pages = ["pages/page_%d" % i for i in range(10)]
     utils.test.assertEquals(set(pages), set(env.blog_pages))
 
+    # check first and last posts
+    utils.test.assertTrue(env.blog_metadata["2010/10/20/post_19"].first_post)
+    utils.test.assertTrue(env.blog_metadata["2010/10/01/post_0"].last_post)
+
 
 # extension setup
 def setup(app):
