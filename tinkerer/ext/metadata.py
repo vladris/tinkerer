@@ -54,8 +54,11 @@ def get_metadata(app, docname, source):
     # posts are identified by ($YEAR)/($MONTH)/($DAY) paths
     match = re.match(r"(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/", docname)
 
+    # if not post
     if not match:
-        env.blog_pages.append(docname)
+        # add to page list if it's a page
+        if docname.startswith("pages/"):
+            env.blog_pages.append(docname)
         return
 
     env.blog_posts.append(docname)
@@ -74,10 +77,9 @@ def process_metadata(app, env):
         env.blog_metadata[env.blog_posts[0]].first_post = True
         env.blog_metadata[env.blog_posts[-1]].last_post = True
 
-        env.blog_page_list[0] = (env.blog_posts[-1], "Blog")
+        env.blog_page_list.insert(0, (env.blog_posts[-1], "Blog"))
         env.blog_latest_posts = [(page, env.titles[page].astext()) for page in env.blog_posts[-1:-6:-1]]
     else:
-        env.blog_page_list.pop(0)
         env.blog_latest_posts = [("index", "")]        
 
 
