@@ -69,16 +69,43 @@ def get_metadata(app, docname, source):
     metadata.date = date(metadata.year, metadata.month, metadata.day)
 
 
+# order posts/pages
+def order(relations, doc_list):
+    if not doc_list:
+        return []
+
+    ordered = []
+
+    # find first document in list based on relations
+    for doc in doc_list:
+        if relations[doc][1] not in doc_list:
+            ordered.append(doc)
+            break
+
+    # order documents while they are part of the list
+    while relations[doc][2] in doc_list:
+        ordered.append(relations[doc][2])
+        doc = relations[doc][2]
+
+    return ordered
+
+
 # process metadata after environment is ready
 def process_metadata(app, env):
+    # order posts
+    relations = env.collect_relations()
+ 
+    env.blog_pages = order(relations, env.blog_pages)
     env.blog_page_list = [(page, env.titles[page].astext()) for page in env.blog_pages]
 
     if env.blog_posts:
+        env.blog_posts = order(relations, env.blog_posts)
+        
         env.blog_metadata[env.blog_posts[0]].first_post = True
         env.blog_metadata[env.blog_posts[-1]].last_post = True
 
         env.blog_page_list.insert(0, (env.blog_posts[-1], "Blog"))
-        env.blog_latest_posts = [(page, env.titles[page].astext()) for page in env.blog_posts[-1:-6:-1]]
+        env.blog_latest_posts = [(page, env.titles[page].astext()) for page in env.blog_posts[:6]]
     else:
         env.blog_latest_posts = [("index", "")]        
 

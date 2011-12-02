@@ -52,8 +52,7 @@ def make_tag_pages(app):
         }
         context["body"] += "<ul>"
 
-        # reverse post list so newest post appears first
-        for post in env.blog_tags[tag][::-1]:
+        for post in env.blog_tags[tag]:
             title = env.titles[post].astext()
             context["body"] += "<li><a href=\"../%s.html\">%s</a></li>" % (post, title)
 

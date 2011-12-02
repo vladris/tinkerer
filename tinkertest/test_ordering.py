@@ -20,31 +20,45 @@ class TestOrdering(utils.BaseTinkererTest):
         # create some pages and posts 
         page.create("First Page")
         post.create("Oldest Post", datetime.date(2010, 10, 1))
-        post.create("Newer Post", datetime.date(2010, 11, 2))
-        page.create("Second Page")
-        post.create("Newest Post", datetime.date(2010, 12, 3))
+        post.create("Newer Post", datetime.date(2010, 10, 1))
+        page.create("Another Page")
+        post.create("Newest Post", datetime.date(2010, 10, 1))
 
         utils.hook_extension("test_ordering")
         self.build()
 
 
 ordering = {
-    "index" : [None, None, "2010/12/03/newest_post"],
-    "2010/12/03/newest_post": ["index", "index", "2010/11/02/newer_post"],
-    "2010/11/02/newer_post": ["index", "2010/12/03/newest_post", "2010/10/01/oldest_post"],
-    "2010/10/01/oldest_post": ["index", "2010/11/02/newer_post", "pages/first_page"],
-    "pages/first_page": ["index", "2010/10/01/oldest_post", "pages/second_page"],
-    "pages/second_page": ["index", "pages/first_page", None]
+    "index" : [None, None, "2010/10/01/newest_post"],
+    "2010/10/01/newest_post": ["index", "index", "2010/10/01/newer_post"],
+    "2010/10/01/newer_post": ["index", "2010/10/01/newest_post", "2010/10/01/oldest_post"],
+    "2010/10/01/oldest_post": ["index", "2010/10/01/newer_post", "pages/first_page"],
+    "pages/first_page": ["index", "2010/10/01/oldest_post", "pages/another_page"],
+    "pages/another_page": ["index", "pages/first_page", None]
 }
 
 
 # test ordering through extension
 def build_finished(app, exception):
+    env = app.builder.env
+
     # check post and pages have the correct relations
-    relations = app.builder.env.collect_relations()
+    relations = env.collect_relations()
 
     for docname in ordering:
         utils.test.assertEquals(relations[docname], ordering[docname])
+
+    # check metadata ordering is correct
+    utils.test.assertEquals([
+            "2010/10/01/newest_post",
+            "2010/10/01/newer_post",
+            "2010/10/01/oldest_post"],
+            env.blog_posts)
+
+    utils.test.assertEquals([
+            "pages/first_page",
+            "pages/another_page"],
+            env.blog_pages)
 
 
 # extension setup    
