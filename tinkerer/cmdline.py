@@ -18,6 +18,7 @@ import os
 import shutil
 import sphinx
 import subprocess
+import sys
 from tinkerer import page, paths, post, utils, writer
 
 
@@ -45,7 +46,7 @@ def build(quiet=False):
 
 
 # entry point
-def main(argv=[]):
+def main(argv=None):
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--setup", action="store_true", help="setup a new blog")
