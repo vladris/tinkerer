@@ -45,6 +45,12 @@ def hook_extension(ext):
     writer.write_conf_file(extensions=["tinkerer.ext.blog", ext])
 
 
+# load test content
+def load_content():
+    return open(os.path.join(
+            os.path.dirname(__file__), "content", "lorem.rst")).read()
+
+
 # build test blog with given theme
 def build_theme(use_theme):
     # setup blog
@@ -54,8 +60,7 @@ def build_theme(use_theme):
     writer.write_conf_file(theme=use_theme)
 
     # load content
-    lorem = open(os.path.join(
-                os.path.dirname(__file__), "content", "lorem.rst")).read()
+    lorem = load_content()
 
     # create posts
     post.create("This is a post", datetime.date(2010, 10, 1)).write(
@@ -74,6 +79,40 @@ def build_theme(use_theme):
 
     # build
     cmdline.build(quiet=True)
+
+
+# benchmark build
+def benchmark(post_count, iterations):
+    print("Running benchmark with %d posts, %d iterations" % 
+            (post_count, iterations))
+
+    times = []
+
+    # setup blog
+    setup()
+
+    # load content
+    lorem = load_content()
+
+    # create posts
+    for i in range(post_count):
+        post.create("Post %d" % i).write(
+                tags="tag #%d" % i,
+                content=lorem)
+
+    for i in range(iterations):
+        print("Iteration %d..." % i)
+
+        start = datetime.datetime.now()
+        cmdline.build(quiet=True)
+        times.append(datetime.datetime.now() - start)
+
+        print(times[-1])
+
+    # cleanup test dir
+    cleanup()
+
+    print("Average time: %s" % (sum(times, datetime.timedelta(0)) / len(times)))
 
 
 # setup blog using TEST_ROOT working directory
