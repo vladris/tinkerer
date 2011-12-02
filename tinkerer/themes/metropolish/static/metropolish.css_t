@@ -256,22 +256,3 @@ div.footer {
     text-align: right;
 }
 
-/* Disqus */
-#dsq-comments-title {
-    height: 0px;
-    visibility: hidden;
-    width: 0px;
-}
-
-div.dsq-options {
-    height: 0px;
-    visibility: hidden;
-    width: 0px;
-}
-
-div.dsq-item-trackback {
-    height: 0px;
-    visibility: hidden;
-    width: 0px;
-}
-
