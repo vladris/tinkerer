@@ -18,7 +18,8 @@ class TestMetadata(utils.BaseTinkererTest):
 
         # create some posts
         for i in range(20):
-            post.create("Post %d" % i, datetime.date(2010, 10, i + 1))
+            post.create("Post %d" % i, datetime.date(2010, 10, i + 1)).write(
+                content=" ".join("a" * 100))
 
         # ... and some pages
         for i in range(10):
@@ -43,6 +44,20 @@ def build_finished(app, exception):
     # check first and last posts
     utils.test.assertTrue(env.blog_metadata["2010/10/20/post_19"].first_post)
     utils.test.assertTrue(env.blog_metadata["2010/10/01/post_0"].last_post)
+
+    # check body and summary
+
+    # body should contain the whole 100 word string
+    utils.test.assertIn(" ".join("a" * 100), 
+            env.blog_metadata[env.blog_posts[0]].body)
+
+    # summary should not be longer than 50 words
+    utils.test.assertNotIn(" ".join("a" * 51), 
+            env.blog_metadata[env.blog_posts[0]].summary)
+
+    # summary should be 50 words long
+    utils.test.assertIn(" ".join("a" * 50), 
+            env.blog_metadata[env.blog_posts[0]].summary)
 
 
 # extension setup
