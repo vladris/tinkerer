@@ -17,8 +17,8 @@ author = 'Winston Smith'
 # Change this to your copyright string
 copyright = '1984, ' + author         
 
-# Change this to your URL (required for RSS feed)
-website = 'http://127.0.0.1/'                              
+# Change this to your blog root URL (required for RSS feed)
+website = 'http://127.0.0.1/blog/html'                              
 
 
 # **************************************************************

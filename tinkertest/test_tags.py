@@ -2,15 +2,15 @@
     Tags Test
     ~~~~~~~~~
 
-    Tests Tinkerer post tags
+    Tests Tinkerer post tags.
 
     :copyright: Copyright 2011 by Vlad Riscutia
 '''
 import datetime
 import os
+from tinkerer import paths, post
 import unittest
 import utils
-from tinkerer import paths, post
 
 
 # test case

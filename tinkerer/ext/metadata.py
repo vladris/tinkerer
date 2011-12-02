@@ -57,6 +57,7 @@ def get_metadata(app, docname, source):
     if not match:
         env.blog_pages.append(docname)
         return
+
     env.blog_posts.append(docname)
     metadata.is_post = True
 
@@ -80,7 +81,7 @@ def process_metadata(app, env):
         env.blog_latest_posts = [("index", "")]        
 
 
-# pass metadata to templating engine
+# pass metadata to templating engine, store body for RSS feed
 def add_metadata(app, pagename, templatename, context, doctree):
     env = app.builder.env
 
@@ -92,6 +93,11 @@ def add_metadata(app, pagename, templatename, context, doctree):
     # if there is metadata for the page, it is not an auto-generated one
     if pagename in env.metadata:
         context["metadata"] = env.blog_metadata[pagename]
+
+        # if this is a post, save body for RSS feed
+        if pagename in env.blog_posts:
+            env.blog_metadata[pagename].body = context["body"]
+
     # otherwise provide default metadata
     else:
         context["metadata"] = Metadata()

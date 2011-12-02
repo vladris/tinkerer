@@ -46,7 +46,7 @@ class TestRSS(utils.BaseTinkererTest):
         data = self.get_data(doc, data)
 
         self.assertEquals("My blog", data["title"])
-        self.assertEquals("http://127.0.0.1", data["link"])
+        self.assertEquals("http://127.0.0.1/blog/html", data["link"])
         self.assertEquals("Add intelligent tagline here", data["description"])
         self.assertEquals("en-us", data["language"])
         self.assertIn("03 Dec 2010", data["pubDate"])
