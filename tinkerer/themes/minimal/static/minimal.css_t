@@ -1,0 +1,147 @@
+/*
+ * minimal.css_t
+ * ~~~~~~~~~~~~~
+ *
+ * Stylesheet for minimal theme.
+ *
+ * :copyright: Copyright 2011 by Vlad Riscutia
+ */
+
+@import url("basic.css");
+
+/* General style */
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:white;
+    font-family: Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+    margin: auto;
+    max-width: 1000px;
+    min-width: 400px;
+    padding: 0;
+}
+
+a:link, a:visited, a:active {
+    color: #808080;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #cccccc;
+}
+
+/* Header */
+div.header {
+    text-align: center;
+}
+
+div.header h1 {
+    font-size: 4em;
+    margin: 6px;
+}
+
+div.header a {
+    color: black;
+}
+
+div.header span.tagline {
+    font-size: 1em;
+    font-style: italic;
+}
+
+/* Page navigation */
+div.page_nav {
+    background-color: black;
+    font-size: 16px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    width: 100%;
+}
+
+div.page_nav a {
+    color: white;
+}
+
+div.page_nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.page_nav li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+/* RSS link */
+div.rss {
+    background: url(rss.png) no-repeat 0 10px;
+    float: right;
+    padding-right: 20px;
+}
+
+div.rss a {
+    padding-left: 24px;
+}
+
+/* Related */
+div.related {
+    height: 17px;
+    margin-top: 56px;
+    margin-bottom: 20px;
+}
+
+div.related ul {
+    padding: 0;
+}
+
+div.related li.next {
+    float: right;
+}
+
+/* Document */
+div.document {
+    margin-top: 20px;
+    padding-right: 320px;
+}
+
+/* Timestamp */
+div.timestamp {
+    font-style: italic;
+}
+
+/* Content */
+div.admonition {
+    background: #f8f8f8;
+}
+
+/* Sidebar */
+div.sphinxsidebarwrapper {
+    display: inline;
+    padding: 0;
+}
+
+div.sphinxsidebar {
+    float: right;
+    margin-top: 40px;
+}
+
+div.sphinxsidebar ul {
+    padding-left: 0px;
+}
+
+/* Meta */
+div.postmeta {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+/* Footer */
+div.footer {
+    margin-top: 40px;
+    text-align: center;
+}

@@ -37,6 +37,8 @@ html_theme = "{{ theme }}"
 # Theme-specific options, see docs
 html_theme_options = { }                                  
 
+# Link to RSS feed
+rss = "./rss.html"
 
 # **************************************************************
 # Edit lines below to further customize Sphinx build
@@ -70,4 +72,4 @@ release = tinkerer.__version__
 html_title = project
 html_use_index = False
 html_show_sourcelink = False
-
+html_add_permalinks = None

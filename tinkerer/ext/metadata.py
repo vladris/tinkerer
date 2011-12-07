@@ -2,7 +2,7 @@
     metadata
     ~~~~~~~~
 
-    Blog metadata extension
+    Blog metadata extension.
 
     :copyright: Copyright 2011 by Vlad Riscutia.
 '''
@@ -91,17 +91,10 @@ def process_metadata(app, env):
      
     env.blog_page_list = [(page, env.titles[page].astext()) for page in env.blog_pages]
 
-
     # if there is at least one post
     if env.blog_posts:
         # add a page linking to the first post
-        env.blog_page_list.insert(0, (env.blog_posts[0], "Blog"))
-
-        # get the latest 6 posts
-        env.blog_latest_posts = [(page, env.titles[page].astext()) for page in env.blog_posts[:6]]
-    else:
-        # go to master document instead of latest post
-        env.blog_latest_posts = [(tinkerer.master_doc, "")]        
+        env.blog_page_list.insert(0, (env.blog_posts[0], "Home"))
 
 
 # get 50 word summary of post from body
@@ -141,9 +134,8 @@ def summarize(dom, length, depth=0):
 def add_metadata(app, pagename, templatename, context, doctree):
     env = app.builder.env
 
-    # blog tagline, latest posts and pages
+    # blog tagline and pages
     context["tagline"] = app.config.tagline
-    context["latest"] = env.blog_latest_posts
     context["pages"] = env.blog_page_list
 
     # if there is metadata for the page, it is not an auto-generated one

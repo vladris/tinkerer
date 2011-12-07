@@ -1,0 +1,14 @@
+{#
+    tinkerbase/latest.html
+    ~~~~~~~~~~~~~~~~~~~~
+
+    Latest posts widget.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+#}
+<h3>Latest Posts</h3>
+<ul>
+{%- for post in latest %}
+    <li><a href="{{ pathto(post[0]) }}">{{ post[1] }}</a></li>
+{%- endfor %}
+</ul>

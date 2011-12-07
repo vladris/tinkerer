@@ -6,48 +6,9 @@
 
     :copyright: Copyright 2011 by Vlad Riscutia
 #}
-{% extends "basic/layout.html" %}
+{% extends "tinkerbase/layout.html" %}
 
-{% block relbar1 %}{% endblock %}
 {% block relbar2 %}{% endblock %}
-
-{% macro sidebar_list(list_title, list_items, div_class) %}
-    <div class="{{div_class}}">
-    {% if list_items %}
-        <h2>{{list_title}}</h2>
-            <ul>
-            {% for item in list_items %}
-                <a href="{{ pathto(item[0]) }}"><li>{{ item[1] }}</li></a>
-            {% endfor %}
-            </ul>
-    {% endif %}
-    </div>
-{% endmacro %}
-
-{% macro nav() %}
-    {% if prev %}
-    <a href="{{ prev.link|e }}">
-        <div class="nav_prev">
-            <img src="{{ pathto("_static/back.png", 1) }}" />
-            <span>{{ prev.title }}</span>
-        </div>
-    </a>
-    {% elif not metadata.is_post %}
-    <a href="{{ pathto(latest[0][0]) }}">
-        <div class="nav_prev">
-            <img src="{{ pathto("_static/home.png", 1) }}" />
-        </div>
-    </a>
-    {% endif %}
-    {% if next %}
-    <a href="{{ next.link|e }}">
-        <div class="nav_next">
-            <span>{{ next.title }}</span>
-            <img src="{{ pathto("_static/next.png", 1) }}" />
-        </div>
-    </a>
-    {% endif %}
-{% endmacro %}
 
 {% macro square(square_definition) %}
     {% if square_definition %}
@@ -61,7 +22,7 @@
     {% endif %}
 {% endmacro %}
 
-{% block content %}
+{% block header %}
     <div class="toplinks">
         <table>
             <tr>
@@ -74,31 +35,6 @@
             </tr>
         </table>
     </div>
-
-    <div class="header">
-        <h1 class="heading">
-            <a href="{{ pathto(latest[0][0]) }}">
-                <span>{{ shorttitle|e }}</span>
-            </a>
-        </h1>
-        <h2 class="heading">
-            <span>{{ tagline }}</span>
-        </h2>
-    </div>
-
-    <div class="page">
-        <div class="nav">
-            {{ nav() }}
-        </div>
-        <div class="metrosidebar">
-            <div id="sidebar_line"></div>
-            {{ sidebar_list("Latest Posts", latest, "latest") }}  
-            {{ sidebar_list("Pages", pages, "pages") }}
-        </div>
-        <div class="content"> 
-            {% block body %}{% endblock %}
-        </div>
-        <div style="clear: both"></div>
-    </div>
-{% endblock %}
+    {{ super() }}
+{% endblock %}    
 

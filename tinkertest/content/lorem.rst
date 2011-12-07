@@ -52,8 +52,8 @@ Styles
 ~~~~~~
 
 `This is a link <http://127.0.0.1/>`_, following is some styled text:
-`Lorem ipsum dolor sit amet`, ``consectetuer adipiscing elit``. *Aenean 
-commodo ligula eget dolor.*
+`Lorem ipsum dolor sit amet`, ``consectetuer adipiscing elit``. **Aenean
+commodo ligula eget dolor.**
 
 Warning
 ~~~~~~~

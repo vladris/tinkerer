@@ -14,9 +14,9 @@ __package_path = os.path.abspath(os.path.dirname(__file__))
 
 # absolute path to assets
 __static_abs_path = os.path.join(__package_path, "static")
-__themes_abs_path = os.path.join(__package_path, "themes")
 __templates_abs_path = os.path.join(__package_path, "templates")
 __internal_templates_abs_path = os.path.join(__package_path, "__templates")
+themes = os.path.join(__package_path, "themes")
 
 # set other paths based on root path
 def set_paths(root_path="."):
@@ -31,7 +31,6 @@ def set_paths(root_path="."):
 
     # relative path to assets required by conf.py
     global themes, templates, static
-    themes = os.path.relpath(__themes_abs_path, root)
     templates = os.path.relpath(__templates_abs_path, root)
     static = os.path.relpath(__static_abs_path, root)
 

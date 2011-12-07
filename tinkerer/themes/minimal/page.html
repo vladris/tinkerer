@@ -1,0 +1,31 @@
+{#
+    minimal/page.html
+    ~~~~~~~~~~~~~~~~~
+
+    Page for Minimal theme.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+#}
+
+{% extends "tinkerbase/page.html" %}
+
+{%- macro minimal_nav() %}
+    <div class="page_nav">
+        <div class="rss">
+            <a href="{%- if rss == 'rss'%}{{ pathto(rss)}}{%- else %}{{ rss }}{%- endif %}">Subscribe</a>
+        </div>
+        <ul>
+            {% for page in pages %}
+            <li>
+                <a href="{{ pathto(page[0]) }}">{{ page[1] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{%- endmacro %}
+
+{%- block header %}
+    {{ minimal_nav() }}
+    {{ blog_header() }}
+{%- endblock %}
+

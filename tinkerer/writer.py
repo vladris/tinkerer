@@ -25,9 +25,16 @@ def write_master_file():
     render("master.rst", paths.master_file)
 
 
+# default extensions for conf.py
+DEFAULT_EXTENSIONS = [
+    "tinkerer.ext.blog",
+    "tinkerer.ext.disqus",
+    "tinkerer.ext.latest"
+]
+
+
 # write conf.py
-def write_conf_file(extensions=["tinkerer.ext.blog", "tinkerer.ext.disqus"],
-                    theme="metropolish"):
+def write_conf_file(extensions=DEFAULT_EXTENSIONS, theme="minimal"):
     render("conf.py", paths.conf_file,
            {"extensions": ", ".join(["'%s'" % ext for ext in extensions]),
             "theme": theme })

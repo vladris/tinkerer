@@ -1,0 +1,113 @@
+{#
+    tinkerbase/layout.html
+    ~~~~~~~~~~~~~~~~~~~~~~
+
+    Master layout template for Tinkerer blog themes.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+#}
+
+{% extends "basic/layout.html" %}
+
+{%- set prevchar = prevchar is not defined and ' &laquo; ' or prevchar %}
+{%- set nextchar = naxtchar is not defined and ' &raquo; ' or nextchar %}
+
+{# Blog header #}
+{%- macro blog_header() %}
+    <div class="header">
+        <h1 class="heading">
+            <a href="{{ pathto(pages[0][0]) }}">
+                <span>{{ shorttitle|e }}</span>
+            </a>
+        </h1>
+        <span class="tagline">{{ tagline }}</span>
+    </div>
+{%- endmacro %}
+ 
+{# List of blog pages #}
+{%- macro page_nav() %}
+    <div class="page_nav">
+        <ul>
+            {% for page in pages %}
+            <li>
+                <a href="{{ pathto(page[0]) }}">{{ page[1] }}</a>
+                {%- if not loop.last %}{{ reldelim2 }}{%- endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{%- endmacro %}
+
+{# Navigation #}
+{%- macro tinkerer_relbar() %}
+    <div class="related">
+        <ul>
+            {%- if prev %}
+            <li class="prev">
+                {{ prevchar }}<a href="{{ prev.link|e }}">{{ prev.title }}</a>
+            </li>
+            {%- endif %}
+            {%- if next %}
+            <li class="next">
+                <a href="{{ next.link|e }}">{{ next.title }}</a>{{ nextchar }}
+            </li>
+            {%- endif %}
+        </ul>
+    </div>
+{%- endmacro %}
+
+{# Timestamp #}
+{%- macro timestamp() %}
+    {%- if metadata.date %}
+        <div class="timestamp">
+            <span>{{ metadata.date.strftime(theme_timestamp_format) }}</span> 
+        </div>
+    {%- endif %}
+{%- endmacro %}
+
+{# Author #}
+{%- macro author() %}
+    {%- if metadata.author %}
+        <div class="author">
+            <span>Posted by {{ metadata.author }}</span>
+        </div>
+    {%- endif %}
+{%- endmacro %}
+
+{# Tags #}
+{%- macro tag_list() %}
+    {%- if post_tags %}
+        <div class="tags">
+            <span>
+                Tags:
+                {% for link, tag in post_tags %}
+                    <a href="../../../tags/{{ link }}.html">{{ tag }}</a>
+                    {%- if not loop.last %}, {%- endif %}
+                {% endfor %}
+            </span>
+        </div>
+    {%- endif %}
+{%- endmacro %}
+
+{%- block header %}
+   {{ blog_header() }}
+   {{ page_nav() }}
+   <div class="clearer"></div>
+{%- endblock %}
+
+{%- block relbar1 %}{%- endblock %}
+{%- block relbar2 %}{%- endblock %}
+
+{% block sidebar1 %}{{ sidebar() }}{% endblock %}
+{% block sidebar2 %}{% endblock %}
+
+{%- block footer %}
+    <div class="footer">
+    {%- if show_copyright %}
+        {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
+    {%- endif %}
+    {%- if show_sphinx %}
+        Created using <a href="http://bitbucket.org/vladris/tinkerer/">Tinkerer</a>, powered by <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    {%- endif %}
+    </div>
+{%- endblock %}

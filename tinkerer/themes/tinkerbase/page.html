@@ -1,0 +1,21 @@
+{#
+    tinkerbase/page.html
+    ~~~~~~~~~~~~~~~~~~~~
+
+    Master layout for Tinkerer pages.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+#}
+
+{% extends "layout.html" %}
+
+{% block body %}
+    {{ tinkerer_relbar() }}
+    {{ timestamp() }}
+    {{ body }}
+    <div class="postmeta">
+        {{ author() }}
+        {{ tag_list() }}
+    </div>
+    {{ comments }}
+{% endblock %}
