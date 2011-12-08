@@ -10,30 +10,18 @@
 import tinkerer
 
 
-# add template to sidebar
-def init_latest(app):
-    if "**" not in app.config.html_sidebars:
-        app.config.html_sidebars["**"] = []
-    app.config.html_sidebars["**"].append("latest.html")
-
-
 # get latest 6 posts from metadata
 def get_latest(app, env):
-    if env.blog_posts:
-        env.blog_latest_posts = [(page, env.titles[page].astext()) for
-                    page in env.blog_posts[:6]]
-    else:
-        env.blog_latest_posts = [(tinkerer.master_doc, "")]
+    if not env.blog_posts:
+        return
 
-
-# pass latest posts to template
-def add_latest(app, pagename, templatename, context, doctree):
-    context["latest"] = app.builder.env.blog_latest_posts
+    app.config.lists.insert(0, ["Latest Posts"] + 
+            # append "~" at beginning so template knows to compute relative path
+            # see tinkerbase/lists.html
+            [(env.titles[page].astext(), "~" + page) for page in env.blog_posts[:6]])
 
 
 # setup widget
 def setup(app):
-    app.connect("builder-inited", init_latest)
     app.connect("env-updated", get_latest)
-    app.connect("html-page-context", add_latest)
             

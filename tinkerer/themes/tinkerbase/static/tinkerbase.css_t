@@ -46,14 +46,14 @@ div.page_nav li.right {
     float: right;
 }
 
-/* Document ------------------------------------------------------------ */
+/* Document ---------------------------------------------------------------- */
 div.document {
     margin-right: 96px;
     padding-left: 48px;
     padding-right: 230px;
 }
 
-/* Sidebar ------------------------------------------------------------- */
+/* Sidebar ----------------------------------------------------------------- */
 div.sphinxsidebarwrapper {
     display: inline;
     padding: 0;
@@ -62,6 +62,11 @@ div.sphinxsidebarwrapper {
 
 div.sphinxsidebar {
     float: right;
+}
+
+/* Sidebar widgets --------------------------------------------------------- */
+div.widget {
+    margin-bottom: 48px;
 }
 
 /* Footer ------------------------------------------------------------------ */

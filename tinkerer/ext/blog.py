@@ -2,21 +2,23 @@
     blog
     ~~~~
 
-    Blog extension.
+    Master blog extension.
 
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENSE file
 '''
 import tinkerer.ext.author
+import tinkerer.ext.lists
 import tinkerer.ext.metadata
 import tinkerer.ext.rss
 import tinkerer.ext.tags
 import tinkerer.ext.twitter
 
 
-# setup extension
+# setup extensions
 def setup(app):
     tinkerer.ext.author.setup(app)
+    tinkerer.ext.lists.setup(app)
     tinkerer.ext.metadata.setup(app)
     tinkerer.ext.rss.setup(app)
     tinkerer.ext.tags.setup(app)
