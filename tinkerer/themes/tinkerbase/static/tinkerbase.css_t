@@ -73,5 +73,5 @@ div.sphinxsidebar {
 
 /* Footer ------------------------------------------------------------------ */
 div.footer {
-    font-size: 90%;
+    font-size: 80%;
 }
