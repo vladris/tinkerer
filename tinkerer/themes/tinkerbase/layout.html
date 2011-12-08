@@ -43,6 +43,11 @@
 {# RSS symbol in link (default True) #}
 {%- set rss_symbol = rss_symbol is not defined and True or rss_symbol %}
 
+{# Timestamp format --------------------------------------------------------- #}
+
+{# Timestamp format #}
+{%- set timestamp_format = timestamp_format is not defined and "%B %d, %Y" or timestamp_format %}
+
 {# Macros ------------------------------------------------------------------- #}
 
 {# Blog header #}
@@ -123,7 +128,7 @@
 {%- macro timestamp() %}
     {%- if metadata.date %}
         <div class="timestamp">
-            <span>{{ metadata.date.strftime(theme_timestamp_format) }}</span> 
+            <span>{{ metadata.date.strftime(timestamp_format) }}</span> 
         </div>
     {%- endif %}
 {%- endmacro %}
