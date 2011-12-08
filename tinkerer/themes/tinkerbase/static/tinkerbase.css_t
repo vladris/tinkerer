@@ -19,6 +19,7 @@ html {
 
 body {
     -webkit-text-size-adjust: none;
+    font-size: 1.2em;
     max-width: 1000px;
 }
 
@@ -27,48 +28,50 @@ div.page_nav li.right {
     float: right;
 }
 
-/* Wide screen display------------------------------------------------------ */
-@media screen and (min-width: 800px)
-{
-    /* Document ------------------------------------------------------------ */
-    div.document {
-        margin-right: 90px;
-        padding-left: 40px;
-        padding-right: 230px;
-    }
-
-    /* Sidebar ------------------------------------------------------------- */
-    div.sphinxsidebarwrapper {
-        display: inline;
-        padding: 0;
-    }
-
-    div.sphinxsidebar {
-        float: right;
-    }
+/* Document ------------------------------------------------------------ */
+div.document {
+    margin-right: 96px;
+    padding-left: 48px;
+    padding-right: 230px;
 }
 
-/* Hide sidebar on smaller displays and iPhone */
+/* Sidebar ------------------------------------------------------------- */
+div.sphinxsidebarwrapper {
+    display: inline;
+    padding: 0;
+    padding-right: 48px;
+}
+
+div.sphinxsidebar {
+    float: right;
+}
+
+/* Hide sidebar on smaller displays and iPhone ============================= */
 @media screen and (max-width: 800px), screen and (max-device-width: 480px)
 {
     /* Document ------------------------------------------------------------ */
     div.document {
         margin-right: 0;
-        padding-left: 40px;
-        padding-right: 40px;   
+        padding-left: 48px;
+        padding-right: 48px;   
     }
 
     /* Sidebar ------------------------------------------------------------- */
-    div.sphinxsidebarwrapper {
+    div.sphinxsidebar {
         visibility: hidden;
     }
 }
 
-/* Retina displays */
+/* Retina displays ========================================================= */
 @media screen and (-webkit-min-device-pixel-ratio: 2)
 {
     /* Body ---------------------------------------------------------------- */
     body {
-        font-size: 2em;
+        font-size: 200%;
     }
+}
+
+/* Footer ------------------------------------------------------------------ */
+div.footer {
+    font-size: 90%;
 }
