@@ -15,8 +15,8 @@
     {{ timestamp() }}
     {{ body }}
     <div class="postmeta">
-        {{ author() }}
-        {{ tag_list() }}
+        {{ author(metadata.author) }}
+        {{ tag_list(metadata.tags) }}
     </div>
     {{ comments }}
 {% endblock %}

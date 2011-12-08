@@ -134,16 +134,16 @@
 {%- endmacro %}
 
 {# Author #}
-{%- macro author() %}
-    {%- if metadata.author %}
+{%- macro author(author_name) %}
+    {%- if author_name %}
         <div class="author">
-            <span>Posted by {{ metadata.author }}</span>
+            <span>Posted by {{ author_name }}</span>
         </div>
     {%- endif %}
 {%- endmacro %}
 
 {# Tags #}
-{%- macro tag_list() %}
+{%- macro tag_list(post_tags) %}
     {%- if post_tags %}
         <div class="tags">
             <span>

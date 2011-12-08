@@ -25,6 +25,8 @@ def initialize(app):
 class Metadata:
     def __init__(self):
         self.is_post = False
+        self.title = None
+        self.link = None
         self.year, self.month, self.day, self.date = None, None, None, None
         self.body, self.summary = None, None
         self.author = None
@@ -62,6 +64,7 @@ def get_metadata(app, docname, source):
         return
 
     metadata.is_post = True
+    metadata.link = docname
 
     g = match.groupdict()
     metadata.year, metadata.month, metadata.day = int(g["year"]), int(g["month"]), int(g["day"])
@@ -83,6 +86,9 @@ def process_metadata(app, env):
 
         # if this is a post or a page (has metadata)
         if doc in env.blog_metadata:
+            # set title
+            env.blog_metadata[doc].title = env.titles[doc].astext()
+
             # ignore if parent is not master (eg. nested pages)
             if relations[doc][0] == tinkerer.master_doc:
                 if env.blog_metadata[doc].is_post:
@@ -96,6 +102,12 @@ def process_metadata(app, env):
     if env.blog_posts:
         # add a page linking to the first post
         env.blog_page_list.insert(0, (env.blog_posts[0], "Home"))
+
+        # extract latest posts list
+        app.config.lists.insert(0, ["Latest Posts"] + 
+                # append "~" at beginning so template knows to compute relative path
+                # see tinkerbase/lists.html
+                [(env.titles[page].astext(), "~" + page) for page in env.blog_posts[:6]])
 
 
 # get 50 word summary of post from body

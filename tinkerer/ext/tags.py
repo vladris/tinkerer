@@ -34,7 +34,7 @@ class TagsDirective(Directive):
             if tag not in env.blog_tags:
                 env.blog_tags[tag] = []
             env.blog_tags[tag].append(env.docname)
-            env.blog_metadata[env.docname].tags.append(tag)
+            env.blog_metadata[env.docname].tags.append((tinkerer.utils.filename_from_title(tag), tag))
 
         return []
 
@@ -47,28 +47,17 @@ def make_tag_pages(app):
     for tag in env.blog_tags:
         pagename = "tags/" + tinkerer.utils.filename_from_title(tag)
         context = {
-            "parents": [],
             "title": "Posts tagged with %s" % tag,
-            "body": "<h1>Posts tagged with <em>%s</em></h1>" % tag
         }
-        context["body"] += "<ul>"
+        context["years"] = dict()
 
         for post in env.blog_tags[tag]:
-            title = env.titles[post].astext()
-            context["body"] += "<li><a href=\"../%s.html\">%s</a></li>" % (post, title)
+            year = env.blog_metadata[post].year
+            if year not in context["years"]:
+                context["years"][year] = []
+            context["years"][year].append(env.blog_metadata[post])
 
-        context["body"] += "</ul>"
-        yield (pagename, context, "page.html")
-
-
-# add tags to page context
-def add_tags(app, pagename, templatename, context, doctree):
-    env = app.builder.env
-
-    # add all tags associated with this page to the context
-    if pagename in env.blog_posts:
-        context["post_tags"] = [(tinkerer.utils.filename_from_title(tag), tag)
-                for tag in env.blog_metadata[pagename].tags]
+        yield (pagename, context, "tags.html")
 
 
 # setup tags
@@ -77,5 +66,4 @@ def setup(app):
 
     app.connect("builder-inited", initialize)
     app.connect("html-collect-pages", make_tag_pages)
-    app.connect("html-page-context", add_tags)
 
