@@ -96,18 +96,13 @@ def process_metadata(app, env):
                 else:
                     env.blog_pages.append(doc)
      
-    env.blog_page_list = [(page, env.titles[page].astext()) for page in env.blog_pages]
+    env.blog_page_list = [("index", "Home")] + [(page, env.titles[page].astext()) for page in env.blog_pages]
 
-    # if there is at least one post
-    if env.blog_posts:
-        # add a page linking to the first post
-        env.blog_page_list.insert(0, (env.blog_posts[0], "Home"))
-
-        # extract latest posts list
-        app.config.lists.insert(0, ["Latest Posts"] + 
-                # append "~" at beginning so template knows to compute relative path
-                # see tinkerbase/lists.html
-                [(env.titles[page].astext(), "~" + page) for page in env.blog_posts[:6]])
+    # extract latest posts list
+    app.config.lists.insert(0, ["Latest Posts"] + 
+            # append "~" at beginning so template knows to compute relative path
+            # see tinkerbase/lists.html
+            [(env.titles[page].astext(), "~" + page) for page in env.blog_posts[:6]])
 
 
 # get 50 word summary of post from body
