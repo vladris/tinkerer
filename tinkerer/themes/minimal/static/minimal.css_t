@@ -63,27 +63,11 @@ div.page_nav a {
 div.page_nav ul {
     margin: 0;
     padding: 0;
-    padding-left: 24px;
-    padding-right: 24px;
 }
 
 div.page_nav li {
     display: inline;
-    padding: 0 20px 0 20px;
-}
-
-/* Related */
-div.related {
-    height: 17px;
-    margin-top: 56px;
-    margin-bottom: 20px;
-}
-
-/* Document */
-div.document {
-    margin-top: 20px;
-    padding-bottom: 0;
-    padding-top: 0;
+    padding: 0 24px 0 24px;
 }
 
 /* Timestamp */
@@ -97,14 +81,6 @@ div.admonition {
 }
 
 /* Sidebar */
-div.sphinxsidebarwrapper {
-    padding-right: 40px;
-}
-
-div.sphinxsidebar {
-    margin-top: 40px;
-}
-
 div.sphinxsidebar ul {
     padding-left: 0px;
 }
@@ -114,6 +90,42 @@ div.postmeta {
     margin-bottom: 40px;
     margin-top: 40px;
     font-style: italic;
+}
+
+/* Archive */
+span.title_tag {
+    font-style: italic;
+}
+
+div.year ul {
+    display: inline;
+    list-style-type: none;
+}
+
+div.year li {
+    margin-bottom: 48px;
+}
+
+div.year div.timestamp {
+    float: left;
+    line-height: 1.5em;
+    margin-left: 25%;
+    font-style: normal;
+    font-weight: bold;
+}
+
+div.year h2 {
+    margin-bottom: 0;
+    margin-left: 50%;
+    margin-top: 0;
+}
+
+div.year div.author {
+    margin-left: 50%;
+}
+
+div.year div.tags {
+    margin-left: 50%;
 }
 
 /* Footer */

@@ -50,7 +50,7 @@ class CommentsDirective(Directive):
 
 
 # add metadata to environment
-def get_metadata(app, docname, source):
+def get_metadata(app, docname):
     env = app.builder.env
 
     env.blog_metadata[docname] = Metadata()
@@ -144,7 +144,7 @@ def summarize(dom, length, depth=0):
 
 
 # pass metadata to templating engine, store body for RSS feed
-def add_metadata(app, pagename, templatename, context, doctree):
+def add_metadata(app, pagename, context):
     env = app.builder.env
 
     # blog tagline and pages
@@ -173,16 +173,4 @@ def add_metadata(app, pagename, templatename, context, doctree):
     # otherwise provide default metadata
     else:
         context["metadata"] = Metadata()
-
-
-# setup metadata
-def setup(app):
-    app.add_config_value("tagline", "My blog", True)
-
-    app.add_directive("comments", CommentsDirective)
-
-    app.connect("builder-inited", initialize)
-    app.connect("source-read", get_metadata)
-    app.connect("env-updated", process_metadata)
-    app.connect("html-page-context", add_metadata)
 

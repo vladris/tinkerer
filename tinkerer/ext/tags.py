@@ -47,23 +47,18 @@ def make_tag_pages(app):
     for tag in env.blog_tags:
         pagename = "tags/" + tinkerer.utils.filename_from_title(tag)
         context = {
-            "title": "Posts tagged with %s" % tag,
+            "title": "Posts tagged with <span class='title_tag'>%s<span>" % tag,
         }
         context["years"] = dict()
 
-        for post in env.blog_tags[tag]:
+        for post in env.blog_posts:
+            if post not in env.blog_tags[tag]:
+                continue
+
             year = env.blog_metadata[post].year
             if year not in context["years"]:
                 context["years"][year] = []
             context["years"][year].append(env.blog_metadata[post])
 
-        yield (pagename, context, "tags.html")
-
-
-# setup tags
-def setup(app):
-    app.add_directive("tags", TagsDirective)
-
-    app.connect("builder-inited", initialize)
-    app.connect("html-collect-pages", make_tag_pages)
+        yield (pagename, context, "archive.html")
 

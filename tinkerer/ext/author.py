@@ -29,9 +29,3 @@ class AuthorDirective(Directive):
         return []
 
 
-# setup author
-def setup(app):
-    app.add_config_value("author", "Winston Smith", True)
-
-    app.add_directive("author", AuthorDirective)
-

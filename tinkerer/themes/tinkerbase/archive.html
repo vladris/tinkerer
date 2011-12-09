@@ -1,0 +1,32 @@
+{#
+    tinkerbase/archive.html
+    ~~~~~~~~~~~~~~~~~~~~~~~
+
+    Archive page.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
+#}
+
+{% extends "page.html" %}
+
+{% block body %}
+    <div class="archive">
+        <h1>{{ title }}</h1>
+        {%- for year in years %}
+        <div class="year">
+            <h1>{{ year }}</h1>
+            <ul>
+                {%- for metadata in years[year] %}
+                <li>
+                    {{ timestamp(metadata.date, timestamp_short_format) }}
+                    <h2><a href="{{ pathto(metadata.link) }}">{{ metadata.title }}</a></h2>
+                    {{ author(metadata.author) }}
+                    {{ tag_list(metadata.tags) }}
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+    {%- endfor %}
+{% endblock %}

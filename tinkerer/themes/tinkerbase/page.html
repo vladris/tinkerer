@@ -12,7 +12,7 @@
 
 {% block body %}
     {{ tinkerer_relbar() }}
-    {{ timestamp() }}
+    {{ timestamp(metadata.date, timestamp_format) }}
     {{ body }}
     <div class="postmeta">
         {{ author(metadata.author) }}

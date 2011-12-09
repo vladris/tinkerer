@@ -46,7 +46,11 @@
 {# Timestamp format --------------------------------------------------------- #}
 
 {# Timestamp format #}
-{%- set timestamp_format = timestamp_format is not defined and "%B %d, %Y" or timestamp_format %}
+{%- set timestamp_format = timestamp_format is not defined and 
+    '<span class="month">%B</span> <span class="day">%d</span>, <span class="year">%Y</day>' 
+    or timestamp_format %}
+{%- set timestamp_short_format = timestamp_short_format is not defined and 
+    '<span class="month">%b</span> <span class="day">%d</span>' or timestamp_short_format %}
 
 {# Macros ------------------------------------------------------------------- #}
 
@@ -108,10 +112,11 @@
 
 {# Navigation #}
 {%- macro tinkerer_relbar() %}
+    {%- if prev or next %}
     <div class="related">
         <ul>
             {%- if prev %}
-            <li class="left">
+            <li>
                 {{ prevchar }}<a href="{{ prev.link|e }}">{{ prev.title }}</a>
             </li>
             {%- endif %}
@@ -122,13 +127,14 @@
             {%- endif %}
         </ul>
     </div>
+    {%- endif %}
 {%- endmacro %}
 
 {# Timestamp #}
-{%- macro timestamp() %}
-    {%- if metadata.date %}
+{%- macro timestamp(date, fmt) %}
+    {%- if date %}
         <div class="timestamp">
-            <span>{{ metadata.date.strftime(timestamp_format) }}</span> 
+            <span>{{ date.strftime(fmt) }}</span> 
         </div>
     {%- endif %}
 {%- endmacro %}
@@ -149,7 +155,7 @@
             <span>
                 Tags:
                 {% for link, tag in post_tags %}
-                    <a href="../../../tags/{{ link }}.html">{{ tag }}</a>
+                    <a href="{{ pathto('tags/' + link + '.html', 1) }}">{{ tag }}</a>
                     {%- if not loop.last %}, {%- endif %}
                 {% endfor %}
             </span>
@@ -163,7 +169,6 @@
     {%- if page_nav_first %}{{ page_nav() }}{%- endif %}
     {{ blog_header() }}
     {%- if not page_nav_first%}{{ page_nav() }}{%- endif %}
-    <div class="clearer"></div>
 {%- endblock %}
 
 {%- block relbar1 %}{%- endblock %}
@@ -178,7 +183,7 @@
         {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
     {%- endif %}
     {%- if show_sphinx %}
-        Created using <a href="http://bitbucket.org/vladris/tinkerer/">Tinkerer</a>, powered by <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+        Powered by <a href="http://bitbucket.org/vladris/tinkerer/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.
     {%- endif %}
     </div>
 {%- endblock %}

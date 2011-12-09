@@ -13,7 +13,7 @@ import email.utils
 
 
 # add rss service link to page context 
-def add_rss(app, pagename, templatename, context, doctree):
+def add_rss(app, context):
     context["rss_service"] = app.config.rss_service
 
 
@@ -54,11 +54,3 @@ def generate_feed(app):
 
     yield ("rss", context, "rss.html")
 
-
-# setup feed generator
-def setup(app):
-    app.add_config_value("website", "http://127.0.0.1/blog/html", True)
-    app.add_config_value("rss_service", None, True)
-
-    app.connect("html-page-context", add_rss)
-    app.connect("html-collect-pages", generate_feed)
