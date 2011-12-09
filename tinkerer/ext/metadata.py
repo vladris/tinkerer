@@ -11,7 +11,6 @@ import re
 from datetime import date
 from sphinx.util.compat import Directive
 import tinkerer
-import xml.dom.minidom
 
 
 # initialize metadata
@@ -28,7 +27,7 @@ class Metadata:
         self.title = None
         self.link = None
         self.year, self.month, self.day, self.date = None, None, None, None
-        self.body, self.summary = None, None
+        self.body = None
         self.author = None
         self.tags = []
         self.comments = False
@@ -105,38 +104,6 @@ def process_metadata(app, env):
             [(env.titles[page].astext(), "~" + page) for page in env.blog_posts[:6]])
 
 
-# get 50 word summary of post from body
-def get_summary(body):
-    dom = xml.dom.minidom.parseString(body.encode("ascii", "ignore"))
-    summarize(dom, 0)
-
-    # skip auto-inserted xml version
-    return dom.toxml()[22:]
-
-
-# recursively summarize dom
-def summarize(dom, length, depth=0):
-    done = False
-
-    for child in dom.childNodes[:]:
-        # strip childs when done to remain with summary
-        if done:
-            dom.removeChild(child)
-        # if node is text
-        elif child.nodeValue:
-            # trim text if exceeding length
-            l = len(child.nodeValue.split())
-            if length + l >= 50:
-                child.nodeValue = " ".join(child.nodeValue.split()[:50 - length])
-                done = True
-            # update current length
-            else:
-                length += l
-        # if node is not text, recurse
-        else:
-            done = summarize(child, length, depth + 1)
-    return done
-
 
 # pass metadata to templating engine, store body for RSS feed
 def add_metadata(app, pagename, context):
@@ -154,7 +121,6 @@ def add_metadata(app, pagename, context):
         if pagename in env.blog_posts:
             # save body and summary
             env.blog_metadata[pagename].body = context["body"]
-            env.blog_metadata[pagename].summary = get_summary(context["body"])
 
             # no prev link if first post, no next link for last post
             if pagename == env.blog_posts[0]:

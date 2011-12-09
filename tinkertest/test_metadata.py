@@ -42,19 +42,9 @@ def build_finished(app, exception):
     pages = ["pages/page_%d" % i for i in range(10)]
     utils.test.assertEquals(set(pages), set(env.blog_pages))
 
-    # check body and summary
-
     # body should contain the whole 100 word string
     utils.test.assertIn(" ".join("a" * 100), 
             env.blog_metadata[env.blog_posts[0]].body)
-
-    # summary should not be longer than 50 words
-    utils.test.assertNotIn(" ".join("a" * 51), 
-            env.blog_metadata[env.blog_posts[0]].summary)
-
-    # summary should be 50 words long
-    utils.test.assertIn(" ".join("a" * 50), 
-            env.blog_metadata[env.blog_posts[0]].summary)
 
 
 # extension setup
