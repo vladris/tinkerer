@@ -19,7 +19,7 @@
         {{ metadata.body }}
         <div class="postmeta">
             {{ author(metadata.author) }}
-            {{ tag_list(metadata.tags) }}
+            {{ tag_list(metadata.filing["tags"]) }}
             {{ comment_count(metadata.comment_count) }}
         </div>
         {%- if not loop.last %}<div class="separator post_separator"></div>{%- endif %}

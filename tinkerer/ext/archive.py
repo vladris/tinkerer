@@ -12,32 +12,36 @@ from tinkerer import utils
 
 
 
-class TagsDirective(Directive):
-    '''
-    Tags directive. The directive is not rendered, just stored in the
-    metadata and passed to the templating engine.
-    '''
-    required_arguments = 0
-    optional_arguments = 100
-    has_content = False
-
-    def run(self):
+def create_filing_directive(name):
+    class FilingDirective(Directive):
         '''
-        Called when parsing the document.
+        Filing directive used to groups posts. The directive is not rendered, 
+        just stored in the metadata and passed to the templating engine.
         '''
-        env = self.state.document.settings.env
+        required_arguments = 0
+        optional_arguments = 100
+        has_content = False
 
-        for tag in " ".join(self.arguments).split(","):
-            tag = tag.strip()
-            if tag == "none":
-                continue
+        def run(self):
+            '''
+            Called when parsing the document.
+            '''
+            env = self.state.document.settings.env
 
-            if tag not in env.blog_tags:
-                env.blog_tags[tag] = []
-            env.blog_tags[tag].append(env.docname)
-            env.blog_metadata[env.docname].tags.append((utils.filename_from_title(tag), tag))
+            for item in " ".join(self.arguments).split(","):
+                item = item.strip()
+                if item == "none":
+                    continue
 
-        return []
+                if item not in env.filing[name]:
+                    env.filing[name][item] = []
+                env.filing[name][item].append(env.docname)
+                env.blog_metadata[env.docname].filing[name].append(
+                        (utils.filename_from_title(item), item))
+
+            return []
+
+    return FilingDirective
 
 
 
@@ -45,7 +49,7 @@ def initialize(app):
     '''
     Initializes tags.
     '''
-    app.builder.env.blog_tags = dict()
+    app.builder.env.filing = { "tags": dict() }
 
 
 
@@ -80,8 +84,8 @@ def make_tag_pages(app):
     Generates archive pages for each tag.
     '''
     env = app.builder.env
-    for tag in env.blog_tags:
+    for tag in env.filing["tags"]:
         yield make_archive_page(env,
                 'Posts tagged with <span class="title_tag">%s</span>' % tag,
                 "tags/" + utils.filename_from_title(tag),
-                lambda post: post in env.blog_tags[tag])
+                lambda post: post in env.filing["tags"][tag])

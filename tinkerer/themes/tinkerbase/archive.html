@@ -23,7 +23,7 @@
                     <h2><a href="{{ pathto(metadata.link) }}">{{ metadata.title }}</a></h2>
                     <div class="postmeta">
                         {{ author(metadata.author) }}
-                        {{ tag_list(metadata.tags) }}
+                        {{ tag_list(metadata.filing["tags"]) }}
                         {{ comment_count(metadata.comment_count) }} 
                     </div>
                 </li>

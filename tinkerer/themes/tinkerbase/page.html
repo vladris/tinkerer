@@ -16,7 +16,7 @@
     {{ body }}
     <div class="postmeta">
         {{ author(metadata.author) }}
-        {{ tag_list(metadata.tags) }}
+        {{ tag_list(metadata.filing["tags"]) }}
     </div>
     {{ comments }}
 {% endblock %}

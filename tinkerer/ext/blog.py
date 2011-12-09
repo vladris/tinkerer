@@ -81,7 +81,7 @@ def setup(app):
     # new directives
     app.add_directive("author", author.AuthorDirective)
     app.add_directive("comments", metadata.CommentsDirective)
-    app.add_directive("tags", archive.TagsDirective)
+    app.add_directive("tags", archive.create_filing_directive("tags"))
 
     # event handlers
     app.connect("builder-inited", initialize)

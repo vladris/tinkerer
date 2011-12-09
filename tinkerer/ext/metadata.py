@@ -34,7 +34,7 @@ class Metadata:
         self.date = None
         self.body = None
         self.author = None
-        self.tags = []
+        self.filing = { "tags": [] }
         self.comments, self.comment_count = False, False
 
 
