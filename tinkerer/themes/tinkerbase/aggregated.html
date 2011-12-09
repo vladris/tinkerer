@@ -1,0 +1,25 @@
+{#
+    tinkerbase/aggregated.html
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Front page and following pages aggregating multiple posts per page.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
+#}
+
+{% extends "page.html" %}
+
+{% block body %}
+    {{ tinkerer_relbar() }}
+    {%- for metadata in posts %}
+        {{ timestamp(metadata.date, timestamp_format) }}
+        {{ metadata.body }}
+        <div class="postmeta">
+            {{ author(metadata.author) }}
+            {{ tag_list(metadata.tags) }}
+        </div>
+    {%- endfor %}
+    {{ tinkerer_relbar() }}
+{% endblock %}
+

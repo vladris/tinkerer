@@ -37,7 +37,7 @@ html {
 
 body {
     -webkit-text-size-adjust: none;
-    font-size: 1.1em;
+    font-size: 1em;
     max-width: 1000px;
 }
 
@@ -69,6 +69,12 @@ div.document {
 
 div.document h1 {
     margin-top: 0;
+}
+
+/* Metadata ---------------------------------------------------------------- */
+div.postmeta {
+    border-bottom: 2px dashed black;
+    padding-bottom: 24px;
 }
 
 /* Sidebar ----------------------------------------------------------------- */
