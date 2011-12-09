@@ -37,8 +37,12 @@ html_theme = "{{ theme }}"
 # Theme-specific options, see docs
 html_theme_options = { }                                  
 
-# Link to RSS feed
-rss = "./rss.html"
+# Twitter ID
+twitter_id = None
+
+# Link to RSS service like FeedBurner if any, otherwise feed is
+# linked directly
+rss_service = None
 
 # **************************************************************
 # Edit lines below to further customize Sphinx build
@@ -48,10 +52,10 @@ rss = "./rss.html"
 extensions = [{{ extensions }}] 
 
 # Add other template paths here
-templates_path = ['_templates', tinkerer.paths.templates] 
+templates_path = ['_templates']
 
 # Add other static paths here
-html_static_path = ['_static', tinkerer.paths.static]     
+html_static_path = ['_static']
 
 # Add other theme paths here
 html_theme_path = [tinkerer.paths.themes]                 

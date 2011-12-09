@@ -29,8 +29,7 @@ def write_master_file():
 # default extensions for conf.py
 DEFAULT_EXTENSIONS = [
     "tinkerer.ext.blog",
-    "tinkerer.ext.disqus",
-    "tinkerer.ext.latest"
+    "tinkerer.ext.disqus"
 ]
 
 

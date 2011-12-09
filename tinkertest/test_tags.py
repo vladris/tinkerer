@@ -42,9 +42,9 @@ def build_finished(app, exception):
         utils.test.assertEquals(result[0], set(blog_tags[result[1]]))
 
     # check post metadata
-    for result in [(["tag #1"], "2010/10/01/post1"),
-                   (["tag #2"], "2010/10/01/post2"),
-                   (["tag #1", "tag #2"], "2010/10/01/post12")]:
+    for result in [([("tag__1", "tag #1")], "2010/10/01/post1"),
+                   ([("tag__2", "tag #2")], "2010/10/01/post2"),
+                   ([("tag__1", "tag #1"), ("tag__2", "tag #2")], "2010/10/01/post12")]:
         utils.test.assertEquals(result[0], app.builder.env.blog_metadata[result[1]].tags)
 
     # check tag pages were generated
