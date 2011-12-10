@@ -12,6 +12,9 @@ from tinkerer.ext import aggregator, author, lists, metadata, rss, tags, twitter
 
 # initialize extension after builder is initialized
 def initialize(app):
+    if not app.config.website[-1] == "/":
+        app.config.website += "/"
+
     metadata.initialize(app)
     lists.initialize(app)
     tags.initialize(app)

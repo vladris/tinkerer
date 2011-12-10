@@ -30,7 +30,7 @@ def generate_feed(app):
     # feed items
     context["items"] = []
     for post in env.blog_posts:
-        link = "%s/%s.html" % (app.config.website.strip("/"), post)
+        link = "%s%s.html" % (app.config.website, post)
 
         timestamp = email.utils.formatdate(
                 time.mktime(env.blog_metadata[post].date.timetuple()),
@@ -45,7 +45,7 @@ def generate_feed(app):
 
      # feed metadata 
     context["title"] = app.config.project
-    context["link"] = app.config.website.strip("/")
+    context["link"] = app.config.website
     context["description"] = app.config.tagline
     context["language"] = "en-us"
   

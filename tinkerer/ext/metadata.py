@@ -119,8 +119,14 @@ def add_metadata(app, pagename, context):
 
         # if this is a post
         if pagename in env.blog_posts:
-            # save body and summary
-            env.blog_metadata[pagename].body = context["body"]
+            # save body and inject hyperlink in title
+            env.blog_metadata[pagename].body = context["body"].replace(
+                        env.blog_metadata[pagename].title,
+                        '<a href="%s%s.html">%s</a>' % 
+                            (app.config.website,
+                             pagename,
+                             env.blog_metadata[pagename].title),
+                        1)
 
             # no prev link if first post, no next link for last post
             if pagename == env.blog_posts[0]:

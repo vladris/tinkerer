@@ -7,7 +7,6 @@
     :copyright: Copyright 2011 by Vlad Riscutia.
     :license: FreeBSD, see LICENSE file
 '''
-
 # generate pages
 def make_aggregated_pages(app):
     env = app.builder.env

@@ -59,7 +59,7 @@ def add_disqus_block(app, pagename, templatename, context, doctree):
     if pagename in env.blog_metadata and env.blog_metadata[pagename].comments:
         context["comments"] = create_thread(app.config.disqus_shortname, pagename)
         env.blog_metadata[pagename].comment_count = get_count(
-                "%s/%s.html" % (app.config.website.strip("/"), 
+                "%s%s.html" % (app.config.website,
                                 env.blog_metadata[pagename].link),
                 pagename,
                 env.blog_metadata[pagename].title)
