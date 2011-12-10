@@ -120,11 +120,7 @@ div.year h2 {
     margin-top: 0;
 }
 
-div.year div.author {
-    margin-left: 50%;
-}
-
-div.year div.tags {
+div.year div.postmeta {
     margin-left: 50%;
 }
 

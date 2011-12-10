@@ -21,9 +21,11 @@
                 <li>
                     {{ timestamp(metadata.date, timestamp_short_format) }}
                     <h2><a href="{{ pathto(metadata.link) }}">{{ metadata.title }}</a></h2>
-                    {{ author(metadata.author) }}
-                    {{ tag_list(metadata.tags) }}
-                    {{ comment_count(metadata.comment_count) }} 
+                    <div class="postmeta">
+                        {{ author(metadata.author) }}
+                        {{ tag_list(metadata.tags) }}
+                        {{ comment_count(metadata.comment_count) }} 
+                    </div>
                 </li>
                 {%- endfor %}
             </ul>
