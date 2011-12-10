@@ -10,6 +10,8 @@
 
 {% extends "page.html" %}
 
+{%- set archive_title = archive_title is not defined and ' Blog Archive ' or archive_title %}
+
 {% block body %}
     {{ tinkerer_relbar() }}
     {%- for metadata in posts %}
@@ -23,5 +25,8 @@
         {%- if not loop.last %}<div class="separator post_separator"></div>{%- endif %}
     {%- endfor %}
     {{ tinkerer_relbar() }}
+    <div class="archive_link">
+        <a href="{{ pathto('archive') }}">{{ archive_title }}</a>
+    </div>
 {% endblock %}
 

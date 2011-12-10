@@ -67,12 +67,12 @@ div.page_nav a {
 
 div.page_nav ul {
     margin: 0;
-    padding: 0 24px 0 24px;
+    padding: 0 24px;
 }
 
 div.page_nav li {
     display: inline;
-    padding: 0 24px 0 24px;
+    padding: 0 24px;
 }
 
 /* Timestamp */
@@ -114,7 +114,7 @@ div.year ul {
 div.year div.timestamp {
     float: left;
     line-height: 1.5em;
-    margin-left: 25%;
+    margin-left: 27%;
     font-style: normal;
     font-weight: bold;
 }
@@ -139,6 +139,16 @@ div.post_separator {
 div.year_separator {
     width: 100%;
     border-top: 1px dashed black;
+}
+
+/* Archive */
+div.archive_link {
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+    font-size: 120%;
+    margin-top: 24px;
+    padding: 24px 0;
+    text-align: center;
 }
 
 /* Footer */

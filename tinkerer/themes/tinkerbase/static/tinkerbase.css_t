@@ -62,8 +62,7 @@ div.related {
 /* Document ---------------------------------------------------------------- */
 div.document {
     margin-right: 302px;
-    padding: 48px;
-    padding-top: 0;
+    padding: 0 48px;
 }
 
 div.document h1 {

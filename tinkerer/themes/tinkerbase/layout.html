@@ -19,29 +19,29 @@
 {# Page nav ----------------------------------------------------------------- #}
 
 {# page_nav before or after header (default after) #}
-{%- set page_nav_first = page_nav_first is defined or False %}
+{%- set page_nav_first = page_nav_first is defined %}
 
 {# Twitter link ------------------------------------------------------------- #}
 
 {# inclute Twitter link in page_nav (default True) #}
-{%- set twitter_in_page_nav = twitter_in_page_nav is not defined and True or twitter_in_page_nav %}
+{%- set twitter_in_page_nav = twitter_in_page_nav is not defined or twitter_in_page_nav %}
 
 {# Twitter link text (default None) #}
 {%- set twitter_link_text = twitter_link_text is not defined and None or twitter_link_text %}}
 
 {# Twitter symbol in link (default True) #}
-{%- set twitter_symbol = twitter_symbol is not defined and True or twitter_symbol %}
+{%- set twitter_symbol = twitter_symbol is not defined or twitter_symbol %}
 
 {# RSS feed ----------------------------------------------------------------- #}
 
 {# include RSS feed link in page_nav (default True) #}
-{%- set rss_in_page_nav = rss_in_page_nav is not defined and True or rss_in_page_nav %}
+{%- set rss_in_page_nav = rss_in_page_nav is not defined or rss_in_page_nav %}
 
 {# RSS link text (default None) #}
 {%- set rss_link_text = rss_link_text is not defined and None or rss_link_text %}
 
 {# RSS symbol in link (default True) #}
-{%- set rss_symbol = rss_symbol is not defined and True or rss_symbol %}
+{%- set rss_symbol = rss_symbol is not defined or rss_symbol %}
 
 {# Timestamp format --------------------------------------------------------- #}
 

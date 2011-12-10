@@ -7,7 +7,7 @@
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, lists, metadata, rss, tags, twitter
+from tinkerer.ext import aggregator, archive, author, lists, metadata, rss, tags, twitter
 
 
 # initialize extension after builder is initialized
@@ -49,6 +49,9 @@ def html_collect_pages(app):
         yield (name, context, template)
 
     for name, context, template in aggregator.make_aggregated_pages(app):
+        yield (name, context, template)
+
+    for name, context, template in archive.make_archive(app):
         yield (name, context, template)
 
 

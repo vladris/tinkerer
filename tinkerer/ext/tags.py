@@ -2,7 +2,7 @@
     tags
     ~~~~
 
-    Extension handling post tagging.
+    Post tagging - declares tags directive and generates tag pages.
 
     :copyright: Copyright 2011 by Vlad Riscutia.
     :license: FreeBSD, see LICENSE file
