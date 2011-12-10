@@ -39,7 +39,7 @@ setup(
     description = "Sphinx-based blogging engine",
     long_description = long_desc,
     classifiers = [
-        "Development Status :: ",
+        "Development Status :: 4 - Beta",
         "Environment :: Console",
         "Environment :: Web Environment",
         "Intended Audience :: End Users/Desktop",
