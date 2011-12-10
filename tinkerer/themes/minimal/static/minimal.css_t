@@ -29,7 +29,7 @@ a:hover {
 }
 
 h1 a {
-    color: black;
+    color: black !important;
 }
 
 /* Header */
