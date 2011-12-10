@@ -28,6 +28,10 @@ a:hover {
     color: #cccccc;
 }
 
+h1 a {
+    color: black;
+}
+
 /* Header */
 div.header {
     text-align: center;
