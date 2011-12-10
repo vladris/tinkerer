@@ -7,7 +7,7 @@
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, archive, author, lists, metadata, rss, tags, twitter
+from tinkerer.ext import aggregator, archive, author, metadata, rss, tags, twitter
 
 
 # initialize extension after builder is initialized
@@ -16,7 +16,6 @@ def initialize(app):
         app.config.website += "/"
 
     metadata.initialize(app)
-    lists.initialize(app)
     tags.initialize(app)
 
 
@@ -35,7 +34,6 @@ def html_page_context(app, pagename, templatename, context, doctree):
     env = app.builder.env
 
     metadata.add_metadata(app, pagename, context)
-    lists.add_lists(app, context)
     rss.add_rss(app, context)
     twitter.add_twitter_id(app, context)
 
@@ -59,7 +57,6 @@ def html_collect_pages(app):
 def setup(app):
     app.add_config_value("tagline", "My blog", True)
     app.add_config_value("author", "Winston Smith", True)
-    app.add_config_value("lists", [], True)
     app.add_config_value("rss_service", None, True)
     app.add_config_value("twitter_id", None, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)

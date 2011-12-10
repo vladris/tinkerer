@@ -97,12 +97,6 @@ def process_metadata(app, env):
      
     env.blog_page_list = [("index", "Home")] + [(page, env.titles[page].astext()) for page in env.blog_pages]
 
-    # extract latest posts list
-    app.config.lists.insert(0, ["Latest Posts"] + 
-            # append "~" at beginning so template knows to compute relative path
-            # see tinkerbase/lists.html
-            [(env.titles[page].astext(), "~" + page) for page in env.blog_posts[:6]])
-
 
 
 # pass metadata to templating engine, store body for RSS feed
@@ -112,6 +106,8 @@ def add_metadata(app, pagename, context):
     # blog tagline and pages
     context["tagline"] = app.config.tagline
     context["pages"] = env.blog_page_list
+    context["recent"] = [(post, env.titles[post].astext()) for post 
+            in env.blog_posts[:20]]
 
     # if there is metadata for the page, it is not an auto-generated one
     if pagename in env.metadata:
