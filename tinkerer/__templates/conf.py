@@ -36,9 +36,6 @@ html_theme = "{{ theme }}"
 # Theme-specific options, see docs
 html_theme_options = { }                                  
 
-# Twitter ID
-twitter_id = None
-
 # Link to RSS service like FeedBurner if any, otherwise feed is
 # linked directly
 rss_service = None
@@ -64,7 +61,7 @@ exclude_patterns = []
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {
-    "**": ["recent.html"]
+    "**": ["recent.html", "searchbox.html"]
 }
 
 # **************************************************************
