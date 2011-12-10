@@ -35,7 +35,7 @@ div.header {
 
 div.header h1 {
     font-size: 300%;
-    margin: 6px;
+    margin: 12px;
 }
 
 div.header a {
@@ -50,6 +50,7 @@ div.header span.tagline {
 /* Page navigation */
 div.page_nav {
     background-color: black;
+    font-size: 125%;
     font-weight: bold;
     height: 2em;
     line-height: 2em;
@@ -62,7 +63,7 @@ div.page_nav a {
 
 div.page_nav ul {
     margin: 0;
-    padding: 0;
+    padding: 0 24px 0 24px;
 }
 
 div.page_nav li {

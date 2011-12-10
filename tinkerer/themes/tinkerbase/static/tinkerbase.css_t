@@ -29,7 +29,6 @@
 }
 
 /* General style ----------------------------------------------------------- */
-
 html {
     maring: 0;
     padding: 0;
@@ -63,7 +62,7 @@ div.related {
 /* Document ---------------------------------------------------------------- */
 div.document {
     margin-right: 302px;
-    padding: 24px;
+    padding: 48px;
     padding-top: 0;
 }
 
@@ -89,7 +88,7 @@ div.sphinxsidebarwrapper {
 
 div.sphinxsidebar {
     float: right;
-    padding: 24px;
+    padding-right: 48px;
     padding-top: 0;
     width: 206px;
 }
