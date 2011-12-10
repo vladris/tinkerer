@@ -24,10 +24,12 @@ def make_aggregated_pages(app):
         if i == 0:
             pagename = "index"
             context["prev"] = None
+            context["title"] = "Home"
         else:
             pagename = "page%d" % i
             context["prev"]["title"] = "Newer"
             context["prev"]["link"] = "index.html" if i == 1 else "page%d.html" % (i - 1)
+            context["title"] = "Page %d" % (i + 1)
 
         if i == len(groups) - 1:
             context["next"] = None
