@@ -50,12 +50,12 @@ def enable_count(disqus_shortname):
 
 
 
-def get_count(link, identifier, title):
+def get_count(link, identifier):
     '''
     Returns HTML required by Disqus to retrieve comment count.
     '''
     return str('<a href="%s#disqus_thread" data-disqus-identifier="%s">%s</a>' % 
-            (link, identifier, title))
+            (link, identifier, "Leave a comment"))
 
 
 
@@ -81,8 +81,8 @@ def add_disqus_block(app, pagename, templatename, context, doctree):
         env.blog_metadata[pagename].comment_count = get_count(
                 "%s%s.html" % (app.config.website,
                                 env.blog_metadata[pagename].link),
-                pagename,
-                env.blog_metadata[pagename].title)
+                pagename)
+
     # just enable comment counting on the page
     else:
         context["comment_enabler"] = enable_count(app.config.disqus_shortname)

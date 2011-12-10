@@ -156,11 +156,17 @@ div.postmeta {
 }
 
 /* Archive */
+div.archive h1 {
+    border-bottom: 1px dotted #bbbbbb;
+    margin-bottom: 48px;
+}
+
 span.title_tag, span.title_category {
     font-style: italic;
 }
 
 div.year h1 {
+    border: none;
     float: left;
     margin-right: -100%;
 }
@@ -171,9 +177,11 @@ div.year ul {
 }
 
 div.year div.timestamp {
+    color: black;
     float: left;
+    font-size: 150%;
     line-height: 1.5em;
-    margin-left: 27%;
+    margin-left: 25%;
     font-style: normal;
     font-weight: bold;
 }
