@@ -101,6 +101,10 @@ div.widget h3 {
     margin-top: 0;
 }
 
+p.searchtip {
+    visibility: hidden;
+}
+
 /* Footer ------------------------------------------------------------------ */
 div.footer {
     font-size: 80%;
