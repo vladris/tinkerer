@@ -18,8 +18,7 @@ author = 'Winston Smith'
 copyright = '1984, ' + author         
 
 # Change this to your blog root URL (required for RSS feed)
-website = 'http://127.0.0.1/blog/html'                              
-
+website = 'http://127.0.0.1/blog/html/'                              
 
 # **************************************************************
 # More tweaks you can do
@@ -63,6 +62,10 @@ html_theme_path = [tinkerer.paths.themes]
 # Add file patterns to exclude from build
 exclude_patterns = []                                     
 
+# Add templates to be rendered in sidebar here
+html_sidebars = {
+    "**": ["recent.html"]
+}
 
 # **************************************************************
 # Do not modify below lines as the values are required by 
