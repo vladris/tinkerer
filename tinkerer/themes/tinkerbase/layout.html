@@ -163,6 +163,13 @@
     {%- endif %}
 {%- endmacro %}
 
+{# Comment count #}
+{%- macro comment_count(code) %}
+    {%- if code %}
+        {{ code }}
+    {%- endif %}
+{%- endmacro %}
+
 {# Blocks ------------------------------------------------------------------- #}
 
 {%- block header %}
@@ -185,5 +192,8 @@
     {%- if show_sphinx %}
         Powered by <a href="http://bitbucket.org/vladris/tinkerer/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.
     {%- endif %}
+
+    {# Comment plug-in can initialize here #}
+    {%- if comment_enabler %}{{ comment_enabler }}{%- endif %}
     </div>
 {%- endblock %}

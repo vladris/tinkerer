@@ -16,6 +16,7 @@ __package_path = os.path.abspath(os.path.dirname(__file__))
 # absolute path to assets
 __internal_templates_abs_path = os.path.join(__package_path, "__templates")
 themes = os.path.join(__package_path, "themes")
+static = os.path.join(__package_path, "static")
 
 # set other paths based on root path
 def set_paths(root_path="."):

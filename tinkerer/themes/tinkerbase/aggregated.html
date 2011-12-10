@@ -18,6 +18,7 @@
         <div class="postmeta">
             {{ author(metadata.author) }}
             {{ tag_list(metadata.tags) }}
+            {{ comment_count(metadata.comment_count) }}
         </div>
     {%- endfor %}
     {{ tinkerer_relbar() }}

@@ -30,7 +30,7 @@ class Metadata:
         self.body = None
         self.author = None
         self.tags = []
-        self.comments = False
+        self.comments, self.comment_count = False, False
 
 
 # comments directive
