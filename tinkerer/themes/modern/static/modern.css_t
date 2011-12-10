@@ -135,6 +135,10 @@ div.admonition {
     margin-right: 48px;
 }
 
+div.highlight {
+    padding: 6px 12px;
+}
+
 /* Sidebar */
 div.sphinxsidebar {
     margin-right: -72px;
