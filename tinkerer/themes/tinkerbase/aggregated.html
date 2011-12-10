@@ -20,6 +20,7 @@
             {{ tag_list(metadata.tags) }}
             {{ comment_count(metadata.comment_count) }}
         </div>
+        {%- if not loop.last %}<div class="separator post_separator"></div>{%- endif %}
     {%- endfor %}
     {{ tinkerer_relbar() }}
 {% endblock %}

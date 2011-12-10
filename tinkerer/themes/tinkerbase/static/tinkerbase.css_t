@@ -73,7 +73,11 @@ div.document h1 {
 
 /* Metadata ---------------------------------------------------------------- */
 div.postmeta {
-    border-bottom: 2px dashed black;
+    padding-bottom: 24px;
+}
+
+/* Separators -------------------------------------------------------------- */
+div.separator {
     padding-bottom: 24px;
 }
 

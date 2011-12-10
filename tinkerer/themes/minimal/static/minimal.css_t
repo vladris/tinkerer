@@ -87,7 +87,6 @@ div.sphinxsidebar ul {
 
 /* Meta */
 div.postmeta {
-    margin-bottom: 40px;
     margin-top: 40px;
     font-style: italic;
 }
@@ -97,13 +96,14 @@ span.title_tag {
     font-style: italic;
 }
 
+div.year h1 {
+    float: left;
+    margin-right: -100%;
+}
+
 div.year ul {
     display: inline;
     list-style-type: none;
-}
-
-div.year li {
-    margin-bottom: 48px;
 }
 
 div.year div.timestamp {
@@ -122,6 +122,18 @@ div.year h2 {
 
 div.year div.postmeta {
     margin-left: 50%;
+    margin-top: 12px;
+}
+
+/* Separators */
+div.post_separator {
+    width: 100%;
+    border-top: 1px dashed black;
+}
+
+div.year_separator {
+    width: 100%;
+    border-top: 1px dashed black;
 }
 
 /* Footer */
