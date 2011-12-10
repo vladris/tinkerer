@@ -12,9 +12,12 @@
 
 {# Prev/next nav ------------------------------------------------------------ #}
 
-{# characters desplayed before/after prev/next links #}
+{# characters displayed before/after prev/next links #}
 {%- set prevchar = prevchar is not defined and ' &laquo; ' or prevchar %}
-{%- set nextchar = naxtchar is not defined and ' &raquo; ' or nextchar %}
+{%- set nextchar = nextchar is not defined and ' &raquo; ' or nextchar %}
+
+{# character displyed before and after "Blog Archive" #}
+{%- set archivechar = archivechar is not defined and ' &mdash; ' or archivechar %}
 
 {# Page nav ----------------------------------------------------------------- #}
 
@@ -51,7 +54,7 @@
                 <span>{{ shorttitle|e }}</span>
             </a>
         </h1>
-        <span class="tagline">{{ tagline }}</span>
+        <h2 class="tagline">{{ tagline }}</h2>
     </div>
 {%- endmacro %}
 
@@ -72,7 +75,6 @@
             {% for page in pages %}
             <li>
                 <a href="{{ pathto(page[0]) }}">{{ page[1] }}</a>
-                {%- if not loop.last %}{{ reldelim2 }}{%- endif %}
             </li>
             {% endfor %}
             {%- if rss_in_page_nav %}

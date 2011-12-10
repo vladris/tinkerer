@@ -1,0 +1,236 @@
+/*
+ * modern.css_t
+ * ~~~~~~~~~~~~
+ *
+ * Stylesheet for modern theme.
+ *
+ * :copyright: Copyright 2011 by Vlad Riscutia
+ * :license: FreeBSD, see LICENSE file
+ */
+
+@import url("basic.css");
+@import url("tinkerbase.css");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+
+/* General style */
+body {
+    background-color: #c0deed;
+    font-family: 'Open Sans', sans-serif;
+    font-size: .9em;
+    margin: auto;
+    padding: 0;
+}
+
+a {
+    -moz-transition: color 0.4s;
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+    color: #3a84c1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 a {
+    color: black;
+}
+
+/* Header */
+div.header {
+    background: #074e78;
+    color: white;
+    margin-bottom: 0;
+    padding-bottom: 12px;
+}
+
+div.header h1 {
+    font-size: 300%;
+    margin: 0;
+    padding: 12px 48px 0px 48px;
+    text-shadow: 0px 1px 1px #cccccc;
+}
+
+div.header a {
+    color: white;
+    text-decoration: none;
+}
+
+div.header h2 {
+    font-style: italic;
+    padding: 12px 48px;
+    margin: 0;
+}
+
+/* Page navigation */
+div.page_nav {
+    background-color: black;
+    background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
+    background: -moz-linear-gradient(top, from(#444), to(#000));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444', endColorstr='#000');
+    font-size: 125%;
+    font-weight: bold;
+    height: 2.5em;
+    line-height: 2.5em;
+    width: 100%;
+}
+
+div.page_nav a {
+    color: #dddddd;
+    text-decoration: none;
+}
+
+div.page_nav a:hover {
+    color: white;
+}
+
+div.page_nav ul {
+    margin: 0;
+    padding: 0 24px;
+}
+
+div.page_nav li {
+    display: inline;
+}
+
+div.page_nav a {
+    padding: 0 24px;
+}
+
+div.page_nav li + li {
+    border-left: 1px solid #dddddd;
+}
+
+div.page_nav li.right {
+    border: none;
+}
+
+/* Post navigation */
+div.related {
+    font-size: 100%;
+}
+
+/* Document */
+div.document {
+    background-color: #efefef;
+}
+
+div.documentwrapper {
+    background-color: #f8f8f8;
+    border-right: 1px solid #cccccc;
+    padding-bottom: 12px;
+    padding-top: 48px;
+}
+
+/* Timestamp */
+div.timestamp {
+    color: #bbbbbb;
+}
+
+/* Content */
+div.admonition {
+    background: #efefef;
+    margin-left: 48px;
+    margin-right: 48px;
+}
+
+/* Sidebar */
+div.sphinxsidebar {
+    margin-right: -72px;
+    padding-top: 48px;
+}
+
+div.sphinxsidebar ul {
+    padding-left: 0px;
+}
+
+/* Meta */
+div.postmeta {
+    color: #bbbbbb;
+    margin-top: 40px;
+}
+
+/* Archive */
+span.title_tag, span.title_category {
+    font-style: italic;
+}
+
+div.year h1 {
+    float: left;
+    margin-right: -100%;
+}
+
+div.year ul {
+    display: inline;
+    list-style-type: none;
+}
+
+div.year div.timestamp {
+    float: left;
+    line-height: 1.5em;
+    margin-left: 27%;
+    font-style: normal;
+    font-weight: bold;
+}
+
+div.year h2 {
+    margin-bottom: 0;
+    margin-left: 50%;
+    margin-top: 0;
+}
+
+div.year div.postmeta {
+    margin-left: 50%;
+    margin-top: 12px;
+}
+
+/* Separators */
+div.post_separator {
+    width: 100%;
+    border-top: 1px dotted #bbbbbb;
+}
+
+div.year_separator {
+    width: 100%;
+    border-top: 1px dotted #bbbbbb;
+}
+
+/* Archive */
+div.archive_link {
+    border-top: 1px dotted #bbbbbb;
+    font-size: 120%;
+    margin-top: 24px;
+    padding: 24px 0;
+    text-align: center;
+}
+
+/* Footer */
+div.footer {
+    background-color: black;
+    background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
+    background: -moz-linear-gradient(top, from(#444), to(#000));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444', endColorstr='#000');
+    -moz-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -o-border-bottom-left-radius: 6px;
+    -o-border-bottom-right-radius: 6px;
+    -ms-border-bottom-left-radius: 6px;
+    -ms-border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: #cccccc;
+    font-size: 90%;
+    padding: 12px 48px;
+}
+
+div.footer a {
+    color: #dddddd;
+    text-decoration: underline;
+}
+
+div.footer a:hover {
+    color: white;
+}

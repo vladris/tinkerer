@@ -34,6 +34,7 @@ h1 a {
 
 /* Header */
 div.header {
+    margin-bottom: 48px;
     text-align: center;
 }
 
@@ -46,9 +47,10 @@ div.header a {
     color: black;
 }
 
-div.header span.tagline {
+div.header h2.tagline {
     font-size: 110%;
     font-style: italic;
+    margin: 0px;
 }
 
 /* Page navigation */

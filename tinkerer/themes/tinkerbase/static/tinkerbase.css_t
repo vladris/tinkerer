@@ -49,11 +49,6 @@ div.page_nav li.right {
     float: right;
 }
 
-/* Header ------------------------------------------------------------------ */
-div.header {
-    margin-bottom: 48px;
-}
-
 /* Related ----------------------------------------------------------------- */
 div.related {
     height: 2em;
@@ -61,7 +56,11 @@ div.related {
 
 /* Document ---------------------------------------------------------------- */
 div.document {
-    margin-right: 302px;
+    padding: 0;
+    padding-right: 302px;
+}
+
+div.documentwrapper {
     padding: 0 48px;
 }
 
@@ -87,6 +86,7 @@ div.sphinxsidebarwrapper {
 
 div.sphinxsidebar {
     float: right;
+    padding-left: 48px;
     padding-right: 48px;
     padding-top: 0;
     width: 206px;
@@ -116,7 +116,7 @@ div.footer {
 {
     /* Document ------------------------------------------------------------ */
     div.document {
-        margin-right: 0;
+        padding-right: 0;
     }
 
     /* Sidebar ------------------------------------------------------------- */

@@ -1,0 +1,28 @@
+{#
+    modern/layout.html
+    ~~~~~~~~~~~~~~~~~~
+
+    Layout for Modern theme.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
+#}
+
+{% extends "tinkerbase/layout.html" %}
+
+{% block extrahead %}
+    {{ super() }}
+
+    {# Adjusts document height if sidebar is taller #}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var bodywrapper = document.getElementsByClassName("documentwrapper")[0];
+            var sidebar = document.getElementsByClassName("sphinxsidebar")[0];
+
+            if (sidebar.offsetHeight > bodywrapper.offsetHeight)
+            {
+                bodywrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+        });
+    </script>
+{% endblock %}
