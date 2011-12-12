@@ -55,7 +55,7 @@ def make_tag_pages(app):
             if post not in env.blog_tags[tag]:
                 continue
 
-            year = env.blog_metadata[post].year
+            year = env.blog_metadata[post].date.year
             if year not in context["years"]:
                 context["years"][year] = []
             context["years"][year].append(env.blog_metadata[post])

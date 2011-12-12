@@ -8,7 +8,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import re
-from datetime import date
+import datetime 
 from sphinx.util.compat import Directive
 import tinkerer
 
@@ -26,7 +26,7 @@ class Metadata:
         self.is_post = False
         self.title = None
         self.link = None
-        self.year, self.month, self.day, self.date = None, None, None, None
+        self.date = None
         self.body = None
         self.author = None
         self.tags = []
@@ -56,18 +56,16 @@ def get_metadata(app, docname):
     metadata = env.blog_metadata[docname]
 
     # posts are identified by ($YEAR)/($MONTH)/($DAY) paths
-    match = re.match(r"(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/", docname)
+    match = re.match(r"\d{4}/\d{2}/\d{2}/", docname)
 
-    # if not post
+    # if not post return
     if not match:
         return
 
     metadata.is_post = True
     metadata.link = docname
 
-    g = match.groupdict()
-    metadata.year, metadata.month, metadata.day = int(g["year"]), int(g["month"]), int(g["day"])
-    metadata.date = date(metadata.year, metadata.month, metadata.day)
+    metadata.date = datetime.datetime.strptime(match.group(), "%Y/%m/%d/")
 
 
 # process metadata after environment is ready

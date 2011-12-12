@@ -17,7 +17,7 @@ def make_archive(app):
     context["years"] = dict()
 
     for post in env.blog_posts:
-        year = env.blog_metadata[post].year
+        year = env.blog_metadata[post].date.year
         if year not in context["years"]:
             context["years"][year] = []
         context["years"][year].append(env.blog_metadata[post])
