@@ -14,9 +14,18 @@ import tinkerer.utils
 import tinkerer.writer
 
 
-# post class
+
 class Post():
+    '''
+    The class provides methods to create a new post and insert it into the 
+    master document.
+    '''
+
     def __init__(self, title, date=None):
+        '''
+        Determines post filename based on title and creates the path to the
+        post if it doesn't already exist.
+        '''
         self.title = title
 
         # get year, month and day from date
@@ -35,8 +44,11 @@ class Post():
                             self.name) + tinkerer.source_suffix
 
 
-    # write post file
+
     def write(self, content="", author="default", tags="none"):
+        '''
+        Writes the post template with given arguments.
+        '''
         tinkerer.writer.render("post.rst", self.path,
                { "title"  : self.title,
                  "content": content,
@@ -44,9 +56,12 @@ class Post():
                  "tags"   : tags})
 
 
-    # update master document by inserting new post
-    # posts are always inserted at the top of the toc so latest post is first document
+
     def update_master(self):
+        '''
+        Updates master document by inserting the new post. Posts are always 
+        inserted at the top of the toc so latest post is first document.
+        '''
         post = "   " + "/".join(
                 [self.year, self.month, self.day, self.name]) + "\n"
 
@@ -54,17 +69,21 @@ class Post():
         with open(tinkerer.paths.master_file, "r") as f:
             lines = f.readlines()
 
+        # look for 'maxdepth' option and insert line 2 lines after it
         for line_no, line in enumerate(lines):
             if "maxdepth" in line:
                 break
         lines.insert(line_no + 2, post)
 
+        # rewrite file
         with open(tinkerer.paths.master_file, "w") as f:
             f.writelines(lines)
 
 
-# creates a new post
 def create(title, date=None):
+    '''
+    Creates a new post given its title.
+    '''
     post = Post(title, date)
     post.write()
     post.update_master()

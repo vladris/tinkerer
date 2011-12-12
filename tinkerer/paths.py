@@ -10,17 +10,21 @@
 import os
 import tinkerer
 
+
 # package path
 __package_path = os.path.abspath(os.path.dirname(__file__))
+
 
 # absolute path to assets
 __internal_templates_abs_path = os.path.join(__package_path, "__templates")
 themes = os.path.join(__package_path, "themes")
 static = os.path.join(__package_path, "static")
 
-# set other paths based on root path
+
 def set_paths(root_path="."):
-    # blog paths
+    '''
+    Computes required relative paths based on given root path.
+    '''
     global root, blog, doctree, html, master_file, index_file, conf_file
     root = os.path.abspath(root_path)
     blog = os.path.join(root, "blog")
@@ -34,4 +38,5 @@ def set_paths(root_path="."):
     global themes, templates, static
 
 
+# compute paths on import
 set_paths()

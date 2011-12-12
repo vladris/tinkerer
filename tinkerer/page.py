@@ -13,9 +13,16 @@ import tinkerer.utils
 import tinkerer.writer
 
 
-# page class
 class Page():
+    '''
+    The class provides methods to create a new page and insert it into the
+    master document.
+    '''
     def __init__(self, title):
+        '''
+        Determines page filename based on title and creates the path to the
+        page if it doesn't already exist.
+        '''
         self.title = title
 
         # get post name from title
@@ -29,8 +36,11 @@ class Page():
                             self.name) + tinkerer.source_suffix
 
 
-    # write page file
+
     def write(self):
+        '''
+        Writes the page template.
+        '''
         tinkerer.writer.render("page.rst", self.path,
                 { "title": self.title })
 
@@ -38,7 +48,11 @@ class Page():
     # update master document by inserting page
     # pages are always inserted at the bottom of the toc
     def update_master(self):
-        # update toc root
+        '''
+        Updates the master document by appending the new page at the end of the 
+        file. This should become the last item in the toc, thus the last 
+        document.
+        '''
         page = "   pages/" + self.name + "\n"
 
         # append page to master file
@@ -46,8 +60,11 @@ class Page():
             f.write(page)
         
 
-# create a new page
+
 def create(title):
+    '''
+    Creates a new page given its title.
+    '''
     page = Page(title)
     page.write()
     page.update_master()

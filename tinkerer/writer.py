@@ -1,8 +1,8 @@
 '''
-    Internal writer
-    ~~~~~~~~~~~~~~~
+    writer
+    ~~~~~~
 
-    Handles template rendering and blog setup.
+    Internal template writer - handles template rendering and blog setup.
 
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENSE file
@@ -15,38 +15,56 @@ from tinkerer import paths, utils
 env = Environment(loader=PackageLoader("tinkerer", "__templates"))
 
 
-# render an internal template
+
 def render(template, destination, context={}):
+    '''
+    Renders the given template at the given destination with the given context.
+    '''
     with open(destination, "w") as f:
         f.write(env.get_template(template).render(context))
 
 
-# write master document
+
 def write_master_file():
+    '''
+    Writes the blog master document.
+    '''
     render("master.rst", paths.master_file)
 
 
-# write root index.html document
+
 def write_index_file():
+    '''
+    Writes the root index.html file.
+    '''
     render("index.html", paths.index_file)
 
 
-# default extensions for conf.py
+
+'''
+Default Tinkerer extensions.
+'''
 DEFAULT_EXTENSIONS = [
     "tinkerer.ext.blog",
     "tinkerer.ext.disqus"
 ]
 
 
-# write conf.py
+
 def write_conf_file(extensions=DEFAULT_EXTENSIONS, theme="minimal"):
+    '''
+    Writes the Sphinx configuration file.
+    '''
     render("conf.py", paths.conf_file,
            {"extensions": ", ".join(["'%s'" % ext for ext in extensions]),
             "theme": theme })
 
 
-# setup blog
+
 def setup_blog():
+    '''
+    Sets up a new blog.
+    '''
     utils.get_path(paths.root, "_static")
     write_master_file()
     write_index_file()

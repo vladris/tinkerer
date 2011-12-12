@@ -2,7 +2,7 @@
     Tinkerer Blog
     ~~~~~~~~~~~~~
 
-    The Sphinx blogging extension.
+    Blogging with Sphinx. Like a boss.
 
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENSE file
