@@ -2,7 +2,8 @@
     metadata
     ~~~~~~~~
 
-    Blog metadata extension.
+    Blog metadata extension. The extension extracts and computes metadata 
+    associated with blog posts/pages and stores it in the environment.
 
     :copyright: Copyright 2011 by Vlad Riscutia.
     :license: FreeBSD, see LICENSE file
@@ -13,15 +14,19 @@ from sphinx.util.compat import Directive
 import tinkerer
 
 
-# initialize metadata
+
 def initialize(app):
-    env = app.builder.env
+    '''
+    Initializes metadata in environment.
+    '''
+    app.builder.env.blog_metadata = dict()
 
-    env.blog_metadata = dict()
 
 
-# Metadata associated with each post/page
 class Metadata:
+    '''
+    Metadata associated with each post/page.
+    '''
     def __init__(self):
         self.is_post = False
         self.title = None
@@ -33,13 +38,20 @@ class Metadata:
         self.comments, self.comment_count = False, False
 
 
-# comments directive
+
 class CommentsDirective(Directive):
+    '''
+    Comments directive. The directive is not rendered by this extension, only
+    added to the metadata, so plug-in comment handlers can be used.
+    '''
     required_arguments = 0
     optional_arguments = 0
     has_content = False
 
     def run(self):
+        '''
+        Called when parsing the document.
+        '''
         env = self.state.document.settings.env
 
         # mark page as having comments
@@ -48,8 +60,11 @@ class CommentsDirective(Directive):
         return []
 
 
-# add metadata to environment
+
 def get_metadata(app, docname):
+    '''
+    Extracts metadata from a document.
+    '''
     env = app.builder.env
 
     env.blog_metadata[docname] = Metadata()
@@ -64,12 +79,16 @@ def get_metadata(app, docname):
 
     metadata.is_post = True
     metadata.link = docname
-
     metadata.date = datetime.datetime.strptime(match.group(), "%Y/%m/%d/")
 
 
-# process metadata after environment is ready
+
 def process_metadata(app, env):
+    '''
+    Processes metadata after all sources are read - the function determines 
+    post and page ordering, stores doc titles and adds "Home" link to page
+    list.
+    '''
     # get ordered lists of posts and pages
     env.blog_posts, env.blog_pages = [], []
     relations = env.collect_relations()
@@ -97,13 +116,17 @@ def process_metadata(app, env):
 
 
 
-# pass metadata to templating engine, store body for RSS feed
 def add_metadata(app, pagename, context):
+    '''
+    Passes metadata to the templating engine.
+    '''
     env = app.builder.env
 
     # blog tagline and pages
     context["tagline"] = app.config.tagline
     context["pages"] = env.blog_page_list
+
+    # recent posts
     context["recent"] = [(post, env.titles[post].astext()) for post 
             in env.blog_posts[:20]]
 

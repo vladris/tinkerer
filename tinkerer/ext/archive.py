@@ -7,8 +7,13 @@
     :copyright: Copyright 2011 by Vlad Riscutia.
     :license: FreeBSD, see LICENSE file
 '''
-# generate archvie page
+
+
+
 def make_archive(app):
+    '''
+    Generates archive page.
+    '''
     env = app.builder.env
 
     context = {

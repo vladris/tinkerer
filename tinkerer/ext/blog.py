@@ -10,35 +10,50 @@
 from tinkerer.ext import aggregator, archive, author, metadata, rss, tags
 
 
-# initialize extension after builder is initialized
+
 def initialize(app):
+    '''
+    Initializes extension after environment is initialized.
+    '''
+    # ensure website config value ends with "/"
     if not app.config.website[-1] == "/":
         app.config.website += "/"
 
+    # initialize other components
     metadata.initialize(app)
     tags.initialize(app)
 
 
-# called after source is read
+
 def source_read(app, docname, source):
+    '''
+    Processes document after source is read.
+    '''
     metadata.get_metadata(app, docname)
 
 
-# called after environment is updated
+
 def env_updated(app, env):
+    '''
+    Processes data after environment is updated (all docs are read).
+    '''
     metadata.process_metadata(app, env)
 
 
-# called before pages are rendered
-def html_page_context(app, pagename, templatename, context, doctree):
-    env = app.builder.env
 
+def html_page_context(app, pagename, templatename, context, doctree):
+    '''
+    Passes data to templating engine.
+    '''
     metadata.add_metadata(app, pagename, context)
     rss.add_rss(app, context)
 
 
-# generate additional pages
+
 def html_collect_pages(app):
+    '''
+    Generates additional pages.
+    '''
     for name, context, template in rss.generate_feed(app):
         yield (name, context, template)
 
@@ -52,17 +67,23 @@ def html_collect_pages(app):
         yield (name, context, template)
 
 
-# setup extensions
+
 def setup(app):
+    '''
+    Sets up the extension.
+    '''
+    # new config values
     app.add_config_value("tagline", "My blog", True)
     app.add_config_value("author", "Winston Smith", True)
     app.add_config_value("rss_service", None, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
 
+    # new directives
     app.add_directive("author", author.AuthorDirective)
     app.add_directive("comments", metadata.CommentsDirective)
     app.add_directive("tags", tags.TagsDirective)
 
+    # event handlers
     app.connect("builder-inited", initialize)
     app.connect("source-read", source_read)
     app.connect("env-updated", env_updated)

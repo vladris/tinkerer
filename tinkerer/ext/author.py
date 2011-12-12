@@ -11,13 +11,20 @@ from sphinx.util.compat import Directive
 import tinkerer.utils
 
 
-# author directive
+
 class AuthorDirective(Directive):
+    '''
+    Author directive. The directive is not rendered, just stored in the 
+    metadata and passed to the templating engine.
+    '''
     required_arguments = 0
     optional_arguments = 100
     has_content = False
 
     def run(self):
+        '''
+        Called when parsing the document.
+        '''
         env = self.state.document.settings.env
 
         # store author in metadata
