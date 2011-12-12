@@ -22,7 +22,7 @@ class TestCmdLine(utils.BaseTinkererTest):
         # blog is setup as part of test setup, tear it down and re-create it via 
         # cmdline
         self.tearDown()
-        cmdline.main(["--setup"])
+        cmdline.main(["--setup", "--quiet"])
 
         self.assertEqual(
             set(os.listdir(utils.TEST_ROOT)),
@@ -31,7 +31,7 @@ class TestCmdLine(utils.BaseTinkererTest):
 
     # test post
     def test_post(self):
-        cmdline.main(["--post", "My Test Post"])
+        cmdline.main(["--post", "My Test Post", "--quiet"])
 
         # this might fail at midnight :P
         year, month, day = tinkerer.utils.split_date()
@@ -44,7 +44,7 @@ class TestCmdLine(utils.BaseTinkererTest):
 
     # test page
     def test_page(self):
-        cmdline.main(["--page", "My Test Page"])
+        cmdline.main(["--page", "My Test Page", "--quiet"])
 
         file_path = os.path.join(utils.TEST_ROOT, "pages", "my_test_page.rst")
 
