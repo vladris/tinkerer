@@ -26,6 +26,11 @@ def write_master_file():
     render("master.rst", paths.master_file)
 
 
+# write root index.html document
+def write_index_file():
+    render("index.html", paths.index_file)
+
+
 # default extensions for conf.py
 DEFAULT_EXTENSIONS = [
     "tinkerer.ext.blog",
@@ -44,5 +49,6 @@ def write_conf_file(extensions=DEFAULT_EXTENSIONS, theme="minimal"):
 def setup_blog():
     utils.get_path(paths.root, "_static")
     write_master_file()
+    write_index_file()
     write_conf_file()
     

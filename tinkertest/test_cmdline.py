@@ -24,9 +24,9 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.tearDown()
         cmdline.main(["--setup"])
 
-        for item in os.listdir(utils.TEST_ROOT):
-            self.assertIn(item, 
-                ["_static", "conf.py", tinkerer.master_doc + ".rst"])
+        self.assertEqual(
+            set(os.listdir(utils.TEST_ROOT)),
+            {"_static", "conf.py", "index.html", tinkerer.master_doc + ".rst"})
 
 
     # test post

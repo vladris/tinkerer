@@ -21,12 +21,13 @@ static = os.path.join(__package_path, "static")
 # set other paths based on root path
 def set_paths(root_path="."):
     # blog paths
-    global root, blog, doctree, html, master_file, conf_file
+    global root, blog, doctree, html, master_file, index_file, conf_file
     root = os.path.abspath(root_path)
     blog = os.path.join(root, "blog")
     doctree = os.path.join(blog, "doctrees")
     html = os.path.join(blog, "html")
     master_file = os.path.join(root, tinkerer.master_doc + tinkerer.source_suffix)
+    index_file = os.path.join(root, "index.html")
     conf_file = os.path.join(root, "conf.py")
 
     # relative path to assets required by conf.py
