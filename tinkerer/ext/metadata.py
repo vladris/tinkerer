@@ -110,7 +110,7 @@ def add_metadata(app, pagename, context):
             in env.blog_posts[:20]]
 
     # if there is metadata for the page, it is not an auto-generated one
-    if pagename in env.metadata:
+    if pagename in env.blog_metadata:
         context["metadata"] = env.blog_metadata[pagename]
 
         # if this is a post
