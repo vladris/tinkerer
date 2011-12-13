@@ -7,7 +7,7 @@
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, archive, author, metadata, rss 
+from tinkerer.ext import aggregator, author, filing, metadata, rss 
 
 
 
@@ -21,7 +21,7 @@ def initialize(app):
 
     # initialize other components
     metadata.initialize(app)
-    archive.initialize(app)
+    filing.initialize(app)
 
 
 
@@ -57,13 +57,16 @@ def html_collect_pages(app):
     for name, context, template in rss.generate_feed(app):
         yield (name, context, template)
 
-    for name, context, template in archive.make_tag_pages(app):
+    for name, context, template in filing.make_tag_pages(app):
+        yield (name, context, template)
+
+    for name, context, template in filing.make_category_pages(app):
         yield (name, context, template)
 
     for name, context, template in aggregator.make_aggregated_pages(app):
         yield (name, context, template)
 
-    for name, context, template in archive.make_archive(app):
+    for name, context, template in filing.make_archive(app):
         yield (name, context, template)
 
 
@@ -81,7 +84,10 @@ def setup(app):
     # new directives
     app.add_directive("author", author.AuthorDirective)
     app.add_directive("comments", metadata.CommentsDirective)
-    app.add_directive("tags", archive.create_filing_directive("tags"))
+    app.add_directive("tags", 
+            filing.create_filing_directive("tags"))
+    app.add_directive("categories", 
+            filing.create_filing_directive("categories"))
 
     # event handlers
     app.connect("builder-inited", initialize)

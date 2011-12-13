@@ -122,6 +122,21 @@
     {%- endif %}
 {%- endmacro %}
 
+{# Categories #}
+{%- macro category_list(post_categories) %}
+    {%- if post_categories %}
+        <div class="categories">
+            <span>
+                Filed under:
+                {% for link, category in post_categories %}
+                    <a href="{{ pathto('categories/' + link + '.html', 1) }}">{{ category }}</a>
+                    {%- if not loop.last %}, {%- endif %}
+                {% endfor %}
+            </span>
+        </div>
+    {%- endif %}
+{%- endmacro %}    
+
 {# Tags #}
 {%- macro tag_list(post_tags) %}
     {%- if post_tags %}
@@ -144,6 +159,16 @@
             {{ code }}
         </div>
     {%- endif %}
+{%- endmacro %}
+
+{# Post metadata #}
+{%- macro post_meta(metadata, comment_count_code=None) %}
+    <div class="postmeta">
+        {{ author(metadata.author) }}
+        {{ category_list(metadata.filing["categories"]) }}
+        {{ tag_list(metadata.filing["tags"]) }}
+        {{ comment_count(comment_count_code) }}
+    </div>
 {%- endmacro %}
 
 {# Blocks ------------------------------------------------------------------- #}

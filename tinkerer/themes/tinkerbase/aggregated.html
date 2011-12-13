@@ -17,11 +17,7 @@
     {%- for metadata in posts %}
         {{ timestamp(metadata.date, timestamp_format) }}
         {{ metadata.body }}
-        <div class="postmeta">
-            {{ author(metadata.author) }}
-            {{ tag_list(metadata.filing["tags"]) }}
-            {{ comment_count(metadata.comment_count) }}
-        </div>
+        {{ post_meta(metadata, metadata.comment_count) }}
         {%- if not loop.last %}<div class="separator post_separator"></div>{%- endif %}
     {%- endfor %}
     {{ tinkerer_relbar() }}

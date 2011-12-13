@@ -1,8 +1,8 @@
 '''
-    archive
-    ~~~~~~~
+    filing
+    ~~~~~~
 
-    Archive generator - groups posts by date and tags.
+    Handles post filing by date, caregories and tags.
 
     :copyright: Copyright 2011 by Vlad Riscutia.
     :license: FreeBSD, see LICENSE file
@@ -47,9 +47,9 @@ def create_filing_directive(name):
 
 def initialize(app):
     '''
-    Initializes tags.
+    Initializes tags and categories.
     '''
-    app.builder.env.filing = { "tags": dict() }
+    app.builder.env.filing = { "tags": dict(), "categories": dict() }
 
 
 
@@ -89,3 +89,17 @@ def make_tag_pages(app):
                 'Posts tagged with <span class="title_tag">%s</span>' % tag,
                 "tags/" + utils.filename_from_title(tag),
                 lambda post: post in env.filing["tags"][tag])
+
+
+
+def make_category_pages(app):
+    '''
+    Generates archive pages for each category.
+    '''
+    env = app.builder.env
+    for category in env.filing["categories"]:
+        yield make_archive_page(env,
+                'Filed under <span class="title_category">%s</span>' % category,
+                "categories/" + utils.filename_from_title(category),
+                lambda post: post in env.filing["categories"][category])
+

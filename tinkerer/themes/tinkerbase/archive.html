@@ -21,11 +21,7 @@
                 <li>
                     {{ timestamp(metadata.date, timestamp_short_format) }}
                     <h2><a href="{{ pathto(metadata.link) }}">{{ metadata.title }}</a></h2>
-                    <div class="postmeta">
-                        {{ author(metadata.author) }}
-                        {{ tag_list(metadata.filing["tags"]) }}
-                        {{ comment_count(metadata.comment_count) }} 
-                    </div>
+                    {{ post_meta(metadata, metadata.comment_count) }}
                 </li>
                 {%- if not loop.last %}<div class="separator summary_separator"></div>{%- endif %}
                 {%- endfor %}

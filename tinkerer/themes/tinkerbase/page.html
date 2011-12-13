@@ -14,9 +14,5 @@
     {{ tinkerer_relbar() }}
     {{ timestamp(metadata.date, timestamp_format) }}
     {{ body }}
-    <div class="postmeta">
-        {{ author(metadata.author) }}
-        {{ tag_list(metadata.filing["tags"]) }}
-    </div>
-    {{ comments }}
+    {{ post_meta(metadata) }}
 {% endblock %}
