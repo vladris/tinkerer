@@ -97,7 +97,7 @@ div.postmeta {
 }
 
 /* Archive */
-span.title_tag {
+span.title_tag, span.title_category {
     font-style: italic;
 }
 
