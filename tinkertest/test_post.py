@@ -89,11 +89,13 @@ class TestPost(utils.BaseTinkererTest):
                      "\n",
                      "\n",
                      ".. author:: default\n",
+                     ".. categories:: none\n",
                      ".. tags:: none\n",
                      ".. comments::\n"])
 
         # update post
-        new_post.write(author="Mr. Py", tags="tag 1, tag 2", content="Lorem ipsum")
+        new_post.write(author="Mr. Py", categories="category 1, category 2", 
+                tags="tag 1, tag 2", content="Lorem ipsum")
 
         with open(new_post.path) as f:
             self.assertEquals(f.readlines(),
@@ -103,6 +105,7 @@ class TestPost(utils.BaseTinkererTest):
                      "Lorem ipsum\n",
                      "\n",
                      ".. author:: Mr. Py\n",
+                     ".. categories:: category 1, category 2\n",
                      ".. tags:: tag 1, tag 2\n",
                      ".. comments::\n"])
 

@@ -45,15 +45,17 @@ class Post():
 
 
 
-    def write(self, content="", author="default", tags="none"):
+    def write(self, content="", author="default", 
+            categories="none", tags="none"):
         '''
         Writes the post template with given arguments.
         '''
         tinkerer.writer.render("post.rst", self.path,
-               { "title"  : self.title,
-                 "content": content,
-                 "author" : author,
-                 "tags"   : tags})
+               { "title"     : self.title,
+                 "content"   : content,
+                 "author"    : author,
+                 "categories": categories,
+                 "tags"      : tags})
 
 
 
