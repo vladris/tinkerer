@@ -31,7 +31,7 @@ class TestTags(utils.BaseTinkererTest):
 
 # test tags through extension
 def build_finished(app, exception):
-    blog_tags = app.builder.env.blog_tags
+    blog_tags = app.builder.env.filing["tags"]
 
     # check collected tags
     utils.test.assertEquals({"tag #1", "tag #2"}, set(blog_tags))
@@ -45,7 +45,8 @@ def build_finished(app, exception):
     for result in [([("tag__1", "tag #1")], "2010/10/01/post1"),
                    ([("tag__2", "tag #2")], "2010/10/01/post2"),
                    ([("tag__1", "tag #1"), ("tag__2", "tag #2")], "2010/10/01/post12")]:
-        utils.test.assertEquals(result[0], app.builder.env.blog_metadata[result[1]].tags)
+        utils.test.assertEquals(result[0], 
+                app.builder.env.blog_metadata[result[1]].filing["tags"])
 
     # check tag pages were generated
     for page in ["tag__1.html", "tag__2.html"]:
