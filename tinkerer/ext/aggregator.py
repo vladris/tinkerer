@@ -24,11 +24,16 @@ def make_aggregated_pages(app):
         # initialize context
         context = { 
             "prev": {},
-            "next": {}
+            "next": {},
+            "posts": []
         }
 
         # add posts to context
-        context["posts"] = [env.blog_metadata[post] for post in posts]
+        for post in posts:
+            context["posts"].append(env.blog_metadata[post])
+
+            # hyperlink title
+            context["posts"][-1].body = context["posts"][-1].hyperlink_title(post)
 
         # handle navigation
         if i == 0:

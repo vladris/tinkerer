@@ -28,6 +28,9 @@ class Metadata:
     Metadata associated with each post/page.
     '''
     def __init__(self):
+        '''
+        Initializes metadata with default values.
+        '''
         self.is_post = False
         self.title = None
         self.link = None
@@ -38,6 +41,17 @@ class Metadata:
         self.comments, self.comment_count = False, False
 
 
+    def hyperlink_title(self, pagename):
+        '''
+        Returns the stored body with hyperlinked title.
+        '''
+        return self.body.replace(
+            self.title, 
+            '<a href="%s.html">%s</a>' %
+                (pagename, self.title),
+            1)
+
+               
 
 class CommentsDirective(Directive):
     '''
@@ -136,12 +150,8 @@ def add_metadata(app, pagename, context):
 
         # if this is a post
         if pagename in env.blog_posts:
-            # save body and inject hyperlink in title
-            env.blog_metadata[pagename].body = context["body"].replace(
-                        env.blog_metadata[pagename].title,
-                        '<a href="%s.html">%s</a>' % 
-                                (pagename, env.blog_metadata[pagename].title),
-                        1)
+            # save body
+            env.blog_metadata[pagename].body = context["body"]
 
             # no prev link if first post, no next link for last post
             if pagename == env.blog_posts[0]:
