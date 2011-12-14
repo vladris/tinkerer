@@ -68,7 +68,7 @@ div.page_nav {
     background-color: black;
     background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
     background: -moz-linear-gradient(top, from(#444), to(#000));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444', endColorstr='#000');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444', endColorstr='#000');
     font-size: 125%;
     font-weight: bold;
     height: 2.5em;
@@ -226,7 +226,7 @@ div.footer {
     background-color: black;
     background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#000));
     background: -moz-linear-gradient(top, from(#444), to(#000));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444', endColorstr='#000');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444', endColorstr='#000');
     -moz-border-radius-bottomleft: 6px;
     -moz-border-radius-bottomright: 6px;
     -webkit-border-bottom-left-radius: 6px;
