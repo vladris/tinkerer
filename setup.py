@@ -48,7 +48,7 @@ setup(
         "Programming Language :: Python",
         "Topic :: Communications",
         "Topic :: Internet"
-    ]
+    ],
     platforms = "any",
     packages = find_packages(exclude=["tinkertest"]),
     include_package_data = True,
