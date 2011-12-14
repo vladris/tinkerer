@@ -145,7 +145,7 @@ tt.literal {
 
 /* Sidebar */
 div.sphinxsidebar {
-    margin-right: -72px;
+    margin-left: -100%;
     padding-top: 48px;
 }
 
