@@ -116,7 +116,7 @@ directory root, call::
     tinker --page 'About'
     
 Tinkerer will let you know where the file was created (path is under ``/pages``
-and filename is normalize).    
+and filename is normalized).    
 
 .. highlight:: rst
 
