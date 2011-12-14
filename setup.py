@@ -31,7 +31,7 @@ requires = ["Jinja2>=2.3", "Sphinx>=1.1", "argparse>=1.2"]
 setup(
     name = "Tinkerer",
     version = tinkerer.__version__,
-    url = "http://tinkerer.org/",
+    url = "http://tinkerer.me/",
     download_url = "http://pypi.python.org/pypi/Tinkerer",
     license = "FreeBSD",
     author = "Vlad Riscutia",

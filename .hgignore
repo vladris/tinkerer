@@ -5,4 +5,5 @@ syntax: glob
 *.swp
 *.egg
 *.egg-info/*
+blog/blog/*
 build/*
