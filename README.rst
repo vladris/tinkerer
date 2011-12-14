@@ -24,8 +24,6 @@ Why Tinkerer?
 How to Tinker?
 --------------
 
-.. highlight:: bash
-
 Get Tinkerer::
 
     easy_install -U Tinkerer
