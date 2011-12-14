@@ -49,6 +49,10 @@ div.page_nav li.right {
     float: right;
 }
 
+div.rss {
+    display: inline;
+}
+
 /* Related ----------------------------------------------------------------- */
 div.related {
     height: 2em;
