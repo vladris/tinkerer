@@ -7,7 +7,7 @@
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENSE file
 '''
-__version__ = "0.1.1b"
+__version__ = "0.1.2b"
 
 master_doc = "master"
 source_suffix = ".rst"
