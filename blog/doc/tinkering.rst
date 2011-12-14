@@ -1,6 +1,26 @@
 Tinkering
 =========
 
+Overview
+--------
+
+Tinkerer is using `Sphinx <http://sphinx.pocoo.org/>`_ to generate your blog. 
+The ``conf.py`` file is a Sphinx project configuration file extended with 
+Tinkerer settings. Similarly, the directories (``_static``, ``_templates``
+etc.) and the master document (``master.rst``) are part of a standard Sphinx
+project.
+
+The logic to extract the post metadata and build the blog pages is implemented
+as a Sphinx extension (``tinkerer.ext.blog``). Since your blog is in fact a
+Sphinx project, all tinkering enabled by Sphinx will work on your blog too.
+
+The Tinkerer command line is just facilitating authoring and build - for 
+example creating a new post requires creating a path for the current date as
+``$(YEAR)/$(MONTH)/$(DAY)``, creating the post file, populating the file with
+the Tinkerer directives and inserting it in the master document. Tinkerer
+command line takes care of all of these steps. For build, the destination
+directory is cleaned up and Sphinx build is invoked.
+
 Enabling Disqus Comments
 ------------------------
 
@@ -19,10 +39,10 @@ Enabling Google Analytics
 .. highlight:: html
 
 To enable `Google Analytics <http://google.com/analytics>`_ for your blog, 
-setup your Google Analytics account. You will be provided a JS script file.
-Add the JS file to your blog's ``_static`` directory as ``googl_analytics.js``
-and create a new ``page.html`` file under your blog's ``_templates`` 
-directory with the following content::
+setup your Google Analytics account. You will be provided some JS  code.
+Add the JS code to a file in your blog's ``_static`` directory as 
+``googl_analytics.js`` and create a new ``page.html`` file under your blog's 
+``_templates`` directory with the following content::
 
    {% extends "!page.html" %}
 
@@ -53,9 +73,10 @@ of your icon file (path is not required, only filename).
 Theming
 -------
 
-Tinkerer comes with three themes: *modern* - the default theme, and *minimal* -
-a minimalist black and white theme and a base *tinkerbase* theme from which the
-others inherit. Due to the inherent differences between documentation and blogs, 
+Tinkerer comes with three themes: *modern* - the default theme, *minimal* - a
+minimalist black and white theme and a base *tinkerbase* theme from which the
+others inherit. *Tinkerbase* is not styled, rather it implements the basic
+layout. Due to the inherent differences between documentation and blogs, 
 Sphinx themes are not fully compatible with Tinkerer.
 
 To tinker with the look of your blog, you have two options:
@@ -77,9 +98,9 @@ More information on extending templates can be found
 Create your own theme
 ~~~~~~~~~~~~~~~~~~~~~
 
-Tinkerer themes should inherit from the *tinkerbase* theme. The theme 
-provides minimal styling and mostly handles layout. For more information on
-creating themes see `Creating themes <http://sphinx.pocoo.org/theming.html#creating-themes>`_.
+Tinkerer themes should inherit from the *tinkerbase* theme. For more information 
+on creating themes see 
+`Creating themes <http://sphinx.pocoo.org/theming.html#creating-themes>`_.
 
 Extensions
 ----------
