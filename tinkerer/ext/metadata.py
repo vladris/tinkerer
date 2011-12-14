@@ -46,8 +46,8 @@ class Metadata:
         Returns the stored body with hyperlinked title.
         '''
         return self.body.replace(
-            self.title, 
-            '<a href="%s.html">%s</a>' %
+            self.title + "</h1>", 
+            '<a href="%s.html">%s</h1></a>' %
                 (pagename, self.title),
             1)
 
