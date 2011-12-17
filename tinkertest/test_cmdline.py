@@ -10,7 +10,7 @@
 import datetime
 import os
 import tinkerer
-from tinkerer import cmdline, post
+from tinkerer import cmdline, paths, post
 import unittest
 import utils
 
@@ -63,4 +63,23 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.assertTrue(os.path.exists(                
             os.path.join(utils.TEST_ROOT, "blog", "html", "2010", 
                          "10", "01", "my_post.html")))
+
+    # ensure tinkerer only runs from blog root (dir containing conf.py) except
+    # when running setup
+    def test_root_only(self):
+        # remove "conf.py" created by test setup
+        os.remove(os.path.join(paths.root, "conf.py"))
+
+        self.assertNotEqual(0, 
+                cmdline.main(["--page", "Test Post", "--quiet"]))
+
+        self.assertNotEqual(0, 
+                cmdline.main(["--post", "Test Page", "--quiet"]))
+
+        self.assertNotEqual(0,
+                cmdline.main(["--build", "--quiet"]))
+
+        # setup should work fine from anywhere
+        self.assertEqual(0,
+                cmdline.main(["--setup", "--quiet"]))
 

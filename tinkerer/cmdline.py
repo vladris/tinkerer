@@ -33,10 +33,8 @@ def setup(quiet=False, filename_only=False):
     if filename_only:
         print("conf.py")
     elif not quiet:
-        print("")
         print("Your new blog is almost ready!")
         print("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
-        print("")
 
 
 
@@ -70,11 +68,9 @@ def create_post(title, quiet=False, filename_only=False):
     if filename_only:
         print(new_post.path)
     elif not quiet:
-        print("")
         print("New post titled '%s' created as '%s'" % 
                 (new_post.title, new_post.path))
-        print("")
-    
+
 
  
 def create_page(title, quiet=False, filename_only=False):
@@ -109,10 +105,19 @@ def main(argv=None):
             help="output filename only - useful to pipe Tinkerer commands") 
 
     command = parser.parse_args(argv)
+
+    # tinkerer should be run from the blog root unless in setup mode
+    if not command.setup and not os.path.exists(
+                os.path.join(paths.root, "./conf.py")):
+        print("Tinkerer must be run from your blog root "
+              "(directory containing 'conf.py')")
+        return -1
+    
+
     if command.setup:
         setup(command.quiet, command.filename)
     elif command.build:
-        build(command.quiet, command.filename)
+        return build(command.quiet, command.filename)
     elif command.post:
         create_post(command.post[0], command.quiet, command.filename)
     elif command.page:
@@ -120,3 +125,4 @@ def main(argv=None):
     else:
         parser.print_help()
 
+    return 0
