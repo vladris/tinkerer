@@ -7,6 +7,8 @@
     :copyright: Copyright 2011 by Vlad Riscutia.
     :license: FreeBSD, see LICENSE file
 '''
+import copy
+from tinkerer.ext import patch
 
 
 
@@ -30,7 +32,10 @@ def make_aggregated_pages(app):
 
         # add posts to context
         for post in posts:
-            context["posts"].append(env.blog_metadata[post])
+            # deepcopy metadata and patch links
+            metadata = copy.deepcopy(env.blog_metadata[post])
+            metadata.body = patch.patch_links(metadata.body, post[:11])
+            context["posts"].append(metadata)
 
             # hyperlink title
             context["posts"][-1].body = context["posts"][-1].hyperlink_title(post)

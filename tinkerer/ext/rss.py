@@ -7,18 +7,25 @@
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENSE file
 '''
-import time
 import cgi
 import email.utils
+import time
+from tinkerer.ext import patch
 
 
-# add rss service link to page context 
+
 def add_rss(app, context):
+    '''
+    Adds RSS service link to page context.
+    '''
     context["rss_service"] = app.config.rss_service
 
 
-# generate RSS feed
+
 def generate_feed(app):
+    '''
+    Generates RSS feed
+    '''
     env = app.builder.env
  
     # don't do anything if no posts are available
@@ -39,7 +46,9 @@ def generate_feed(app):
         context["items"].append({
                     "title": env.titles[post].astext(),
                     "link": link,
-                    "description": env.blog_metadata[post].body,
+                    "description": patch.patch_links(
+                            env.blog_metadata[post].body, 
+                            app.config.website + post[:11]),
                     "pubDate": timestamp
                 })
 
