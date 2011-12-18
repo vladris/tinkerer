@@ -40,17 +40,6 @@ class Metadata:
         self.filing = { "tags": [], "categories": [] }
         self.comments, self.comment_count = False, False
 
-
-    def hyperlink_title(self, pagename):
-        '''
-        Returns the stored body with hyperlinked title.
-        '''
-        return self.body.replace(
-            self.title + "</h1>", 
-            '<a href="%s.html">%s</h1></a>' %
-                (pagename, self.title),
-            1)
-
                
 
 class CommentsDirective(Directive):

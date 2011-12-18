@@ -13,14 +13,28 @@ import xml.dom.minidom
 
 
 
-def patch_links(body, docpath):
+def patch_links(body, docpath, docname=None, link_title=False):
     '''
-    Parses the document body and calls patch_node for the document root. 
-    Returns resulting XML as string.
+    Parses the document body and calls patch_node from the document root
+    to fix hyperlinks. Also hyperlinks document title. Returns resulting 
+    XML as string.
     '''
     doc = xml.dom.minidom.parseString(body)
+
     patch_node(doc, docpath)
-    return doc.toxml()
+
+    if link_title:
+        return hyperlink_title(doc.toxml(), docpath, docname)
+    else:
+        return doc.toxml()
+
+
+
+def hyperlink_title(body, docpath, docname):
+    body = body.replace("<h1>", '<a href="%s.html"><h1>' % 
+            (docpath + docname), 1)
+    body = body.replace("</h1>", "</h1></a>", 1)
+    return body
 
 
 

@@ -34,11 +34,13 @@ def make_aggregated_pages(app):
         for post in posts:
             # deepcopy metadata and patch links
             metadata = copy.deepcopy(env.blog_metadata[post])
-            metadata.body = patch.patch_links(metadata.body, post[:11])
+            metadata.body = patch.patch_links(
+                    metadata.body, 
+                    post[:11], # first 11 characters is path (YYYY/MM/DD/)
+                    post[11:], # following characters represent filename
+                    True)      # hyperlink title to post
             context["posts"].append(metadata)
 
-            # hyperlink title
-            context["posts"][-1].body = context["posts"][-1].hyperlink_title(post)
 
         # handle navigation
         if i == 0:
