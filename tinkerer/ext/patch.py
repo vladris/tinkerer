@@ -39,7 +39,8 @@ def patch_node(node, docpath):
     # if node is hyperlink            
     elif node_name == "a":
         # if internal hyperlink
-        if "internal" in node.attributes["class"].value:
+        if ("class" in node.attributes and 
+            "internal" in node.attributes["class"].value):
             ref = node.attributes["href"]
             ref.value = docpath + ref.value
 
