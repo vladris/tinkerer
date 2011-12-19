@@ -62,7 +62,7 @@ def build(quiet=False, filename_only=False):
 
 def create_post(title, quiet=False, filename_only=False):
     '''
-    Creates a new post with the given title or moves an existing post.
+    Creates a new post with the given title or makes an existing file a post.
     '''
     if os.path.exists(title):
         new_post = post.move(title)
@@ -72,14 +72,13 @@ def create_post(title, quiet=False, filename_only=False):
     if filename_only:
         print(new_post.path)
     elif not quiet:
-        print("New post created as '%s'" % 
-                (new_post.title, new_post.path))
+        print("New post created as '%s'" % new_post.path)
 
 
  
 def create_page(title, quiet=False, filename_only=False):
     '''
-    Creates a new page with the given title.
+    Creates a new page with the given title or makes an existing file a page.
     '''
     if os.path.exists(title):
         new_page = page.move(title)
@@ -89,8 +88,20 @@ def create_page(title, quiet=False, filename_only=False):
     if filename_only:
         print(new_page.path)
     elif not quiet:
-        print("New page created as '%s'" %
-                (new_page.title, new_page.path))
+        print("New page created as '%s'" % new_page.path)
+
+
+
+def create_draft(title, quiet=False, filename_only=False):
+    '''
+    Creates a new draft with the given title.
+    '''
+    new_draft = post.create_draft(title)
+
+    if filename_only:
+        print(new_draft)
+    elif not quiet:
+        print("New draft created as '%s'" % new_draft)
 
 
 
@@ -108,6 +119,8 @@ def main(argv=None):
     group.add_argument("--page", nargs=1, 
             help="create a new page with the title PAGE (if a file named PAGE "
                  "exists, it is moved to a new page instead)")
+    group.add_argument("-d", "--draft", nargs=1,
+            help="creates a new draft with the title DRAFT")
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")
@@ -132,6 +145,8 @@ def main(argv=None):
         create_post(command.post[0], command.quiet, command.filename)
     elif command.page:
         create_page(command.page[0], command.quiet, command.filename)
+    elif command.draft:
+        create_draft(command.draft[0], command.quiet, command.filename)
     else:
         parser.print_help()
 

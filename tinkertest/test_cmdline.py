@@ -97,6 +97,17 @@ class TestCmdLine(utils.BaseTinkererTest):
             self.assertEquals("Content", f.read())
 
 
+    # test draft
+    def test_draft(self):
+        cmdline.main(["--draft", "My Draft", "--quiet"])
+
+        file_path = os.path.join(utils.TEST_ROOT, "drafts", "my_draft.rst")
+
+        # assert draft was created
+        self.assertTrue(os.path.exists(file_path))
+
+
+
     # test build
     def test_build(self):
         # create a new post
