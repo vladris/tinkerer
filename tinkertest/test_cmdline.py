@@ -35,8 +35,8 @@ class TestCmdLine(utils.BaseTinkererTest):
             })
 
 
-    # test post
-    def test_post(self):
+    # test post from title
+    def test_post_from_title(self):
         cmdline.main(["--post", "My Test Post", "--quiet"])
 
         # this might fail at midnight :P
@@ -48,14 +48,53 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.assertTrue(os.path.exists(file_path))
 
 
-    # test page
-    def test_page(self):
+    # test post from existing file
+    def test_post_from_path(self):
+        # create file
+        draft_file = os.path.join(utils.TEST_ROOT, "drafts", "draft_post.rst")
+        
+        with open(draft_file, "w") as f:
+            f.write("Content")
+
+        cmdline.main(["--post", draft_file, "--quiet"])
+
+        # this might also fail at midnight :P
+        year, month, day = tinkerer.utils.split_date()
+
+        file_path = os.path.join(utils.TEST_ROOT, year, month, day, "draft_post.rst")
+
+        # assert file exists and check content
+        self.assertTrue(os.path.exists(file_path))
+        with open(file_path, "r") as f:
+            self.assertEquals("Content", f.read())
+
+
+    # test page from title
+    def test_page_from_title(self):
         cmdline.main(["--page", "My Test Page", "--quiet"])
 
         file_path = os.path.join(utils.TEST_ROOT, "pages", "my_test_page.rst")
 
         # assert file exsits
         self.assertTrue(os.path.exists(file_path))
+
+
+    # test page from existing file
+    def test_post_from_path(self):
+        # create file
+        draft_file = os.path.join(utils.TEST_ROOT, "drafts", "draft_page.rst")
+        
+        with open(draft_file, "w") as f:
+            f.write("Content")
+
+        cmdline.main(["--page", draft_file, "--quiet"])
+
+        file_path = os.path.join(utils.TEST_ROOT, "pages", "draft_page.rst")
+
+        # assert file exists and check content
+        self.assertTrue(os.path.exists(file_path))
+        with open(file_path, "r") as f:
+            self.assertEquals("Content", f.read())
 
 
     # test build

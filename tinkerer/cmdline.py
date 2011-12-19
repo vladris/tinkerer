@@ -62,13 +62,17 @@ def build(quiet=False, filename_only=False):
 
 def create_post(title, quiet=False, filename_only=False):
     '''
-    Creates a new post with the given title.
+    Creates a new post with the given title or moves an existing post.
     '''
-    new_post = post.create(title)
+    if os.path.exists(title):
+        new_post = post.move(title)
+    else:
+        new_post = post.create(title)
+
     if filename_only:
         print(new_post.path)
     elif not quiet:
-        print("New post titled '%s' created as '%s'" % 
+        print("New post created as '%s'" % 
                 (new_post.title, new_post.path))
 
 
@@ -77,14 +81,16 @@ def create_page(title, quiet=False, filename_only=False):
     '''
     Creates a new page with the given title.
     '''
-    new_page = page.create(title)
+    if os.path.exists(title):
+        new_page = page.move(title)
+    else:
+        new_page = page.create(title)
+
     if filename_only:
         print(new_page.path)
     elif not quiet:
-        print("")
-        print("New page titled '%s' craeted as '%s'" %
+        print("New page created as '%s'" %
                 (new_page.title, new_page.path))
-        print("")
 
 
 
@@ -96,8 +102,12 @@ def main(argv=None):
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-s", "--setup", action="store_true", help="setup a new blog")
     group.add_argument("-b", "--build", action="store_true", help="build blog")
-    group.add_argument("-p", "--post", nargs=1, help="create a new post")
-    group.add_argument("--page", nargs=1, help="create a new page")
+    group.add_argument("-p", "--post", nargs=1, 
+            help="create a new post with the title POST (if a file named POST "
+                 "exists, it is moved to a new post instead)")
+    group.add_argument("--page", nargs=1, 
+            help="create a new page with the title PAGE (if a file named PAGE "
+                 "exists, it is moved to a new page instead)")
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")
