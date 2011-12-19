@@ -1,6 +1,6 @@
 '''
-    Page creator
-    ~~~~~~~~~~~~
+    page
+    ~~~~
 
     Handles creating new pages and inserting them in the master document.
 

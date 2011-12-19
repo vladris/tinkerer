@@ -24,7 +24,7 @@ def add_rss(app, context):
 
 def generate_feed(app):
     '''
-    Generates RSS feed
+    Generates RSS feed.
     '''
     env = app.builder.env
  
@@ -52,7 +52,7 @@ def generate_feed(app):
                     "pubDate": timestamp
                 })
 
-     # feed metadata 
+    # feed metadata 
     context["title"] = app.config.project
     context["link"] = app.config.website
     context["description"] = app.config.tagline

@@ -1,6 +1,6 @@
 '''
-    Post creator
-    ~~~~~~~~~~~~
+    post
+    ~~~~
 
     Handles creating new posts and inserting them in the master document.
 
