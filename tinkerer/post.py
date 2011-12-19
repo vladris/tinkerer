@@ -29,7 +29,7 @@ class Post():
         self.title = title
 
         # get year, month and day from date
-        self.year, self.month, self.day = tinkerer.utils.split_date(date)
+        self.year, self.month, self.day = utils.split_date(date)
 
         # get name from path if specified, otherwise from title
         if path:
@@ -39,8 +39,8 @@ class Post():
 
         # create post directory if it doesn't exist and get post path
         self.path = os.path.join(
-                            tinkerer.utils.get_path(
-                                    tinkerer.paths.root,
+                            utils.get_path(
+                                    paths.root,
                                     self.year,
                                     self.month,
                                     self.day),
@@ -56,7 +56,7 @@ class Post():
         '''
         Writes the post template with given arguments.
         '''
-        tinkerer.writer.render("post.rst", self.path,
+        writer.render("post.rst", self.path,
                { "title"     : self.title,
                  "content"   : content,
                  "author"    : author,

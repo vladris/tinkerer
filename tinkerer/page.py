@@ -34,8 +34,8 @@ class Page():
 
         # create page directory if it doesn't exist and get page path
         self.path = os.path.join(
-                            tinkerer.utils.get_path(
-                                tinkerer.paths.root, 
+                            utils.get_path(
+                                paths.root, 
                                 "pages"), 
                             self.name) + tinkerer.source_suffix
 
@@ -47,7 +47,7 @@ class Page():
         '''
         Writes the page template.
         '''
-        tinkerer.writer.render("page.rst", self.path,
+        writer.render("page.rst", self.path,
                 { "title": self.title })
 
 
