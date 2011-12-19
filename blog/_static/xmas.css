@@ -1,0 +1,18 @@
+body {
+    background-image: url("bg.gif");
+}
+
+div.documentwrapper, div.header {
+    background: -webkit-gradient(linear, left top, left bottom, from(#e0e0e0), to(#008800));
+    background: -moz-linear-gradient(top, #e0e0e0, #008800);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0e0e0', endColorstr='#008800');
+}
+
+a, h1, a h1 {
+    color: #aa0000;
+    text-shadow: 1px 1px #440000;
+}
+
+div.postmeta {
+    color: black
+}
