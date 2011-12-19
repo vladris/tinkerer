@@ -2,3 +2,9 @@
 
 {% set script_files = script_files + ["_static/google_analytics.js"] %}
 
+{% block footer %}
+    {{ super() }}
+    <a href="http://bitbucket.org/vladris/tinkerer">
+        <img alt="Fork me" src="{{ pathto('_static/fork_me.png', 1) }}" style="position: fixed; top: 0; right: 0; border 0"></img>
+    </a>
+{% endblock %}

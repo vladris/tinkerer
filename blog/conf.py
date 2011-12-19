@@ -10,7 +10,7 @@ website = 'http://www.tinkerer.me/'
 disqus_shortname = 'tinkerer'                                   
 html_favicon = 'tinkerer.ico'           
 html_theme = "modern"
-rss_service = None
+rss_service = "http://feeds.feedburner.com/tinkerer"
 
 extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus'] 
 templates_path = ['_templates']
@@ -18,7 +18,11 @@ html_static_path = ['_static', tinkerer.paths.static]
 html_theme_path = [tinkerer.paths.themes]                 
 exclude_patterns = []                                     
 html_sidebars = {
-    "**": ["recent.html", "searchbox.html", "sphinx.html", "get_involved.html"]
+    "**": ["recent.html", 
+           "get_tinkerer.html", 
+           "searchbox.html", 
+           "sphinx.html", 
+           "get_involved.html"]
 }
 
 source_suffix = tinkerer.source_suffix
