@@ -37,13 +37,21 @@ Tinkerer identifies pages by the document path. If the document is under the
 ``pages`` directory, Tinkerer considers the document to be a page. Unlike other
 documents, pages are rendered on the top navigation bar.
 
+Drafts
+------
+
+Documents under the ``drafts`` directory are ignored by the build. This 
+directory should contain the drafts which are not yet supposed to be published.
+
 Other documents
 ---------------
 
 Documents which are not identified as either posts or pages are built normally
 by Sphinx and Tinkerer will not give them any special treatment. This can be
-useful when you want to embed some project documentation on your blog - for 
-example the Tinkerer documenation is a set of files under a ``doc`` directory.
+useful when you want to embed some other documents in your blog. To provide
+minimal support for embedding documentation, Tinkerer will display the **prev**
+and **next** links at the top of pages placed under ``doc/`` or ``docs/``
+directory.
 
 Back to :ref:`tinkerer_reference`.
 
