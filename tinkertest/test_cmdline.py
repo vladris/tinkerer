@@ -26,7 +26,13 @@ class TestCmdLine(utils.BaseTinkererTest):
 
         self.assertEqual(
             set(os.listdir(utils.TEST_ROOT)),
-            {"_static", "conf.py", "index.html", tinkerer.master_doc + ".rst"})
+            {
+                "_static", 
+                "drafts", 
+                "conf.py", 
+                "index.html", 
+                tinkerer.master_doc + ".rst"
+            })
 
 
     # test post

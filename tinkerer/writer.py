@@ -66,6 +66,7 @@ def setup_blog():
     Sets up a new blog.
     '''
     utils.get_path(paths.root, "_static")
+    utils.get_path(paths.root, "drafts")
     write_master_file()
     write_index_file()
     write_conf_file()

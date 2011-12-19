@@ -57,7 +57,7 @@ html_static_path = ['_static', tinkerer.paths.static]
 html_theme_path = [tinkerer.paths.themes]                 
 
 # Add file patterns to exclude from build
-exclude_patterns = []                                     
+exclude_patterns = ["drafts/*"]                                     
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {
