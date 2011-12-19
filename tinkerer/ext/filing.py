@@ -37,7 +37,7 @@ def create_filing_directive(name):
                     env.filing[name][item] = []
                 env.filing[name][item].append(env.docname)
                 env.blog_metadata[env.docname].filing[name].append(
-                        (utils.filename_from_title(item), item))
+                        (utils.name_from_title(item), item))
 
             return []
 
@@ -87,7 +87,7 @@ def make_tag_pages(app):
     for tag in env.filing["tags"]:
         yield make_archive_page(env,
                 'Posts tagged with <span class="title_tag">%s</span>' % tag,
-                "tags/" + utils.filename_from_title(tag),
+                "tags/" + utils.name_from_title(tag),
                 lambda post: post in env.filing["tags"][tag])
 
 
@@ -100,6 +100,6 @@ def make_category_pages(app):
     for category in env.filing["categories"]:
         yield make_archive_page(env,
                 'Filed under <span class="title_category">%s</span>' % category,
-                "categories/" + utils.filename_from_title(category),
+                "categories/" + utils.name_from_title(category),
                 lambda post: post in env.filing["categories"][category])
 

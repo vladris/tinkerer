@@ -20,18 +20,21 @@ class Post():
     master document.
     '''
 
-    def __init__(self, title, date=None):
+    def __init__(self, title=None, path=None, date=None):
         '''
-        Determines post filename based on title and creates the path to the
-        post if it doesn't already exist.
+        Initializes a new post and creates path to it if it doesn't already
+        exist.
         '''
         self.title = title
 
         # get year, month and day from date
         self.year, self.month, self.day = tinkerer.utils.split_date(date)
 
-        # get post name from title
-        self.name = tinkerer.utils.filename_from_title(title).lower()
+        # get name from path if specified, otherwise from title
+        if path:
+            self.name = utils.name_from_path(path)
+        else:
+            self.name = utils.name_from_title(title)
 
         # create post directory if it doesn't exist and get post path
         self.path = os.path.join(
@@ -62,7 +65,7 @@ def create(title, date=None):
     '''
     Creates a new post given its title.
     '''
-    post = Post(title, date)
+    post = Post(title, path=None, date=date)
     post.write()
     master.prepend_doc("/".join([post.year, post.month, post.day, post.name]))
     return post

@@ -14,12 +14,21 @@ import tinkerer
 
 
 
-def filename_from_title(title):
+def name_from_title(title):
     '''
-    Returns a filename from a title by replacing all characters which are not
+    Returns a doc name from a title by replacing all characters which are not
     alphanumeric or '_' with '_'.
     '''
-    return re.sub(r"[\W_]", "_", title)
+    return re.sub(r"[\W_]", "_", title).lower()
+
+
+
+def name_from_path(path):
+    '''
+    Returns a doc name from a path by extracting the filename without 
+    extension.
+    '''
+    return os.path.splitext(os.path.basename(path))[0]
 
 
 
