@@ -64,7 +64,9 @@ def create_post(title, quiet=False, filename_only=False):
     '''
     Creates a new post with the given title or makes an existing file a post.
     '''
-    if os.path.exists(title):
+    move = os.path.exists(title)
+
+    if move:
         new_post = post.move(title)
     else:
         new_post = post.create(title)
@@ -72,7 +74,10 @@ def create_post(title, quiet=False, filename_only=False):
     if filename_only:
         print(new_post.path)
     elif not quiet:
-        print("New post created as '%s'" % new_post.path)
+        if move:
+            print("Draft moved to post '%s'" % new_post.path)
+        else:
+            print("New post created as '%s'" % new_post.path)
 
 
  
@@ -80,7 +85,9 @@ def create_page(title, quiet=False, filename_only=False):
     '''
     Creates a new page with the given title or makes an existing file a page.
     '''
-    if os.path.exists(title):
+    move = os.path.exists(title)
+
+    if move:
         new_page = page.move(title)
     else:
         new_page = page.create(title)
@@ -88,7 +95,10 @@ def create_page(title, quiet=False, filename_only=False):
     if filename_only:
         print(new_page.path)
     elif not quiet:
-        print("New page created as '%s'" % new_page.path)
+        if move:
+            print("Draft moved to page '%s'" % new_page.path)
+        else:
+            print("New page created as '%s'" % new_page.path)
 
 
 
@@ -96,7 +106,9 @@ def create_draft(title, quiet=False, filename_only=False):
     '''
     Creates a new draft with the given title or makes an existing file a draft.
     '''
-    if os.path.exists(title):
+    move = os.path.exists(title)
+
+    if move:
         new_draft = draft.move(title)
     else:
         new_draft = draft.create(title)
@@ -104,7 +116,10 @@ def create_draft(title, quiet=False, filename_only=False):
     if filename_only:
         print(new_draft)
     elif not quiet:
-        print("New draft created as '%s'" % new_draft)
+        if move:
+            print("File moved to draft '%s'" % new_draft)
+        else:
+            print("New draft created as '%s'" % new_draft)
 
 
 
