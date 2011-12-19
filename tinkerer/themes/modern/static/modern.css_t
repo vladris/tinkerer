@@ -33,7 +33,7 @@ a:hover {
     text-decoration: underline;
 }
 
-h1 a {
+a h1 {
     color: black;
 }
 
