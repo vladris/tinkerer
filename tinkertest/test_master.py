@@ -35,7 +35,7 @@ class TestMaster(utils.BaseTinkererTest):
 
     # test appending at the end of the TOC
     def test_append(self):
-        new_docs = ["somewhere/somedoc.rst", "anotherdoc.rst"]
+        new_docs = ["somewhere/somedoc", "anotherdoc"]
 
         master.append_doc(new_docs[0])
 
@@ -59,7 +59,7 @@ class TestMaster(utils.BaseTinkererTest):
 
     # test prepending at the beginning of the TOC
     def test_prepend(self):
-        new_docs = ["somewhere/somedoc.rst", "anotherdoc.rst"]
+        new_docs = ["somewhere/somedoc", "anotherdoc"]
 
         # first doc should be prepended in the correct place
         master.prepend_doc(new_docs[0])
@@ -83,12 +83,12 @@ class TestMaster(utils.BaseTinkererTest):
     # test removing from the TOC
     def test_remove(self):
         # append 4 docs
-        new_docs = ["a.rst", "b.rst", "c.rst", "d.rst"]
+        new_docs = ["a", "b", "c", "d"]
         for doc in new_docs:
             master.append_doc(doc)
 
         # remove 3 of them while checking master each time
-        for doc_to_remove in ["c.rst", "b.rst", "d.rst"]:
+        for doc_to_remove in ["c", "b", "d"]:
             master.remove_doc(doc_to_remove)
             new_docs.remove(doc_to_remove)
 

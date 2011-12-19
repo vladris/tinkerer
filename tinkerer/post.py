@@ -9,9 +9,8 @@
 '''
 from datetime import datetime
 import os
-import tinkerer.paths
-import tinkerer.utils
-import tinkerer.writer
+import tinkerer
+from tinkerer import master, paths, utils, writer
 
 
 
@@ -59,35 +58,12 @@ class Post():
 
 
 
-    def update_master(self):
-        '''
-        Updates master document by inserting the new post. Posts are always 
-        inserted at the top of the toc so latest post is first document.
-        '''
-        post = "   " + "/".join(
-                [self.year, self.month, self.day, self.name]) + "\n"
-
-        # load master file, insert post after "maxdepth" directive and rewrite the file
-        with open(tinkerer.paths.master_file, "r") as f:
-            lines = f.readlines()
-
-        # look for 'maxdepth' option and insert line 2 lines after it
-        for line_no, line in enumerate(lines):
-            if "maxdepth" in line:
-                break
-        lines.insert(line_no + 2, post)
-
-        # rewrite file
-        with open(tinkerer.paths.master_file, "w") as f:
-            f.writelines(lines)
-
-
 def create(title, date=None):
     '''
     Creates a new post given its title.
     '''
     post = Post(title, date)
     post.write()
-    post.update_master()
+    master.prepend_doc("/".join([post.year, post.month, post.day, post.name]))
     return post
 

@@ -15,7 +15,7 @@ import utils
 
 
 # test creating new page
-class TestPost(utils.BaseTinkererTest):
+class TestPage(utils.BaseTinkererTest):
     # test create call
     def test_create(self):
         # create page
@@ -39,8 +39,8 @@ class TestPost(utils.BaseTinkererTest):
         with open(tinkerer.paths.master_file, "r") as f:
             lines = f.readlines()
 
-            self.assertEquals("   pages/page_1\n", lines[-2])
-            self.assertEquals("   pages/page_2\n", lines[-1])
+            self.assertEquals("   pages/page_1\n", lines[-3])
+            self.assertEquals("   pages/page_2\n", lines[-2])
 
 
     # test content

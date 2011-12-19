@@ -8,9 +8,9 @@
     :license: FreeBSD, see LICENSE file
 '''
 import os
-import tinkerer.paths
-import tinkerer.utils
-import tinkerer.writer
+import tinkerer
+from tinkerer import master, paths, utils, writer
+
 
 
 class Page():
@@ -45,21 +45,6 @@ class Page():
                 { "title": self.title })
 
 
-    # update master document by inserting page
-    # pages are always inserted at the bottom of the toc
-    def update_master(self):
-        '''
-        Updates the master document by appending the new page at the end of the 
-        file. This should become the last item in the toc, thus the last 
-        document.
-        '''
-        page = "   pages/" + self.name + "\n"
-
-        # append page to master file
-        with open(tinkerer.paths.master_file, "a") as f:
-            f.write(page)
-        
-
 
 def create(title):
     '''
@@ -67,6 +52,6 @@ def create(title):
     '''
     page = Page(title)
     page.write()
-    page.update_master()
+    master.append_doc("pages/" + page.name)
     return page
 
