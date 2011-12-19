@@ -158,3 +158,13 @@ div.footer {
     margin-top: 40px;
     text-align: center;
 }
+
+/* Retina displays ========================================================= */
+@media screen and (-webkit-min-device-pixel-ratio: 2)
+{
+    /* Body ---------------------------------------------------------------- */
+    body {
+        font-size: 200%;
+    }
+}
+

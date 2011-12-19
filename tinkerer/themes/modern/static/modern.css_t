@@ -250,3 +250,13 @@ div.footer a {
 div.footer a:hover {
     color: white;
 }
+
+/* Retina displays ========================================================= */
+@media screen and (-webkit-min-device-pixel-ratio: 2)
+{
+    /* Body ---------------------------------------------------------------- */
+    body {
+        font-size: 200%;
+    }
+}
+

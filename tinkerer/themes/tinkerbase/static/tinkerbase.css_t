@@ -129,12 +129,3 @@ div.footer {
     }
 }
 
-/* Retina displays ========================================================= */
-@media screen and (-webkit-min-device-pixel-ratio: 2)
-{
-    /* Body ---------------------------------------------------------------- */
-    body {
-        font-size: 200%;
-    }
-}
-
