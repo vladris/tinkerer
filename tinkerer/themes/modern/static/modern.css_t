@@ -180,12 +180,18 @@ div.year ul {
     list-style-type: none;
 }
 
+div.year div.postmeta {
+    margin-left: 50%;
+    margin-top: 12px;
+}
+
 div.year div.timestamp {
     color: black;
     float: left;
     font-size: 150%;
     line-height: 1.5em;
     margin-left: 25%;
+    margin-top: 0;
     font-style: normal;
     font-weight: bold;
 }
@@ -194,11 +200,6 @@ div.year h2 {
     margin-bottom: 0;
     margin-left: 50%;
     margin-top: 0;
-}
-
-div.year div.postmeta {
-    margin-left: 50%;
-    margin-top: 12px;
 }
 
 /* Separators */
