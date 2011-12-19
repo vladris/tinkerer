@@ -94,9 +94,12 @@ def create_page(title, quiet=False, filename_only=False):
 
 def create_draft(title, quiet=False, filename_only=False):
     '''
-    Creates a new draft with the given title.
+    Creates a new draft with the given title or makes an existing file a draft.
     '''
-    new_draft = draft.create(title)
+    if os.path.exists(title):
+        new_draft = draft.move(title)
+    else:
+        new_draft = draft.create(title)
 
     if filename_only:
         print(new_draft)
@@ -120,7 +123,8 @@ def main(argv=None):
             help="create a new page with the title PAGE (if a file named PAGE "
                  "exists, it is moved to a new page instead)")
     group.add_argument("-d", "--draft", nargs=1,
-            help="creates a new draft with the title DRAFT")
+            help="creates a new draft with the title DRAFT (if a file named DRAFT "
+                 "exists, it is moved to a new draft instead)")
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")

@@ -7,9 +7,11 @@
     :copyright: Copyright 2011 by Vlad Riscutia
     :license: FreeBSD, see LICENCE file
 '''
-import tinkerer
 import os
-from tinkerer import paths, utils, writer
+import re
+import shutil
+import tinkerer
+from tinkerer import master, paths, utils, writer
 
 
 
@@ -27,3 +29,34 @@ def create(title):
               "tags"      : "none"})
     return path
 
+
+
+def move(path):
+    '''
+    Demotes given file to draft.
+    '''
+    # get dirname and filename
+    dirname, filename = os.path.split(path)
+
+    # get docname without extension
+    docname = os.path.splitext(filename)[0]
+
+    draft = os.path.join(paths.root, "drafts", filename)
+
+    # move file
+    shutil.move(path, draft)
+
+    # check if file is a post or a page
+    if os.path.basename(dirname) == "pages":
+        docname = "pages/" + docname
+    else:
+        match = re.match(r".*(?P<y>\d{4}).(?P<m>\d{2}).(?P<d>\d{2})$", dirname)
+        if not match:
+            return draft
+        g = match.group
+        docname = "/".join([g("y"), g("m"), g("d"), docname])
+
+    # remove file from TOC
+    master.remove_doc(docname)
+
+    return draft

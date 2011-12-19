@@ -69,5 +69,5 @@ def move(path, date=None):
     '''
     page = Page(title=None, path=path)
     shutil.move(path, page.path)
-    master.prepend_doc(page.docname)
+    master.append_doc(page.docname)
     return page
