@@ -20,7 +20,7 @@ import shutil
 import sphinx
 import subprocess
 import sys
-from tinkerer import page, paths, post, utils, writer
+from tinkerer import draft, page, paths, post, utils, writer
 
 
 
@@ -96,7 +96,7 @@ def create_draft(title, quiet=False, filename_only=False):
     '''
     Creates a new draft with the given title.
     '''
-    new_draft = post.create_draft(title)
+    new_draft = draft.create(title)
 
     if filename_only:
         print(new_draft)

@@ -85,20 +85,3 @@ def move(path, date=None):
     master.prepend_doc(post.docname)
     return post
 
-
-
-def create_draft(title):
-    '''
-    Creates a new post draft.
-    '''
-    name = utils.name_from_title(title)
-    path = os.path.join(paths.root, "drafts", name + tinkerer.source_suffix)
-    writer.render("post.rst", path,
-            { "title"     : title,
-              "content"   : "",
-              "author"    : "default",
-              "categories": "none",
-              "tags"      : "none"})
-    return path
-
-
