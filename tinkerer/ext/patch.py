@@ -46,16 +46,14 @@ def patch_node(node, docpath):
 
     # if node is <img>
     if node_name == "img":
-        src = node.attributes["src"]
+        src = node.getAttributeNode("src")
         # if this is relative path (internal link)
         if src.value.startswith(".."):
             src.value = docpath + src.value 
     # if node is hyperlink            
     elif node_name == "a":
-        # if internal hyperlink
-        if ("class" in node.attributes and 
-            "internal" in node.attributes["class"].value):
-            ref = node.attributes["href"]
+        if "internal" in node.getAttribute("class"):
+            ref = node.getAttributeNode("href")
             ref.value = docpath + ref.value
 
     # recurse            
