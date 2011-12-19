@@ -119,6 +119,14 @@ def process_metadata(app, env):
 
 
 
+def is_doc(pagename):
+    '''
+    Determines if page is documentation.
+    '''
+    return pagename.startswith("doc/") or pagename.startswith("docs/")
+
+
+
 def add_metadata(app, pagename, context):
     '''
     Passes metadata to the templating engine.
@@ -147,8 +155,15 @@ def add_metadata(app, pagename, context):
                 context["prev"] = None
             elif pagename == env.blog_posts[-1]:
                 context["next"] = None
+        # if this is a document
+        elif is_doc(pagename):
+            for rellink in context["rellinks"]:
+                if rellink[-1] == "next" and not is_doc(pagename):
+                    context["next"] = None
+                elif rellink[-1] == "previous" and not is_doc(pagename):
+                    context["prev"] = None
+        # no rellinks for non-posts/docs
         else:
-            # no prev/next for non-posts
             context["prev"], context["next"] = None, None
 
     # otherwise provide default metadata
