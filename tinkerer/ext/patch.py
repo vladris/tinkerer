@@ -42,7 +42,7 @@ def patch_node(node, docpath):
     '''
     Recursively patches links in nodes.
     '''
-    node_name = node._get_localName()
+    node_name = node.localName
 
     # if node is <img>
     if node_name == "img":
