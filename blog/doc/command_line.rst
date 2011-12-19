@@ -1,5 +1,5 @@
-Command Line
-============
+Command Line Reference
+======================
 
 Tinkerer is invoked using the ``tinker`` command with one of the following
 arguments:
@@ -17,12 +17,34 @@ arguments:
     ``$(YEAR)/$(MONTH)/$(DATE)``. The new document is automatically 
     inserted in the master document file so it is picked up by the build.
 
+    Alternately, if ``<POST>`` is the path to an already existing file, 
+    Tinkerer will move the given file to the ``$(YEAR)/$(MONTH)/$(DAY)`` 
+    directory corresponding to the current date and will insert the document 
+    in the master document so it is picked up by the build. This is how drafts 
+    are promoted to posts. 
+
 ``--page <PAGE>``
     
     Creates a new page with the title ``<PAGE>`` under the ``pages``
-    directory. The filename is normalize and the new document is 
+    directory. The filename is normalized and the new document is 
     automatically appended to the master document file so it is picked up 
     by the build.
+
+    Alternately, if ``<PAGE>`` is the path to an already existing file, 
+    Tinkerer will move the given file to the ``pages`` directory and will
+    append the document at the end of the master document file so it is picked
+    up by the build. This is how drafts are promoted to pages. 
+
+``--draft <DRAFT>`` or ``-d <DRAFT>``
+
+    Creates a new draft with the title ``<DRAFT>`` under the ``drafts`` 
+    directory. The filename is normalized. The new document will be ignored by
+    the Sphinx build until it is promoted to a post or a page (see above).
+
+    Alternately, is ``<DRAFT>`` is the path to an already existing file,
+    Tinkerer will move the given file to the ``drafts`` directory and will
+    remove the document from the master document file so it will no longer get
+    built. This is how posts and pages are demoted to drafts.
 
 ``--build`` or ``-b``
 
@@ -52,6 +74,6 @@ Verbosity can be change with one of the mutually exclusive flags:
     will output the page file path and a call to ``--build`` will output
     ``index.html``. This can be used to pipe Tinkerer, for example::
 
-        tinker --post `Hello World!` -f | xargs gvim
+        tinker --post `Hello World!` -f | xargs vim
 
 Back to :ref:`tinkerer_reference`.

@@ -21,109 +21,152 @@ the Tinkerer directives and inserting it in the master document. Tinkerer
 command line takes care of all of these steps. For build, the destination
 directory is cleaned up and Sphinx build is invoked.
 
-Enabling Disqus Comments
-------------------------
+Tinkerer command line should be run from your blog's root (the directory 
+containing the ``conf.py`` file), except when setting up a new blog.
 
-To enable comments powered by `Disqus <http://disqus.com>`_, create a Disqus
-account for your website and update ``disqus_shortname`` in ``conf.py`` with 
-your Disqus shortname.
+.. _posts:
 
-.. note::
+Posts
+-----
+.. highlight:: bash
 
-    You will not be able to preview comments offline since comment box is 
-    retrieved via JS from Disqus and the page must match your account's URL.
+From your blog root directory, call::
 
-Enabling Google Analytics
--------------------------
+    tinker --post 'Hello World!'
 
-.. highlight:: html
+.. highlight:: rst
 
-To enable `Google Analytics <http://google.com/analytics>`_ for your blog, 
-setup your Google Analytics account. You will be provided some JS  code.
-Add the JS code to a file in your blog's ``_static`` directory as 
-``googl_analytics.js`` and create a new ``page.html`` file under your blog's 
-``_templates`` directory with the following content::
+A new post will be created and inserted at the top of the TOC in 
+``master.rst``. Tinkerer will let you know where the file was created (path is 
+based on current date and filename is normalized). Your post file looks like 
+this::
 
-   {% extends "!page.html" %}
+    Hello World!
+    ============
 
-   {% set script_files = script_files + ["_static/google_analytics.js"] %}
 
-This will load the Google Analytics script on each page of your blog.
 
-More information on extending templates can be found in the
-`Sphinx documentation <http://sphinx.pocoo.org/templating.html#script_files>`_.
+    .. author:: default
+    .. categories:: none
+    .. tags:: none
+    .. comments::
 
-RSS
----
+Add content below the title.
 
-Tinkerer generates an RSS feed as ``blog/html/rss.html``. A link to the feed is 
-automatically added to the navigation bar. In case you use a service like
-`FeedBurner <http://www.feedburner.com>`_, you can change the ``rss_service``
-value in ``conf.py`` to the address of your feed and Tinkerer will change the
-link to point to the provided address.
+**author**
 
-Favicon
--------
+    If left to ``default``, Tinkerer will use the author specified in 
+    ``conf.py``. For colaborative blogs, this can be replaced with any string
+    containing the name of the author.
 
-Tinkerer uses a default ``tinkerer.ico`` as your blog's favicon. You can 
-replace this with your own icon by placing your icon under the blog's 
-``_static`` directory and changing the ``html_favicon`` value to the name
-of your icon file (path is not required, only filename).
+**categories**
 
-Theming
--------
+    Specify a comma-separated list of categories under which the post will be
+    filed.    
 
-Tinkerer comes with three themes: *modern* - the default theme, *minimal* - a
-minimalist black and white theme and a base *tinkerbase* theme from which the
-others inherit. *Tinkerbase* is not styled, rather it implements the basic
-layout. Due to the inherent differences between documentation and blogs, 
-Sphinx themes are not fully compatible with Tinkerer.
+**tags**
 
-To tinker with the look of your blog, you have two options:
+    Specify a comma-separated list of tags for the post.
 
-Add a custom stylesheet
-~~~~~~~~~~~~~~~~~~~~~~~
+**comments**
 
-Create your own ``style.css`` (filename is not important) and place it under 
-the blog's ``_static`` directory and create a new ``page.html`` file under 
-your blog's ``_templates`` directory with the following content::
+    This tells Tinkerer comments are enabled for this post. Remove the 
+    directive to disable posts.
+   
+.. _pages:
+    
+Pages
+-----
 
-    {% extends "!page.html" %}
+.. highlight:: bash
 
-    {% set css_files = css_files + ["_static/style.css"] %}
+From your blog root directory, call::
 
-More information on extending templates can be found 
-`here <http://sphinx.pocoo.org/templating.html#css_files>`_.
+    tinker --page 'About'
 
-Create your own theme
-~~~~~~~~~~~~~~~~~~~~~
+.. highlight:: rst
 
-Tinkerer themes should inherit from the *tinkerbase* theme. For more information 
-on creating themes see 
-`Creating themes <http://sphinx.pocoo.org/theming.html#creating-themes>`_.
+A new page named ``About`` will be created as ``pages/about.rst`` and inserted 
+at the bottom of the TOC in ``master.rst`` (pages are always placed under the
+``pages`` directory, filename is normalized). Your page file looks like this::
 
-Extensions
-----------
+    About
+    =====
 
-To add a Sphinx extension to your blog, update the ``extensions`` list in
-``conf.py``. The ``tinkerer.ext.blog`` extension contains the Tinkerer logic to
-enable blogging with Sphinx and the ``tinkerer.ext.disqus`` extension is the 
-Disqus comment handler.
+Unlike posts, pages do not have metadata associated with them. Pages are added 
+to the top navigation bar in the order in which they were created. Pages do not
+display `previous` and `next` navigation links.
 
-Sidebar
--------
+.. _drafts:
 
-The ``html_sidebars`` list contains the list of templates to be rendered on the 
-sidebar. Tinkerer includes ``recent.html`` and ``searchbox.html`` by default.
+Drafts
+------
 
-**recent.html** 
+.. highlight:: bash
 
-    Displays a list of the most recent posts.
+From your blog root directory, call::
 
-**searchbox.html**
+    tinker --draft 'Hello World!'
 
-    This is the Sphinx quicksearch box.    
+A new draft named ``Hello World!`` will be created under the ``drafts`` 
+directory as ``hello_world_.rst`` (filename is normalized). The content of the 
+file is identical to a post file but unlike posts, the draft will not be added 
+to the TOC in ``master.rst`` file and will be ignored by the build. You can 
+take your time to edit it. When it's ready, from your blog root directory 
+call::
 
-`More information on sidebars <http://sphinx.pocoo.org/config.html#confval-html_sidebars>`_.
+    tinker --post drafts/hello_world_.rst
+
+This will promote your draft to a post by moving it to the appropriate
+``$(YEAR)/$(MONTH)/$(DAY)`` path and adding it to the TOC in ``master.rst``.
+
+If you change your mind and want to tinker with it some more, from your blog
+root directory call::
+
+    tinker --draft 2011/12/25/hello_world_.rst
+
+This will demote your post to a draft by moving it to the ``drafts`` directory
+and removing it from the TOC in ``master.rst``.    
+
+.. _build:
+
+Build
+-----
+
+From your blog root directory, call::
+
+    tinker --build
+
+Your blog will be generated under ``blog/html``.
+
+Generated pages
+~~~~~~~~~~~~~~~
+
+The Sphinx build will convert all the RST documents of your blog to HTML pages.
+Besides these, Tinkerer will also generate the following:
+
+**index.html**
+    The page will contain the latest 10 posts of your blog with titles hyperlinked
+    to the post pages.
+
+**page*.html**
+    After the latest 10 posts, all other posts grouped by 10 will be written to
+    ``page2.html``, ``page3.html`` and so on.
+
+**categories/***
+    For each category posts were filed under, Tinkerer will generate a page under
+    the ``categories`` directory, hyperlinking all instances of the category to it.
+
+**tags/***
+    Like categories above, Tinkerer will generate similar pages and hyperlinks for
+    tags.
+
+**archive.html**
+    Additionally, Tinkerer will generate a blog archive containing all posts 
+    grouped by publishing year and ordered by publishing date as ``archive.html``.
+
+**rss.html**
+    An RSS feed will be generated as ``rss.html``.
+
 
 Back to :ref:`tinkerer_reference`.

@@ -45,46 +45,5 @@ by Sphinx and Tinkerer will not give them any special treatment. This can be
 useful when you want to embed some project documentation on your blog - for 
 example the Tinkerer documenation is a set of files under a ``doc`` directory.
 
-Generated pages
----------------
-
-The Sphinx build will convert all the RST documents of your blog to HTML pages.
-Besides these, Tinkerer will also generate the following:
-
-index.html
-~~~~~~~~~~
-
-The page will contain the latest 10 posts of your blog with titles hyperlinked
-to the post pages.
-
-page*.html
-~~~~~~~~~~
-
-After the latest 10 posts, all other posts grouped by 10 will be written to
-``page2.html``, ``page3.html`` and so on.
-
-categories/*
-~~~~~~~~~~~~
-
-For each category posts were filed under, Tinkerer will generate a page under
-the ``categories`` directory, hyperlinking all instances of the category to it.
-
-tags/*
-~~~~~~
-
-Like categories above, Tinkerer will generate similar pages and hyperlinks for
-tags.
-
-archive.html
-~~~~~~~~~~~~
-
-Additionally, Tinkerer will generate a blog archive containing all posts 
-grouped by publishing year and ordered by publishing date as ``archive.html``.
-
-rss.html
-~~~~~~~~
-
-An RSS feed will be generated as ``rss.html``.
-
 Back to :ref:`tinkerer_reference`.
 

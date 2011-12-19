@@ -64,46 +64,14 @@ Create a post
 
 .. highlight:: bash
 
-From your blog directory root, call::
+From your blog root directory, call::
 
     tinker --post 'Hello World!'
 
 .. highlight:: rst
 
-Tinkerer will let you know where the file was created (path is based on current
-date and filename is normalized). Your post file looks like this::
-
-    Hello World!
-    ============
-
-
-
-    .. author:: default
-    .. categories:: none
-    .. tags:: none
-    .. comments::
-
-Add content below the title.
-
-**author**
-
-    If left to ``default``, Tinkerer will use the author specified in 
-    ``conf.py``. For colaborative blogs, this can be replaced with any string
-    containing the name of the author.
-
-**categories**
-
-    Specify a comma-separated list of categories under which the post will be
-    filed.    
-
-**tags**
-
-    Specify a comma-separated list of tags for the post.
-
-**comments**
-
-    This tells Tinkerer comments are enabled for this post. Remove the 
-    directive to disable posts.
+Tinkerer will let you know where the file was created. You can edit it right 
+away, using reStructuredText! Read more about :ref:`posts`.
 
 Create a page
 ~~~~~~~~~~~~~
@@ -111,32 +79,22 @@ Create a page
 .. highlight:: bash
 
 Create an *About* page to tell your readers about yourself. From your blog 
-directory root, call::
+root directory, call::
 
     tinker --page 'About'
     
-Tinkerer will let you know where the file was created (path is under ``/pages``
-and filename is normalized).    
-
-.. highlight:: rst
-
-Pages are added to the top navigation bar in the order in which they were 
-created. Your page file looks like this::
-
-    About
-    =====
-
-Pages do not have post metadata associated with them (author, categories, tags,
-comments).    
+Tinkerer will let you know where the file was created. Read more about 
+:ref:`pages`.
 
 Build your blog
 ~~~~~~~~~~~~~~~
 
-From your blog directory root call::
+From your blog root directory call::
 
     tinker --build
 
-Your blog will be generated under ``./blog/html``.    
+Open the ``index.html`` file in your blog's root to preview your blog. Read 
+more about :ref:`build`.
 
 .. _tinkerer_reference:
 
@@ -144,7 +102,10 @@ Tinkerer Reference
 ==================
 
 .. toctree::
+    :maxdepth: 2
+
     ../doc/tinkering
+    ../doc/more_tinkering
     ../doc/deploying
     ../doc/command_line 
     ../doc/internals
