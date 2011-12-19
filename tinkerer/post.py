@@ -9,6 +9,7 @@
 '''
 from datetime import datetime
 import os
+import shutil
 import tinkerer
 from tinkerer import master, paths, utils, writer
 
@@ -45,6 +46,9 @@ class Post():
                                     self.day),
                             self.name) + tinkerer.source_suffix
 
+        # docname as it should appear in TOC
+        self.docname = "/".join([self.year, self.month, self.day, self.name])
+
 
 
     def write(self, content="", author="default", 
@@ -67,6 +71,17 @@ def create(title, date=None):
     '''
     post = Post(title, path=None, date=date)
     post.write()
-    master.prepend_doc("/".join([post.year, post.month, post.day, post.name]))
+    master.prepend_doc(post.docname)
+    return post
+
+
+
+def move(path, date=None):
+    '''
+    Moves a post given its path.
+    '''
+    post = Post(title=None, path=path, date=date)
+    shutil.move(path, post.path)
+    master.prepend_doc(post.docname)
     return post
 

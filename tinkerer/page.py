@@ -38,6 +38,8 @@ class Page():
                                 "pages"), 
                             self.name) + tinkerer.source_suffix
 
+        # docname as it should appear in TOC
+        self.docname = "pages/" + self.name
 
 
     def write(self):
@@ -55,6 +57,16 @@ def create(title):
     '''
     page = Page(title, path=None)
     page.write()
-    master.append_doc("pages/" + page.name)
+    master.append_doc(page.docname)
     return page
 
+
+
+def move(path, date=None):
+    '''
+    Moves a page given its path.
+    '''
+    page = Page(title=None, path=path)
+    shutil.move(path, page.path)
+    master.prepend_doc(page.docname)
+    return page
