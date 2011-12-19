@@ -29,6 +29,30 @@ class TestPage(utils.BaseTinkererTest):
                 new_page.path)
 
         self.assertTrue(os.path.exists(new_page.path))
+        self.assertEquals("pages/my_page", new_page.docname)
+
+
+    # test moving existing file
+    def test_move(self):
+        # create a "pre-existing" file
+        draft_file = os.path.join(utils.TEST_ROOT, "drafts", "afile.rst")
+        
+        with open(draft_file, "w") as f:
+            f.write("Content")
+
+        # move file to page
+        moved_page = page.move(draft_file)
+
+        self.assertEquals(
+                os.path.abspath(os.path.join(
+                                    utils.TEST_ROOT,
+                                    "pages",
+                                    "afile.rst")),
+                 moved_page.path)
+
+        self.assertTrue(os.path.exists(moved_page.path))
+        self.assertFalse(os.path.exists(draft_file))
+        self.assertEquals("pages/afile", moved_page.docname)
 
 
     # test updating master document

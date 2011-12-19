@@ -8,6 +8,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import os
+import shutil
 import tinkerer
 from tinkerer import master, paths, utils, writer
 

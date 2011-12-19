@@ -53,6 +53,35 @@ class TestPost(utils.BaseTinkererTest):
                 new_post.path)
 
         self.assertTrue(os.path.exists(new_post.path))
+        self.assertEquals("2010/10/01/date_post", new_post.docname)
+
+
+    # test moving existing file to post
+    def test_move(self):
+        # create a "pre-existing" file
+        draft_file = os.path.join(utils.TEST_ROOT, "drafts", "afile.rst")
+        
+        with open(draft_file, "w") as f:
+            f.write("Content")
+
+        # move file to post
+        moved_post = post.move(draft_file, datetime.date(2010, 10, 1))
+        self.assertEquals("2010", moved_post.year)
+        self.assertEquals("10", moved_post.month)
+        self.assertEquals("01", moved_post.day)
+
+        self.assertEquals(
+                os.path.abspath(os.path.join(
+                                    utils.TEST_ROOT,
+                                    "2010",
+                                    "10",
+                                    "01",
+                                    "afile.rst")),
+                 moved_post.path)
+
+        self.assertTrue(os.path.exists(moved_post.path))
+        self.assertFalse(os.path.exists(draft_file))
+        self.assertEquals("2010/10/01/afile", moved_post.docname)
 
 
     # test updating master document
