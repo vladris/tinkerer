@@ -123,11 +123,6 @@ div.documentwrapper {
     padding-top: 48px;
 }
 
-/* Timestamp */
-div.timestamp {
-    color: #bbbbbb;
-}
-
 /* Content */
 div.admonition {
     background: #efefef;
@@ -157,6 +152,12 @@ div.sphinxsidebar ul {
 div.postmeta {
     color: #bbbbbb;
     margin-top: 40px;
+}
+
+div.timestamp {
+    color: #bbbbbb;
+    margin-top: 0;
+    padding-bottom: 0;
 }
 
 /* Archive */

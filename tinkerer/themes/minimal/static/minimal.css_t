@@ -77,11 +77,6 @@ div.page_nav li {
     padding: 0 24px;
 }
 
-/* Timestamp */
-div.timestamp {
-    font-style: italic;
-}
-
 /* Content */
 div.admonition {
     background: #f8f8f8;
@@ -97,6 +92,13 @@ div.postmeta {
     margin-top: 40px;
     font-style: italic;
 }
+
+div.timestamp {
+    font-style: italic;
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
 
 /* Archive */
 span.title_tag, span.title_category {
