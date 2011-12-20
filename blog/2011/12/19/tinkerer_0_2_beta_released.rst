@@ -13,7 +13,7 @@ What's New
   on pages under ``doc/`` or ``docs/`` path.
 * Many other small extension fixes.
 * CSS fixes (gradient not showing in Firefox, page not scaling correctly on 
-  retina displays).
+  retina displays, many other small tweaks).
 
 Upgrading from 0.1
 ------------------
