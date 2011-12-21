@@ -11,8 +11,12 @@ Hosting on Bitbucket
 Create a repository named ``$(USERNAME).bitbucket.org`` where ``$(USERNAME)``
 is your Bitbucket username, for example ``johndoe.bitbucket.org``. If you
 create such a repository, when accessing ``http://johndoe.bitbucket.org``, 
-Bitbucket will automatically serve the ``index.html`` found under the root
-of the repository. You have two options:
+Bitbucket will automatically serve the ``index.html`` found under the root of
+the repository. The repository name **must** include ``.bitbucket.org``, so in 
+the example above the actual repository URL would be
+``http://bitbucket.org/johndoe/johndoe.bitbucket.org/``.
+
+You have two options:
 
 Upload HTML only
 ~~~~~~~~~~~~~~~~
