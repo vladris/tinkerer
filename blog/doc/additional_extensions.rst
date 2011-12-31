@@ -23,6 +23,8 @@ the same ``comments`` directive.
 The above steps enable the Facebook Comment Box. More information on this in
 the `Facebook Developers Documentation <https://developers.facebook.com/docs/reference/plugins/comments/>`_.
 
+There are two options for managing comments: using a user ID or an app ID.
+
 .. highlight:: html
 User Admin
 ~~~~~~~~~~
@@ -45,8 +47,8 @@ ID.
 App Admin
 ~~~~~~~~~
 
-Facebook recommends to get an application ID so you can administer all comments
-on the website in one place. To do that, go to `Facebook Developers Webiste
+Facebook recommends to get an application ID so you can manage all comments on
+the website in a centralized place. Go to `Facebook Developers Webiste
 <https://developers.facebook.com>`_ and create a new application. In your app
 settings, make sure to check ``Website`` and update ``Site URL`` with your 
 blog's URL. Once you have an App ID connected to your website, you no longer
