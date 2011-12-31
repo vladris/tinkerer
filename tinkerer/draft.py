@@ -20,13 +20,20 @@ def create(title):
     Creates a new post draft.
     '''
     name = utils.name_from_title(title)
-    path = os.path.join(paths.root, "drafts", name + tinkerer.source_suffix)
+
+    path = os.path.join(
+                    utils.get_path(
+                        paths.root, 
+                        "drafts"), 
+                    name + tinkerer.source_suffix)
+
     writer.render("post.rst", path,
             { "title"     : title,
               "content"   : "",
               "author"    : "default",
               "categories": "none",
               "tags"      : "none"})
+
     return path
 
 
@@ -41,7 +48,7 @@ def move(path):
     # get docname without extension
     docname = os.path.splitext(filename)[0]
 
-    draft = os.path.join(paths.root, "drafts", filename)
+    draft = os.path.join(utils.get_path(paths.root, "drafts"), filename)
 
     # move file
     shutil.move(path, draft)
