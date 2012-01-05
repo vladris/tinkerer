@@ -13,7 +13,7 @@
 {% block body %}
     <div class="archive">
         <h1>{{ title }}</h1>
-        {%- for year in years %}
+        {%- for year in years|sort(reverse=True) %}
         <div class="year">
             <h1>{{ year }}</h1>
             <ul>
