@@ -5,7 +5,7 @@ project = 'Tinkerer'
 tagline = 'Blogging for Pythonistas'                  
 author = 'Vlad Riscutia'
 copyright = '2011, ' + author         
-website = 'http://www.tinkerer.me/'                              
+website = 'http://tinkerer.bitbucket.org/'                              
 
 disqus_shortname = 'tinkerer'                                   
 html_favicon = 'tinkerer.ico'           
