@@ -25,7 +25,9 @@ def initialize(app):
     filing.initialize(app)
 
     # set blog language
-    app.t = gettext.translation('tinkerer', "/home/jordi/svn/foss/jba/tinkerer-cat.ve3/tinkerer/tinkerer/locale", languages=[app.config.language], fallback=True)
+    if app.config.language: lang=app.config.language
+    else: lang=''
+    app.t = gettext.translation('tinkerer', "/home/jordi/svn/foss/jba/tinkerer-cat.ve3/tinkerer/tinkerer/locale", languages=[lang], fallback=True)
     _ = app.t.gettext
     app.t.install()
 
