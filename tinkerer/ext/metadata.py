@@ -134,6 +134,8 @@ def add_metadata(app, pagename, context):
     context["textHome"]=_("Home")
     context["textPostedby"]=_("Posted by")
     context["textBlogArchive"]= _("Blog Archive")
+    context["textFiledunder"]=_("Filed under")
+    context["textTags"]=_("Tags")
     context["timestamp_format"] =  _('%B %d, %Y')    
 
     # recent posts

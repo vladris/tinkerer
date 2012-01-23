@@ -86,7 +86,7 @@ def make_tag_pages(app):
     env = app.builder.env
     for tag in env.filing["tags"]:
         yield make_archive_page(env,
-                'Posts tagged with <span class="title_tag">%s</span>' % tag,
+                _('Posts tagged with <span class="title_tag">%s</span>') % tag,
                 "tags/" + utils.name_from_title(tag),
                 lambda post: post in env.filing["tags"][tag])
 
@@ -99,7 +99,7 @@ def make_category_pages(app):
     env = app.builder.env
     for category in env.filing["categories"]:
         yield make_archive_page(env,
-                'Filed under <span class="title_category">%s</span>' % category,
+                _('Filed under <span class="title_category">%s</span>') % category,
                 "categories/" + utils.name_from_title(category),
                 lambda post: post in env.filing["categories"][category])
 
