@@ -115,7 +115,7 @@ def process_metadata(app, env):
                 else:
                     env.blog_pages.append(doc)
      
-    env.blog_page_list = [("index", "Home")] + [(page, env.titles[page].astext()) for page in env.blog_pages]
+    env.blog_page_list = [("index", _("Home"))] + [(page, env.titles[page].astext()) for page in env.blog_pages]
 
 
 
@@ -128,6 +128,13 @@ def add_metadata(app, pagename, context):
     # blog tagline and pages
     context["tagline"] = app.config.tagline
     context["pages"] = env.blog_page_list
+    
+    # set translation context variables
+    context["textRecentPosts"]=_("Recent Posts")
+    context["textHome"]=_("Home")
+    context["textPostedby"]=_("Posted by")
+    context["textBlogArchive"]= _("Blog Archive")
+    context["timestamp_format"] =  _('%B %d, %Y')    
 
     # recent posts
     context["recent"] = [(post, env.titles[post].astext()) for post 

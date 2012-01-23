@@ -11,7 +11,7 @@
 {%- set recent_count = recent_count is not defined and 10 or recent_count %}
 
 <div class="widget">
-    <h3>Recent Posts</h3>
+    <h3>{{textRecentPosts}}</h3>
     <ul>
         {%- for post, post_title in recent[:recent_count] %}
         <li>

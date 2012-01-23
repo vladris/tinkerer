@@ -75,7 +75,7 @@ def make_archive(app):
     '''
     Generates blog archive including all posts.
     '''
-    yield make_archive_page(app.builder.env, "Blog Archive", "archive") 
+    yield make_archive_page(app.builder.env, _("Blog Archive"), "archive") 
 
 
 

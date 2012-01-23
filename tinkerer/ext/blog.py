@@ -8,6 +8,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 from tinkerer.ext import aggregator, author, filing, metadata, rss 
+import gettext
 
 
 
@@ -23,7 +24,10 @@ def initialize(app):
     metadata.initialize(app)
     filing.initialize(app)
 
-
+    # set blog language
+    app.t = gettext.translation('tinkerer', "tinkerer/locale", languages=[app.config.language])
+    _ = app.t.ugettext
+    app.t.install()
 
 def source_read(app, docname, source):
     '''

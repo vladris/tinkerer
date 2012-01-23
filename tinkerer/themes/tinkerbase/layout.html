@@ -120,7 +120,7 @@
 {%- macro author(author_name) %}
     {%- if author_name %}
         <div class="author">
-            <span>Posted by {{ author_name }}</span>
+            <span>{{textPostedby}} {{ author_name }}</span>
         </div>
     {%- endif %}
 {%- endmacro %}
