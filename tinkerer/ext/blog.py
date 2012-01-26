@@ -27,7 +27,18 @@ def initialize(app):
     # set blog language
     if app.config.language: lang=app.config.language
     else: lang=''
-    app.t = gettext.translation('tinkerer', "/home/jordi/svn/foss/jba/tinkerer-cat.ve3/tinkerer/tinkerer/locale", languages=[lang], fallback=True)
+    locale_dir = ''
+    try:
+        from pkg_resources import resource_filename
+    except ImportError:
+        resource_filename = None
+    if resource_filename is not None:
+        try:
+            locale_dir = resource_filename(__name__, "/locale")
+        except NotImplementedError:
+            # resource_filename doesn't work with non-egg zip files
+            pass
+    app.t = gettext.translation('tinkerer',  locale_dir, languages=[lang], fallback=True)
     _ = app.t.gettext
     app.t.install()
 
