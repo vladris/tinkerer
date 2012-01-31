@@ -19,7 +19,7 @@ def patch_links(body, docpath, docname=None, link_title=False):
     to fix hyperlinks. Also hyperlinks document title. Returns resulting 
     XML as string.
     '''
-    doc = xml.dom.minidom.parseString(body)
+    doc = xml.dom.minidom.parseString(body.encode('utf-8'))
 
     patch_node(doc, docpath)
 
