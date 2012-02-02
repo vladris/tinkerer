@@ -19,10 +19,22 @@ import xml.dom.minidom
 class TestRSS(utils.BaseTinkererTest):
     def test_rss(self):
         # create some posts
-        for new_post in [("Post 1", datetime.date(2010, 10, 1), "Lorem ipsum"),
-                         ("Post 2", datetime.date(2010, 11, 2), "dolor sit"),
-                         ("Post 3", datetime.date(2010, 12, 3), "amet, consectetuer")]:
-            post.create(new_post[0], new_post[1]).write(content=new_post[2])
+        for new_post in [
+                ("Post 1", 
+                    datetime.date(2010, 10, 1), 
+                    "Lorem ipsum", 
+                    "category 1"),
+                ("Post 2", 
+                    datetime.date(2010, 11, 2), 
+                    "dolor sit",
+                    "category 2"),
+                ("Post 3", 
+                    datetime.date(2010, 12, 3), 
+                    "amet, consectetuer",
+                    "category 3")]:
+            post.create(new_post[0], new_post[1]).write(
+                    content=new_post[2], 
+                    categories=new_post[3])
 
         self.build()
 
@@ -58,6 +70,7 @@ class TestRSS(utils.BaseTinkererTest):
                 "guid": None, 
                 "title": None, 
                 "description": None, 
+                "category": None,
                 "pubDate": None
                }
 
@@ -65,18 +78,21 @@ class TestRSS(utils.BaseTinkererTest):
                       "link" : "http://127.0.0.1/blog/html/2010/12/03/post_3.html",
                       "title": "Post 3",
                       "description": "amet, consectetuer",
+                      "category": "category 3",
                       "pubDate": "03 Dec 2010"},
 
                      {"index": 1,
                       "link" : "http://127.0.0.1/blog/html/2010/11/02/post_2.html",
                       "title": "Post 2",
                       "description": "dolor sit",
+                      "category": "category 2",
                       "pubDate": "02 Nov 2010"},
                         
                      {"index": 2,
                       "link" : "http://127.0.0.1/blog/html/2010/10/01/post_1.html",
                       "title": "Post 1",
                       "description": "Lorem ipsum",
+                      "category": "category 1",
                       "pubDate": "01 Oct 2010"}]:
 
             data = self.get_data(
@@ -85,7 +101,9 @@ class TestRSS(utils.BaseTinkererTest):
             self.assertEquals(item["link"], data["guid"])
             self.assertEquals(item["title"], data["title"])
             self.assertIn(item["description"], data["description"])
+            self.assertIn(item["category"], data["category"])
             self.assertIn(item["pubDate"], data["pubDate"])
+
 
 
     # get a dictionary of the given data in an XML node

@@ -43,12 +43,15 @@ def generate_feed(app):
                 time.mktime(env.blog_metadata[post].date.timetuple()),
                 usegmt=True)
 
+        categories = [category[1] for category in env.blog_metadata[post].filing["categories"]]
+
         context["items"].append({
                     "title": env.titles[post].astext(),
                     "link": link,
                     "description": patch.patch_links(
                             env.blog_metadata[post].body, 
                             app.config.website + post[:11]),
+                    "categories": categories,
                     "pubDate": timestamp
                 })
 
