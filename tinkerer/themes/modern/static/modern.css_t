@@ -30,12 +30,12 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 a h1 {
     color: black;
+}
+
+a:hover, a:hover h1 {
+    text-decoration: underline;
 }
 
 /* Header */
@@ -50,7 +50,7 @@ div.header h1 {
     font-size: 300%;
     margin: 0;
     padding: 12px 48px 0px 48px;
-    text-shadow: 0px 1px 1px #cccccc;
+    text-shadow: 0px 2px 0px black;
 }
 
 div.header a {
@@ -62,6 +62,7 @@ div.header h2 {
     font-style: italic;
     padding: 12px 48px;
     margin: 0;
+    text-shadow: 0px 2px 0px black;
 }
 
 /* Page navigation */
@@ -79,7 +80,9 @@ div.page_nav {
 
 div.page_nav a {
     color: #dddddd;
+    padding: 0 24px;
     text-decoration: none;
+    text-shadow: 0px 2px 1px black;
 }
 
 div.page_nav a:hover {
@@ -95,15 +98,15 @@ div.page_nav li {
     display: inline;
 }
 
-div.page_nav a {
-    padding: 0 24px;
-}
-
 div.page_nav li + li {
     border-left: 1px solid #dddddd;
 }
 
-div.page_nav li.right {
+div.page_nav li + li a {
+    border-left: 1px solid black;
+}
+
+div.page_nav li.right, div.page_nav li.right a {
     border: none;
 }
 
