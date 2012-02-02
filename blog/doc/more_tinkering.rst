@@ -33,6 +33,23 @@ This will load the Google Analytics script on each page of your blog.
 More information on extending templates can be found in the
 `Sphinx documentation <http://sphinx.pocoo.org/templating.html#script_files>`_.
 
+Localization
+------------
+
+.. highlight:: python
+
+By default, Tinkerer is built using English language. Tinkerer is currently 
+localized in Spanish and Catalan. To change localization, add the following 
+line to your ``conf.py`` for Spanish::
+
+   language = "es"
+   
+or for Catalan::
+
+   language = "ca"
+
+.. highlight:: html
+
 RSS
 ---
 
