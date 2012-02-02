@@ -26,6 +26,7 @@ the `Facebook Developers Documentation <https://developers.facebook.com/docs/ref
 There are two options for managing comments: using a user ID or an app ID.
 
 .. highlight:: html
+
 User Admin
 ~~~~~~~~~~
 
@@ -64,5 +65,9 @@ above, but with the following content::
     {% endblock %}
 
 Make sure to replace ``$(YOUR_APP_ID)`` above with the appropriate ID.
+
+.. note::
+    Unlike Disqus, Facebook comment box does not inherit the blog theme style.
+    Tinkerer will not provide any styling for the comment box.
 
 Back to :ref:`tinkerer_reference`.
