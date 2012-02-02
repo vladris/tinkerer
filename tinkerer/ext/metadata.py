@@ -5,7 +5,8 @@
     Blog metadata extension. The extension extracts and computes metadata 
     associated with blog posts/pages and stores it in the environment.
 
-    :copyright: Copyright 2011 by Vlad Riscutia.
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 import re

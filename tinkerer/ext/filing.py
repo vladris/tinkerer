@@ -4,7 +4,8 @@
 
     Handles post filing by date, caregories and tags.
 
-    :copyright: Copyright 2011 by Vlad Riscutia.
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 from sphinx.util.compat import Directive

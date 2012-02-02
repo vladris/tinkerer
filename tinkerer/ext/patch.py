@@ -6,7 +6,8 @@
     generates these links as relative paths - aggregated pages and RSS
     feed require these to be patched.
 
-    :copyright: Copyright 2011 by Vlad Riscutia.
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 import xml.dom.minidom

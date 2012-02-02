@@ -4,7 +4,8 @@
 
     Master blog extension.
 
-    :copyright: Copyright 2011 by Vlad Riscutia
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 from tinkerer.ext import aggregator, author, filing, metadata, rss 

@@ -4,7 +4,8 @@
 
     Handles creating drafts.
 
-    :copyright: Copyright 2011 by Vlad Riscutia
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD, see LICENCE file
 '''
 import os

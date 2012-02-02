@@ -4,7 +4,8 @@
 
     Handles creating new posts and inserting them in the master document.
 
-    :copyright: Copyright 2011 by Vlad Riscutia
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD, see LICENCE file
 '''
 from datetime import datetime
