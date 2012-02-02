@@ -130,12 +130,11 @@ def add_metadata(app, pagename, context):
     context["pages"] = env.blog_page_list
     
     # set translation context variables
-    context["textRecentPosts"]=_("Recent Posts")
-    context["textHome"]=_("Home")
-    context["textPostedby"]=_("Posted by")
-    context["textBlogArchive"]= _("Blog Archive")
-    context["textFiledunder"]=_("Filed under")
-    context["textTags"]=_("Tags")
+    context["text_recent_posts"]=_("Recent Posts")
+    context["text_posted_by"]=_("Posted by")
+    context["text_blog_archive"]= _("Blog Archive")
+    context["text_filed_under"]=_("Filed under")
+    context["text_tags"]=_("Tags")
     context["timestamp_format"] =  _('%B %d, %Y')    
 
     # recent posts
