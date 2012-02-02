@@ -52,7 +52,6 @@ setup(
     ],
     platforms = "any",
     packages = find_packages(exclude=["tinkertest"]),
-    package_data = {"" : ["locale/*/LC_MESSAGES/*.mo"]},
     include_package_data = True,
     entry_points = {
         "console_scripts": [
