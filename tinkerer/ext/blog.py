@@ -8,6 +8,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 from tinkerer.ext import aggregator, author, filing, metadata, rss 
+import gettext
 
 
 
@@ -23,7 +24,23 @@ def initialize(app):
     metadata.initialize(app)
     filing.initialize(app)
 
-
+    # set blog language
+    if app.config.language: lang=app.config.language
+    else: lang=''
+    locale_dir = ''
+    try:
+        from pkg_resources import resource_filename
+    except ImportError:
+        resource_filename = None
+    if resource_filename is not None:
+        try:
+            locale_dir = resource_filename(__name__, "/locale")
+        except NotImplementedError:
+            # resource_filename doesn't work with non-egg zip files
+            pass
+    app.t = gettext.translation('tinkerer',  locale_dir, languages=[lang], fallback=True)
+    _ = app.t.gettext
+    app.t.install()
 
 def source_read(app, docname, source):
     '''

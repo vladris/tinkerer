@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-01-23 11:21+CET\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ./ext/aggregator.py:50 ./ext/metadata.py:118 ./ext/metadata.py:134
+msgid "Home"
+msgstr "Inicio"
+
+#: ./ext/aggregator.py:54
+msgid "Newer"
+msgstr "Mas nuevo"
+
+#: ./ext/aggregator.py:56
+msgid "Page %d"
+msgstr "Página %d"
+
+#: ./ext/aggregator.py:63
+msgid "Older"
+msgstr "Mas antiguo"
+
+#: ./ext/filing.py:78 ./ext/metadata.py:136
+msgid "Blog Archive"
+msgstr "Archivo del blog"
+
+#: ./ext/filing.py:89
+msgid "Posts tagged with <span class=\"title_tag\">%s</span>"
+msgstr "Entradas etiquetadas <span class=\"title_tag\">%s</span>"
+
+#: ./ext/filing.py:102
+msgid "Filed under <span class=\"title_category\">%s</span>"
+msgstr "Clasificado como <span class=\"title_category\">%s</span>"
+
+#: ./ext/metadata.py:133
+msgid "Recent Posts"
+msgstr "Entradas recientes"
+
+#: ./ext/metadata.py:135
+msgid "Posted by"
+msgstr "Entrada de"
+
+#: ./ext/metadata.py:137
+msgid "Filed under"
+msgstr "Clasificado como"
+
+#: ./ext/metadata.py:138
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: ./ext/metadata.py:139
+msgid "%B %d, %Y"
+msgstr "%d %B %Y"
+
