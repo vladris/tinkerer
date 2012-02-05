@@ -27,6 +27,13 @@
 
 {# RSS feed ----------------------------------------------------------------- #}
 
+{# RSS feed link #}
+{%- if rss_service %}
+    {%- set rss_feed_link = rss_service %}
+{%- else %}
+    {%- set rss_feed_link = pathto('rss') %}
+{%- endif %}        
+
 {# include RSS feed link in page_nav (default True) #}
 {%- set rss_in_page_nav = rss_in_page_nav is not defined or rss_in_page_nav %}
 
@@ -59,9 +66,9 @@
     </div>
 {%- endmacro %}
 
-{# RSS link #}
-{%- macro rss_link() %}
-    <a href="{%- if rss_service %}{{ rss_service }}{%- else %}{{ pathto('rss') }}{%- endif %}" title="Subscribe via RSS">
+{# RSS nav #}
+{%- macro rss_nav() %}
+    <a href="{{ rss_feed_link }}" title="Subscribe via RSS">
         <div class="rss">
             {%- if rss_symbol %}<span class="webfont">B</span>{%- endif %}
             {% if rss_link_text %}{{ rss_link_text }}{% endif %}
@@ -80,7 +87,7 @@
             {% endfor %}
             {%- if rss_in_page_nav %}
             <li class="right">
-                {{ rss_link() }}
+                {{ rss_nav() }}
             </li>
             {%- endif %}
         </ul>
@@ -176,6 +183,11 @@
 {%- endmacro %}
 
 {# Blocks ------------------------------------------------------------------- #}
+
+{%- block linktags %}
+    {{ super() }}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ rss_feed_link }}">
+{%- endblock %}
 
 {%- block header %}
     {%- if page_nav_first %}{{ page_nav() }}{%- endif %}
