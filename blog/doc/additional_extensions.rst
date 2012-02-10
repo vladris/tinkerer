@@ -1,6 +1,8 @@
 Additional Extensions
 =====================
 
+.. _fb-comments:
+
 Facebook Comments
 -----------------
 .. highlight:: python
