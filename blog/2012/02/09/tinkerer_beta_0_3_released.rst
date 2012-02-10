@@ -1,4 +1,4 @@
-Tinkerer Beta 0.3 Released
+Tinkerer 0.3 Beta Released
 ==========================
 
 What's New
