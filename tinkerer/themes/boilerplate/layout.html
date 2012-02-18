@@ -181,14 +181,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   {{ css() }}
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{{ pathto('_static/style.css', 1) }}">
 
   {%- if not embedded %}
   {%- if favicon %}
   <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}" />
   {%- endif %}
 
+  <!-- Load modernizr and JQuery -->
   <script src="{{ pathto('_static/modernizr-2.0.6.min.js', 1) }}"></script>
+
+  <!-- Grab Google CDN's jQuery, fall back to local if offline -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="{{ pathto('_static/jquery-1.6.2.min.js', 1) }}"><\/script>')</script>
 
   {%- if use_opensearch %}
   <link rel="search" type="application/opensearchdescription+xml"
@@ -310,10 +315,6 @@
   </div> <!--! end of #container -->
 
   <!-- JavaScript at the bottom for fast page loading -->
-
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{{ pathto('_static/jquery-1.6.2.min.js') }}"><\/script>')</script>
 
   {%- if not embedded %}
   {{ script() }}
