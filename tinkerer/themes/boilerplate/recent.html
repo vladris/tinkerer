@@ -1,0 +1,23 @@
+{#
+    tinkerbase/recent.html
+    ~~~~~~~~~~~~~~~~~~~~~~
+
+    Sidebar list of recent posts.
+
+    :copyright: Copyright 2011 by Vlad Riscutia
+    :license: FreeBSD, see LICENSE file
+#}
+
+{%- set recent_count = recent_count is not defined and 10 or recent_count %}
+
+<div class="widget">
+    <h3>Recent Posts</h3>
+    <ul>
+        {%- for post, post_title in recent[:recent_count] %}
+        <li>
+            <a href="{{ pathto(post) }}">{{ post_title }}</a>
+        </li>
+        {%- endfor %}
+    </ul>
+</div>
+
