@@ -240,7 +240,7 @@
 {% endblock %}
 
 {%- block navigation %}
-    <nav role="navigation">
+    <nav>
       {%- block quicklinks %}
       <ul class="quicklinks">
         {%- if rss_in_page_nav %}
@@ -258,7 +258,7 @@
     </nav>
 {%- endblock %}
 
-    <div id="main" role="main">
+    <div id="main">
 {%- block content %}
 
       {%- block relbar1 %}{{ relbar() }}{% endblock %}
