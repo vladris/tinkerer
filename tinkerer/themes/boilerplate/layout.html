@@ -25,6 +25,11 @@
 
 {%- set archivechar = archivechar is not defined and ' &mdash; ' or archivechar %}
 
+{%- if rss_service %}
+    {%- set rss_feed_link = rss_service %}
+{%- else %}
+    {%- set rss_feed_link = pathto('rss') %}
+{%- endif %}    
 {%- set rss_in_page_nav = rss_in_page_nav is not defined or rss_in_page_nav %}
 {%- set rss_link_text = rss_link_text is not defined and None or rss_link_text %}
 {%- set rss_symbol = rss_symbol is not defined or rss_symbol %}
@@ -65,7 +70,7 @@
 
 {# RSS link #}
 {%- macro rss_link() %}
-    <a href="{%- if rss_service %}{{ rss_service }}{%- else %}{{ pathto('rss') }}{%- endif %}" title="Subscribe via RSS">
+    <a href="{{ rss_feed_link }}" title="Subscribe via RSS">
         <div class="rss">
             {%- if rss_symbol %}<span class="webfont">B</span>{%- endif %}
             {% if rss_link_text %}{{ rss_link_text }}{% endif %}
@@ -225,6 +230,7 @@
   {%- if prev %}
   <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
   {%- endif %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ rss_feed_link }}" />
 {%- endblock %}
 {%- block extrahead %} {% endblock %}
 </head>
