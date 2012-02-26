@@ -14,14 +14,11 @@
     :license: FreeBSD, see LICENSE file
 '''
 import argparse
-from datetime import datetime
-import jinja2
 import os
 import shutil
 import sphinx
-import subprocess
 import sys
-from tinkerer import draft, page, paths, post, utils, writer
+from tinkerer import draft, page, paths, post, writer
 
 
 
@@ -49,14 +46,14 @@ def build(quiet=False, filename_only=False):
 
     flags = ["sphinx-build"]
     # silence Sphinx if in quiet mode
-    if quiet or filename_only: 
+    if quiet or filename_only:
         flags.append("-q")
     flags += ["-d", paths.doctree, "-b", "html", paths.root, paths.html]
 
     # build always prints "index.html"
     if filename_only:
         print("index.html")
-    
+
     return sphinx.main(flags)
 
 
@@ -81,7 +78,7 @@ def create_post(title, quiet=False, filename_only=False):
             print("New post created as '%s'" % new_post.path)
 
 
- 
+
 def create_page(title, quiet=False, filename_only=False):
     '''
     Creates a new page with the given title or makes an existing file a page.
@@ -132,10 +129,10 @@ def main(argv=None):
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-s", "--setup", action="store_true", help="setup a new blog")
     group.add_argument("-b", "--build", action="store_true", help="build blog")
-    group.add_argument("-p", "--post", nargs=1, 
+    group.add_argument("-p", "--post", nargs=1,
             help="create a new post with the title POST (if a file named POST "
                  "exists, it is moved to a new post instead)")
-    group.add_argument("--page", nargs=1, 
+    group.add_argument("--page", nargs=1,
             help="create a new page with the title PAGE (if a file named PAGE "
                  "exists, it is moved to a new page instead)")
     group.add_argument("-d", "--draft", nargs=1,
@@ -144,8 +141,8 @@ def main(argv=None):
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")
-    group.add_argument("-f", "--filename", action="store_true", 
-            help="output filename only - useful to pipe Tinkerer commands") 
+    group.add_argument("-f", "--filename", action="store_true",
+            help="output filename only - useful to pipe Tinkerer commands")
 
     command = parser.parse_args(argv)
 
@@ -155,7 +152,7 @@ def main(argv=None):
         sys.stderr.write("Tinkerer must be run from your blog root "
                 "(directory containing 'conf.py')\n")
         return -1
-    
+
 
     if command.setup:
         setup(command.quiet, command.filename)

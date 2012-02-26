@@ -12,7 +12,6 @@ import datetime
 import os
 import tinkerer
 from tinkerer import cmdline, paths, post
-import unittest
 import utils
 
 
@@ -20,7 +19,7 @@ import utils
 class TestCmdLine(utils.BaseTinkererTest):
     # test blog setup
     def test_setup(self):
-        # blog is setup as part of test setup, tear it down and re-create it via 
+        # blog is setup as part of test setup, tear it down and re-create it via
         # cmdline
         self.tearDown()
         cmdline.main(["--setup", "--quiet"])
@@ -28,10 +27,10 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.assertEqual(
             set(os.listdir(utils.TEST_ROOT)),
             {
-                "_static", 
-                "drafts", 
-                "conf.py", 
-                "index.html", 
+                "_static",
+                "drafts",
+                "conf.py",
+                "index.html",
                 tinkerer.master_doc + ".rst"
             })
 
@@ -53,7 +52,7 @@ class TestCmdLine(utils.BaseTinkererTest):
     def test_post_from_path(self):
         # create file
         draft_file = os.path.join(utils.TEST_ROOT, "drafts", "draft_post.rst")
-        
+
         with open(draft_file, "w") as f:
             f.write("Content")
 
@@ -84,7 +83,7 @@ class TestCmdLine(utils.BaseTinkererTest):
     def test_post_from_path(self):
         # create file
         draft_file = os.path.join(utils.TEST_ROOT, "drafts", "draft_page.rst")
-        
+
         with open(draft_file, "w") as f:
             f.write("Content")
 
@@ -117,8 +116,8 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.build()
 
         # assert html is produced
-        self.assertTrue(os.path.exists(                
-            os.path.join(utils.TEST_ROOT, "blog", "html", "2010", 
+        self.assertTrue(os.path.exists(
+            os.path.join(utils.TEST_ROOT, "blog", "html", "2010",
                          "10", "01", "my_post.html")))
 
     # ensure tinkerer only runs from blog root (dir containing conf.py) except
@@ -127,10 +126,10 @@ class TestCmdLine(utils.BaseTinkererTest):
         # remove "conf.py" created by test setup
         os.remove(os.path.join(paths.root, "conf.py"))
 
-        self.assertNotEqual(0, 
+        self.assertNotEqual(0,
                 cmdline.main(["--page", "Test Post", "--quiet"]))
 
-        self.assertNotEqual(0, 
+        self.assertNotEqual(0,
                 cmdline.main(["--post", "Test Page", "--quiet"]))
 
         self.assertNotEqual(0,
@@ -139,4 +138,3 @@ class TestCmdLine(utils.BaseTinkererTest):
         # setup should work fine from anywhere
         self.assertEqual(0,
                 cmdline.main(["--setup", "--quiet"]))
-

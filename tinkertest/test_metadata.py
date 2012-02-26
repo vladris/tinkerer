@@ -9,7 +9,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
-from tinkerer import page, paths, post
+from tinkerer import page, post
 import utils
 
 
@@ -44,7 +44,7 @@ def build_finished(app, exception):
     utils.test.assertEquals(set(pages), set(env.blog_pages))
 
     # body should contain the whole 100 word string
-    utils.test.assertIn(" ".join("a" * 100), 
+    utils.test.assertIn(" ".join("a" * 100),
             env.blog_metadata[env.blog_posts[0]].body)
 
 

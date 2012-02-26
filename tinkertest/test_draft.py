@@ -10,7 +10,6 @@
 '''
 import datetime
 import os
-import tinkerer
 from tinkerer import draft, master, page, post
 import utils
 
@@ -24,10 +23,10 @@ class TestDraft(utils.BaseTinkererTest):
 
         self.assertEquals(
                 os.path.abspath(os.path.join(
-                                    utils.TEST_ROOT, 
-                                    "drafts", 
+                                    utils.TEST_ROOT,
+                                    "drafts",
                                     "my_draft.rst")),
-                new_draft)                                        
+                new_draft)
 
         self.assertTrue(os.path.exists(new_draft))
 
@@ -37,7 +36,7 @@ class TestDraft(utils.BaseTinkererTest):
         # create a post and a page
         new_post = post.create("A post", datetime.datetime(2010, 10, 1))
         new_page = page.create("A page")
-        
+
         # page and posts should be in master doc (precondition)
         lines = master.read_master()
         self.assertIn("   %s\n" % new_post.docname, lines)
@@ -79,4 +78,3 @@ class TestDraft(utils.BaseTinkererTest):
                      ".. categories:: none\n",
                      ".. tags:: none\n",
                      ".. comments::\n"])
-

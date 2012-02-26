@@ -2,7 +2,7 @@
     Test runner
     ~~~~~~~~~~~
 
-    Used to run tests. 
+    Used to run tests.
     Run with no arguments will run all unittests.
     -v <mask> flag runs only tests matching mask (.py extension auto-appended)
     -b, --bench run benchmark
@@ -14,7 +14,6 @@
     :license: FreeBSD, see LICENSE file
 '''
 import argparse
-from contextlib import contextmanager
 import glob
 import os
 import unittest
@@ -23,8 +22,8 @@ import tinkertest.utils
 
 # argument parser
 parser = argparse.ArgumentParser()
-parser.add_argument("-v", nargs=1, 
-            help="run specific test(s): eg. -v test_rss runs only test_rss.py") 
+parser.add_argument("-v", nargs=1,
+            help="run specific test(s): eg. -v test_rss runs only test_rss.py")
 parser.add_argument("-b", "--bench", action="store_true",
             help="run benchmark")
 parser.add_argument("-t", "--theme", nargs=1,
@@ -52,7 +51,7 @@ else:
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     # glob all test cases
-    tests = [unittest.defaultTestLoader.loadTestsFromName(name[:-3]) for name in 
+    tests = [unittest.defaultTestLoader.loadTestsFromName(name[:-3]) for name in
              glob.glob(mask)]
 
     # restore current directory
@@ -60,5 +59,3 @@ else:
 
     # create a test suite and run it
     unittest.TextTestRunner().run(unittest.TestSuite(tests))
-
-
