@@ -26,12 +26,13 @@ def setup(quiet=False, filename_only=False):
     '''
     Sets up a new blog in the current directory.
     '''
-    if writer.setup_blog():
-        if filename_only:
-            print("conf.py")
-        elif not quiet:
-            print("Your new blog is almost ready!")
-            print("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
+    writer.setup_blog()
+
+    if filename_only:
+        print("conf.py")
+    elif not quiet:
+        print("Your new blog is almost ready!")
+        print("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
 
 
 
