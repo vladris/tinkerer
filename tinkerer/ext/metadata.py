@@ -13,6 +13,7 @@ import re
 import datetime 
 from sphinx.util.compat import Directive
 import tinkerer
+from tinkerer.ext.uistr import UIStr
 
 
 
@@ -116,7 +117,7 @@ def process_metadata(app, env):
                 else:
                     env.blog_pages.append(doc)
      
-    env.blog_page_list = [("index", _("Home"))] + [(page, env.titles[page].astext()) for page in env.blog_pages]
+    env.blog_page_list = [("index", UIStr.HOME)] + [(page, env.titles[page].astext()) for page in env.blog_pages]
 
 
 
@@ -131,12 +132,12 @@ def add_metadata(app, pagename, context):
     context["pages"] = env.blog_page_list
     
     # set translation context variables
-    context["text_recent_posts"] = _("Recent Posts")
-    context["text_posted_by"] = _("Posted by")
-    context["text_blog_archive"] = _("Blog Archive")
-    context["text_filed_under"] = _("Filed under")
-    context["text_tags"] = _("Tags")
-    context["timestamp_format"] = _('%B %d, %Y')    
+    context["text_recent_posts"] = UIStr.RECENT_POSTS
+    context["text_posted_by"] = UIStr.POSTED_BY
+    context["text_blog_archive"] = UIStr.BLOG_ARCHIVE
+    context["text_filed_under"] = UIStr.FILED_UNDER
+    context["text_tags"] = UIStr.TAGS
+    context["timestamp_format"] = UIStr.TIMESTAMP_FMT
 
     # recent posts
     context["recent"] = [(post, env.titles[post].astext()) for post 

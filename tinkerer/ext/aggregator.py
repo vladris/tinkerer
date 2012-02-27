@@ -10,6 +10,7 @@
 '''
 import copy
 from tinkerer.ext import patch
+from tinkerer.ext.uistr import UIStr
 
 
 
@@ -48,20 +49,20 @@ def make_aggregated_pages(app):
             # first page doesn't have prev link and its title is "Home"
             pagename = "index"
             context["prev"] = None
-            context["title"] = _("Home")
+            context["title"] = UIStr.HOME
         else:
             # following pages prev-link to previous page (titled as "Newer")
             pagename = "page%d" % i
-            context["prev"]["title"] = _("Newer")
+            context["prev"]["title"] = UIStr.NEWER
             context["prev"]["link"] = "index.html" if i == 1 else "page%d.html" % (i - 1)
-            context["title"] = _("Page %d") % (i + 1)
+            context["title"] = UIStr.PAGE_FMT % (i + 1)
 
         if i == len(groups) - 1:
             # last page doesn't have next link
             context["next"] = None
         else:
             # other pages next-link to following page (titled as "Older")
-            context["next"]["title"] = _("Older")
+            context["next"]["title"] = UIStr.OLDER
             context["next"]["link"] = "page%d.html" % (i + 1)
 
         yield (pagename, context, "aggregated.html")

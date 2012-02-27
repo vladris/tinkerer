@@ -10,6 +10,7 @@
 '''
 from sphinx.util.compat import Directive
 from tinkerer import utils
+from tinkerer.ext.uistr import UIStr
 
 
 
@@ -76,7 +77,10 @@ def make_archive(app):
     '''
     Generates blog archive including all posts.
     '''
-    yield make_archive_page(app.builder.env, _("Blog Archive"), "archive") 
+    yield make_archive_page(
+                app.builder.env, 
+                UIStr.BLOG_ARCHIVE,
+                "archive")
 
 
 
@@ -87,7 +91,7 @@ def make_tag_pages(app):
     env = app.builder.env
     for tag in env.filing["tags"]:
         yield make_archive_page(env,
-                _('Posts tagged with <span class="title_tag">%s</span>') % tag,
+                UIStr.TAGGED_WITH_FMT % tag,
                 "tags/" + utils.name_from_title(tag),
                 lambda post: post in env.filing["tags"][tag])
 
@@ -100,7 +104,7 @@ def make_category_pages(app):
     env = app.builder.env
     for category in env.filing["categories"]:
         yield make_archive_page(env,
-                _('Filed under <span class="title_category">%s</span>') % category,
+                UIStr.FILED_UNDER_FMT % category,
                 "categories/" + utils.name_from_title(category),
                 lambda post: post in env.filing["categories"][category])
 
