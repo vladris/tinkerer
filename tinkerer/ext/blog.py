@@ -8,7 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, metadata, rss 
+from tinkerer.ext import aggregator, author, filing, metadata, rss, uistr
 import gettext
 
 
@@ -47,6 +47,11 @@ def initialize(app):
                     fallback=True)
     _ = app.t.gettext
     app.t.install()
+
+    # initialize localized strings
+    uistr.UIStr(app)
+
+
 
 def source_read(app, docname, source):
     '''
