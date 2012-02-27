@@ -12,7 +12,6 @@ import datetime
 import os
 from tinkerer import paths, post
 import utils
-import string
 import xml.dom.minidom
 
 
@@ -21,20 +20,20 @@ class TestRSS(utils.BaseTinkererTest):
     def test_rss(self):
         # create some posts
         for new_post in [
-                ("Post 1", 
-                    datetime.date(2010, 10, 1), 
-                    "Lorem ipsum", 
+                ("Post 1",
+                    datetime.date(2010, 10, 1),
+                    "Lorem ipsum",
                     "category 1"),
-                ("Post 2", 
-                    datetime.date(2010, 11, 2), 
+                ("Post 2",
+                    datetime.date(2010, 11, 2),
                     "dolor sit",
                     "category 2"),
-                ("Post 3", 
-                    datetime.date(2010, 12, 3), 
+                ("Post 3",
+                    datetime.date(2010, 12, 3),
                     "amet, consectetuer",
                     "category 3")]:
             post.create(new_post[0], new_post[1]).write(
-                    content=new_post[2], 
+                    content=new_post[2],
                     categories=new_post[3])
 
         self.build()
@@ -66,11 +65,11 @@ class TestRSS(utils.BaseTinkererTest):
         self.assertIn("03 Dec 2010", data["pubDate"])
 
         # validate XML "item" node content against expected content
-        data = { 
-                "link": None, 
-                "guid": None, 
-                "title": None, 
-                "description": None, 
+        data = {
+                "link": None,
+                "guid": None,
+                "title": None,
+                "description": None,
                 "category": None,
                 "pubDate": None
                }
@@ -88,7 +87,7 @@ class TestRSS(utils.BaseTinkererTest):
                       "description": "dolor sit",
                       "category": "category 2",
                       "pubDate": "02 Nov 2010"},
-                        
+
                      {"index": 2,
                       "link" : "http://127.0.0.1/blog/html/2010/10/01/post_1.html",
                       "title": "Post 1",

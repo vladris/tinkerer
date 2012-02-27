@@ -11,7 +11,6 @@
 import datetime
 import os
 import re
-import tinkerer
 
 
 
@@ -26,7 +25,7 @@ def name_from_title(title):
 
 def name_from_path(path):
     '''
-    Returns a doc name from a path by extracting the filename without 
+    Returns a doc name from a path by extracting the filename without
     extension.
     '''
     return os.path.splitext(os.path.basename(path))[0]
