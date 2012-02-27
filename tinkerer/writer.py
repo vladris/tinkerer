@@ -8,6 +8,8 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+from os import path
+
 from jinja2 import Environment, PackageLoader
 from tinkerer import paths, utils
 
@@ -21,9 +23,14 @@ def render(template, destination, context={}):
     '''
     Renders the given template at the given destination with the given context.
     '''
-    with open(destination, "w") as f:
-        f.write(env.get_template(template).render(context))
+    if path.exists(destination):
+        print("%s already exists, remove it first and run it again" % destination)
+        return False
+    else:
+        with open(destination, "w") as dest:
+            dest.write(env.get_template(template).render(context))
 
+        return True
 
 
 def write_master_file():
