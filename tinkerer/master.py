@@ -41,9 +41,9 @@ def prepend_doc(docname):
         if "maxdepth" in line:
             break
 
-    # insert docname after it with 3 space alignement
+    # insert docname after it with 3 space alignment
     lines.insert(line_no + 2, "   %s\n" % docname)
-    
+
     write_master(lines)
 
 
@@ -55,7 +55,7 @@ def append_doc(docname):
     lines = read_master()
 
     # find second blank line after maxdepth directive
-    blank = 0    
+    blank = 0
     for line_no, line in enumerate(read_master()):
         if blank == 3: break
         if "maxdepth" in line: blank = 1
@@ -63,15 +63,15 @@ def append_doc(docname):
 
     lines.insert(line_no, "   %s\n" % docname)
 
-    write_master(lines) 
-   
-    
-    
+    write_master(lines)
+
+
+
 def remove_doc(docname):
     '''
     Removes document from the TOC.
     '''
     # rewrite file filtering line containing docname
     write_master(filter(
-            lambda line: line != "   %s\n" % docname, 
+            lambda line: line != "   %s\n" % docname,
             read_master()))
