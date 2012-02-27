@@ -25,8 +25,7 @@ Tinkerer is also highly customizable through Sphinx extensions.
 
 
 requires = ["Jinja2>=2.3", "Sphinx>=1.1", "argparse>=1.2"]
-
-
+test_requires = ['nose', 'tox']
 
 setup(
     name = "Tinkerer",
@@ -57,5 +56,7 @@ setup(
             "tinker = tinkerer.cmdline:main"
         ]
     },
-    install_requires = requires
+    install_requires = requires,
+    test_requires = test_requires,
+    test_suite = 'nose.collector',
 )
