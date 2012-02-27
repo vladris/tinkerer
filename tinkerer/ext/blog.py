@@ -25,6 +25,7 @@ def initialize(app):
     metadata.initialize(app)
     filing.initialize(app)
 
+    # localization
     lang = app.config.language if app.config.language else ""
 
     locale_dir = ""
@@ -45,7 +46,6 @@ def initialize(app):
                     locale_dir,
                     languages=[lang],
                     fallback=True)
-    _ = app.t.gettext
     app.t.install()
 
     # initialize localized strings

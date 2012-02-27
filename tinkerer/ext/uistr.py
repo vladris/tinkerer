@@ -17,8 +17,9 @@ except:
     import __builtin__
     
 
-# Check whether unicode builtin exists. In Python 2 strings are not unicode by
-# default so they must be explicitely encoded
+
+# check whether unicode builtin exists, otherwise strings are unicode by 
+# default so it can be stubbed
 if "unicode" not in __builtin__.__dict__:
     def unicode(ret, ignore):
         return ret
@@ -26,7 +27,7 @@ if "unicode" not in __builtin__.__dict__:
 
 
 class UIStr:
-    # Initialize UI strings
+    # initialize localized strings
     def __init__(self, app):
         _ = app.t.gettext
 
