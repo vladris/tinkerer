@@ -37,6 +37,7 @@ def prepend_doc(docname):
     lines = read_master()
 
     # find maxdepth directive
+    line_no = 0
     for line_no, line in enumerate(lines):
         if "maxdepth" in line:
             break
@@ -55,7 +56,7 @@ def append_doc(docname):
     lines = read_master()
 
     # find second blank line after maxdepth directive
-    blank = 0
+    blank, line_no = 0, 0
     for line_no, line in enumerate(read_master()):
         if blank == 3: break
         if "maxdepth" in line: blank = 1
