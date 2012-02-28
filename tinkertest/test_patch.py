@@ -37,19 +37,20 @@ class TestPatch(utils.BaseTinkererTest):
         # validate output - each tuple represents a file and the list of 
         # strings expected in the file
         tests = [(["2010", "10", "01", "post1.html"], 
-                    ['href="post2.html#x"',
+                    # for some reason Sphinx links ../01/post2 instead of post2
+                    ['href="../01/post2.html#x"',
                      'href="www.archlinux.org"']),
                  (["2010", "10", "01", "post2.html"],
                     # images get places in _images directory under root
                     ['src="../../../_images/img.png"']),
                  (["index.html"],
                     # index.html should have links patched with relative address
-                    ['href="2010/10/01/post2.html#x"',
+                    ['href="2010/10/01/../01/post2.html#x"',
                      'href="www.archlinux.org"',
                      'src="2010/10/01/../../../_images/img.png"']),
                  (["rss.html"],
                     # RSS feed should have links patched with absolute address
-                    ['href="http://127.0.0.1/blog/html/2010/10/01/post2.html#x',
+                    ['href="http://127.0.0.1/blog/html/2010/10/01/../01/post2.html#x',
                      'href="www.archlinux.org"',
                      'src="http://127.0.0.1/blog/html/2010/10/01/../../../_images/img.png"'])]
 
