@@ -151,7 +151,7 @@ def main(argv=None):
         sys.stderr.write("Tinkerer must be run from your blog root "
                 "(directory containing 'conf.py')\n")
         return -1
-    # in setup mode it shoul
+    # in setup mode it should fail if run from a blog root
     elif command.setup and os.path.exists(paths.conf_file):
         sys.stderr.write("'conf.py' already exists in current directory, "
                 "choose a different directory to setup your blog.\n")
