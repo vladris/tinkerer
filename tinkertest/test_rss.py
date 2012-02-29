@@ -9,10 +9,19 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
+import email.utils
 import os
 from tinkerer import paths, post
 import utils
+import time
 import xml.dom.minidom
+
+
+# get expected pubdate based on date
+def expected_pubdate(year, month, day):
+    return email.utils.formatdate(
+                time.mktime(datetime.date(year, month, day).timetuple()),
+                localtime=True)
 
 
 # test case
@@ -62,7 +71,7 @@ class TestRSS(utils.BaseTinkererTest):
         self.assertEquals("http://127.0.0.1/blog/html/", data["link"])
         self.assertEquals("Add intelligent tagline here", data["description"])
         self.assertEquals("en-us", data["language"])
-        self.assertIn("03 Dec 2010", data["pubDate"])
+        self.assertEquals(expected_pubdate(2010, 12, 3), data["pubDate"])
 
         # validate XML "item" node content against expected content
         data = {
@@ -79,21 +88,21 @@ class TestRSS(utils.BaseTinkererTest):
                       "title": "Post 3",
                       "description": "amet, consectetuer",
                       "category": "category 3",
-                      "pubDate": "03 Dec 2010"},
+                      "pubDate": expected_pubdate(2010, 12, 3)},
 
                      {"index": 1,
                       "link" : "http://127.0.0.1/blog/html/2010/11/02/post_2.html",
                       "title": "Post 2",
                       "description": "dolor sit",
                       "category": "category 2",
-                      "pubDate": "02 Nov 2010"},
+                      "pubDate": expected_pubdate(2010, 11, 2)},
 
                      {"index": 2,
                       "link" : "http://127.0.0.1/blog/html/2010/10/01/post_1.html",
                       "title": "Post 1",
                       "description": "Lorem ipsum",
                       "category": "category 1",
-                      "pubDate": "01 Oct 2010"}]:
+                      "pubDate": expected_pubdate(2010, 10, 1)}]:
 
             data = self.get_data(
                     doc.getElementsByTagName("item")[item["index"]], data)
@@ -102,7 +111,7 @@ class TestRSS(utils.BaseTinkererTest):
             self.assertEquals(item["title"], data["title"])
             self.assertIn(item["description"], data["description"])
             self.assertIn(item["category"], data["category"])
-            self.assertIn(item["pubDate"], data["pubDate"])
+            self.assertEquals(item["pubDate"], data["pubDate"])
 
 
 

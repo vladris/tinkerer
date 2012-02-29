@@ -42,7 +42,7 @@ def generate_feed(app):
 
         timestamp = email.utils.formatdate(
                 time.mktime(env.blog_metadata[post].date.timetuple()),
-                usegmt=True)
+                localtime=True)
 
         categories = [category[1] for category in env.blog_metadata[post].filing["categories"]]
 
