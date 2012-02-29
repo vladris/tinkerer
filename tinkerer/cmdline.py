@@ -147,10 +147,14 @@ def main(argv=None):
     command = parser.parse_args(argv)
 
     # tinkerer should be run from the blog root unless in setup mode
-    if not command.setup and not os.path.exists(
-                os.path.join(paths.root, "./conf.py")):
+    if not command.setup and not os.path.exists(paths.conf_file):
         sys.stderr.write("Tinkerer must be run from your blog root "
                 "(directory containing 'conf.py')\n")
+        return -1
+    # in setup mode it shoul
+    elif command.setup and os.path.exists(paths.conf_file):
+        sys.stderr.write("'conf.py' already exists in current directory, "
+                "choose a different directory to setup your blog.\n")
         return -1
 
 

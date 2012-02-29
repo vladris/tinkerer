@@ -120,6 +120,7 @@ class TestCmdLine(utils.BaseTinkererTest):
             os.path.join(utils.TEST_ROOT, "blog", "html", "2010",
                          "10", "01", "my_post.html")))
 
+
     # ensure tinkerer only runs from blog root (dir containing conf.py) except
     # when running setup
     def test_root_only(self):
@@ -138,3 +139,10 @@ class TestCmdLine(utils.BaseTinkererTest):
         # setup should work fine from anywhere
         self.assertEqual(0,
                 cmdline.main(["--setup", "--quiet"]))
+
+
+    # ensure tinkerer setup cannot be run on top of an existing blog
+    def test_safe_setup(self):
+        # setup should fail
+        self.assertNotEqual(0, cmdline.main(["--setup"]))
+
