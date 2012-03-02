@@ -9,7 +9,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 from tinkerer import master
-import utils
+from tinkertest import utils
 
 
 # test updating master document

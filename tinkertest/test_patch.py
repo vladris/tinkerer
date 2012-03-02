@@ -11,7 +11,7 @@
 import datetime
 import os
 from tinkerer import paths, post
-import utils
+from tinkertest import utils
 import sys
 
 

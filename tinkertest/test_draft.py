@@ -11,7 +11,7 @@
 import datetime
 import os
 from tinkerer import draft, master, page, post
-import utils
+from tinkertest import utils
 
 
 # test creating drafts

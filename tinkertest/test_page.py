@@ -12,7 +12,7 @@ import datetime
 import os
 from tinkerer import page
 import tinkerer
-import utils
+from tinkertest import utils
 
 
 # test creating new page

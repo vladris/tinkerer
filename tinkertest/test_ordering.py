@@ -10,7 +10,7 @@
 '''
 import datetime
 import unittest
-import utils
+from tinkertest import utils
 import tinkerer
 from tinkerer import page, post
 
@@ -66,4 +66,6 @@ def build_finished(app, exception):
 
 # extension setup    
 def setup(app):
+    if utils.is_module(app):
+        return
     app.connect("build-finished", build_finished)

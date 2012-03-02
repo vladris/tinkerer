@@ -12,7 +12,7 @@ import datetime
 import os
 import tinkerer
 from tinkerer import cmdline, paths, post
-import utils
+from tinkertest import utils
 
 
 # test tinkerer command line

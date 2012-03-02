@@ -13,6 +13,7 @@ import os
 import shutil
 import sys
 from tinkerer import cmdline, page, paths, post, writer
+import types
 import unittest
 
 
@@ -133,6 +134,12 @@ def setup():
 def cleanup():
     if os.path.exists(TEST_ROOT):
         shutil.rmtree(TEST_ROOT)
+
+
+# nose mistakenly calls Sphinx extension setup functions thinking they are
+# test setups with a module parameter
+def is_module(m):
+    return type(m) is types.ModuleType
 
 
 # used by Sphinx to lookup extensions

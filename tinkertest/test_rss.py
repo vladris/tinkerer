@@ -12,7 +12,7 @@ import datetime
 import email.utils
 import os
 from tinkerer import paths, post
-import utils
+from tinkertest import utils
 import time
 import xml.dom.minidom
 

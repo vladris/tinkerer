@@ -10,7 +10,7 @@
 '''
 import datetime
 from tinkerer import page, post
-import utils
+from tinkertest import utils
 
 
 # test case
@@ -50,4 +50,6 @@ def build_finished(app, exception):
 
 # extension setup
 def setup(app):
+    if utils.is_module(app):
+        return
     app.connect("build-finished", build_finished)
