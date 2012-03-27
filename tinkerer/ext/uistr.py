@@ -37,6 +37,8 @@ class UIStr:
         UIStr.BLOG_ARCHIVE = unicode(_("Blog Archive"), "utf-8")
         UIStr.FILED_UNDER = unicode(_("Filed under"), "utf-8")
         UIStr.TAGS = unicode(_("Tags"), "utf-8")
+        UIStr.TAGS_CLOUD = unicode(_("Tags Cloud"), "utf-8")
+        UIStr.CATEGORIES = unicode(_("Categories"), "utf-8")
         UIStr.TIMESTAMP_FMT = unicode(_('%B %d, %Y'), "utf-8")
         UIStr.TAGGED_WITH_FMT = unicode(_('Posts tagged with <span class="title_tag">%s</span>'), "utf-8")
         UIStr.FILED_UNDER_FMT = unicode(_('Filed under <span class="title_category">%s</span>'), "utf-8")

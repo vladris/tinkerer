@@ -1,0 +1,19 @@
+{#
+    categories.html
+    ~~~~~~~~~~~~~~~
+
+    Sidebar list of all categories.
+
+    :copyright: Copyright 2012 by Iñigo Serna
+    :license: FreeBSD, see LICENSE file
+#}
+
+
+<div class="widget">
+    <h3>{{ text_categories }}</h3>
+    <ul>
+      {%- for category, count in categories|dictsort %}
+        <li><a href="{{ pathto('categories/' + cat|lower) }}">{{ category }}</a> ({{ count }})</li>
+      {%- endfor %}
+    </ul>
+</div>

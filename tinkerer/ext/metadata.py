@@ -2,7 +2,7 @@
     metadata
     ~~~~~~~~
 
-    Blog metadata extension. The extension extracts and computes metadata 
+    Blog metadata extension. The extension extracts and computes metadata
     associated with blog posts/pages and stores it in the environment.
 
     :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
@@ -10,7 +10,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import re
-import datetime 
+import datetime
 from sphinx.util.compat import Directive
 import tinkerer
 from tinkerer.ext.uistr import UIStr
@@ -42,7 +42,7 @@ class Metadata:
         self.filing = { "tags": [], "categories": [] }
         self.comments, self.comment_count = False, False
 
-               
+
 
 class CommentsDirective(Directive):
     '''
@@ -90,7 +90,7 @@ def get_metadata(app, docname):
 
 def process_metadata(app, env):
     '''
-    Processes metadata after all sources are read - the function determines 
+    Processes metadata after all sources are read - the function determines
     post and page ordering, stores doc titles and adds "Home" link to page
     list.
     '''
@@ -116,7 +116,7 @@ def process_metadata(app, env):
                     env.blog_posts.append(doc)
                 else:
                     env.blog_pages.append(doc)
-     
+
     env.blog_page_list = [("index", UIStr.HOME)] + [(page, env.titles[page].astext()) for page in env.blog_pages]
 
 
@@ -130,18 +130,31 @@ def add_metadata(app, pagename, context):
     # blog tagline and pages
     context["tagline"] = app.config.tagline
     context["pages"] = env.blog_page_list
-    
+
     # set translation context variables
     context["text_recent_posts"] = UIStr.RECENT_POSTS
     context["text_posted_by"] = UIStr.POSTED_BY
     context["text_blog_archive"] = UIStr.BLOG_ARCHIVE
     context["text_filed_under"] = UIStr.FILED_UNDER
     context["text_tags"] = UIStr.TAGS
+    context["text_tags_cloud"] = UIStr.TAGS_CLOUD
+    context["text_categories"] = UIStr.CATEGORIES
     context["timestamp_format"] = UIStr.TIMESTAMP_FMT
 
     # recent posts
-    context["recent"] = [(post, env.titles[post].astext()) for post 
+    context["recent"] = [(post, env.titles[post].astext()) for post
             in env.blog_posts[:20]]
+    # tags & categories
+    tags = dict((t, 0) for t in env.filing["tags"])
+    categories = dict((c, 0) for c in env.filing["categories"])
+    for post in env.blog_posts:
+        p = env.blog_metadata[post]
+        for tag in p.filing["tags"]:
+            tags[tag[1]] += 1
+        for cat in p.filing["categories"]:
+            categories[cat[1]] += 1
+    context["tags"] = tags
+    context["categories"] = categories
 
     # if there is metadata for the page, it is not an auto-generated one
     if pagename in env.blog_metadata:
@@ -165,4 +178,3 @@ def add_metadata(app, pagename, context):
     # otherwise provide default metadata
     else:
         context["metadata"] = Metadata()
-
