@@ -42,6 +42,9 @@ html_theme_options = { }
 # linked directly
 rss_service = None
 
+# Number of blog posts per page
+max_posts_per_page = 10
+
 # **************************************************************
 # Edit lines below to further customize Sphinx build
 # **************************************************************
