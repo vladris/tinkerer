@@ -14,6 +14,7 @@ import datetime
 from sphinx.util.compat import Directive
 import tinkerer
 from tinkerer.ext.uistr import UIStr
+from tinkerer.utils import name_from_title
 
 
 
@@ -146,6 +147,7 @@ def add_metadata(app, pagename, context):
             in env.blog_posts[:20]]
     # tags & categories
     tags = dict((t, 0) for t in env.filing["tags"])
+    taglinks = dict((t, name_from_title(t)) for t in env.filing["tags"])
     categories = dict((c, 0) for c in env.filing["categories"])
     for post in env.blog_posts:
         p = env.blog_metadata[post]
@@ -154,6 +156,7 @@ def add_metadata(app, pagename, context):
         for cat in p.filing["categories"]:
             categories[cat[1]] += 1
     context["tags"] = tags
+    context["taglinks"] = taglinks
     context["categories"] = categories
 
     # if there is metadata for the page, it is not an auto-generated one

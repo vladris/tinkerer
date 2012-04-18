@@ -16,7 +16,7 @@ from tinkerer import paths, utils
 # jinja environment
 env = Environment(loader=PackageLoader("tinkerer", "__templates"))
 
-
+#env.filters['cleanurl'] = utils.name_from_title
 
 def render(template, destination, context={}):
     '''
