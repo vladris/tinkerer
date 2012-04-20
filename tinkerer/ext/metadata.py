@@ -35,6 +35,7 @@ class Metadata:
         Initializes metadata with default values.
         '''
         self.is_post = False
+        self.is_page = False
         self.title = None
         self.link = None
         self.date = None
@@ -76,6 +77,11 @@ def get_metadata(app, docname):
     env.blog_metadata[docname] = Metadata()
     metadata = env.blog_metadata[docname]
 
+    # if its a page
+    if(docname.startswith("pages/")):
+      metadata.is_page = True
+      return
+
     # posts are identified by ($YEAR)/($MONTH)/($DAY) paths
     match = re.match(r"\d{4}/\d{2}/\d{2}/", docname)
 
@@ -115,7 +121,7 @@ def process_metadata(app, env):
             if relations[doc][0] == tinkerer.master_doc:
                 if env.blog_metadata[doc].is_post:
                     env.blog_posts.append(doc)
-                else:
+                elif env.blog_metadata[doc].is_page:
                     env.blog_pages.append(doc)
 
     env.blog_page_list = [("index", UIStr.HOME)] + [(page, env.titles[page].astext()) for page in env.blog_pages]
