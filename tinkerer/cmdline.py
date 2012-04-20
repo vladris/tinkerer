@@ -54,6 +54,10 @@ def build(quiet=False, filename_only=False):
     if filename_only:
         print("index.html")
 
+    # copy some extra files to the output directory
+    if os.path.exists("_copy"):
+        shutil.copytree("_copy/", paths.html)
+        
     return sphinx.main(flags)
 
 
