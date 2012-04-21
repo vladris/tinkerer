@@ -38,6 +38,10 @@ a:hover, a:hover h1 {
     text-decoration: underline;
 }
 
+a.readmore {
+  font-weight:bold;
+}
+
 /* Header */
 div.header {
     background: #074e78;

@@ -33,6 +33,10 @@ a h1 {
     color: black;
 }
 
+a.readmore {
+  font-weight:bold;
+}
+
 /* Header */
 div.header {
     margin-bottom: 48px;

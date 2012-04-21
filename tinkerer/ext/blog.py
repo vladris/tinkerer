@@ -8,7 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, metadata, rss, uistr
+from tinkerer.ext import aggregator, author, filing, metadata, rss, uistr, directives
 import gettext
 
 
@@ -117,6 +117,7 @@ def setup(app):
             filing.create_filing_directive("tags"))
     app.add_directive("categories", 
             filing.create_filing_directive("categories"))
+    app.add_directive("more", directives.InsertReadMoreLink)
 
     # event handlers
     app.connect("builder-inited", initialize)
