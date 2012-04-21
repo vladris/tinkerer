@@ -45,4 +45,5 @@ class UIStr:
         UIStr.NEWER = unicode(_("Newer"), "utf-8")
         UIStr.OLDER = unicode(_("Older"), "utf-8")
         UIStr.PAGE_FMT = unicode(_("Page %d"), "utf-8")
+        UIStr.READ_MORE = unicode(_("Read more..."), "utf-8")
 

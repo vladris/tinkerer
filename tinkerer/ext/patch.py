@@ -12,6 +12,7 @@
 '''
 import re
 import xml.dom.minidom
+from tinkerer.ext.uistr import UIStr
 
 try:
     from html.entities import name2codepoint
@@ -90,10 +91,14 @@ def patch_links(body, docpath, docname=None, link_title=False):
     doc = xml.dom.minidom.parseString(in_str)
     patch_node(doc, docpath)
 
+    body = doc.toxml()
+    if(docname!=None):
+        body = make_read_more_link(body, docpath, docname)
+    
     if link_title:
-        return hyperlink_title(doc.toxml(), docpath, docname)
+        return hyperlink_title(body, docpath, docname)
     else:
-        return doc.toxml()
+        return body
 
 
 
@@ -101,6 +106,17 @@ def hyperlink_title(body, docpath, docname):
     body = body.replace("<h1>", '<a href="%s.html"><h1>' % 
             (docpath + docname), 1)
     body = body.replace("</h1>", "</h1></a>", 1)
+    return body
+
+
+
+def make_read_more_link(body, docpath, docname):            
+    marker_more="<!-- more -->"
+    pos=body.find(marker_more)
+    if(pos>-1):
+      body = body[:pos]
+      body = body + ('<a class="readmore" href="%s.html"><b>%s</b></a>' % 
+        (docpath + docname, UIStr.READ_MORE))
     return body
 
 
