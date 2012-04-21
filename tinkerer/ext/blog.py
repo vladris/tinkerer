@@ -8,7 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, metadata, rss, uistr, directives
+from tinkerer.ext import aggregator, author, filing, metadata, rss, uistr, directives, hidemail
 import gettext
 
 
@@ -119,6 +119,9 @@ def setup(app):
             filing.create_filing_directive("categories"))
     app.add_directive("more", directives.InsertReadMoreLink)
 
+    # new roles
+    app.add_role('email', hidemail.email_role)
+    
     # event handlers
     app.connect("builder-inited", initialize)
     app.connect("source-read", source_read)
