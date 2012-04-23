@@ -156,10 +156,6 @@ div.sphinxsidebar ul {
     padding-left: 0px;
 }
 
-div.sphinxsidebar li {
-    margin-bottom: 5px;
-}
-
 /* Meta */
 div.postmeta {
     color: #bbbbbb;

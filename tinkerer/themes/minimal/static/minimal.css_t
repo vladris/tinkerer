@@ -92,6 +92,10 @@ div.sphinxsidebar ul {
     padding-left: 0px;
 }
 
+div.sphinxsidebar li.recent_post {
+    margin-bottom: 8px;
+}
+
 /* Meta */
 div.postmeta {
     margin-top: 40px;
