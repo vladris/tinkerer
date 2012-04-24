@@ -19,10 +19,11 @@ def make_aggregated_pages(app):
     Generates aggregated pages.
     '''
     env = app.builder.env
-    max_posts = app.config.max_posts_per_page
+    posts_per_page = app.config.posts_per_page
 
     # get post groups
-    groups = [env.blog_posts[i:i+max_posts] for i in range(0, len(env.blog_posts), max_posts)]
+    groups = [env.blog_posts[i:i+posts_per_page] for i in range(0, 
+                    len(env.blog_posts), posts_per_page)]
 
     # for each group
     for i, posts in enumerate(groups):

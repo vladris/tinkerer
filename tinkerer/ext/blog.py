@@ -108,7 +108,7 @@ def setup(app):
     app.add_config_value("author", "Winston Smith", True)
     app.add_config_value("rss_service", None, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
-    app.add_config_value("max_posts_per_page", 10, True)
+    app.add_config_value("posts_per_page", 10, True)
     
     # new directives
     app.add_directive("author", author.AuthorDirective)
