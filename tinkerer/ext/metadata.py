@@ -77,8 +77,8 @@ def get_metadata(app, docname):
     env.blog_metadata[docname] = Metadata()
     metadata = env.blog_metadata[docname]
 
-    # if its a page
-    if(docname.startswith("pages/")):
+    # if it's a page
+    if docname.startswith("pages/"):
       metadata.is_page = True
       return
 
