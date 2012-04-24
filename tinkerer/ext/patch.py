@@ -103,6 +103,10 @@ def patch_links(body, docpath, docname=None, link_title=False):
 
 
 def hyperlink_title(body, docpath, docname):
+    """
+    Hyperlink titles by embedding appropriate a tag inside
+    h1 tags (which should only be post titles). 
+    """
     body = body.replace("<h1>", '<a href="%s.html"><h1>' % 
             (docpath + docname), 1)
     body = body.replace("</h1>", "</h1></a>", 1)
@@ -111,13 +115,18 @@ def hyperlink_title(body, docpath, docname):
 
 
 def make_read_more_link(body, docpath, docname):            
-    marker_more="<!-- more -->"
-    pos=body.find(marker_more)
-    if(pos>-1):
-      body = body[:pos]
-      body = body + ('<a class="readmore" href="%s.html">%s</a>' % 
-        (docpath + docname, UIStr.READ_MORE))
-    return body
+    """
+    Create "read more" link if marker exists.
+    """
+    marker_more = "<!-- more -->"
+    pos = body.find(marker_more)
+
+    if pos == -1:
+        return body
+
+    body = body[:pos]
+    return body + ('<a class="readmore" href="%s.html">%s</a>' % 
+                (docpath + docname, UIStr.READ_MORE))
 
 
 
