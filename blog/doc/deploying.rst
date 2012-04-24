@@ -42,5 +42,103 @@ redirects to ``blog/html/index.html`` to enable this scenario.
     link your posts. Note the trailing ``blog/html`` - the website variable 
     must point to the root of your blog's *build* directory, not root 
     directory.
+
+Copying extra files to html output directory
+--------------------------------------------
+
+Files placed in an folder named ``_copy`` will be
+automatically copied to the html output directory.
+
+This could be useful for an ``.htaccess`` file,
+an ``robots.txt`` file or an extra ``favicon.ico``
+etc.
+
+Creating custom 404 and 403 error pages
+---------------------------------------
+
+If your webserver supports ``.htaccess`` files you can create these pages by placing
+an ``.htaccess`` file under ``_copy/.htaccess`` with the following content:
+
+.. code-block:: bash
+
+  ErrorDocument 404 http://www.yoursite.com/404.html
+  ErrorDocument 403 http://www.yoursite.com//403.html
+  Options -Indexes
+
+Add an file ``404.rst`` to the document root:
+
+.. code-block:: rst
+
+  The URL you requested was not found.
+  ====================================
+
+  .. comments:: 
+  
+  Your own text.
+
+Add an file ``403.rst`` to the document root:
+
+.. code-block:: rst
+
+  403 Permission Denied
+  =====================
+
+  .. comments:: 
+  
+  Your own text.
+  
+And add these two pages to the ``master.rst`` file:
+
+.. code-block:: rst
+
+  Sitemap
+  =======
+
+  .. toctree::
+    :hidden:
     
+    404.rst
+    403.rst
+    
+  .. toctree::
+    :maxdepth: 1
+
+    2012/04/21/a_blog_post
+    pages/about
+    
+Adding custom analytics code
+----------------------------
+
+If you don't want to use Google Analytics and for example `Piwik <http://piwik.org/>`_
+you can add custom JavaScript code by placing an file named ``page.html`` under
+``_templates/page.html``:
+
+.. code-block:: html
+
+  {% extends "!page.html" %}
+
+  {% set script_files = script_files + ["_static/piwik.js"] %}
+
+  {% block footer %}
+      {{ super() }}
+      {# you could also add something to the footer of every page #}
+  {% endblock %}
+  
+And the analytics code inside ``_static/piwik.js``:
+
+.. code-block:: html
+
+  <!-- Piwik -->
+  <script type="text/javascript">
+  var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.yoursite.com/piwik/" : "http://piwik.yoursite.com/piwik/");
+  document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+  </script><script type="text/javascript">
+  try {
+  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+  piwikTracker.trackPageView();
+  piwikTracker.enableLinkTracking();
+  } catch( err ) {}
+  </script><noscript><p><img src="http://piwik.yoursite.com/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+  <!-- End Piwik Tracking Code -->
+
 Back to :ref:`tinkerer_reference`.

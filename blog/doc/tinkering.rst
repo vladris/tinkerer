@@ -50,6 +50,12 @@ this::
     .. categories:: none
     .. tags:: none
     .. comments::
+    
+    Some text.
+    
+    .. more::
+    
+    More text.
 
 Add content below the title.
 
@@ -72,6 +78,13 @@ Add content below the title.
 
     This tells Tinkerer comments are enabled for this post. Remove the 
     directive to disable posts.
+    
+**more**
+
+    This tells Tinkerer to insert an "Read more..." link into the blog post.
+    The "Read more..." link will only be inserted on multi post pages so that
+    the user does not need to scroll three miles to get to the next blog post
+    if he isn't interested in the current one.
    
 .. _pages:
     

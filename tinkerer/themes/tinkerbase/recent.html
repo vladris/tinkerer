@@ -15,7 +15,7 @@
     <h3>{{ text_recent_posts }}</h3>
     <ul>
         {%- for post, post_title in recent[:recent_count] %}
-        <li>
+        <li class="recent_post">
             <a href="{{ pathto(post) }}">{{ post_title }}</a>
         </li>
         {%- endfor %}
