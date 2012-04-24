@@ -42,7 +42,17 @@ redirects to ``blog/html/index.html`` to enable this scenario.
     link your posts. Note the trailing ``blog/html`` - the website variable 
     must point to the root of your blog's *build* directory, not root 
     directory.
-    
+
+Copying extra files to html output directory
+--------------------------------------------
+
+Files placed in an folder named ``_copy`` will be
+automatically copied to the html output directory.
+
+This could be useful for an ``.htaccess`` file,
+an ``robots.txt`` file or an extra ``favicon.ico``
+etc.
+
 Creating custom 404 and 403 error pages
 ---------------------------------------
 
