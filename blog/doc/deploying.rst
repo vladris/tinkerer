@@ -106,4 +106,39 @@ And add these two pages to the ``master.rst`` file:
     2012/04/21/a_blog_post
     pages/about
     
+Adding custom analytics code
+----------------------------
+
+If you don't want to use Google Analytics and for example `Piwik <http://piwik.org/>`_
+you can add custom JavaScript code by placing an file named ``page.html`` under
+``_templates/page.html``:
+
+.. code-block:: html
+
+  {% extends "!page.html" %}
+
+  {% set script_files = script_files + ["_static/piwik.js"] %}
+
+  {% block footer %}
+      {{ super() }}
+      {# you could also add something to the footer of every page #}
+  {% endblock %}
+  
+And the analytics code inside ``_static/piwik.js``:
+
+.. code-block:: html
+
+  <!-- Piwik -->
+  <script type="text/javascript">
+  var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.yoursite.com/piwik/" : "http://piwik.yoursite.com/piwik/");
+  document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+  </script><script type="text/javascript">
+  try {
+  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+  piwikTracker.trackPageView();
+  piwikTracker.enableLinkTracking();
+  } catch( err ) {}
+  </script><noscript><p><img src="http://piwik.yoursite.com/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+  <!-- End Piwik Tracking Code -->
+
 Back to :ref:`tinkerer_reference`.
