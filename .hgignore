@@ -7,3 +7,4 @@ syntax: glob
 *.egg-info/*
 blog/blog/*
 build/*
+.tox/*
