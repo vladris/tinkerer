@@ -11,9 +11,13 @@ from docutils import nodes
 # a BSD license.
 
 import re
-import string
+try:
+    maketrans = ''.maketrans
+except AttributeError:
+    # fallback for Python 2
+    from string import maketrans
 
-rot_13_trans = string.maketrans(
+rot_13_trans = maketrans(
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
     'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
 )
@@ -59,7 +63,12 @@ def email_role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
     """
     Role to obfuscate e-mail addresses.
     """
-    text = text.decode('utf-8').encode('utf-8')
+    try:
+        # needed in Python 2
+        text = text.decode('utf-8').encode('utf-8')
+    except AttributeError:
+        pass
+    
     # Handle addresses of the form "Name <name@domain.org>"
     if '<' in text and '>' in text:
         name, email = text.split('<')
