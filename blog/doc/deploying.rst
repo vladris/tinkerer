@@ -43,8 +43,8 @@ redirects to ``blog/html/index.html`` to enable this scenario.
     must point to the root of your blog's *build* directory, not root 
     directory.
 
-Copying extra files to html output directory
---------------------------------------------
+Copying extra files to the html output directory
+------------------------------------------------
 
 Files placed in an folder named ``_copy`` will be
 automatically copied to the html output directory.
