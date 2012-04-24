@@ -43,4 +43,57 @@ redirects to ``blog/html/index.html`` to enable this scenario.
     must point to the root of your blog's *build* directory, not root 
     directory.
     
+Creating custom 404 and 403 error pages
+---------------------------------------
+
+If your webserver supports ``.htaccess`` files you can create these pages by placing
+an ``.htaccess`` file under ``_copy/.htaccess`` with the following content:
+
+.. code-block:: bash
+
+  ErrorDocument 404 http://www.yoursite.com/404.html
+  ErrorDocument 403 http://www.yoursite.com//403.html
+  Options -Indexes
+
+Add an file ``404.rst`` to the document root:
+
+.. code-block:: rst
+
+  The URL you requested was not found.
+  ====================================
+
+  .. comments:: 
+  
+  Your own text.
+
+Add an file ``403.rst`` to the document root:
+
+.. code-block:: rst
+
+  403 Permission Denied
+  =====================
+
+  .. comments:: 
+  
+  Your own text.
+  
+And add these two pages to the ``master.rst`` file:
+
+.. code-block:: rst
+
+  Sitemap
+  =======
+
+  .. toctree::
+    :hidden:
+    
+    404.rst
+    403.rst
+    
+  .. toctree::
+    :maxdepth: 1
+
+    2012/04/21/a_blog_post
+    pages/about
+    
 Back to :ref:`tinkerer_reference`.
