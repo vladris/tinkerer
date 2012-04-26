@@ -14,7 +14,8 @@
 
     :copyright: Copyright 2011 by Kevin Teague
     :copyright: Copyright 2012 by Christian Jann
-    :license: FreeBSD, see LICENSE file
+    :license: FreeBSD. Parts of this file are licensed under BSD license. See
+    LICENSE file.
 '''
 from docutils import nodes
 import re

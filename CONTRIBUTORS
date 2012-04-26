@@ -5,5 +5,4 @@ Rod Morehead - Non-XML entity patch for HTML-to-XML conversion
 Yoshihisa Tanaka - Fixed problem caused by non-ascii content
 Iñigo Serna - Sidebar widgets for categories, tags and tag cloud
 Emil Oppeln-Bronikowski - Polish translation
-Christian Jann - Configurable number of posts/page, "Read more" implementation,
-        other enhancements and numerous bug fixes
+Christian Jann - Configurable number of posts/page, "Read more" implementation, email obfuscator, other enhancements and numerous bug fixes
