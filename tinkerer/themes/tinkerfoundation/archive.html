@@ -1,0 +1,34 @@
+{#
+    tinkerbase/archive.html
+    ~~~~~~~~~~~~~~~~~~~~~~~
+
+    Archive page.
+
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
+    :license: FreeBSD, see LICENSE file
+#}
+
+{% extends "page.html" %}
+
+{% block body %}
+    <div class="archive">
+        <h1>{{ title }}</h1>
+        {%- for year in years|sort(reverse=True) %}
+        <div class="year">
+            <h1>{{ year }}</h1>
+            <ul>
+                {%- for metadata in years[year] %}
+                <li>
+                    {{ timestamp(metadata.date, timestamp_short_format) }}
+                    <h2><a href="{{ pathto(metadata.link) }}">{{ metadata.title }}</a></h2>
+                    {{ post_meta(metadata, metadata.comment_count) }}
+                </li>
+                {%- if not loop.last %}<div class="separator summary_separator"></div>{%- endif %}
+                {%- endfor %}
+            </ul>
+        </div>
+        {%- if not loop.last %}<div class="separator year_separator"></div>{%- endif %}
+        {%- endfor %}
+    </div>
+{% endblock %}
