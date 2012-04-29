@@ -46,4 +46,5 @@ class UIStr:
         UIStr.OLDER = unicode(_("Older"), "utf-8")
         UIStr.PAGE_FMT = unicode(_("Page %d"), "utf-8")
         UIStr.READ_MORE = unicode(_("Read more..."), "utf-8")
+        UIStr.MAIL_HIDDEN_BY_JAVASCRIPT = unicode(_("Javascript must be enabled to see this e-mail address"), "utf-8")
 

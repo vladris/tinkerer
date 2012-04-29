@@ -19,6 +19,7 @@
 '''
 from docutils import nodes
 import re
+from tinkerer.ext.uistr import UIStr
 
 try:
     maketrans = ''.maketrans
@@ -51,13 +52,13 @@ def js_obfuscated_text(text):
     ROT 13 encryption with embedded in Javascript code to decrypt
     in the browser.
     """
-    return """<noscript>(Javascript must be enabled to see this e-mail address)</noscript>
+    return """<noscript>(%s)</noscript>
               <script type="text/javascript">document.write(
               "%s".replace(/[a-zA-Z]/g,
               function(c){
                 return String.fromCharCode(
                 (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
-                </script>""" % rot_13_encrypt(text)
+              </script>""" % (UIStr.MAIL_HIDDEN_BY_JAVASCRIPT, rot_13_encrypt(text))
 
 
 def js_obfuscated_mailto(email, displayname=None):
