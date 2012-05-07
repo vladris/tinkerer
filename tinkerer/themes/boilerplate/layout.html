@@ -53,7 +53,11 @@
       };
     </script>
     {%- for scriptfile in script_files %}
-    <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+        {# Hack to filter out jquery.js auto-included by Sphinx since jquery is 
+           already included in head. #}
+        {%- if scriptfile != "_static/jquery.js" %}
+            <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+        {%- endif %}
     {%- endfor %}
 {%- endmacro %}
 
@@ -65,9 +69,6 @@
     {%- endfor %}
 {%- endmacro %}
 
-{# ------------------------------------------------------------------------- #}
-{# Macros from tinkerbase theme #}
-
 {# RSS link #}
 {%- macro rss_link() %}
     <a href="{{ rss_feed_link }}" title="Subscribe via RSS">
@@ -76,6 +77,13 @@
             {% if rss_link_text %}{{ rss_link_text }}{% endif %}
         </div>
     </a>
+{%- endmacro %}
+
+{%- macro search_box() %}
+    <form action="{{ pathto('search') }}" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
 {%- endmacro %}
 
 {%- macro relbar() %}
@@ -164,9 +172,6 @@
     </div>
 {%- endmacro %}
 
-{# ------------------------------------------------------------------------- #}
-{# html and head #}
-
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
@@ -187,6 +192,7 @@
 
   {{ css() }}
   <link rel="stylesheet" href="{{ pathto('_static/style.css', 1) }}">
+  <link rel="stylesheet" href="{{ pathto('_static/webfont.css', 1) }}">
 
   {%- if not embedded %}
   {%- if favicon %}
@@ -234,10 +240,6 @@
 {%- endblock %}
 {%- block extrahead %} {% endblock %}
 </head>
-
-{# ------------------------------------------------------------------------- #}
-{# body #}
-
 <body>
 
   <div id="container">
@@ -254,6 +256,7 @@
     <nav>
       {%- block quicklinks %}
       <ul class="quicklinks">
+        <li>{{ search_box() }}</li>
         {%- if rss_in_page_nav %}
         <li>{{ rss_link() }}</li>
         {%- endif %}

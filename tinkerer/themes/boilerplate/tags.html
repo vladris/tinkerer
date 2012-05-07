@@ -1,0 +1,18 @@
+{#
+    tags.html
+    ~~~~~~~~~
+
+    Sidebar list of all tags.
+
+    :copyright: Copyright 2012 by Iñigo Serna
+    :license: FreeBSD, see LICENSE file
+#}
+
+
+<div class="widget">
+    <h3>{{ text_tags }}</h3>
+    {%- for tag, count in tags|dictsort %}
+      <a href="{{ pathto('tags/' + tag|lower) }}">{{ tag }}</a> ({{ count }})
+      {%- if not loop.last %}, {%- endif %}
+    {%- endfor %}
+</div>
