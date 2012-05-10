@@ -49,9 +49,9 @@ def generate_feed(app):
         context["items"].append({
                     "title": env.titles[post].astext(),
                     "link": link,
-                    "description": patch.patch_links(
+                    "description": patch.strip_xml_declaration(patch.patch_links(
                             env.blog_metadata[post].body, 
-                            app.config.website + post[:11]),
+                            app.config.website + post[:11])),
                     "categories": categories,
                     "pubDate": timestamp
                 })

@@ -152,3 +152,9 @@ def patch_node(node, docpath):
     for node in node.childNodes:
         patch_node(node, docpath)
 
+
+def strip_xml_declaration(body):
+    """
+    Remove XML declaration from document body.
+    """
+    return body.replace('<?xml version="1.0" ?>', '')
