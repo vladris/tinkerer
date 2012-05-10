@@ -125,7 +125,7 @@ def make_read_more_link(body, docpath, docname):
         return body
 
     body = body[:pos]
-    return body + ('<a class="readmore" href="%s.html">%s</a>' % 
+    return body + ('<a class="readmore" href="%s.html">%s</a></div>' %
                 (docpath + docname, UIStr.READ_MORE))
 
 
