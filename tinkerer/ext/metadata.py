@@ -155,7 +155,7 @@ def add_metadata(app, pagename, context):
     tags = dict((t, 0) for t in env.filing["tags"])
     taglinks = dict((t, name_from_title(t)) for t in env.filing["tags"])
     categories = dict((c, 0) for c in env.filing["categories"])
-    catlinks = sorted([(c, name_from_title(c)) for c in env.filing["categories"]])
+    catlinks = dict([(c, name_from_title(c)) for c in env.filing["categories"]])
     for post in env.blog_posts:
         p = env.blog_metadata[post]
         for tag in p.filing["tags"]:
