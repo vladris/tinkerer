@@ -7,3 +7,5 @@ Iñigo Serna - Sidebar widgets for categories, tags and tag cloud
 Emil Oppeln-Bronikowski - Polish translation
 Christian Jann - Configurable number of posts/page, "Read more" implementation, email obfuscator, other enhancements and numerous bug fixes
 Éric de la Musse - Localization bugfix, French translation
+Antti Kaihola - Bugfix for "more" directive
+Visa Kopu - Fix category links, XML declaration introduced in patch.py
