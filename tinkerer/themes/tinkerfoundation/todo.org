@@ -1,0 +1,34 @@
+* foundation theme todo
+** DONE figure out how to build menus
+   CLOSED: [2012-04-09 Mon 16:05]
+
+   see: [[http://foundation.zurb.com/docs/ui.php][NavBar]]
+** DONE How to populate menus
+   CLOSED: [2012-04-09 Mon 16:15]
+   [[http://tinkerer.bitbucket.org/pages/documentation.html][create pages]]
+   
+** DONE how to set the site width??				 :foundation:
+   CLOSED: [2012-04-09 Mon 16:39]
+
+   controlled by .row but you don't want to change it, it's that way
+   on purpose
+
+** WAITING breadcrumbs??
+** TODO previous? next?
+** DONE rss icon
+   CLOSED: [2012-04-09 Mon 15:58]
+
+   
+** TODO Does search work?
+** TODO hook up disqus
+** DONE Can u incorporate free form html?
+   CLOSED: [2012-04-09 Mon 15:22]
+
+   A: yes
+
+   ..raw:: html
+
+     <div>RAW</div>
+     
+** TODO get post metadata more visible in aggregated
+** TODO post metadata on posts in a visible pleasing way

@@ -117,11 +117,9 @@ you can add custom JavaScript code by placing an file named ``page.html`` under
 
   {% extends "!page.html" %}
 
-  {% set script_files = script_files + ["_static/piwik.js"] %}
-
   {% block footer %}
       {{ super() }}
-      {# you could also add something to the footer of every page #}
+      {% include "../_static/piwik.js" %}
   {% endblock %}
   
 And the analytics code inside ``_static/piwik.js``:

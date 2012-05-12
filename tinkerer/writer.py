@@ -16,7 +16,6 @@ from tinkerer import paths, utils
 # jinja environment
 env = Environment(loader=PackageLoader("tinkerer", "__templates"))
 
-#env.filters['cleanurl'] = utils.name_from_title
 
 def render(template, destination, context={}):
     '''
@@ -24,6 +23,7 @@ def render(template, destination, context={}):
     '''
     with open(destination, "w") as dest:
         dest.write(env.get_template(template).render(context))
+
 
 
 def write_master_file():

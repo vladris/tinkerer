@@ -8,7 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, metadata, readmore, rss, uistr, hidemail
+from tinkerer.ext import aggregator, author, filing, hidemail, metadata, readmore, rss, uistr
 import gettext
 
 

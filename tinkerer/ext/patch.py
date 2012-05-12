@@ -144,9 +144,13 @@ def patch_node(node, docpath):
             src.value = docpath + src.value 
     # if node is hyperlink            
     elif node_name == "a":
-        if "internal" in node.getAttribute("class"):
-            ref = node.getAttributeNode("href")
+        ref = node.getAttributeNode("href")
+        # patch links only - either starting with "../" or having
+        # "internal" class
+        is_relative = ref.value.startswith("../") 
+        if is_relative or "internal" in node.getAttribute("class"):
             ref.value = docpath + ref.value
+            
 
     # recurse            
     for node in node.childNodes:

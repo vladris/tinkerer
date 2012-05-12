@@ -1,26 +1,38 @@
-# E-mail obfuscation role for Sphinx.
-# http://pypi.python.org/pypi/sphinxcontrib-email
+'''
+    hidemail
+    ~~~~~~~~
 
+    Email obfuscation role
+    
+    The obfuscation code was taken from
+    
+        http://pypi.python.org/pypi/bud.nospam
+        
+    Email obfuscation role for Sphinx:
+    
+        http://pypi.python.org/pypi/sphinxcontrib-email
+
+    :copyright: Copyright 2011 by Kevin Teague
+    :copyright: Copyright 2012 by Christian Jann
+    :license: FreeBSD. Parts of this file are licensed under BSD license. See
+    LICENSE file.
+'''
 from docutils import nodes
-
-# The obfuscation code was taken from
-#
-#   http://pypi.python.org/pypi/bud.nospam
-#
-# and was was released by Kevin Teague <kevin at bud ca> under
-# a BSD license.
-
 import re
+from tinkerer.ext.uistr import UIStr
+
 try:
     maketrans = ''.maketrans
 except AttributeError:
     # fallback for Python 2
     from string import maketrans
 
+
 rot_13_trans = maketrans(
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-    'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+    "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
 )
+
 
 def rot_13_encrypt(line):
     """Rotate 13 encryption.
@@ -34,22 +46,24 @@ def rot_13_encrypt(line):
     line = re.sub('/', r'\\057', line)
     return line
 
-def js_obfuscated_text(text):
-    """ROT 13 encryption with embedded in Javascript code to decrypt
-    in the browser.
 
+def js_obfuscated_text(text):
     """
-    return """<noscript>(Javascript must be enabled to see this e-mail address)</noscript>
+    ROT 13 encryption with embedded in Javascript code to decrypt
+    in the browser.
+    """
+    return """<noscript>(%s)</noscript>
               <script type="text/javascript">document.write(
               "%s".replace(/[a-zA-Z]/g,
               function(c){
                 return String.fromCharCode(
                 (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
-                </script>""" % rot_13_encrypt(text)
+              </script>""" % (UIStr.MAIL_HIDDEN_BY_JAVASCRIPT, rot_13_encrypt(text))
+
 
 def js_obfuscated_mailto(email, displayname=None):
-    """ROT 13 encryption within an Anchor tag w/ a mailto: attribute
-
+    """
+    ROT 13 encryption within an Anchor tag w/ a mailto: attribute
     """
     if not displayname:
         displayname = email
@@ -57,7 +71,6 @@ def js_obfuscated_mailto(email, displayname=None):
         email, displayname
     ))
 
-# -- end bud.nospam
 
 def email_role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
     """
@@ -65,7 +78,7 @@ def email_role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
     """
     try:
         # needed in Python 2
-        text = text.decode('utf-8').encode('utf-8')
+        text = text.decode("utf-8").encode("utf-8")
     except AttributeError:
         pass
     
@@ -81,5 +94,5 @@ def email_role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
         email = name
 
     obfuscated = js_obfuscated_mailto(email, displayname=name)
-    node = nodes.raw('', obfuscated, format='html')
+    node = nodes.raw('', obfuscated, format="html")
     return [node], []
