@@ -206,25 +206,19 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
-
 /* ==|== primary styles =====================================================
    Author: 
    ========================================================================== */
 
+body { margin: auto; max-width: 920px; }
 
+div.document { float: left; width: 100%; }
 
+ul.quicklinks { display: none; }
 
+nav li { text-align: center; width: 100%; }
 
-
-
-
-
-
-
-
-
-
-
+div.related li { list-style-type: none; }
 
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
@@ -251,8 +245,6 @@ td { vertical-align: top; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
 
-
-
 /* ==|== media queries ======================================================
    PLACEHOLDER Media Queries for Responsive Design.
    These override the primary ('mobile first') styles
@@ -261,14 +253,22 @@ td { vertical-align: top; }
 
 @media only screen and (min-width: 480px) {
   /* Style adjustments for viewports 480px and over go here */
+    nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
 
 }
 
 @media only screen and (min-width: 768px) {
   /* Style adjustments for viewports 768px and over go here */
+    ul.quicklinks { display: block; float: right; }
 
+    div.documentwrapper { float: left; width: 67%; } 
+    
+    aside.sidebar { float: left; width: 33%; }
+
+    div.related ul { margin: 0; padding: 0; }
+    div.related li { float: left; }
+    div.related li.right { float: right; }
 }
-
 
 
 /* ==|== print styles =======================================================

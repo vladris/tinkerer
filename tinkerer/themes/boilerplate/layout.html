@@ -72,17 +72,13 @@
 {#- prev/next -#}
 {%- macro relbar() -%}
     {%- if prev or next -%}
-    <div class="related">
+    <div class="related clearfix">
         <ul>
             {%- if prev -%}
-            <li>
-                {{ prevchar }}<a href="{{ prev.link|e }}">{{ prev.title }}</a>
-            </li>
+            <li>{{ prevchar }}<a href="{{ prev.link|e }}">{{ prev.title }}</a></li>
             {%- endif -%}
             {%- if next -%}
-            <li class="right">
-                <a href="{{ next.link|e }}">{{ next.title }}</a>{{ nextchar }}
-            </li>
+            <li class="right"><a href="{{ next.link|e }}">{{ next.title }}</a>{{ nextchar }}</li>
             {%- endif -%}
         </ul>
     </div>
@@ -246,38 +242,31 @@
     </nav>
 {%- endblock -%}
 
-    <div id="main">
+    <div class="main">
 {%- block content -%}
-      {%- block relbar1 -%}{{ relbar() }}{% endblock -%}
-      <div class="document">
+      <div class="content clearfix">
       {%- block document -%}
         <div class="documentwrapper">
-        {%- if render_sidebar -%}
-          <div class="bodywrapper">
-        {%- endif -%}
-            <div class="body">
+          {%- block relbar1 -%}{{ relbar() }}{% endblock -%}
+            <article class="document">
               {% block body -%} {% endblock -%}
-            </div>
-        {%- if render_sidebar -%}
-          </div>
-        {%- endif -%}
+            </article>
+          {%- block relbar2 -%}{{ relbar() }}{% endblock -%}
         </div>
       {%- endblock -%}
-        {%- if render_sidebar -%}
+      {%- if render_sidebar -%}
         <aside class="sidebar">
           {%- if sidebars != None -%}
             {%- for sidebartemplate in sidebars -%}
             <section>
-            {%- include sidebartemplate -%}
+              {%- include sidebartemplate -%}
             </section>
             {%- endfor -%}
           {%- endif -%}
         </aside>
-        {%- endif -%}
-        <div class="clearer"></div>
+      {%- endif -%}
       </div>
 {%- endblock -%}
-      {%- block relbar2 -%}{{ relbar() }}{% endblock -%}
     </div>
 
 {%- block footer -%}
@@ -292,6 +281,7 @@
 {%- endblock -%}
 
   </div> <!--! end of #container -->
+
   <!-- JavaScript at the bottom for fast page loading -->
   {%- if not embedded -%}
   {{ script() }}
