@@ -89,16 +89,16 @@ def generate_feed_for(app, feed_type="categories"):
  
     # only for categories and tags
     if feed_type not in ("categories", "tags"):
-        return
+        return []
 
     # don't do anything if no posts are available
     if not env.blog_posts:
-        return
+        return []
 
     # don't do anything if option is not set
     if (feed_type == "categories" and not app.config.rss_for_categories) or \
        (feed_type == "tags" and not app.config.rss_for_tags):
-        return
+        return []
 
     context = dict()
     # posts for categories/tags
