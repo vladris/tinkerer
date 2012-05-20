@@ -55,12 +55,13 @@ def initialize(app):
 
 
 
-def make_archive_page(env, title, pagename, post_filter=None):
+def make_archive_page(env, title, pagename, post_filter=None, context=None):
     '''
     Generates archive page with given title by applying the given filter to
     all posts and aggregating results by year.
     '''
-    context = { "title": title }
+    context = context if context is not None else {}
+    context["title"] = title
     context["years"] = dict()
 
     for post in filter(post_filter, env.blog_posts):
@@ -90,10 +91,19 @@ def make_tag_pages(app):
     '''
     env = app.builder.env
     for tag in env.filing["tags"]:
+        # set rss_feed_link
+        context = None
+        if app.config.rss_for_tags:
+            if not app.config.rss_tags_to_build or \
+                    tag in app.config.rss_tags_to_build:
+                context = {}
+                context["rss_feed_link"] = u"../rss/tags/%s.html" % (
+                    utils.name_from_title(tag),)
         yield make_archive_page(env,
                 UIStr.TAGGED_WITH_FMT % tag,
                 "tags/" + utils.name_from_title(tag),
-                lambda post: post in env.filing["tags"][tag])
+                lambda post: post in env.filing["tags"][tag],
+                context)
 
 
 
@@ -103,8 +113,17 @@ def make_category_pages(app):
     '''
     env = app.builder.env
     for category in env.filing["categories"]:
+        # set rss_feed_link
+        context = None
+        if app.config.rss_for_categories:
+            if not app.config.rss_categories_to_build or \
+                    category in app.config.rss_categories_to_build:
+                context = {}
+                context["rss_feed_link"] = "../rss/categories/%s.html" % (
+                    utils.name_from_title(category),)
         yield make_archive_page(env,
                 UIStr.FILED_UNDER_FMT % category,
                 "categories/" + utils.name_from_title(category),
-                lambda post: post in env.filing["categories"][category])
+                lambda post: post in env.filing["categories"][category],
+                context)
 
