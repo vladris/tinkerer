@@ -166,9 +166,9 @@
   {%- endblock -%}
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ pathto('_static/style.css', 1) }}" type="text/css">
   {{ css() }}
-  <link rel="stylesheet" href="{{ pathto('_static/style.css', 1) }}">
-  <link rel="stylesheet" href="{{ pathto('_static/webfont.css', 1) }}">
+  <link rel="stylesheet" href="{{ pathto('_static/webfont.css', 1) }}" type="text/css">
   {%- if not embedded -%}
   {%- if favicon -%}
   <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}" />
