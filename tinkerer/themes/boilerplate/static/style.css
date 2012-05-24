@@ -257,13 +257,17 @@ div.related li { list-style-type: none; }
 
 }
 
+@media only screen and (max-width: 767px) {
+    aside.sidebar { min-height: 0 !important; }
+}
+
 @media only screen and (min-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */
+    /* Style adjustments for viewports 768px and over go here */
     ul.quicklinks { display: block; float: right; }
 
-    div.documentwrapper { float: left; width: 67%; } 
+    div.documentwrapper { float: left; margin-right: 351px; } 
     
-    aside.sidebar { float: left; width: 33%; }
+    aside.sidebar { float: left; margin-left: -351px; width: 351px; }
 
     div.related ul { margin: 0; padding: 0; }
     div.related li { float: left; }
