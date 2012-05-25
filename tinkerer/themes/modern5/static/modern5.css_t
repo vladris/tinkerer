@@ -1,14 +1,14 @@
 /* Typography */
 body { font-family: Verdana, Geneva, sans-serif; font-size: 1em; }
 
-header h1 * { font-family: Georgia, serif; font-size: 1.6em; }
+header h1 * { font-family: Georgia, serif; font-size: 1.8em; }
 header h2 { font-family: Verdana, Geneva, sans-serif; font-size: 1.2em; }
 
 nav { font-size: 1.4em; }
 
 article.document h1, h2 , h3 { font-family: Georgia, serif; }
-article.document h1 { font-size: 2em; }
-article.document h2 { font-size: 1.6em; }
+article.document h1 { font-size: 2.2em; }
+article.document h2 { font-size: 1.8em; }
 article.document h3 { font-size: 1.2em; }
 article.document p { line-height: 1.5; }
 
@@ -44,12 +44,20 @@ aside.sidebar { padding-top: 30px; }
 }
 
 /* Palette */
-body { background-color: brown; }
-header { background-color: blue; }
+body { background-color: #bfcfff; }
+
+header { background-color: #193380; }
+header a { color: #fcfdff; text-decoration: none; }
+header h2 { color: #fcfdff; }
+
 nav { background-color: black; }
-div.content { background-color: white; }
-aside.sidebar { background-color: #CCC; }
+
+div.content { background-color: #f2f5ff; color: #0d0a00; }
+aside.sidebar { background-color: #e6e9f2; }
+
 footer { background-color: black; }
 
 /* Effects */
+header h1 * { text-shadow: 0 2px 3px #191300; }
+
 div.post_separator { border-bottom: 1px dashed black; }
