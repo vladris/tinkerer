@@ -1,3 +1,55 @@
+/* Typography */
 body { font-family: Verdana, Geneva, sans-serif; font-size: 1em; }
 
-h1 { font-family: Georgia, serif; font-size: 1em; }
+header h1 * { font-family: Georgia, serif; font-size: 1.6em; }
+header h2 { font-family: Verdana, Geneva, sans-serif; font-size: 1.2em; }
+
+nav { font-size: 1.4em; }
+
+article.document h1, h2 , h3 { font-family: Georgia, serif; }
+article.document h1 { font-size: 2em; }
+article.document h2 { font-size: 1.6em; }
+article.document h3 { font-size: 1.2em; }
+article.document p { line-height: 1.5; }
+
+div.related { font-size: 0.8em; }
+div.postmeta { font-size: 0.9em; }
+
+aside.sidebar h1 { font-family: Georiga, serif; font-size: 1.2em; }
+aside.sidebar { font-size: 0.9em; }
+
+footer { font-size: 0.8em; }
+
+/* Layout */
+header h1, h2 { margin: 0; }
+header h1 { padding: 10px 40px 5px; }
+header h2 { padding: 5px 40px 10px; }
+
+nav, footer { padding: 10px 40px; }
+
+div.documentwrapper{ padding: 20px 40px; }
+article.document { padding: 20px 0; }
+article.document h1, h2, h3 { margin-top: 0; }
+
+div.post_separator { margin: 20px 0; }
+
+aside.sidebar h1 { margin-top: 0; }
+aside.sidebar div.widget { padding: 10px 40px; }
+aside.sidebar { padding-top: 30px; }
+
+@media only screen and (min-width: 480px) {
+    nav li { padding-right: 40px; }
+    nav li + li { padding-left: 40px; }
+    nav div.quicklinks li { padding-left: 10px; padding-right: 0; }
+}
+
+/* Palette */
+body { background-color: brown; }
+header { background-color: blue; }
+nav { background-color: black; }
+div.content { background-color: white; }
+aside.sidebar { background-color: #CCC; }
+footer { background-color: black; }
+
+/* Effects */
+div.post_separator { border-bottom: 1px dashed black; }

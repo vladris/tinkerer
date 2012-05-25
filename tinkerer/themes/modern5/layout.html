@@ -16,12 +16,12 @@
     {# Adjusts document height if sidebar is taller #}
     <script type="text/javascript">
         $(document).ready(function() {
-            var bodywrapper = document.getElementsByClassName("documentwrapper")[0];
+            var content = document.getElementsByClassName("content")[0];
             var sidebar = document.getElementsByClassName("sidebar")[0];
 
-            if (sidebar.offsetHeight < bodywrapper.offsetHeight)
+            if (sidebar.offsetHeight < content.offsetHeight)
             {
-                sidebar.style.minHeight = bodywrapper.offsetHeight + "px";
+                sidebar.style.minHeight = content.offsetHeight + "px";
             }
         });
     </script>

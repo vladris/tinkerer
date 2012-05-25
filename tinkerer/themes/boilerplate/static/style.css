@@ -255,6 +255,9 @@ div.related li { list-style-type: none; }
   /* Style adjustments for viewports 480px and over go here */
     nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
 
+    div.related ul { margin: 0; padding: 0; }
+    div.related li { float: left; }
+    div.related li.right { float: right; }
 }
 
 @media only screen and (max-width: 767px) {
@@ -265,13 +268,9 @@ div.related li { list-style-type: none; }
     /* Style adjustments for viewports 768px and over go here */
     ul.quicklinks { display: block; float: right; }
 
-    div.documentwrapper { float: left; margin-right: 351px; } 
+    div.documentwrapper { float: left; margin-right: 306px; } 
     
-    aside.sidebar { float: left; margin-left: -351px; width: 351px; }
-
-    div.related ul { margin: 0; padding: 0; }
-    div.related li { float: left; }
-    div.related li.right { float: right; }
+    aside.sidebar { float: left; margin-left: -306px; width: 306px; }
 }
 
 
