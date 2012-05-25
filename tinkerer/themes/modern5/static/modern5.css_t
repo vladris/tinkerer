@@ -2,7 +2,7 @@
 body { font-family: Verdana, Geneva, sans-serif; font-size: 1em; }
 
 header h1 * { font-family: Georgia, serif; font-size: 1.8em; }
-header h2 { font-family: Verdana, Geneva, sans-serif; font-size: 1.2em; }
+header h2 { font-family: Verdana, Geneva, sans-serif; font-size: 1.4em; }
 
 nav { font-size: 1.4em; }
 
@@ -47,17 +47,18 @@ aside.sidebar { padding-top: 30px; }
 body { background-color: #bfcfff; }
 
 header { background-color: #193380; }
-header a { color: #fcfdff; text-decoration: none; }
-header h2 { color: #fcfdff; }
+header a, header a:visited, header a:hover, headera:active { color: #fffbf5; text-decoration: none; }
+header h2 { color: #fffbf5; }
 
 nav { background-color: black; }
 
-div.content { background-color: #f2f5ff; color: #0d0a00; }
+div.content { background-color: #f7f9ff; color: #080600; }
 aside.sidebar { background-color: #e6e9f2; }
 
 footer { background-color: black; }
 
 /* Effects */
 header h1 * { text-shadow: 0 2px 3px #191300; }
+header h2 { text-shadow: 0 1px 2px #191300; }
 
 div.post_separator { border-bottom: 1px dashed black; }
