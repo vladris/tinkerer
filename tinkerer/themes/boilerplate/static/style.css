@@ -210,7 +210,7 @@ td { vertical-align: top; }
    Author: 
    ========================================================================== */
 
-body { margin: auto; max-width: 920px; }
+body { margin: auto; max-width: 999px; }
 
 div.document { float: left; width: 100%; }
 
@@ -268,9 +268,9 @@ div.related li { list-style-type: none; }
     /* Style adjustments for viewports 768px and over go here */
     ul.quicklinks { display: block; float: right; }
 
-    div.documentwrapper { float: left; margin-right: 306px; } 
+    div.documentwrapper { float: left; margin-right: 333px; } 
     
-    aside.sidebar { float: left; margin-left: -306px; width: 306px; }
+    aside.sidebar { float: left; margin-left: -333px; width: 333px; }
 }
 
 
