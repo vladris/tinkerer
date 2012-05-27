@@ -22,7 +22,7 @@ footer { font-size: 0.8em; }
 
 /* Layout */
 header h1, h2 { margin: 0; }
-header h1 { padding: 10px 40px 5px; }
+header h1 { padding: 20px 40px 5px; }
 header h2 { padding: 5px 40px 1em; }
 
 nav { padding: 10px 0; }
@@ -32,6 +32,9 @@ div.related { padding: 40px 0 0; }
 article.document { padding: 40px 0 20px 0; }
 article.document h1, h2, h3 { margin-top: 0; }
 
+div.highlight { padding: 10px 20px; }
+
+div.section + div.postmeta { padding-top: 20px; }
 div.post_separator { margin: 20px 0; }
 
 aside.sidebar h1 { margin-top: 0; }
@@ -80,13 +83,15 @@ footer a, footer a:visited, footer a:hover { color: {{ header_color }}; }
 
 a, a:visited { color: {{ link_color }}; text-decoration: none; }
 a:hover { color: {{ link_color }}; text-decoration: underline; }
-div.section a { color: {{ text_color }}; text-decoration: none; }
-
-div.postmeta { color: {{ theme_color_light }}; }
-div.post_separator { border-bottom: 1px dotted {{ theme_color_light }}; }
+a.footnote-reference { vertical-align: super; }
+div.section a h1 { color: {{ text_color }}; text-decoration: none; }
+tt.docutils.literal { background-color: {{ sidebar_color }}; }
 
 div.content { background: {{ paper_color }} url('paper.png') repeat; color: {{ text_color }}; }
 aside.sidebar { background-color: {{ sidebar_color }}; }
+
+div.postmeta { color: {{ theme_color_light }}; }
+div.post_separator { border-bottom: 1px dotted {{ theme_color_light }}; }
 
 /* Effects */
 header h1 * { text-shadow: 0 2px 3px {{ theme_color_dark }}; }
@@ -110,7 +115,11 @@ nav, footer { background: #354550; }
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#354550', endColorstr='#011019',GradientType=0 );
     }
 
-    nav li { text-shadow: 0 2px 3px {{ theme_color_dark }}; }
+    footer, nav li { text-shadow: 0 2px 3px {{ theme_color_dark }}; }
+
+    nav li + li > a { border-left: 1px solid {{ theme_color_dark }}; }
+    nav li + li { border-left: 1px solid {{ theme_color_light }}; }
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -119,10 +128,6 @@ nav, footer { background: #354550; }
         -webkit-box-shadow: 5px 5px 10px 0 #011019;
         box-shadow:         5px 5px 10px 0 #011019; 
     }
-
-    nav li + li > a { border-left: 1px solid {{ theme_color_dark }}; }
-
-    nav li + li { border-left: 1px solid {{ theme_color_light }}; }
 
     div.documentwrapper { border-left: 1px solid #cfd5da; }
     aside.sidebar { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
