@@ -130,3 +130,21 @@ nav, footer { background: #354550; }
     div.documentwrapper { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
     div.content { border-right: 1px solid #cfd5da; }
 }
+
+/* Archive page */
+div.archive h1 { border-bottom: 1px dotted {{ theme_color_light }}; margin-bottom: 20px; }
+
+span.title_tag, span.title_category { font-style: italic; }
+
+div.year h1 { border: none; float: left; font-family: {{ sans_serif_font }}; font-size: 1.4em; margin-right: -100%; margin-top: 20px; }
+
+div.year ul { display: inline; list-style-type: none; margin: 0; }
+
+div.year div.postmeta { margin: 10px 0 40px 40%; }
+
+div.year div.timestamp { color: {{ text_color }}; float: left; font-size: 1.4em; font-style: normal; font-weight: none; line-height: 1.5; margin-left: 20%; margin-top: 0; }
+
+div.year h2 { margin-bottom: 0; margin-left: 40%; margin-top: 0; }
+
+div.year_separator { width: 100%; border-top: 1px dotted {{ theme_color_light }}; }
+
