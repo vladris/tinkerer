@@ -28,10 +28,10 @@ header h1, h2 { margin: 0; }
 header h1 { padding: 10px 40px 5px; }
 header h2 { padding: 5px 40px 1em; }
 
-nav, footer { padding: 10px 40px; }
+nav { padding: 10px 0; }
 
 div.documentwrapper { padding: 0 40px 20px; }
-div.related { margin: 20px 0 0; }
+div.related { padding: 20px 0 0; }
 article.document { padding: 20px 0; }
 article.document h1, h2, h3 { margin-top: 0; }
 
@@ -40,9 +40,12 @@ div.post_separator { margin: 20px 0; }
 aside.sidebar h1 { margin-top: 0; }
 aside.sidebar div.widget { padding: 20px 40px; }
 
+footer { padding: 10px 40px; }
+
 @media only screen and (min-width: 480px) {
-    nav li { padding-right: 40px; }
-    nav li + li { padding-left: 40px; }
+    nav ul { padding: 0; }
+    ul.main-navigation { margin-right: 333px; }
+    nav li { margin: 40px 0; padding: 0 40px; }
     nav div.quicklinks li { padding-left: 10px; padding-right: 0; }
 }
 
@@ -70,11 +73,10 @@ footer a, footer a:visited, footer a:hover { color: {{ header_color }}; }
 
 a, a:visited { color: {{ link_color }}; text-decoration: none; }
 a:hover { color: {{ link_color }}; text-decoration: underline; }
+div.section a { color: {{ text_color }}; text-decoration: none; }
 
 div.content { background-color: {{ paper_color }}; color: {{ text_color }}; }
 aside.sidebar { background-color: {{ sidebar_color }}; }
-
-footer { margin-bottom: 20px; }
 
 /* Effects */
 header h1 * { text-shadow: 0 2px 3px {{ theme_color_dark }}; }
@@ -83,32 +85,42 @@ header h2 { text-shadow: 0 2px 3px {{ theme_color_dark }}; }
 header, nav { border-bottom: 1px solid {{ theme_color_dark }}; }
 footer { border-top: 1px solid {{ theme_color_dark }}; }
 
-nav, footer {
-    background: #354550;
-    background: -moz-linear-gradient(top, #354550 0%, #021520 50%, #02121d 51%, #011019 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#354550), color-stop(50%,#021520), color-stop(51%,#02121d), color-stop(100%,#011019));
-    background: -webkit-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
-    background: -o-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
-    background: -ms-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
-    background: linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#354550', endColorstr='#011019',GradientType=0 );
-}
+nav, footer { background: #354550; }
 
-footer {
-    -moz-border-radius-bottomleft: 10px;
-    -moz-border-radius-bottomright: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -webkit-border-bottom-right-radius: 10px;
-    -o-border-bottom-left-radius: 10px;
-    -o-border-bottom-right-radius: 10px;
-    -ms-border-bottom-left-radius: 10px;
-    -ms-border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; 
+@media only screen and (min-width: 480px) {
+    header { background-image: url('header.png'); background-repeat: repeat; }
+
+    div.content { background-image: url('paper.png'); background-repeat: repeat; }
+
+    nav, footer {
+        background: -moz-linear-gradient(top, #354550 0%, #021520 50%, #02121d 51%, #011019 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#354550), color-stop(50%,#021520), color-stop(51%,#02121d), color-stop(100%,#011019));
+        background: -webkit-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
+        background: -o-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
+        background: -ms-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
+        background: linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#354550', endColorstr='#011019',GradientType=0 );
+    }
 }
 
 @media only screen and (min-width: 768px) {
-    div.documentwrapper { border-right: 1px solid #cfd5da; }
+    div.documentwrapper { border-left: 1px solid #cfd5da; }
+    aside.sidebar { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
+
+    footer { margin-bottom: 20px; }
+
+    footer {
+        -moz-border-radius-bottomleft: 10px;
+        -moz-border-radius-bottomright: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+        -webkit-border-bottom-right-radius: 10px;
+        -o-border-bottom-left-radius: 10px;
+        -o-border-bottom-right-radius: 10px;
+        -ms-border-bottom-left-radius: 10px;
+        -ms-border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px; 
+    }
 }
 
 div.post_separator { border-bottom: 1px dashed black; }

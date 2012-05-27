@@ -72,14 +72,18 @@
 {#- prev/next -#}
 {%- macro relbar() -%}
     {%- if prev or next -%}
-    <div class="related clearfix">
+    <div class="related">
         <ul>
+            <li class="left">
             {%- if prev -%}
-            <li>{{ prevchar }}<a href="{{ prev.link|e }}">{{ prev.title }}</a></li>
+                {{ prevchar }}<a href="{{ prev.link|e }}">{{ prev.title }}</a>
             {%- endif -%}
+            </li>
+            <li class="right">
             {%- if next -%}
-            <li class="right"><a href="{{ next.link|e }}">{{ next.title }}</a>{{ nextchar }}</li>
+                <a href="{{ next.link|e }}">{{ next.title }}</a>{{ nextchar }}
             {%- endif -%}
+            </li>
         </ul>
     </div>
     {%- endif -%}
@@ -232,7 +236,7 @@
         {%- endif -%}
       </ul>
       {%- endblock -%}
-      <ul class="main-nagivation">
+      <ul class="main-navigation">
         {% for page in pages -%}
         <li>
           <a href="{{ pathto(page[0]) }}">{{ page[1]|e }}</a>
@@ -245,15 +249,6 @@
     <div class="main">
 {%- block content -%}
       <div class="content clearfix">
-      {%- block document -%}
-        <div class="documentwrapper">
-          {%- block relbar1 -%}{{ relbar() }}{% endblock -%}
-            <article class="document">
-              {% block body -%} {% endblock -%}
-            </article>
-          {%- block relbar2 -%}{{ relbar() }}{% endblock -%}
-        </div>
-      {%- endblock -%}
       {%- if render_sidebar -%}
         <aside class="sidebar">
           {%- if sidebars != None -%}
@@ -265,6 +260,15 @@
           {%- endif -%}
         </aside>
       {%- endif -%}
+      {%- block document -%}
+        <div class="documentwrapper">
+          {%- block relbar1 -%}{{ relbar() }}{% endblock -%}
+            <article class="document">
+              {% block body -%} {% endblock -%}
+            </article>
+          {%- block relbar2 -%}{{ relbar() }}{% endblock -%}
+        </div>
+      {%- endblock -%}
       </div>
 {%- endblock -%}
     </div>

@@ -212,8 +212,6 @@ td { vertical-align: top; }
 
 body { margin: auto; max-width: 999px; }
 
-article.document { float: left; width: 100%; }
-
 ul.quicklinks { display: none; }
 
 nav li { text-align: center; width: 100%; }
@@ -255,9 +253,9 @@ div.related li { list-style-type: none; }
   /* Style adjustments for viewports 480px and over go here */
     nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
 
-    div.related ul { margin: 0; padding: 0; }
-    div.related li { float: left; }
-    div.related li.right { float: right; }
+    div.related ul { margin: 0; padding: 0; width: 100%; }
+    div.related li.left { display: inline; }
+    div.related li.right { display: inline; float: right; }
 }
 
 @media only screen and (max-width: 767px) {
@@ -268,9 +266,9 @@ div.related li { list-style-type: none; }
     /* Style adjustments for viewports 768px and over go here */
     ul.quicklinks { display: block; float: right; }
 
-    div.documentwrapper { float: left; margin-right: 333px; } 
+    div.documentwrapper { margin-right: 333px; } 
     
-    aside.sidebar { float: left; margin-left: -333px; width: 333px; }
+    aside.sidebar { float: right; margin-left: -333px; width: 333px; }
 }
 
 
