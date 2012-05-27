@@ -86,8 +86,8 @@ a.footnote-reference { vertical-align: super; }
 div.section a h1 { color: {{ text_color }}; text-decoration: none; }
 tt.docutils.literal { background-color: {{ sidebar_color }}; }
 
-div.content { background: {{ paper_color }} url('paper.png') repeat; color: {{ text_color }}; }
-aside.sidebar { background-color: {{ sidebar_color }}; }
+div.content { background-color: {{ sidebar_color }}; }
+div.documentwrapper { background: {{ paper_color }} url('paper.png') repeat; }
 
 div.postmeta { color: {{ theme_color_light }}; }
 div.post_separator { border-bottom: 1px dotted {{ theme_color_light }}; }
@@ -127,6 +127,6 @@ nav, footer { background: #354550; }
         box-shadow:         5px 5px 10px 0 #011019; 
     }
 
-    div.documentwrapper { border-left: 1px solid #cfd5da; }
-    aside.sidebar { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
+    div.documentwrapper { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
+    div.content { border-right: 1px solid #cfd5da; }
 }
