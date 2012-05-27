@@ -218,6 +218,8 @@ nav li { text-align: center; width: 100%; }
 
 div.related li { list-style-type: none; }
 
+aside.sidebar { display: none; }
+
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
    ========================================================================== */
@@ -258,17 +260,13 @@ div.related li { list-style-type: none; }
     div.related li.right { display: inline; float: right; }
 }
 
-@media only screen and (max-width: 767px) {
-    aside.sidebar { min-height: 0 !important; }
-}
-
 @media only screen and (min-width: 768px) {
     /* Style adjustments for viewports 768px and over go here */
     ul.quicklinks { display: block; float: right; }
 
     div.documentwrapper { margin-right: 333px; } 
     
-    aside.sidebar { float: right; margin-left: -333px; width: 333px; }
+    aside.sidebar { display: block; float: right; margin-left: -333px; width: 333px; }
 }
 
 
