@@ -212,7 +212,7 @@ td { vertical-align: top; }
 
 body { margin: auto; max-width: 999px; }
 
-div.document { float: left; width: 100%; }
+article.document { float: left; width: 100%; }
 
 ul.quicklinks { display: none; }
 
