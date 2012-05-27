@@ -47,10 +47,10 @@ div.archive_link { padding-top: 20px; text-align: center; }
 footer { padding: 10px 40px; }
 
 @media only screen and (min-width: 480px) {
-    nav ul { padding: 0; }
+    nav ul { margin-right: 40px; padding: 0; }
     nav li.main-nav { margin: 40px 0; }
     nav li.main-nav a { padding: 0 40px; }
-    nav li.quicklink { margin-right: 40px; padding: 0 0 0 10px; }
+    nav li.quicklink { padding: 0 0 0 10px; }
     nav li.quicklink a { padding: 0; }
 }
 
