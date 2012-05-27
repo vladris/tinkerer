@@ -202,7 +202,7 @@ td { vertical-align: top; }
 
 body { margin: auto; max-width: 999px; }
 
-ul.quicklinks { display: none; }
+li.quicklink { display: none; }
 
 nav li { text-align: center; width: 100%; }
 
@@ -252,7 +252,7 @@ aside.sidebar { display: none; }
 
 @media only screen and (min-width: 768px) {
     /* Style adjustments for viewports 768px and over go here */
-    ul.quicklinks { display: block; float: right; }
+    li.quicklink { display: inline; float: right; }
 
     div.documentwrapper { margin-right: 333px; } 
     

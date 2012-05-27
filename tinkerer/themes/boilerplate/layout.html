@@ -222,23 +222,21 @@
     <header>
       <hgroup>
         <h1><a href="{{ pathto(pages[0][0]) }}">{{ shorttitle|e }}</a></h1>
-        <h2>{{ tagline|e }}</h2>
+        <span>{{ tagline|e }}</span>
       </hgroup>
     </header>
 {% endblock -%}
 
 {%- block navigation -%}
-    <nav>
-      {%- block quicklinks -%}
-      <ul class="quicklinks">
-        {%- if rss_in_page_nav -%}
-        <li>{{ rss_link() }}</li>
-        {%- endif -%}
-      </ul>
-      {%- endblock -%}
+    <nav class="clearfix">
       <ul class="main-navigation">
+        {%- block quicklinks -%}
+          {%- if rss_in_page_nav -%}
+          <li class="quicklink">{{ rss_link() }}</li>
+          {%- endif -%}
+        {%- endblock -%}
         {% for page in pages -%}
-        <li>
+        <li class="main-nav">
           <a href="{{ pathto(page[0]) }}">{{ page[1]|e }}</a>
         </li>
         {% endfor -%}  
