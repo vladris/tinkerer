@@ -114,17 +114,13 @@ nav, footer { background: #354550; }
     }
 
     footer, nav li { text-shadow: 0 2px 3px {{ theme_color_dark }}; }
-
-    nav li.main-nav + li.main-nav > a { border-left: 1px solid {{ theme_color_dark }}; }
-    nav li.main-nav + li.main-nav { border-left: 1px solid {{ theme_color_light }}; }
-
 }
 
 @media only screen and (min-width: 768px) {
     div#container {
-        -moz-box-shadow:    5px 5px 10px 0 #011019;
-        -webkit-box-shadow: 5px 5px 10px 0 #011019;
-        box-shadow:         5px 5px 10px 0 #011019; 
+        -moz-box-shadow:    0 0 10px 5px #011019;
+        -webkit-box-shadow: 0 0 10px 5px #011019;
+        box-shadow:         0 0 10px 5px #011019; 
     }
 
     div.documentwrapper { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
