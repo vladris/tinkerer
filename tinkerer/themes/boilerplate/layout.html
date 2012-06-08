@@ -249,11 +249,11 @@
       <div class="content clearfix">
       {%- block document -%}
         <div class="documentwrapper">
-          {%- block relbar1 -%}{{ relbar() }}{% endblock -%}
+          {%- block relbar1 -%}<div class="relbartop">{{ relbar() }}</div>{% endblock -%}
             <article class="document">
               {% block body -%} {% endblock -%}
             </article>
-          {%- block relbar2 -%}{{ relbar() }}{% endblock -%}
+          {%- block relbar2 -%}<div class="relbarbottom">{{ relbar() }}</div>{% endblock -%}
         </div>
       {%- endblock -%}
       {%- if render_sidebar -%}

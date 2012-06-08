@@ -23,7 +23,9 @@ aside.sidebar.highlight { font-size: .8em; }
 footer { font-size: 0.8em; }
 
 /* Layout */
-header { padding: 20px 0; }
+ul { padding: 0 0 0 20px; list-style: square; }
+
+header { padding: 10px 0; }
 header h1, span { margin: 0; }
 header h1 { padding: 0 20px 2px; }
 header span { padding: 2px 20px 0; display: block; }
@@ -33,6 +35,7 @@ nav li.main-nav { padding: 10px 0; }
 
 div.documentwrapper { padding: 0 20px 10px; }
 div.related { padding: 20px 0 0; }
+div.relbartop { display: none; }
 article.document { padding: 20px 0 10px 0; }
 article.document h1, h2, h3 { margin-top: 0; }
 article.document + div.related { padding-bottom: 10px; }
@@ -63,6 +66,7 @@ footer { padding: 5px 20px; }
 
     div.documentwrapper { padding: 0 40px 20px; }
     div.related { padding: 40px 0 0; }
+    div.relbartop { display: block; }
     article.document { padding: 40px 0 20px 0; }
     article.document + div.related { padding-bottom: 20px; }
 
