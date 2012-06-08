@@ -23,32 +23,54 @@ aside.sidebar.highlight { font-size: .8em; }
 footer { font-size: 0.8em; }
 
 /* Layout */
-header { padding: 40px 0; }
+header { padding: 20px 0; }
 header h1, span { margin: 0; }
-header h1 { padding: 0 40px 5px; }
-header span { padding: 5px 40px 0; }
+header h1 { padding: 0 20px 2px; }
+header span { padding: 2px 20px 0; display: block; }
 
-nav { padding: 10px 0; }
+nav { padding: 5px 0; }
 
-div.documentwrapper { padding: 0 40px 20px; }
-div.related { padding: 40px 0 0; }
-article.document { padding: 40px 0 20px 0; }
+div.documentwrapper { padding: 0 20px 10px; }
+div.related { padding: 20px 0 0; }
+article.document { padding: 20px 0 10px 0; }
 article.document h1, h2, h3 { margin-top: 0; }
-article.document + div.related { padding-bottom: 20px; }
+article.document + div.related { padding-bottom: 10px; }
 
-div.highlight { padding: 10px 20px; }
+div.highlight { padding: 5px 10px; }
 
-div.section + div.postmeta { padding-top: 20px; }
-div.post_separator { margin: 20px 0; }
+div.section + div.postmeta { padding-top: 10px; }
+div.post_separator { margin: 10px 0; }
 
 aside.sidebar h1 { margin-top: 0; }
-aside.sidebar div.widget { margin: 40px 0; padding: 0 40px; }
+aside.sidebar div.widget { margin: 20px 0; padding: 0 20px; }
 
-div.archive_link { padding-top: 20px; text-align: center; }
+div.archive_link { padding-top: 10px; text-align: center; }
 
-footer { padding: 10px 40px; }
+footer { padding: 5px 20px; }
 
 @media only screen and (min-width: 480px) {
+    header { padding: 40px 0; }
+    header h1 { padding: 0 40px 5px; }
+    header span { padding: 5px 40px 0; }
+
+    nav { padding: 10px 0; }
+
+    div.documentwrapper { padding: 0 40px 20px; }
+    div.related { padding: 40px 0 0; }
+    article.document { padding: 40px 0 20px 0; }
+    article.document + div.related { padding-bottom: 20px; }
+
+    div.highlight { padding: 10px 20px; }
+
+    div.section + div.postmeta { padding-top: 20px; }
+    div.post_separator { margin: 20px 0; }
+
+    aside.sidebar div.widget { margin: 40px 0; padding: 0 40px; }
+
+    div.archive_link { padding-top: 20px; text-align: center; }
+
+    footer { padding: 10px 40px; }
+
     nav ul { margin-right: 40px; padding: 0; }
     nav li.main-nav { margin: 40px 0; }
     nav li.main-nav a { padding: 0 40px; }
