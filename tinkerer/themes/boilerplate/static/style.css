@@ -251,7 +251,9 @@ div.related li { list-style-type: none; }
 @media only screen and (min-width: 768px) {
     /* Style adjustments for viewports 768px and over go here */
     li.quicklink { display: inline; float: right; }
+}
 
+@media only screen and (min-width: 999px) {
     div.documentwrapper { float: left; margin-right: 333px; } 
     
     aside.sidebar { display: block; float: left; margin-left: -333px; width: 333px; }
