@@ -1,10 +1,20 @@
-{% extends "!page.html" %}
+{%- extends "!page.html" -%}
 
-{% set script_files = script_files + ["_static/google_analytics.js"] %}
+{%- set script_files = script_files + ["_static/google_analytics.js"] -%}
 
-{% block footer %}
+{%- block extrahead -%}
+<style media="screen" type="text/css">
+    #fork_me { display: none; }
+
+    @media only screen and (min-width: 768px) {
+        #fork_me { display: inline; }
+    } 
+</style>
+{%- endblock -%}
+
+{%- block footer -%}
     {{ super() }}
-    <a href="http://bitbucket.org/vladris/tinkerer">
+    <a id="fork_me" href="http://bitbucket.org/vladris/tinkerer">
         <img alt="Fork me" src="{{ pathto('_static/fork_me.png', 1) }}" style="position: fixed; top: 0; right: 0; border 0"></img>
     </a>
-{% endblock %}
+{%- endblock -%}
