@@ -29,6 +29,7 @@ header h1 { padding: 0 20px 2px; }
 header span { padding: 2px 20px 0; display: block; }
 
 nav { padding: 5px 0; }
+nav li.main-nav { padding: 10px 0; }
 
 div.documentwrapper { padding: 0 20px 10px; }
 div.related { padding: 20px 0 0; }
@@ -54,6 +55,11 @@ footer { padding: 5px 20px; }
     header span { padding: 5px 40px 0; }
 
     nav { padding: 10px 0; }
+    nav ul { margin: 0 40px 0 20px; padding: 0; }
+    nav li.main-nav { margin: 0; padding: 0; }
+    nav li.main-nav a { padding: 0 20px; }
+    nav li.quicklink { padding: 0 0 0 10px; }
+    nav li.quicklink a { padding: 0; }
 
     div.documentwrapper { padding: 0 40px 20px; }
     div.related { padding: 40px 0 0; }
@@ -70,12 +76,6 @@ footer { padding: 5px 20px; }
     div.archive_link { padding-top: 20px; text-align: center; }
 
     footer { padding: 10px 40px; }
-
-    nav ul { margin-right: 40px; padding: 0; }
-    nav li.main-nav { margin: 40px 0; }
-    nav li.main-nav a { padding: 0 40px; }
-    nav li.quicklink { padding: 0 0 0 10px; }
-    nav li.quicklink a { padding: 0; }
 }
 
 @media only screen and (min-width: 768px) {
