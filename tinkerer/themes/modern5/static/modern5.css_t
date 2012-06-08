@@ -84,6 +84,7 @@ a, a:visited { color: {{ link_color }}; text-decoration: none; }
 a:hover { color: {{ link_color }}; text-decoration: underline; }
 a.footnote-reference { vertical-align: super; }
 div.section a h1 { color: {{ text_color }}; text-decoration: none; }
+div.section a:hover h1 { text-decoration: underline; }
 tt.docutils.literal { background-color: {{ sidebar_color }}; }
 
 div.content { background-color: {{ sidebar_color }}; }
