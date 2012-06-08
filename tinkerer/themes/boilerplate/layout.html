@@ -247,6 +247,15 @@
     <div class="main">
 {%- block content -%}
       <div class="content clearfix">
+      {%- block document -%}
+        <div class="documentwrapper">
+          {%- block relbar1 -%}{{ relbar() }}{% endblock -%}
+            <article class="document">
+              {% block body -%} {% endblock -%}
+            </article>
+          {%- block relbar2 -%}{{ relbar() }}{% endblock -%}
+        </div>
+      {%- endblock -%}
       {%- if render_sidebar -%}
         <aside class="sidebar">
           {%- if sidebars != None -%}
@@ -258,15 +267,6 @@
           {%- endif -%}
         </aside>
       {%- endif -%}
-      {%- block document -%}
-        <div class="documentwrapper">
-          {%- block relbar1 -%}{{ relbar() }}{% endblock -%}
-            <article class="document">
-              {% block body -%} {% endblock -%}
-            </article>
-          {%- block relbar2 -%}{{ relbar() }}{% endblock -%}
-        </div>
-      {%- endblock -%}
       </div>
 {%- endblock -%}
     </div>

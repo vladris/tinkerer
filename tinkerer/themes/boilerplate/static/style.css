@@ -208,8 +208,6 @@ nav li { text-align: center; width: 100%; }
 
 div.related li { list-style-type: none; }
 
-aside.sidebar { display: none; }
-
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
    ========================================================================== */
@@ -254,9 +252,9 @@ aside.sidebar { display: none; }
     /* Style adjustments for viewports 768px and over go here */
     li.quicklink { display: inline; float: right; }
 
-    div.documentwrapper { margin-right: 333px; } 
+    div.documentwrapper { float: left; margin-right: 333px; } 
     
-    aside.sidebar { display: block; float: right; margin-left: -333px; width: 333px; }
+    aside.sidebar { display: block; float: left; margin-left: -333px; width: 333px; }
 }
 
 
