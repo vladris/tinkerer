@@ -67,6 +67,7 @@ footer { padding: 5px 20px; }
     div.documentwrapper { padding: 0 40px 20px; }
     div.related { padding: 40px 0 0; }
     div.relbartop { display: block; }
+    div.relbarbottom { margin-bottom: 20px; }
     article.document { padding: 40px 0 20px 0; }
     article.document + div.related { padding-bottom: 20px; }
 
@@ -128,6 +129,8 @@ footer { border-top: 1px solid {{ theme_color_dark }}; }
 
 nav, footer { background: #354550; }
 
+aside.sidebar { border-top: 1px solid #cfd5da; }
+
 @media only screen and (min-width: 480px) {
     header { background-image: url('header.png'); background-repeat: repeat; }
 
@@ -152,7 +155,11 @@ nav, footer { background: #354550; }
     }
 
     div.documentwrapper { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
+}
+
+@media only screen and (min-width: 999px) {
     div.content { border-right: 1px solid #cfd5da; }
+    aside.sidebar { border-top: none; }
 }
 
 /* Archive page */

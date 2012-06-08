@@ -206,7 +206,7 @@ li.quicklink { display: none; }
 
 nav li { text-align: center; width: 100%; }
 
-div.related li { list-style-type: none; }
+div.related li { list-style-type: none; text-align: center; width: 100%; }
 
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
@@ -240,8 +240,10 @@ div.related li { list-style-type: none; }
    ========================================================================== */
 
 @media only screen and (min-width: 480px) {
-  /* Style adjustments for viewports 480px and over go here */
+    /* Style adjustments for viewports 480px and over go here */
     nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
+
+    div.related li { text-align: left; width: auto; }
 
     div.related ul { margin: 0; padding: 0; width: 100%; }
     div.related li.left { display: inline; }
