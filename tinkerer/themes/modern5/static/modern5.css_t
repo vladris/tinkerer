@@ -1,22 +1,24 @@
 /* Typography */
-{%- set sans_serif_font = "Verdana, Geneva, sans-serif" -%}
-{%- set serif_font = "Georgia, serif" -%}
+
+{%- set sans_serif_font = "'Helvetica Neue', Helvetica, Arial, sans-serif" -%}
 
 body { font-family: {{ sans_serif_font }}; font-size: 1em; }
 
-header h1 * { font-family: {{ sans_serif_font }}; font-size: 1.6em; font-weight: normal; }
-header span { font-family: {{ sans_serif_font }}; font-size: 1.4em; }
+header h1 * { font-size: 1.6em; font-weight: normal; }
+header span { font-size: 1.4em; }
 
 nav { font-size: 1.4em; }
 
-article.document h1, h2 , h3 { font-family: {{ serif_font }}; }
 article.document h1 { font-size: 2.2em; }
 article.document h2 { font-size: 1.8em; }
 article.document h3 { font-size: 1.2em; }
 article.document p { line-height: 1.5; }
 
-aside.sidebar h1 { font-family: {{ serif_font }}; font-size: 1.2em; }
-aside.sidebar { font-size: 0.9em; }
+.highlight { font-size: .8em; }
+
+aside.sidebar h1 { font-size: 1.2em; }
+aside.sidebar { font-size: 1em; }
+aside.sidebar.highlight { font-size: .8em; }
 
 footer { font-size: 0.8em; }
 
@@ -132,7 +134,7 @@ div.archive h1 { border-bottom: 1px dotted {{ theme_color_light }}; margin-botto
 
 span.title_tag, span.title_category { font-style: italic; }
 
-div.year h1 { border: none; float: left; font-family: {{ sans_serif_font }}; font-size: 1.4em; margin-right: -100%; margin-top: 20px; }
+div.year h1 { border: none; float: left; font-size: 1.4em; margin-right: -100%; margin-top: 20px; }
 
 div.year ul { display: inline; list-style-type: none; margin: 0; }
 
