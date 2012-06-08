@@ -254,7 +254,7 @@ div.related li { list-style-type: none; }
 }
 
 @media only screen and (min-width: 999px) {
-    div.documentwrapper { float: left; margin-right: 333px; } 
+    div.documentwrapper { float: left; margin-right: 333px; width: 583px; } 
     
     aside.sidebar { display: block; float: left; margin-left: -333px; width: 333px; }
 }
