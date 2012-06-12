@@ -8,14 +8,14 @@
     :license: FreeBSD, see LICENSE file
 #}
 
-{% extends "boilerplate/layout.html" %}
+{%- extends "boilerplate/layout.html" -%}
 
-{% block extrahead %}
+{%- block extrahead -%}
     {{ super() }}
 
-    {# Adjusts document height if sidebar is taller #}
     <script type="text/javascript">
         $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
             var documentwrapper = document.getElementsByClassName("documentwrapper")[0];
             var sidebar = document.getElementsByClassName("sidebar")[0];
 
@@ -23,6 +23,12 @@
             {
                 documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
             }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
         });
     </script>
-{% endblock %}
+{%- endblock -%}
