@@ -167,17 +167,25 @@ div.archive h1 { border-bottom: 1px dotted {{ theme_color_light }}; margin-botto
 
 span.title_tag, span.title_category { font-style: italic; }
 
-div.year h1 { border: none; float: left; font-size: 1.4em; margin-right: -100%; margin-top: 20px; }
+div.year h1 { border: none; font-size: 1.6em; margin-bottom: 0; margin-top: 20px; }
 
 div.year ul { display: inline; list-style-type: none; margin: 0; }
 
-div.year div.postmeta { margin: 10px 0 40px 40%; }
+div.year div.postmeta { margin: 10px 0 10px 0; }
 
-div.year div.timestamp { color: {{ text_color }}; float: left; font-size: 1.4em; font-style: normal; font-weight: none; line-height: 1.5; margin-left: 20%; margin-top: 0; }
+div.year div.timestamp { color: {{ text_color }}; font-size: 1.4em; font-style: normal; font-weight: none; line-height: 1.5; margin-top: 0; }
 
-div.year h2 { margin-bottom: 0; margin-left: 40%; margin-top: 0; }
+div.year h2 { margin-bottom: 0; margin-top: 0; }
 
 div.year_separator { width: 100%; border-top: 1px dotted {{ theme_color_light }}; }
 
+@media only screen and (min-width: 480px) {
+    div.year h1 { float: left; margin-right: -100%; }
+
+    div.year div.postmeta { margin: 0 0 40px 40%; }
+    div.year div.timestamp { float: left; margin-left: 20%; }
+    div.year h2 { margin-left: 40%; }
+}
+
 /* Sidebar */
-aside.sidebar h1 { border-bottom: 1px solid {{ theme_color_light }}; }
+aside.sidebar h1 { border-bottom: 1px solid {{ theme_color_light }}; box-shadow: {{ paper_color }} 0 1px 0 0; }
