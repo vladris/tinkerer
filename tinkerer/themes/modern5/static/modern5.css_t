@@ -179,3 +179,5 @@ div.year h2 { margin-bottom: 0; margin-left: 40%; margin-top: 0; }
 
 div.year_separator { width: 100%; border-top: 1px dotted {{ theme_color_light }}; }
 
+/* Sidebar */
+aside.sidebar h1 { border-bottom: 1px solid {{ theme_color_light }}; }
