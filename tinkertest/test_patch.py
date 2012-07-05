@@ -40,7 +40,7 @@ class TestPatch(utils.BaseTinkererTest):
             with open(os.path.join(paths.html, *test[0]), "r") as f:
                 content = f.read()
                 for data in test[1]:
-                    self.assertIn(data, content)
+                    self.assertTrue(data in content)
 
 
 

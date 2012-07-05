@@ -109,8 +109,8 @@ class TestRSS(utils.BaseTinkererTest):
             self.assertEquals(item["link"], data["link"])
             self.assertEquals(item["link"], data["guid"])
             self.assertEquals(item["title"], data["title"])
-            self.assertIn(item["description"], data["description"])
-            self.assertIn(item["category"], data["category"])
+            self.assertTrue(item["description"] in data["description"])
+            self.assertTrue(item["category"] in data["category"])
             self.assertEquals(item["pubDate"], data["pubDate"])
 
 

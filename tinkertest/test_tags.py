@@ -35,11 +35,11 @@ def build_finished(app, exception):
     blog_tags = app.builder.env.filing["tags"]
 
     # check collected tags
-    utils.test.assertEquals({"tag #1", "tag #2"}, set(blog_tags))
+    utils.test.assertEquals(set(["tag #1", "tag #2"]), set(blog_tags))
 
     # check tagged posts
-    for result in [({"2010/10/01/post1", "2010/10/01/post12"}, "tag #1"),
-                   ({"2010/10/01/post2", "2010/10/01/post12"}, "tag #2")]:
+    for result in [(set(["2010/10/01/post1", "2010/10/01/post12"]), "tag #1"),
+                   (set(["2010/10/01/post2", "2010/10/01/post12"]), "tag #2")]:
         utils.test.assertEquals(result[0], set(blog_tags[result[1]]))
 
     # check post metadata

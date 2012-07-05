@@ -39,8 +39,8 @@ class TestDraft(utils.BaseTinkererTest):
 
         # page and posts should be in master doc (precondition)
         lines = master.read_master()
-        self.assertIn("   %s\n" % new_post.docname, lines)
-        self.assertIn("   %s\n" % new_page.docname, lines)
+        self.assertTrue("   %s\n" % new_post.docname in lines)
+        self.assertTrue("   %s\n" % new_page.docname in lines)
 
         new_draft = draft.move(os.path.join(
                             utils.TEST_ROOT, "pages", "a_page.rst"))
@@ -48,8 +48,8 @@ class TestDraft(utils.BaseTinkererTest):
 
         # page should no longer be in TOC
         lines = master.read_master()
-        self.assertIn("   %s\n" % new_post.docname, lines)
-        self.assertNotIn("   %s\n" % new_page.docname, lines)
+        self.assertTrue("   %s\n" % new_post.docname in lines)
+        self.assertFalse("   %s\n" % new_page.docname in lines)
 
         new_draft = draft.move(os.path.join(
                             utils.TEST_ROOT, "2010", "10", "01", "a_post.rst"))
@@ -57,8 +57,8 @@ class TestDraft(utils.BaseTinkererTest):
 
         # post should no longer be in TOC either
         lines = master.read_master()
-        self.assertNotIn("   %s\n" % new_post.docname, lines)
-        self.assertNotIn("   %s\n" % new_page.docname, lines)
+        self.assertFalse("   %s\n" % new_post.docname in lines)
+        self.assertFalse("   %s\n" % new_page.docname in lines)
 
 
     # test content
