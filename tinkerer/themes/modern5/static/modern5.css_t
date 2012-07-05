@@ -38,7 +38,7 @@ div.related { padding: 20px 0 0; }
 div.related ul { padding: 0; list-style: none; }
 div.related li { line-height: 2em; }
 article.document { padding: 20px 0 10px 0; }
-article.document h1, h2, h3 { margin-top: 0; }
+article.document h1 { margin-top: 0; }
 article.document + div.related { padding-bottom: 10px; }
 
 div.highlight { padding: 5px 10px; }
