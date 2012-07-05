@@ -21,7 +21,7 @@ Enabling Google Analytics
 To enable `Google Analytics <http://google.com/analytics>`_ for your blog, 
 setup your Google Analytics account. You will be provided some JS  code.
 Add the JS code to a file in your blog's ``_static`` directory as 
-``googl_analytics.js`` and create a new ``page.html`` file under your blog's 
+``google_analytics.js`` and create a new ``page.html`` file under your blog's 
 ``_templates`` directory with the following content::
 
    {% extends "!page.html" %}
