@@ -5,7 +5,7 @@
 body { font-family: {{ sans_serif_font }}; font-size: .9em; }
 
 header h1 * { font-size: 1.6em; font-weight: normal; }
-header span { font-size: 1.4em; }
+header h2 { font-size: 1.4em; font-weight: normal; margin: 0; padding: 0; }
 
 nav { font-size: 1.4em; }
 
@@ -28,7 +28,7 @@ ul { padding: 0 0 0 20px; list-style: square; }
 header { padding: 20px 0; }
 header h1, span { margin: 0; }
 header h1 { padding: 0 20px 2px; }
-header span { padding: 2px 20px 0; display: block; }
+header h2 { padding: 2px 20px 0; display: block; }
 
 nav { padding: 5px 0; }
 nav li.main-nav { padding: 10px 0; }
@@ -56,7 +56,7 @@ footer { padding: 5px 20px; }
 @media only screen and (min-width: 480px) {
     header { padding: 40px 0; }
     header h1 { padding: 0 40px 5px; }
-    header span { padding: 5px 40px 0; }
+    header h2 { padding: 5px 40px 0; }
 
     nav { padding: 10px 0; }
     nav ul { margin: 0 40px 0 20px; padding: 0; }
@@ -103,7 +103,7 @@ body { background-color: {{ theme_color_light }}; }
 
 header { background-color: {{ theme_color }}; }
 header a, header a:visited, header a:hover, headera:active { color: {{ header_color }}; text-decoration: none; }
-header span { color: {{ theme_color_light }}; }
+header h2 { color: {{ theme_color_light }}; }
 
 nav li a, nav li a:visited, footer { color: {{ theme_color_light }}; text-decoration: none; }
 nav li a:hover { color: {{ header_color }}; text-decoration: none; }

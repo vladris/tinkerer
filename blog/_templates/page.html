@@ -3,6 +3,7 @@
 {%- set script_files = script_files + ["_static/google_analytics.js"] -%}
 
 {%- block extrahead -%}
+    {{ super() }}
 <style media="screen" type="text/css">
     #fork_me { display: none; }
 
@@ -15,6 +16,6 @@
 {%- block footer -%}
     {{ super() }}
     <a id="fork_me" href="http://bitbucket.org/vladris/tinkerer">
-        <img alt="Fork me" src="{{ pathto('_static/fork_me.png', 1) }}" style="position: fixed; top: 0; right: 0; border 0"></img>
+        <img alt="Fork me" src="{{ pathto('_static/fork_me.png', 1) }}" style="position: fixed; top: 0; right: 0; border 0" />
     </a>
 {%- endblock -%}
