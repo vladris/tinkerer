@@ -12,6 +12,6 @@
     <h1>{{ text_tags }}</h1>
     {%- for tag, count in tags|dictsort -%}
       <a href="{{ pathto('tags/' + tag|lower) }}">{{ tag }}</a> ({{ count }})
-      {%- if not loop.last -%}, {%- endif -%}
+      {%- if not loop.last -%}, {% endif -%}
     {%- endfor -%}
 </div>
