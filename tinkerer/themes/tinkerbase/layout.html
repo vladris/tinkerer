@@ -68,12 +68,12 @@
 
 {# RSS nav #}
 {%- macro rss_nav() %}
-    <a href="{{ rss_feed_link }}" title="Subscribe via RSS">
-        <div class="rss">
+    <div class="rss">
+        <a href="{{ rss_feed_link }}" title="Subscribe via RSS">
             {%- if rss_symbol %}<span class="webfont">B</span>{%- endif %}
             {% if rss_link_text %}{{ rss_link_text }}{% endif %}
-        </div>
-    </a>
+        </a>
+    </div>
 {%- endmacro %}
  
 {# List of blog pages #}
