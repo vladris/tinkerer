@@ -9,7 +9,7 @@ website = 'http://tinkerer.bitbucket.org/'
 
 disqus_shortname = 'tinkerer'                                   
 html_favicon = 'tinkerer.ico'           
-html_theme = "modern"
+html_theme = "modern5"
 rss_service = "http://feeds.feedburner.com/tinkerer"
 
 extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus'] 
