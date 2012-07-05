@@ -112,7 +112,7 @@ footer a, footer a:visited, footer a:hover { color: {{ header_color }}; }
 a, a:visited { color: {{ link_color }}; text-decoration: none; }
 a:hover { color: {{ link_color }}; text-decoration: underline; }
 a.footnote-reference { vertical-align: super; }
-div.section a h1 { color: {{ text_color }}; text-decoration: none; }
+div.section h1 a { color: {{ text_color }}; text-decoration: none; }
 tt.docutils.literal { background-color: {{ sidebar_color }}; }
 
 div.content { background-color: {{ sidebar_color }}; }

@@ -107,9 +107,9 @@ def hyperlink_title(body, docpath, docname):
     Hyperlink titles by embedding appropriate a tag inside
     h1 tags (which should only be post titles). 
     """
-    body = body.replace("<h1>", '<a href="%s.html"><h1>' % 
+    body = body.replace("<h1>", '<h1><a href="%s.html">' % 
             (docpath + docname), 1)
-    body = body.replace("</h1>", "</h1></a>", 1)
+    body = body.replace("</h1>", "</a></h1>", 1)
     return body
 
 
