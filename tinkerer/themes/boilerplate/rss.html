@@ -12,7 +12,10 @@
             <guid>{{ item.link }}</guid>
             <title>{{ item.title }}</title>
             <description><![CDATA[{{ item.description }}]]></description>
-            <pubDate>{{ item.pubDate }}</pubDate>
+            {%- for category in item.categories %}
+            <category><![CDATA[ {{ category }} ]]></category>
+            {%- endfor %}
+             <pubDate>{{ item.pubDate }}</pubDate>
         </item>
     {% endfor %}
     </channel>

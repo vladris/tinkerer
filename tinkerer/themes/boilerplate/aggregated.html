@@ -1,3 +1,14 @@
+{#-
+    boilerplate/aggregated.html
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Front page and following pages aggregating multiple posts per page.
+
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file). 
+    :license: FreeBSD, see LICENSE file
+-#}
+
 {%- extends "page.html" -%}
 
 {%- set archive_title = archive_title is not defined and ' Blog Archive ' or archive_title -%}
