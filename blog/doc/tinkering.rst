@@ -44,19 +44,11 @@ this::
     Hello World!
     ============
 
-
-
     .. author:: default
     .. categories:: none
     .. tags:: none
     .. comments::
-    
-    Some text.
-    
-    .. more::
-    
-    More text.
-
+   
 Add content below the title.
 
 **author**
@@ -81,10 +73,21 @@ Add content below the title.
     
 **more**
 
-    This tells Tinkerer to insert an "Read more..." link into the blog post.
-    The "Read more..." link will only be inserted on multi post pages so that
-    the user does not need to scroll three miles to get to the next blog post
-    if he isn't interested in the current one.
+    At any point in your text, you can insert the ``more`` directive::
+
+        Hello World!
+        ============
+
+        Some text.
+
+        .. more::
+
+        More text.
+
+    This tells Tinkerer to insert a "Read more..." link into the blog post.
+    A "Read more..." link will appear on the front page and the text after the
+    directive will be hidden. The full text will be displayed only on the page 
+    of the post.
    
 .. _pages:
     

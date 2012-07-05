@@ -206,6 +206,8 @@ li.quicklink { display: none; }
 
 nav li { text-align: center; width: 100%; }
 
+article.document li { line-height: 1.5em; }
+
 div.related li { list-style-type: none; text-align: center; width: 100%; }
 
 /* ==|== non-semantic helper classes ========================================

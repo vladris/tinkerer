@@ -26,9 +26,11 @@ jQuery.makeSearchSummary = function(text, keywords, hlwords) {
       start = i;
   });
   start = Math.max(start - 120, 0);
+/* Disabled for now as excerpt doesn't work properly
   var excerpt = ((start > 0) ? '...' : '') +
   $.trim(text.substr(start, 240)) +
-  ((start + 240 - text.length) ? '...' : '');
+  ((start + 240 - text.length) ? '...' : ''); */
+  var excerpt = ''
   var rv = $('<div class="context"></div>').text(excerpt);
   $.each(hlwords, function() {
     rv = rv.highlightText(this, 'highlighted');

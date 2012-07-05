@@ -70,11 +70,19 @@ of your icon file (path is not required, only filename).
 Theming
 -------
 
-Tinkerer comes with three themes: *modern* - the default theme, *minimal* - a
-minimalist black and white theme and a base *tinkerbase* theme from which the
-others inherit. *Tinkerbase* is not styled, rather it implements the basic
-layout. Due to the inherent differences between documentation and blogs, 
-Sphinx themes are not fully compatible with Tinkerer.
+Tinkerer comes with a base *boilerplate* theme. This is an unstyled theme based
+on HTML5 Boilerplate. Custom themes should inherit from it.
+
+The default Tinkerer theme is *modern5*, which is based on the *boilerplate*.
+
+Before version 0.4, Tinkerer came with other three themes: *modern* - the 
+default theme, *minimal* - a minimalist black and white theme and a base 
+*tinkerbase* theme from which the others inherit. These themes are still 
+available for backwards compatibility though future development will be based
+on the *boilerplate* theme and HTML5.
+
+Due to the inherent differences between documentation and blogs, Sphinx themes 
+are not fully compatible with Tinkerer.
 
 To tinker with the look of your blog, you have two options:
 
@@ -95,8 +103,8 @@ More information on extending templates can be found
 Create your own theme
 ~~~~~~~~~~~~~~~~~~~~~
 
-Tinkerer themes should inherit from the *tinkerbase* theme. For more information 
-on creating themes see 
+Tinkerer themes should inherit from the *boilerplate* theme. For more 
+information on creating themes see 
 `Creating themes <http://sphinx.pocoo.org/theming.html#creating-themes>`_.
 
 Extensions
@@ -107,11 +115,16 @@ To add a Sphinx extension to your blog, update the ``extensions`` list in
 enable blogging with Sphinx and the ``tinkerer.ext.disqus`` extension is the 
 Disqus comment handler.
 
+.. _sidebar:
+
 Sidebar
 -------
 
 The ``html_sidebars`` list contains the list of templates to be rendered on the 
-sidebar. Tinkerer includes ``recent.html`` and ``searchbox.html`` by default.
+sidebar. Tinkerer includes ``recent.html`` and ``searchbox.html`` by default. A
+list of categories, a list of tags and a tag cloud are also part of the Tinkerer
+distribution and can be easily added by updating the ``html_sidebars`` setting in
+``conf.py`` to include the corresponding files.
 
 **recent.html** 
 
@@ -119,11 +132,25 @@ sidebar. Tinkerer includes ``recent.html`` and ``searchbox.html`` by default.
 
 **searchbox.html**
 
-    This is the Sphinx quicksearch box.    
+    This is the equivalent of the Sphinx quicksearch box.    
+
+**categories.html**
+
+    Displays a list of categories under which posts were filed.
+
+**tags.html**
+
+    Displays a list of tags under which posts were filed.
+
+**tags_cloud.html**
+
+    Tag cloud.
 
 `More information on sidebars <http://sphinx.pocoo.org/config.html#confval-html_sidebars>`_.
 
 Back to :ref:`tinkerer_reference`.
+
+.. _hide_mail:
 
 Hide Email Addresses From Spam Bots
 -----------------------------------
