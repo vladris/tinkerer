@@ -42,16 +42,6 @@ html_theme_options = { }
 # linked directly
 rss_service = None
 
-# generate rss feed for categories?
-rss_for_categories = False
-# list of categories to generate rss feed (otherwise all)
-#rss_categories_to_build = ["my category", "other category"...]
-
-# generate rss feed for tags?
-rss_for_tags = False
-# list of tags to generate rss feed (otherwise all)
-#rss_tags_to_build = ["tag1", "tag2"...]
-
 # Number of blog posts per page
 posts_per_page = 2
 
