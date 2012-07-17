@@ -224,6 +224,11 @@
   {%- endif -%}
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ rss_feed_link }}" />
 {%- endblock -%}
+
+{%- if not embedded -%}
+{{ script() }}
+{%- endif -%}
+
 {%- block extrahead -%} {% endblock -%}
 </head>
 <body>
@@ -295,10 +300,6 @@
 
   </div> <!--! end of #container -->
 
-  <!-- JavaScript at the bottom for fast page loading -->
-  {%- if not embedded -%}
-  {{ script() }}
-  {%- endif -%}
   {#- Comment plug-in initialization -#}
   {%- if comment_enabler -%}{{ comment_enabler }}{%- endif -%}
   <!--[if lt IE 7 ]>
