@@ -82,13 +82,7 @@ def html_collect_pages(app):
     '''
     Generates additional pages.
     '''
-    for name, context, template in rss.generate_all_feed(app):
-        yield (name, context, template)
-
-    for name, context, template in rss.generate_feed_for_categories(app):
-        yield (name, context, template)
-
-    for name, context, template in rss.generate_feed_for_tags(app):
+    for name, context, template in rss.generate_feed(app):
         yield (name, context, template)
 
     for name, context, template in filing.make_tag_pages(app):
@@ -115,10 +109,6 @@ def setup(app):
     app.add_config_value("rss_service", None, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
     app.add_config_value("posts_per_page", 10, True)
-    app.add_config_value("rss_for_categories", False, True)
-    app.add_config_value("rss_categories_to_build", None, True)
-    app.add_config_value("rss_for_tags", False, True)
-    app.add_config_value("rss_tags_to_build", None, True)
     
     # new directives
     app.add_directive("author", author.AuthorDirective)

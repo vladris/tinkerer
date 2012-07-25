@@ -31,7 +31,7 @@
 {%- if rss_service %}
     {%- set rss_feed_link = rss_service %}
 {%- else %}
-    {%- set rss_feed_link = rss_feed_link is defined and rss_feed_link or pathto('rss/all') %}
+    {%- set rss_feed_link = pathto('rss') %}
 {%- endif %}        
 
 {# include RSS feed link in page_nav (default True) #}
