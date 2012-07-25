@@ -118,14 +118,14 @@ def make_read_more_link(body, docpath, docname):
     """
     Create "read more" link if marker exists.
     """
-    marker_more = "<!-- more -->"
+    marker_more = '<a name="more"/>'
     pos = body.find(marker_more)
 
     if pos == -1:
         return body
 
     body = body[:pos]
-    return body + ('<a class="readmore" href="%s.html">%s</a></div>' %
+    return body + ('<a class="readmore" href="%s.html#more">%s</a></div>' %
                 (docpath + docname, UIStr.READ_MORE))
 
 
@@ -145,11 +145,13 @@ def patch_node(node, docpath):
     # if node is hyperlink            
     elif node_name == "a":
         ref = node.getAttributeNode("href")
-        # patch links only - either starting with "../" or having
-        # "internal" class
-        is_relative = ref.value.startswith("../") 
-        if is_relative or "internal" in node.getAttribute("class"):
-            ref.value = docpath + ref.value
+        # skip anchor links <a name="anchor1"></a>, <a name="more"/>
+        if ref != None:
+            # patch links only - either starting with "../" or having
+            # "internal" class
+            is_relative = ref.value.startswith("../") 
+            if is_relative or "internal" in node.getAttribute("class"):
+                ref.value = docpath + ref.value
             
 
     # recurse            
