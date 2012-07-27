@@ -118,7 +118,7 @@ def make_read_more_link(body, docpath, docname):
     """
     Create "read more" link if marker exists.
     """
-    marker_more = '<a name="more"/>'
+    marker_more = '<a name="more"> </a>'
     pos = body.find(marker_more)
 
     if pos == -1:
