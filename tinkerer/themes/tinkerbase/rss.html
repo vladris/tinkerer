@@ -10,7 +10,7 @@
         <item>
             <link>{{ item.link }}</link>
             <guid>{{ item.link }}</guid>
-            <title>{{ item.title }}</title>
+            <title><![CDATA[{{ item.title }}]]></title>
             <description><![CDATA[{{ item.description }}]]></description>
             {%- for category in item.categories %}
             <category><![CDATA[ {{ category }} ]]></category>
