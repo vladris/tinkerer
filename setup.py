@@ -54,9 +54,21 @@ setup(
     entry_points = {
         "console_scripts": [
             "tinker = tinkerer.cmdline:main"
+        ],
+        "babel.extractors": [
+            "jinja2 = jinja2.ext.babel_extract"
         ]
     },
     install_requires = requires,
     test_requires = test_requires,
     test_suite = 'nose.collector',
+    message_extractors = {
+        'tinkerer': [
+            ('**.py',   'python', None),
+            ('**.html', 'jinja2', None),
+            ('**.js', 'javascript', {
+                'extract_messages': '$._, jQuery._',
+            }),
+        ],
+    },
 )
