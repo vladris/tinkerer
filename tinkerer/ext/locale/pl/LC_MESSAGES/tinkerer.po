@@ -1,65 +1,159 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Polish translations for Tinkerer.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the Tinkerer project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-01-23 11:21+CET\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: Tinkerer 0.4b\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-08-18 20:13+0100\n"
+"PO-Revision-Date: 2012-08-18 20:26+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: pl <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<10 || n%100>=20) ? 1 : 2)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: ENCODING\n"
-"Generated-By: pygettext.py 1.5\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
 
-
-#: ./ext/aggregator.py:50 ./ext/metadata.py:118 ./ext/metadata.py:134
+#: tinkerer/ext/uistr.py:34
 msgid "Home"
 msgstr "Strona głóna"
 
-#: ./ext/aggregator.py:54
-msgid "Newer"
-msgstr "Nowsze"
-
-#: ./ext/aggregator.py:56
-msgid "Page %d"
-msgstr "Strona %d"
-
-#: ./ext/aggregator.py:63
-msgid "Older"
-msgstr "Starsze"
-
-#: ./ext/filing.py:78 ./ext/metadata.py:136
-msgid "Blog Archive"
-msgstr "Archiwum"
-
-#: ./ext/filing.py:89
-msgid "Posts tagged with <span class=\"title_tag\">%s</span>"
-msgstr "Tagi wpisu <span class=\"title_tag\">%s</span>"
-
-#: ./ext/filing.py:102
-msgid "Filed under <span class=\"title_category\">%s</span>"
-msgstr "W kategorii <span class=\"title_category\">%s</span>"
-
-#: ./ext/metadata.py:133
+#: tinkerer/ext/uistr.py:35
 msgid "Recent Posts"
 msgstr "Ostatnie wpisy"
 
-#: ./ext/metadata.py:135
+#: tinkerer/ext/uistr.py:36
 msgid "Posted by"
 msgstr "Opublikowany przez"
 
-#: ./ext/metadata.py:137
+#: tinkerer/ext/uistr.py:37
+msgid "Blog Archive"
+msgstr "Archiwum"
+
+#: tinkerer/ext/uistr.py:38
 msgid "Filed under"
 msgstr "W kategorii"
 
-#: ./ext/metadata.py:138
+#: tinkerer/ext/uistr.py:39
 msgid "Tags"
 msgstr "Tagi"
 
-#: ./ext/metadata.py:139
+#: tinkerer/ext/uistr.py:40
+msgid "Tags Cloud"
+msgstr ""
+
+#: tinkerer/ext/uistr.py:41
+msgid "Categories"
+msgstr ""
+
+#: tinkerer/ext/uistr.py:42
+#, python-format
 msgid "%B %d, %Y"
 msgstr "%d %B %Y"
+
+#: tinkerer/ext/uistr.py:43
+#, python-format
+msgid "Posts tagged with <span class=\"title_tag\">%s</span>"
+msgstr "Tagi wpisu <span class=\"title_tag\">%s</span>"
+
+#: tinkerer/ext/uistr.py:44
+#, python-format
+msgid "Filed under <span class=\"title_category\">%s</span>"
+msgstr "W kategorii <span class=\"title_category\">%s</span>"
+
+#: tinkerer/ext/uistr.py:45
+msgid "Newer"
+msgstr "Nowsze"
+
+#: tinkerer/ext/uistr.py:46
+msgid "Older"
+msgstr "Starsze"
+
+#: tinkerer/ext/uistr.py:47
+#, python-format
+msgid "Page %d"
+msgstr "Strona %d"
+
+#: tinkerer/ext/uistr.py:48
+msgid "Read more..."
+msgstr ""
+
+#: tinkerer/ext/uistr.py:49
+msgid "Javascript must be enabled to see this e-mail address"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/layout.html:198
+#, python-format
+msgid "Search within %(docstitle)s"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/layout.html:204
+msgid "About these documents"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/layout.html:207
+msgid "Index"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/layout.html:210
+#: tinkerer/themes/boilerplate/search.html:12
+#: tinkerer/themes/boilerplate/search.html:21
+msgid "Search"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/layout.html:213
+msgid "Copyright"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/layout.html:288
+#, python-format
+msgid "&copy; Copyright %(copyright)s. "
+msgstr ""
+
+#: tinkerer/themes/boilerplate/search.html:25
+msgid ""
+"Please activate JavaScript to enable the search\n"
+"    functionality."
+msgstr ""
+
+#: tinkerer/themes/boilerplate/search.html:30
+msgid ""
+"From here you can search these documents. Enter your search\n"
+"    words into the box below and click \"search\". Note that the search\n"
+"    function will automatically search for all of the words. Pages\n"
+"    containing fewer words won't appear in the result list."
+msgstr ""
+
+#: tinkerer/themes/boilerplate/search.html:37
+msgid "search"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/search.html:41
+msgid "Search Results"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/search.html:43
+msgid "Your search did not match any results."
+msgstr ""
+
+#: tinkerer/themes/boilerplate/static/doctools.js:154
+msgid "Permalink to this headline"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/static/doctools.js:160
+msgid "Permalink to this definition"
+msgstr ""
+
+#: tinkerer/themes/boilerplate/static/doctools.js:189
+msgid "Hide Search Matches"
+msgstr ""
+
+#: tinkerer/themes/tinkerbase/layout.html:209
+#, python-format
+msgid "&copy; Copyright %(copyright)s."
+msgstr ""
 
