@@ -89,7 +89,7 @@ def patch_links(body, docpath, docname=None, link_title=False):
     '''
     in_str = convert(body).encode("utf-8")
     doc = xml.dom.minidom.parseString(in_str)
-    patch_node(doc, docpath)
+    patch_node(doc, docpath, docname)
 
     body = doc.toxml()
     if(docname!=None):
@@ -130,7 +130,7 @@ def make_read_more_link(body, docpath, docname):
 
 
 
-def patch_node(node, docpath):
+def patch_node(node, docpath, docname=None):
     '''
     Recursively patches links in nodes.
     '''
@@ -152,11 +152,17 @@ def patch_node(node, docpath):
             is_relative = ref.value.startswith("../") 
             if is_relative or "internal" in node.getAttribute("class"):
                 ref.value = docpath + ref.value
-            
+            # html anchor with missing post.html
+            # e.g. href="2012/08/23/#the-cross-compiler"
+            if (ref.value.find("/#") == 10):
+              # print(ref.value, docpath, node, docname)
+              # print(ref.value[0:11] + docname + ".html" + ref.value[11:])
+              # now href="2012/08/23/a_post.html#the-cross-compiler"
+              ref.value = ref.value[0:11] + docname + ".html" + ref.value[11:]
 
     # recurse            
     for node in node.childNodes:
-        patch_node(node, docpath)
+        patch_node(node, docpath, docname)
 
 
 def strip_xml_declaration(body):
