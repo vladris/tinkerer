@@ -21,7 +21,8 @@ import sys
 import locale
 from tinkerer import draft, page, paths, post, writer
 
-
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 def setup(quiet=False, filename_only=False):
     '''
@@ -58,7 +59,7 @@ def build(quiet=False, filename_only=False):
     # copy some extra files to the output directory
     if os.path.exists("_copy"):
         shutil.copytree("_copy/", paths.html)
-        
+
     return sphinx.main(flags)
 
 

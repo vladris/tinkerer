@@ -132,7 +132,7 @@ nav, footer { background: #354550; }
 aside.sidebar { border-top: 1px solid #cfd5da; }
 
 @media only screen and (min-width: 480px) {
-    header { background-image: url('header.png'); background-repeat: repeat; }
+    header { background-image: url('header.jpg'); }
 
     nav, footer {
         background: -moz-linear-gradient(top, #354550 0%, #021520 50%, #02121d 51%, #011019 100%);
