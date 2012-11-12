@@ -92,7 +92,7 @@ def patch_links(body, docpath, docname=None, link_title=False):
     patch_node(doc, docpath, docname)
 
     body = doc.toxml()
-    if(docname!=None):
+    if docname:
         body = make_read_more_link(body, docpath, docname)
     
     if link_title:
@@ -154,11 +154,8 @@ def patch_node(node, docpath, docname=None):
                 ref.value = docpath + ref.value
             # html anchor with missing post.html
             # e.g. href="2012/08/23/#the-cross-compiler"
-            if (ref.value.find("/#") == 10):
-              # print(ref.value, docpath, node, docname)
-              # print(ref.value[0:11] + docname + ".html" + ref.value[11:])
-              # now href="2012/08/23/a_post.html#the-cross-compiler"
-              ref.value = ref.value[0:11] + docname + ".html" + ref.value[11:]
+            # now href="2012/08/23/a_post.html#the-cross-compiler"
+            ref.value = ref.value.replace("/#", "/%s.html#" % docname)
 
     # recurse            
     for node in node.childNodes:
