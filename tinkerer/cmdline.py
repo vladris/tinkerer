@@ -19,6 +19,7 @@ import shutil
 import sphinx
 import sys
 import locale
+import tinkerer
 from tinkerer import draft, page, paths, post, writer
 
 
@@ -144,6 +145,7 @@ def main(argv=None):
     group.add_argument("-d", "--draft", nargs=1,
             help="creates a new draft with the title DRAFT (if a file named DRAFT "
                  "exists, it is moved to a new draft instead)")
+    group.add_argument("-v", "--version", action="store_true", help="display version information")
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")
@@ -174,6 +176,8 @@ def main(argv=None):
         create_page(command.page[0], command.quiet, command.filename)
     elif command.draft:
         create_draft(command.draft[0], command.quiet, command.filename)
+    elif command.version:
+        print("Tinkerer version %s" % tinkerer.__version__)
     else:
         parser.print_help()
 
