@@ -12,7 +12,7 @@
     <h1>{{ text_categories }}</h1>
     <ul>
       {%- for category, count in categories|dictsort -%}
-        <li><a href="{{ pathto('categories/' + category|lower) }}">{{ category }}</a> ({{ count }})</li>
+        <li><a href="{{ pathto('categories/' + catlinks[category]) }}">{{ category }}</a> ({{ count }})</li>
       {%- endfor -%}
     </ul>
 </div>
