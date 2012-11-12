@@ -22,5 +22,5 @@ class InsertReadMoreLink(Directive):
 
 
     def run(self):
-        return [nodes.raw("", "<!-- more -->", format="html")] 
+        return [nodes.raw("", '<a name="more"> </a>', format="html")] 
 

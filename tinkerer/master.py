@@ -67,6 +67,11 @@ def append_doc(docname):
     write_master(lines)
 
 
+def exists_doc(docname):
+    '''
+    Return true if document in TOC.
+    '''
+    return ("   %s\n" % docname) in read_master()
 
 def remove_doc(docname):
     '''

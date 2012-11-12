@@ -19,6 +19,7 @@ import shutil
 import sphinx
 import sys
 import locale
+import tinkerer
 from tinkerer import draft, page, paths, post, writer
 
 
@@ -126,6 +127,27 @@ def create_draft(title, quiet=False, filename_only=False):
 
 
 
+def preview_draft(draft_file, quiet=False, filename_only=False):
+    '''
+    Rebuilds the blog, including the given draft.
+    '''
+    if not os.path.exists(draft_file):
+        raise Exception("Draft named '%s' does not exist" % draft_file)
+
+    # promote draft
+    preview_post = post.move(draft_file)
+
+    try:
+        # rebuild
+        result = build(quiet, filename_only)
+    finally:
+        # demote post back to draft
+        draft.move(preview_post.path)
+
+    return result
+
+
+
 def main(argv=None):
     '''
     Parses command line and executes required action.
@@ -144,6 +166,11 @@ def main(argv=None):
     group.add_argument("-d", "--draft", nargs=1,
             help="creates a new draft with the title DRAFT (if a file named DRAFT "
                  "exists, it is moved to a new draft instead)")
+    group.add_argument("--preview", nargs=1,
+            help="rebuilds the blog, including the draft PREVIEW, without permanently "
+                 "promoting the draft to a post")
+    group.add_argument("-v", "--version", action="store_true", 
+            help="display version information")
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")
@@ -174,6 +201,10 @@ def main(argv=None):
         create_page(command.page[0], command.quiet, command.filename)
     elif command.draft:
         create_draft(command.draft[0], command.quiet, command.filename)
+    elif command.preview:
+        preview_draft(command.preview[0], command.quiet, command.filename)
+    elif command.version:
+        print("Tinkerer version %s" % tinkerer.__version__)
     else:
         parser.print_help()
 

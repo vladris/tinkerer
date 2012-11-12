@@ -1,7 +1,7 @@
 Andrea Crotti - Code cleanup, enabled nose and tox
 Bernhard Grotz - German translation
 Jordi Bofill - Tinkerer internationalization, Spanish and Catalan translations
-Rod Morehead - Non-XML entity patch for HTML-to-XML conversion
+Rod Morehead - Non-XML entity patch for HTML-to-XML conversion, other bug fixes
 Yoshihisa Tanaka - Fixed problem caused by non-ascii content
 Iñigo Serna - Sidebar widgets for categories, tags and tag cloud
 Emil Oppeln-Bronikowski - Polish translation

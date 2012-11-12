@@ -89,10 +89,10 @@ def patch_links(body, docpath, docname=None, link_title=False):
     '''
     in_str = convert(body).encode("utf-8")
     doc = xml.dom.minidom.parseString(in_str)
-    patch_node(doc, docpath)
+    patch_node(doc, docpath, docname)
 
     body = doc.toxml()
-    if(docname!=None):
+    if docname:
         body = make_read_more_link(body, docpath, docname)
     
     if link_title:
@@ -118,19 +118,19 @@ def make_read_more_link(body, docpath, docname):
     """
     Create "read more" link if marker exists.
     """
-    marker_more = "<!-- more -->"
+    marker_more = '<a name="more"> </a>'
     pos = body.find(marker_more)
 
     if pos == -1:
         return body
 
     body = body[:pos]
-    return body + ('<a class="readmore" href="%s.html">%s</a></div>' %
+    return body + ('<a class="readmore" href="%s.html#more">%s</a></div>' %
                 (docpath + docname, UIStr.READ_MORE))
 
 
 
-def patch_node(node, docpath):
+def patch_node(node, docpath, docname=None):
     '''
     Recursively patches links in nodes.
     '''
@@ -145,16 +145,21 @@ def patch_node(node, docpath):
     # if node is hyperlink            
     elif node_name == "a":
         ref = node.getAttributeNode("href")
-        # patch links only - either starting with "../" or having
-        # "internal" class
-        is_relative = ref.value.startswith("../") 
-        if is_relative or "internal" in node.getAttribute("class"):
-            ref.value = docpath + ref.value
-            
+        # skip anchor links <a name="anchor1"></a>, <a name="more"/>
+        if ref != None:
+            # patch links only - either starting with "../" or having
+            # "internal" class
+            is_relative = ref.value.startswith("../") 
+            if is_relative or "internal" in node.getAttribute("class"):
+                ref.value = docpath + ref.value
+            # html anchor with missing post.html
+            # e.g. href="2012/08/23/#the-cross-compiler"
+            # now href="2012/08/23/a_post.html#the-cross-compiler"
+            ref.value = ref.value.replace("/#", "/%s.html#" % docname)
 
     # recurse            
     for node in node.childNodes:
-        patch_node(node, docpath)
+        patch_node(node, docpath, docname)
 
 
 def strip_xml_declaration(body):

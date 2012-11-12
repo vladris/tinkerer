@@ -58,8 +58,12 @@ def create(title):
     Creates a new page given its title.
     '''
     page = Page(title, path=None)
+    if os.path.exists(page.path):
+        raise Exception("Page '%s' already exists at '%s" %
+                        (title, page.path))
     page.write()
-    master.append_doc(page.docname)
+    if not master.exists_doc(page.docname):
+        master.append_doc(page.docname)
     return page
 
 
@@ -69,6 +73,10 @@ def move(path, date=None):
     Moves a page given its path.
     '''
     page = Page(title=None, path=path)
+    if os.path.exists(page.path):
+        raise Exception("Page '%s' already exists at '%s" %
+                        (title, page.path))
     shutil.move(path, page.path)
-    master.append_doc(page.docname)
+    if not master.exists_doc(page.docname):
+        master.append_doc(page.docname)
     return page

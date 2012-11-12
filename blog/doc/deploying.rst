@@ -62,7 +62,7 @@ an ``.htaccess`` file under ``_copy/.htaccess`` with the following content:
 .. code-block:: bash
 
   ErrorDocument 404 http://www.yoursite.com/404.html
-  ErrorDocument 403 http://www.yoursite.com//403.html
+  ErrorDocument 403 http://www.yoursite.com/403.html
   Options -Indexes
 
 Add an file ``404.rst`` to the document root:

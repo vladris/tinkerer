@@ -104,7 +104,7 @@
 {%- macro timestamp(date, fmt) -%}
     {%- if date -%}
         <div class="timestamp postmeta">
-            <span>{{ date.strftime(fmt) }}</span> 
+            <span>{{ date.strftime(fmt).decode("utf-8") }}</span> 
         </div>
     {%- endif -%}
 {%- endmacro -%}
