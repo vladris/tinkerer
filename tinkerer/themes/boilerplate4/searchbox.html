@@ -1,0 +1,18 @@
+{#-
+    boilerplate/searchbox.html
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Sidebar search box.
+
+    :copyright: Copyright 2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file).
+    :license: FreeBSD, see LICENSE file
+-#}
+
+<div class="widget" id="searchbox">
+    <h3>Search</h3>
+    <form action="{{ pathto('search') }}" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div>
