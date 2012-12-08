@@ -1,0 +1,80 @@
+{#-
+    responsive/layout.html
+    ~~~~~~~~~~~~~~~~~~~
+
+    Layout for Initializr theme.
+
+    :copyright: Copyright 2012 by Robert Zaremba and contributors (see
+    CONTRIBUTORS file)
+    :license: FreeBSD, see LICENSE file
+-#}
+
+{%- extends "boilerplate4/layout.html" -%}
+
+{%- block extrahead -%}
+    {{ super() }}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName('article')[0];
+            var sidebar = document.getElementsByTagName('aside')[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(documentwrapper.offsetTop - 44);
+            }
+        });
+    </script>
+{%- endblock -%}
+
+
+{%- block header -%}
+
+<div class="header-container">
+    <header class="wrapper clearfix">
+        <div class="title">
+          <h1><a href="{{ pathto(pages[0][0]) }}">{{ shorttitle|e }}</a></h1>
+          <h4>{{ tagline|e }}</h4>
+        </div>
+        <nav>
+          <ul>
+            {%- block quicklinks -%}
+              {%- if rss_in_page_nav -%}
+              <li class="quicklink">{{ rss_link() }}</li>
+              {%- endif -%}
+            {%- endblock -%}
+            {% for page in pages -%}
+            <li class="main-nav">
+              <a href="{{ pathto(page[0]) }}">{{ page[1]|e }}</a>
+            </li>
+            {% endfor -%}
+          </ul>
+        </nav>
+    </header>
+</div>
+
+{% endblock -%}
+
+{%- block navigation -%}
+{%- endblock -%}
+
+
+
+{%- if render_sidebar -%}
+  <aside class="sidebar">
+    {%- if sidebars != None -%}
+      {%- for sidebartemplate in sidebars -%}
+      <section>
+        {%- include sidebartemplate -%}
+      </section>
+      {%- endfor -%}
+    {%- endif -%}
+  </aside>
+{%- endif -%}
