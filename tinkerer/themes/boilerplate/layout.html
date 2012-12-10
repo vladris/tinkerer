@@ -111,7 +111,7 @@
 {%- macro author(author_name) -%}
     {%- if author_name -%}
         <div class="author">
-            <span>Posted by {{ author_name }}</span>
+            <span>{{ text_posted_by }} {{ author_name }}</span>
         </div>
     {%- endif -%}
 {%- endmacro -%}
@@ -121,7 +121,7 @@
     {%- if post_categories -%}
         <div class="categories">
             <span>
-                Filed under:
+                {{ text_filed_under }}:
                 {% for link, category in post_categories -%}
                     <a href="{{ pathto('categories/' + link + '.html', 1) }}">{{ category }}</a>
                     {%- if not loop.last -%}, {% endif -%}
@@ -136,7 +136,7 @@
     {%- if post_tags -%}
         <div class="tags">
             <span>
-                Tags:
+                {{ text_tags }}:
                 {% for link, tag in post_tags -%}
                     <a href="{{ pathto('tags/' + link + '.html', 1) }}">{{ tag }}</a>
                     {%- if not loop.last -%}, {% endif -%}
