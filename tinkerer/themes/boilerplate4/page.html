@@ -1,0 +1,19 @@
+{#-
+    boilerplate/page.html
+    ~~~~~~~~~~~~~~~~~~~~~
+
+    Master layout for Tinkerer pages.
+
+    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
+    :license: FreeBSD, see LICENSE file
+-#}
+
+{%- extends "layout.html" -%}
+
+{%- block body -%}
+    {{ timestamp(metadata.date, timestamp_format) }}
+    {{ body }}
+    {{ post_meta(metadata) }}
+    {{ comments }}
+{%- endblock -%}
