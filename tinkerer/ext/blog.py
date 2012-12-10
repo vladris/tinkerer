@@ -26,7 +26,7 @@ def initialize(app):
     filing.initialize(app)
 
     # localization
-    lang = app.config.language if app.config.language else ""
+    languages = [app.config.language] if app.config.language else None
 
     locale_dir = ""
     try:
@@ -44,7 +44,7 @@ def initialize(app):
     app.t = gettext.translation(
                     "tinkerer",
                     locale_dir,
-                    languages=[lang],
+                    languages=languages,
                     fallback=True)
     app.t.install()
 
