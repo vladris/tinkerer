@@ -14,6 +14,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import argparse
+from datetime import datetime
 import os
 import shutil
 import sphinx
@@ -64,16 +65,16 @@ def build(quiet=False, filename_only=False):
 
 
 
-def create_post(title, quiet=False, filename_only=False):
+def create_post(title, date=None, quiet=False, filename_only=False):
     '''
     Creates a new post with the given title or makes an existing file a post.
     '''
     move = os.path.exists(title)
 
     if move:
-        new_post = post.move(title)
+        new_post = post.move(title, date)
     else:
-        new_post = post.create(title)
+        new_post = post.create(title, date)
 
     if filename_only:
         print(new_post.path)
@@ -172,6 +173,10 @@ def main(argv=None):
     group.add_argument("-v", "--version", action="store_true", 
             help="display version information")
 
+    parser.add_argument("--date", nargs=1,
+            help="optionally specify a date as 'YYYY/mm/dd' for the post, useful when "
+                 " migrating blogs; can only be used together with -p/--post")
+
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")
     group.add_argument("-f", "--filename", action="store_true",
@@ -190,13 +195,25 @@ def main(argv=None):
                 "choose a different directory to setup your blog.\n")
         return -1
 
+    post_date = None
+    if command.date:
+        # --date only works with --post
+        if not command.post:
+            sys.stderr.write("Can only use --date with -p/--post.\n")
+            return -1
+
+        try:
+            post_date = datetime.strptime(command.date[0], "%Y/%m/%d")
+        except:
+            sys.stderr.write("Invalid post date: format should be YYYY/mm/dd\n")
+            return -1
 
     if command.setup:
         setup(command.quiet, command.filename)
     elif command.build:
         return build(command.quiet, command.filename)
     elif command.post:
-        create_post(command.post[0], command.quiet, command.filename)
+        create_post(command.post[0], post_date, command.quiet, command.filename)
     elif command.page:
         create_page(command.page[0], command.quiet, command.filename)
     elif command.draft:

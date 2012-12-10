@@ -69,6 +69,28 @@ class TestCmdLine(utils.BaseTinkererTest):
             self.assertEquals("Content", f.read())
 
 
+    # test post with explicit date
+    def test_post_with_date(self):
+        cmdline.main(["--post", "Dated Post", "--date", "2011/11/20"])
+
+        file_path = os.path.join(utils.TEST_ROOT, "2011/11/20", "dated_post.rst")
+
+        # assert file exists
+        self.assertTrue(os.path.exists(file_path))
+
+
+    # test date is only allowed with post argument
+    def test_date_only_on_post(self):
+        self.assertNotEqual(0,
+                cmdline.main(["--page", "Test Page", "--date", "2011/11/20"]))
+
+        self.assertNotEqual(0,
+                cmdline.main(["--draft", "Test Draft", "--date", "2011/11/20"]))
+
+        self.assertNotEqual(0,
+                cmdline.main(["--build", "--date", "2011/11/20"]))
+
+
     # test page from title
     def test_page_from_title(self):
         cmdline.main(["--page", "My Test Page", "--quiet"])
