@@ -53,12 +53,11 @@ header h2 { padding: 0 20px; display: block; }
 nav { padding: 5px 0; }
 nav li.main-nav { padding: 10px 0; }
 
-div.related { padding: 20px 0 0; }
-div.related ul { padding: 0; list-style: none; }
-div.related li { line-height: 2em; }
+ul.related { padding: 20px 0 20px 0; list-style: none; }
+ul.related li { line-height: 2em; }
 article { padding: 20px 40px 10px 40px; }
 article h1 { margin-top: 0; }
-article + div.related { padding-bottom: 10px; }
+ul.related:first-child { padding: 0 0 20px 0; }
 
 div.highlight { padding: 5px 10px; }
 
@@ -85,9 +84,9 @@ footer { padding: 5px 20px; }
     nav li.quicklink a { padding: 0; }
 
     article { padding: 40px 40px 20px 40px; }
-    div.related { padding: 40px 0 0; }
-    div.related li { line-height: 1em; }
-    article + div.related { padding-bottom: 20px; }
+    ul.related { padding: 20px 0 20px 0; }
+    ul.related li { line-height: 1em; }
+    ul.related:first-child { padding-bottom: 20px; }
 
     div.highlight { padding: 10px 20px; }
 

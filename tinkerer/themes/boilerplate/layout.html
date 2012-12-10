@@ -83,7 +83,7 @@
 {#- prev/next -#}
 {%- macro relbar() -%}
     {%- if prev or next -%}
-        <ul class="related">
+        <ul class="related clearfix">
             <li class="left">
             {%- if prev -%}
                 {{ prevchar }}<a href="{{ prev.link|e }}">{{ prev.title }}</a>
