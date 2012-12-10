@@ -36,7 +36,7 @@ article p { line-height: 1.5; }
 
 .highlight { font-size: .8em; }
 
-aside.sidebar h3 { font-size: 1.2em; }
+aside.sidebar h1 { font-size: 1.2em; }
 aside.sidebar { font-size: 1em; }
 aside.sidebar.highlight { font-size: .8em; }
 
@@ -65,7 +65,7 @@ div.highlight { padding: 5px 10px; }
 div.section + div.postmeta { padding-top: 10px; }
 div.post_separator { margin: 10px 0; }
 
-aside.sidebar h3 { margin-top: 0; }
+aside.sidebar h1 { margin-top: 0; }
 aside.sidebar div.widget { margin: 20px 0; padding: 0 20px; }
 
 div.archive_link { padding-top: 10px; text-align: center; }
@@ -206,4 +206,4 @@ div.year_separator { width: 100%; border-top: 1px dotted {{ theme_color_light }}
 }
 
 /* Sidebar */
-aside.sidebar h3 { border-bottom: 1px solid {{ theme_color_light }}; box-shadow: {{ paper_color }} 0 1px 0 0; }
+aside.sidebar h1 { border-bottom: 1px solid {{ theme_color_light }}; box-shadow: {{ paper_color }} 0 1px 0 0; }
