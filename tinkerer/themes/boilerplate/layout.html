@@ -37,11 +37,6 @@
 {%- set rss_in_page_nav = rss_in_page_nav is not defined or rss_in_page_nav -%}
 {%- set rss_link_text = rss_link_text is not defined and None or rss_link_text -%}
 {%- set rss_symbol = rss_symbol is not defined or rss_symbol -%}
-{%- set timestamp_format = timestamp_format is not defined and
-    '<span class="month">%B</span> <span class="day">%d</span>, <span class="year">%Y</day>'
-    or timestamp_format -%}
-{%- set timestamp_short_format = timestamp_short_format is not defined and
-    '<span class="month">%b</span> <span class="day">%d</span>' or timestamp_short_format -%}
 
 {%- macro script() -%}
     <script type="text/javascript">
@@ -99,10 +94,10 @@
 {%- endmacro -%}
 
 {#- Timestamp -#}
-{%- macro timestamp(date, fmt) -%}
+{%- macro timestamp(date) -%}
     {%- if date -%}
         <div class="timestamp postmeta">
-            <span>{{ date.strftime(fmt).decode("utf-8") }}</span>
+            <span>{{ date }}</span>
         </div>
     {%- endif -%}
 {%- endmacro -%}

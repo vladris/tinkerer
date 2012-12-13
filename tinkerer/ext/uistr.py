@@ -40,6 +40,7 @@ class UIStr:
         UIStr.TAGS_CLOUD = unicode(_("Tags Cloud"), "utf-8")
         UIStr.CATEGORIES = unicode(_("Categories"), "utf-8")
         UIStr.TIMESTAMP_FMT = unicode(_('%B %d, %Y'), "utf-8")
+        UIStr.TIMESTAMP_FMT_SHORT = unicode(_('%b %d'), "utf-8")
         UIStr.TAGGED_WITH_FMT = unicode(_('Posts tagged with <span class="title_tag">%s</span>'), "utf-8")
         UIStr.FILED_UNDER_FMT = unicode(_('Filed under <span class="title_category">%s</span>'), "utf-8")
         UIStr.NEWER = unicode(_("Newer"), "utf-8")
