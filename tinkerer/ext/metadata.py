@@ -112,7 +112,7 @@ def process_metadata(app, env):
     post and page ordering, stores doc titles and adds "Home" link to page
     list.
     '''
-    # get ordered lists of posts and pagese
+    # get ordered lists of posts and pages
     env.blog_posts, env.blog_pages = [], []
     relations = env.collect_relations()
 
