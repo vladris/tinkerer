@@ -21,7 +21,7 @@ def render(template, destination, context={}):
     '''
     Renders the given template at the given destination with the given context.
     '''
-    with open(destination, "w") as dest:
+    with open(destination, "wb") as dest:
         dest.write(env.get_template(template).render(context).encode("utf8"))
 
 
