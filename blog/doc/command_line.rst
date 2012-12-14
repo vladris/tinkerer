@@ -13,15 +13,21 @@ arguments:
     
     Creates a new post with the title ``<POST>``. The filename is 
     normalized by replacing all non-alphanumeric characters with ``_``. The
-    file path is determined from the current date as 
-    ``$(YEAR)/$(MONTH)/$(DATE)``. The new document is automatically 
-    inserted in the master document file so it is picked up by the build.
+    file path is determined based on date as ``$(YEAR)/$(MONTH)/$(DAY)``. By
+    default, current date is used.
+
+    The new document is automatically inserted in the master document file so 
+    it is picked up by the build.
 
     Alternately, if ``<POST>`` is the path to an already existing file, 
     Tinkerer will move the given file to the ``$(YEAR)/$(MONTH)/$(DAY)`` 
     directory corresponding to the current date and will insert the document 
     in the master document so it is picked up by the build. This is how drafts 
     are promoted to posts. 
+
+``--date <yyyy/mm/dd>`` (can only be used with ``--post`` command above)
+
+    Creates a new post (or publishes a draft) at the specified date.
 
 ``--page <PAGE>``
     
@@ -50,6 +56,15 @@ arguments:
 
     Runs a clean Sphinx build. First, the ``blog/`` directory is cleaned up
     (all files are removed) then Sphinx build is invoked.
+
+``--preview <PREVIEW>``
+
+    Runs a clean Sphinx build including the draft specified by ``<PREVIEW>``.
+    The draft can then be previewed in the browser.
+
+``-v``
+
+    Prints Tinkerer version information.    
 
 .. note::
 
