@@ -1,13 +1,14 @@
 Andrea Crotti - Code cleanup, enabled nose and tox
-Bernhard Grotz - German translation
-Jordi Bofill - Tinkerer internationalization, Spanish and Catalan translations
+Bernhard Grotz - German localization
+Jordi Bofill - Tinkerer internationalization, Spanish and Catalan localizations
 Rod Morehead - Non-XML entity patch for HTML-to-XML conversion, other bug fixes
 Yoshihisa Tanaka - Fixed problem caused by non-ascii content
 Iñigo Serna - Sidebar widgets for categories, tags and tag cloud
-Emil Oppeln-Bronikowski - Polish translation
+Emil Oppeln-Bronikowski - Polish localization
 Christian Jann - Configurable number of posts/page, "Read more" implementation, email obfuscator, other enhancements and numerous bug fixes
-Éric de la Musse - Localization bugfix, French translation
+Éric de la Musse - Localization bugfix, French localization
 Antti Kaihola - Bugfix for "more" directive
 Visa Kopu - Fix category links, XML declaration introduced in patch.py
 Robert Zaremba - Added Responsive theme, HTML5 bolierplate upgrade
-Pedro Romano - Simplified localization based on Babel distutils commands
+Pedro Romano - Simplified localization based on Babel distutils commands, Great Britain localization
+Takayuki Shimizukawa - Japanese localization
