@@ -9,26 +9,6 @@ header h2 { font-size: 1.4em; font-weight: normal; margin: 0; padding: 0; }
 
 nav { font-size: 1.4em; }
 
-@media only screen and (min-width: 480px) {
-    nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
-    ul.related li { text-align: left; width: auto; }
-
-    ul.related { margin: 0; padding: 0; width: 100%; }
-    ul.related li.left { display: inline; }
-    ul.related li.right { display: inline; float: right; }
-}
-
-@media only screen and (min-width: 768px) {
-    /* Style adjustments for viewports 768px and over go here */
-    li.quicklink { display: inline; float: right; }
-}
-
-@media only screen and (min-width: 999px) {
-    article { float: left; margin-right: 333px; width: 583px; } 
-    
-    aside.sidebar { display: block; float: left; margin-left: -333px; width: 333px; }
-}
-
 article h1 { font-size: 2.2em; }
 article h2 { font-size: 1.8em; }
 article h3 { font-size: 1.2em; }

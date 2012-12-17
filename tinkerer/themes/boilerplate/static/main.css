@@ -97,7 +97,7 @@ textarea {
 
 
 
-body { margin: auto; max-width: 999px; }
+body { margin: auto; max-width: 1000px; }
 
 li.quicklink { display: none; }
 
@@ -254,7 +254,7 @@ aside {font-size: 80%; }
 @media only screen and (min-width: 999px) {
     article { float: left; margin-right: 333px; width: 583px; }
 
-    aside { display: block; float: left; margin-left: -333px; width: 333px; }
+    aside { display: block; float: left; margin-left: -330px; width: 330px; }
 }
 
 
