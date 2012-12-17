@@ -31,11 +31,11 @@ msgstr "投稿者"
 
 #: tinkerer/ext/uistr.py:37
 msgid "Blog Archive"
-msgstr "Blogアーカイブ"
+msgstr "ブログアーカイブ"
 
 #: tinkerer/ext/uistr.py:38
 msgid "Filed under"
-msgstr "投稿先"
+msgstr "カテゴリー"
 
 #: tinkerer/ext/uistr.py:39
 msgid "Tags"
@@ -43,7 +43,7 @@ msgstr "タグ"
 
 #: tinkerer/ext/uistr.py:40
 msgid "Tags Cloud"
-msgstr "Tagクラウド"
+msgstr "タグクラウド"
 
 #: tinkerer/ext/uistr.py:41
 msgid "Categories"
@@ -62,15 +62,15 @@ msgstr "この投稿のタグ <span class=\"title_tag\">%s</span>"
 #: tinkerer/ext/uistr.py:44
 #, python-format
 msgid "Filed under <span class=\"title_category\">%s</span>"
-msgstr "投稿先 <span class=\"title_category\">%s</span>"
+msgstr "カテゴリー <span class=\"title_category\">%s</span>"
 
 #: tinkerer/ext/uistr.py:45
 msgid "Newer"
-msgstr "新しい"
+msgstr "次の投稿"
 
 #: tinkerer/ext/uistr.py:46
 msgid "Older"
-msgstr "古い"
+msgstr "前の投稿"
 
 #: tinkerer/ext/uistr.py:47
 #, python-format
