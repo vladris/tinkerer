@@ -116,10 +116,10 @@
 {%- endmacro %}
 
 {# Timestamp #}
-{%- macro timestamp(date, fmt) %}
+{%- macro timestamp(date) %}
     {%- if date %}
         <div class="timestamp postmeta">
-            <span>{{ date.strftime(fmt) }}</span> 
+            <span>{{ date }}</span> 
         </div>
     {%- endif %}
 {%- endmacro %}
