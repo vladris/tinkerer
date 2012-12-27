@@ -110,6 +110,9 @@ p.attribution, blockquote.epigraph div p {
     margin: 0;
 }
 
+p.caption {
+  margin-top: 0;
+}
 
 p.rubric {
     font-weight: bold;
