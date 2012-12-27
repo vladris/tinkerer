@@ -98,6 +98,20 @@ blockquote.pull-quote
     padding-left: 1em;
 }
 
+blockquote.epigraph {
+    font-style: italic;
+}
+
+p.attribution, blockquote.epigraph div p {
+    margin: 0;
+}
+
+
+p.rubric {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
 tt.docutils, p tt.docutils {
     background-color: #ECF0F3;
     font: 16px 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New';
