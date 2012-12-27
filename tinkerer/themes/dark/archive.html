@@ -20,7 +20,7 @@
             <ul>
                 {%- for metadata in years[year] -%}
                 <li>
-                    {{ timestamp(metadata.formatted_date_short) }}
+                    {{ timestamp(metadata.formatted_date) }}
                     <h2><a href="{{ pathto(metadata.link) }}">{{ metadata.title }}</a></h2>
                     {{ post_meta(metadata, metadata.comment_count) }}
                 </li>
