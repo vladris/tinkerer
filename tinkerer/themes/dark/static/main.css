@@ -27,12 +27,6 @@ div.topic {
     margin: 10px 0 10px 0;
 }
 
-p.topic-title {
-    font-size: 1.1em;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
 div.postmeta {
     margin-top: 20px;
     font-style: italic;
@@ -90,6 +84,23 @@ pre {
     line-height: 16px;
 }
 
+tt.docutils, div.admonition p tt.docutils {
+    padding: 0 1px;
+    border: 1px dashed #ccc;
+    background-color: #eee;
+    font-family: 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New';
+    font-size: 15px;
+}
+
+a.reference tt, a.reference tt pre {
+    padding: 0;
+    background-color:transparent;
+    border: 0px solid;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 17px;
+    line-height: 28px;
+}
+
 cite {
 
 }
@@ -117,14 +128,6 @@ p.caption {
 p.rubric {
     font-weight: bold;
     margin-top: 30px;
-}
-
-tt.docutils, div.admonition p tt.docutils {
-    padding: 0 1px;
-    border: 1px dashed #ccc;
-    background-color: #eee;
-    font-family: 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New';
-    font-size: 15px;
 }
 
 div.note {
@@ -189,12 +192,12 @@ a.readmore {
 
 
 ::-moz-selection {
-    background: #bbb;
+    background: #0000EE;
     text-shadow: none;
 }
 
 ::selection {
-    background: #bbb;
+    background: #0000EE;
     text-shadow: none;
 }
 
@@ -253,9 +256,10 @@ div.admonition dl {
     margin-bottom: 0;
 }
 
-p.admonition-title {
-    margin: 0px 10px 5px 0px;
+p.admonition-title, p.topic-title {
+    font-size: 1.1em;
     font-weight: bold;
+    margin: 0px 10px 5px 0px;
 }
 
 div.body p.centered {
