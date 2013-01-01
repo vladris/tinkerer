@@ -190,17 +190,6 @@ a.readmore {
     font-weight:bold;
 }
 
-
-::-moz-selection {
-    background: #0000EE;
-    text-shadow: none;
-}
-
-::selection {
-    background: #0000EE;
-    text-shadow: none;
-}
-
 hr {
     display: block;
     height: 1px;
@@ -300,15 +289,13 @@ div.body p.centered {
     color: white;
 }
 
+.title h1, .title h2, .title .h3, .title h4 {
+  margin: 10px;
+}
+
 .title a {
     color: white;
-    text-decoration: none;
 }
-
-.title a:hover {
-    text-decoration: underline;
-}
-
 
 /* ==============
     MOBILE: Menu
@@ -433,6 +420,7 @@ ul.related li { list-style-type: none; text-align: center; }
         margin: 0 1.7%;
         padding: 25px 2%;
         margin-bottom: 0;
+        font-size: 15px;
     }
 
     nav li:first-child a {
