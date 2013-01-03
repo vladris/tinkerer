@@ -11,6 +11,9 @@ dark
 
 CURRENT_THEME=$DEFAULT_THEME
 
+# disable disqus comments
+sed -i "s/, 'tinkerer.ext.disqus'//g" conf.py
+
 for THEME in $OTHER_THEMES
 do
   sed -i 's/'$CURRENT_THEME'/'$THEME'/g' conf.py
@@ -19,6 +22,9 @@ do
   tinker -b
   mv blog/html themes/$THEME
 done
+
+# enable disqus comments again
+sed -i "s/'tinkerer.ext.blog'/'tinkerer.ext.blog', 'tinkerer.ext.disqus'/g" conf.py
 
 sed -i 's/'$CURRENT_THEME'/'$DEFAULT_THEME'/g' conf.py
 tinker -b
