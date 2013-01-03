@@ -5,10 +5,8 @@ if [ ! -d ./themes ]; then mkdir ./themes; fi;
 DEFAULT_THEME="modern5"
 
 OTHER_THEMES="minimal
-boilerplate
 responsive
 dark
-modern
 "
 
 CURRENT_THEME=$DEFAULT_THEME
