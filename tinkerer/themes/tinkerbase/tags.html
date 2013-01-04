@@ -10,7 +10,7 @@
 
 
 <div class="widget">
-    <h3>{{ text_tags }}</h3>
+    <h1>{{ text_tags }}</h1>
     {%- for tag, count in tags|dictsort %}
       <a href="{{ pathto('tags/' + taglinks[tag]) }}">{{ tag }}</a> ({{ count }})
       {%- if not loop.last %}, {%- endif %}
