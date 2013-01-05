@@ -177,3 +177,14 @@ def strip_xml_declaration(body):
     """
     return body.replace('<?xml version="1.0" ?>', '')
 
+
+
+def html5ify(context):
+    """
+    Make context body (more) html5 compliant
+    """
+    if "body" not in context:
+        return
+
+    # strip <tt> tags
+    context["body"] = context["body"].replace('<tt class="docutils literal">', "").replace("</tt>", "")

@@ -8,7 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, hidemail, metadata, readmore, rss, uistr
+from tinkerer.ext import aggregator, author, filing, hidemail, metadata, patch, readmore, rss, uistr
 import gettext
 
 
@@ -73,6 +73,7 @@ def html_page_context(app, pagename, templatename, context, doctree):
     '''
     Passes data to templating engine.
     '''
+    patch.html5ify(context)
     metadata.add_metadata(app, pagename, context)
     rss.add_rss(app, context)
 
