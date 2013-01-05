@@ -24,7 +24,11 @@
                     <h2><a href="{{ pathto(metadata.link) }}">{{ metadata.title }}</a></h2>
                     {{ post_meta(metadata, metadata.comment_count) }}
                 </li>
-                {%- if not loop.last -%}<div class="separator summary_separator"></div>{%- endif -%}
+                {%- if not loop.last -%}
+             </ul>
+                    <div class="separator summary_separator"></div>
+             <ul>
+                {%- endif -%}
                 {%- endfor -%}
             </ul>
         </div>
