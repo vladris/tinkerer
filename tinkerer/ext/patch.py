@@ -10,6 +10,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+from os import path
 import re
 import xml.dom.minidom
 from tinkerer.ext.uistr import UIStr
@@ -152,14 +153,22 @@ def patch_node(node, docpath, docname=None):
             is_relative = ref.value.startswith("../") 
             if is_relative or "internal" in node.getAttribute("class"):
                 ref.value = docpath + ref.value
+
             # html anchor with missing post.html
             # e.g. href="2012/08/23/#the-cross-compiler"
             # now href="2012/08/23/a_post.html#the-cross-compiler"
             ref.value = ref.value.replace("/#", "/%s.html#" % docname)
 
+            # normalize urls so "2012/08/23/../../../_static/" becomes
+            # "_static/" - we can use normpath for this, just make sure
+            # to revert change on protocol prefix as normpath deduplicates
+            # // (http:// becomes http:/)
+            ref.value = path.normpath(ref.value).replace(":/", "://")
+
     # recurse            
     for node in node.childNodes:
         patch_node(node, docpath, docname)
+
 
 
 def strip_xml_declaration(body):
@@ -167,3 +176,4 @@ def strip_xml_declaration(body):
     Remove XML declaration from document body.
     """
     return body.replace('<?xml version="1.0" ?>', '')
+

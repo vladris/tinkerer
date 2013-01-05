@@ -40,6 +40,7 @@ class TestPatch(utils.BaseTinkererTest):
             with open(os.path.join(paths.html, *test[0]), "r") as f:
                 content = f.read()
                 for data in test[1]:
+                    print(data)
                     self.assertTrue(data in content)
 
 
@@ -121,7 +122,7 @@ class TestPatch(utils.BaseTinkererTest):
             (["index.html"],
              [
                 # relative target should get patched
-                'href="2010/10/01/../../../_images/img1.png"',
+                'href="_images/img1.png"',
 
                 # absolute and external targets should be unchanged
                 'href="/_images/img2.png"',
@@ -130,7 +131,7 @@ class TestPatch(utils.BaseTinkererTest):
             (["rss.html"],
              [
                 # relative and absolute targets should get patched
-                'href="http://127.0.0.1/blog/html/2010/10/01/../../../_images/img1.png"',
+                'href="http://127.0.0.1/blog/html/_images/img1.png"',
 
                 # absolute target doesn't get patched
                 # 'href="http://127.0.0.1/_images/img2.png"',
