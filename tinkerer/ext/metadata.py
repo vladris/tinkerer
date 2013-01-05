@@ -106,6 +106,7 @@ def get_metadata(app, docname):
         metadata.formatted_date_short = metadata.formatted_date_short.decode("utf-8")
 
 
+
 def process_metadata(app, env):
     '''
     Processes metadata after all sources are read - the function determines
