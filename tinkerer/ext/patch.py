@@ -186,5 +186,23 @@ def html5ify(context):
     if "body" not in context:
         return
 
-    # strip <tt> tags
-    context["body"] = context["body"].replace('<tt class="docutils literal">', "").replace("</tt>", "")
+    in_str = convert(context["body"]).encode("utf-8")
+    doc = xml.dom.minidom.parseString(in_str)
+    html5ify_node(doc)
+    context["body"] = strip_xml_declaration(doc.toxml())
+
+
+
+def html5ify_node(node):
+    '''
+    Recursively patches nodes.
+    '''
+    for child in node.childNodes:
+        # remove deprecated <tt> tags
+        if child.localName == "tt":
+            new = child.childNodes[0]
+            node.replaceChild(new, child)
+            child = new
+        
+        html5ify_node(child)
+
