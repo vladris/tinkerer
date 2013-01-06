@@ -187,11 +187,16 @@ def html5ify(context):
         return
 
     in_str = convert(context["body"]).encode("utf-8")
-    doc = xml.dom.minidom.parseString(in_str)
-    html5ify_node(doc)
-    context["body"] = strip_xml_declaration(doc.toxml())
 
-
+    try:
+      doc = xml.dom.minidom.parseString(in_str)
+      html5ify_node(doc)
+      context["body"] = strip_xml_declaration(doc.toxml())
+    except Exception, e:
+      raise Exception('Error: %s \nin_str=\n%s\n'
+                      'Please report this bug in the tracker at '
+                      '<https://bitbucket.org/vladris/tinkerer/issues/>. Thanks!'
+                      % (e, in_str))
 
 def html5ify_node(node):
     '''
