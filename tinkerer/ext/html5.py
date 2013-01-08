@@ -5,7 +5,7 @@
     HTML5 translator based on Sphinx HTML translator.
 
     :copyright: Copyright 2007-2013 by the Sphinx team, see AUTHORS. 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD. Parts of this file are licensed under BSD license. See 
     LICENSE file.

@@ -14,6 +14,8 @@
 
     :copyright: Copyright 2011 by Kevin Teague
     :copyright: Copyright 2012 by Christian Jann
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD. Parts of this file are licensed under BSD license. See
     LICENSE file.
 '''
