@@ -177,32 +177,3 @@ def strip_xml_declaration(body):
     """
     return body.replace('<?xml version="1.0" ?>', '')
 
-
-
-def html5ify(context):
-    """
-    Make context body (more) html5 compliant
-    """
-    if "body" not in context:
-        return
-
-    in_str = convert(context["body"]).encode("utf-8")
-    doc = xml.dom.minidom.parseString(in_str)
-    html5ify_node(doc)
-    context["body"] = strip_xml_declaration(doc.toxml())
-
-
-
-def html5ify_node(node):
-    '''
-    Recursively patches nodes.
-    '''
-    for child in node.childNodes:
-        # remove deprecated <tt> tags
-        if child.localName == "tt":
-            new = child.childNodes[0]
-            node.replaceChild(new, child)
-            child = new
-        
-        html5ify_node(child)
-

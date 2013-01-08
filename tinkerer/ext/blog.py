@@ -73,7 +73,6 @@ def html_page_context(app, pagename, templatename, context, doctree):
     '''
     Passes data to templating engine.
     '''
-    patch.html5ify(context)
     metadata.add_metadata(app, pagename, context)
     rss.add_rss(app, context)
 
