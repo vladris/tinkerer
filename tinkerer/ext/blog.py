@@ -8,7 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, hidemail, metadata, patch, readmore, rss, uistr
+from tinkerer.ext import aggregator, author, filing, hidemail, html5, metadata, readmore, rss, uistr
 import gettext
 
 
@@ -109,6 +109,10 @@ def setup(app):
     app.add_config_value("rss_service", None, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
     app.add_config_value("posts_per_page", 10, True)
+
+    # hook up our html5 translator instead of the Sphinx built-in html 
+    # translator
+    app.config.html_translator_class = "tinkerer.ext.html5.SmartyPantsHTML5Translator"
     
     # new directives
     app.add_directive("author", author.AuthorDirective)
