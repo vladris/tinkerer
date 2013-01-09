@@ -84,7 +84,7 @@ pre {
     line-height: 16px;
 }
 
-tt.docutils, div.admonition p tt.docutils {
+.docutils, div.admonition p .docutils {
     padding: 0 1px;
     border: 1px dashed #ccc;
     background-color: #eee;
@@ -92,7 +92,7 @@ tt.docutils, div.admonition p tt.docutils {
     font-size: 15px;
 }
 
-a.reference tt, a.reference tt pre {
+a.reference span.xref {
     padding: 0;
     background-color:transparent;
     border: 0px solid;
