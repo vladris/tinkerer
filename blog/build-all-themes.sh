@@ -9,6 +9,7 @@ boilerplate
 responsive
 dark
 modern
+minimal5
 "
 
 CURRENT_THEME=$DEFAULT_THEME
