@@ -160,24 +160,6 @@
     </div>
 {%- endmacro -%}
 
-{#- Navigation bar -#}
-{%- macro navigation() -%}
-  <nav>
-    <ul>
-      {%- block quicklinks -%}
-        {%- if rss_in_page_nav -%}
-        <li class="quicklink">{{ rss_link() }}</li>
-        {%- endif -%}
-      {%- endblock -%}
-      {% for page in pages -%}
-      <li class="main-nav">
-        <a href="{{ pathto(page[0]) }}">{{ page[1]|e }}</a>
-      </li>
-      {% endfor -%}
-    </ul>
-  </nav>
-{%- endmacro -%}
-
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -249,10 +231,6 @@
 
       <div id="container">
 
-      {%- if page_nav_first -%}
-        {{ navigation() }}
-      {%- endif -%}
-
       {%- block header -%}
           <header>
             <hgroup>
@@ -262,9 +240,22 @@
           </header>
       {% endblock -%}
 
-      {%- if not page_nav_first -%}
-          {{ navigation() }}
-      {%- endif -%}
+      {%- block navigation -%}
+          <nav>
+            <ul>
+              {%- block quicklinks -%}
+                {%- if rss_in_page_nav -%}
+                <li class="quicklink">{{ rss_link() }}</li>
+                {%- endif -%}
+              {%- endblock -%}
+              {% for page in pages -%}
+                <li class="main-nav">
+                  <a href="{{ pathto(page[0]) }}">{{ page[1]|e }}</a>
+                </li>
+              {% endfor -%}
+            </ul>
+          </nav>
+      {%- endblock -%}
 
           <div class="main-container">
       {%- block content -%}
@@ -302,7 +293,7 @@
           {%- endif -%}
           </footer>
       {%- endblock -%}
-        </div> <!-- fotter-container -->
+        </div> <!-- footer-container -->
 
       </div> <!--! end of #container -->
 

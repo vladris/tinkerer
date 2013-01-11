@@ -11,5 +11,25 @@
 
 {% extends "boilerplate/layout.html" %}
 
-{%- set page_nav_first = True %}
+{%- block header -%}
+{# Move navigation above the header #}
+  <nav>
+    <ul>
+      {%- block quicklinks -%}
+        {%- if rss_in_page_nav -%}
+        <li class="quicklink">{{ rss_link() }}</li>
+        {%- endif -%}
+      {%- endblock -%}
+      {% for page in pages -%}
+        <li class="main-nav">
+          <a href="{{ pathto(page[0]) }}">{{ page[1]|e }}</a>
+        </li>
+      {% endfor -%}
+    </ul>
+  </nav>
 
+  {{ super() }}
+{%- endblock -%}
+
+{%- block navigation -%}
+{%- endblock -%}
