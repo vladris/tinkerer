@@ -9,10 +9,10 @@ header h2 { font-size: 1.4em; font-weight: normal; margin: 0; padding: 0; }
 
 nav { font-size: 1.4em; }
 
-article.document h1 { font-size: 2.2em; }
-article.document h2 { font-size: 1.8em; }
-article.document h3 { font-size: 1.2em; }
-article.document p { line-height: 1.5; }
+article h1 { font-size: 2.2em; }
+article h2 { font-size: 1.8em; }
+article h3 { font-size: 1.2em; }
+article p { line-height: 1.5; }
 
 .highlight { font-size: .8em; }
 
@@ -27,19 +27,17 @@ ul { padding: 0 0 0 20px; list-style: square; }
 
 header { padding: 20px 0; }
 header h1, span { margin: 0; }
-header h1 { padding: 0 20px 2px; }
-header h2 { padding: 2px 20px 0; display: block; }
+header h1 { padding: 0 20px; }
+header h2 { padding: 0 20px; display: block; }
 
 nav { padding: 5px 0; }
 nav li.main-nav { padding: 10px 0; }
 
-div.documentwrapper { padding: 0 20px 10px; }
-div.related { padding: 20px 0 0; }
-div.related ul { padding: 0; list-style: none; }
-div.related li { line-height: 2em; }
-article.document { padding: 20px 0 10px 0; }
-article.document h1 { margin-top: 0; }
-article.document + div.related { padding-bottom: 10px; }
+ul.related { padding: 20px 0 20px 0; list-style: none; }
+ul.related li { line-height: 2em; }
+article { padding: 20px 40px 10px 40px; }
+article h1 { margin-top: 0; }
+ul.related:first-child { padding: 0 0 20px 0; }
 
 div.highlight { padding: 5px 10px; }
 
@@ -55,8 +53,8 @@ footer { padding: 5px 20px; }
 
 @media only screen and (min-width: 480px) {
     header { padding: 40px 0; }
-    header h1 { padding: 0 40px 5px; }
-    header h2 { padding: 5px 40px 0; }
+    header h1 { padding: 0 40px; }
+    header h2 { padding: 0 40px; }
 
     nav { padding: 10px 0; }
     nav ul { margin: 0 40px 0 20px; padding: 0; }
@@ -65,11 +63,10 @@ footer { padding: 5px 20px; }
     nav li.quicklink { padding: 0 0 0 10px; }
     nav li.quicklink a { padding: 0; }
 
-    div.documentwrapper { padding: 0 40px 20px; }
-    div.related { padding: 40px 0 0; }
-    div.related li { line-height: 1em; }
-    article.document { padding: 40px 0 20px 0; }
-    article.document + div.related { padding-bottom: 20px; }
+    article { padding: 40px 40px 20px 40px; }
+    ul.related { padding: 20px 0 20px 0; }
+    ul.related li { line-height: 1em; }
+    ul.related:first-child { padding-bottom: 20px; }
 
     div.highlight { padding: 10px 20px; }
 
@@ -113,10 +110,10 @@ a, a:visited { color: {{ link_color }}; text-decoration: none; }
 a:hover { color: {{ link_color }}; text-decoration: underline; }
 a.footnote-reference { vertical-align: super; }
 div.section h1 a { color: {{ text_color }}; text-decoration: none; }
-tt.docutils.literal { background-color: {{ sidebar_color }}; }
+.docutils.literal { background-color: {{ sidebar_color }}; }
 
-div.content { background-color: {{ sidebar_color }}; }
-div.documentwrapper { background: {{ paper_color }} url('paper.png') repeat; }
+div.main { background-color: {{ sidebar_color }}; }
+article { background: {{ paper_color }} url('paper.png') repeat; }
 
 div.postmeta { color: {{ theme_color_light }}; }
 div.post_separator { border-bottom: 1px dotted {{ theme_color_light }}; }
@@ -154,11 +151,11 @@ aside.sidebar { border-top: 1px solid #cfd5da; }
         box-shadow:         0 0 10px 5px #011019; 
     }
 
-    div.documentwrapper { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
+    article { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
 }
 
 @media only screen and (min-width: 999px) {
-    div.content { border-right: 1px solid #cfd5da; }
+    div.main { border-right: 1px solid #cfd5da; }
     aside.sidebar { border-top: none; }
 }
 

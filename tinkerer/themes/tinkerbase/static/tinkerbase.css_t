@@ -4,7 +4,7 @@
  * 
  * Stylesheet for base theme.
  *
- * :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+ * :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
  * CONTRIBUTORS file)
  * :license: FreeBSD, see LICENSE file
  */
@@ -31,7 +31,7 @@
 
 /* General style ----------------------------------------------------------- */
 html {
-    maring: 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -102,8 +102,9 @@ div.widget {
     margin-bottom: 48px;
 }
 
-div.widget h3 {
+div.widget h1 {
     margin-top: 0;
+    font-size: 1.17em;
 }
 
 p.searchtip {

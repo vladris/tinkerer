@@ -4,7 +4,7 @@
 
     Front page and following pages aggregating multiple posts per page.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file). 
     :license: FreeBSD, see LICENSE file
 -#}
@@ -15,7 +15,7 @@
 
 {%- block body -%}
     {%- for metadata in posts -%}
-        {{ timestamp(metadata.date, timestamp_format) }}
+        {{ timestamp(metadata.formatted_date) }}
         {{ metadata.body }}
         {{ post_meta(metadata, metadata.comment_count) }}
         {%- if not loop.last -%}<div class="separator post_separator"></div>{%- endif -%}

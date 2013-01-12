@@ -4,7 +4,7 @@
 
     Layout for Modern5 theme.
 
-    :copyright: Copyright 2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 -#}
@@ -17,7 +17,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             // Adjusts document height if sidebar is taller
-            var documentwrapper = document.getElementsByClassName("documentwrapper")[0];
+            var documentwrapper = document.getElementsByTagName("article")[0];
             var sidebar = document.getElementsByClassName("sidebar")[0];
 
             if (sidebar.offsetHeight > documentwrapper.offsetHeight)
@@ -28,7 +28,7 @@
             // Scroll to content if on small screen
             if (screen.width < 480)
             {
-                $(document).scrollTop(document.getElementsByClassName("document")[0].offsetTop - 44);
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
             }
         });
     </script>

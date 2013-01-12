@@ -4,7 +4,7 @@
 
     Internal template writer - handles template rendering and blog setup.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -21,7 +21,7 @@ def render(template, destination, context={}):
     '''
     Renders the given template at the given destination with the given context.
     '''
-    with open(destination, "w") as dest:
+    with open(destination, "wb") as dest:
         dest.write(env.get_template(template).render(context).encode("utf8"))
 
 

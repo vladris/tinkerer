@@ -4,7 +4,7 @@
 
     Master layout for Tinkerer pages.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 -#}
@@ -12,7 +12,7 @@
 {%- extends "layout.html" -%}
 
 {%- block body -%}
-    {{ timestamp(metadata.date, timestamp_format) }}
+    {{ timestamp(metadata.formatted_date) }}
     {{ body }}
     {{ post_meta(metadata) }}
     {{ comments }}

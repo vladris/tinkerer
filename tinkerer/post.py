@@ -4,7 +4,7 @@
 
     Handles creating new posts and inserting them in the master document.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENCE file
 '''
@@ -71,8 +71,13 @@ def create(title, date=None):
     Creates a new post given its title.
     '''
     post = Post(title, path=None, date=date)
+    if os.path.exists(post.path):
+        raise Exception("Post '%s' already exists at '%s" %
+                        (title, post.path))
+
     post.write()
-    master.prepend_doc(post.docname)
+    if not master.exists_doc(post.docname):
+        master.prepend_doc(post.docname)
     return post
 
 
@@ -82,7 +87,11 @@ def move(path, date=None):
     Moves a post given its path.
     '''
     post = Post(title=None, path=path, date=date)
+    if os.path.exists(post.path):
+        raise Exception("Post '%s' already exists at '%s" %
+                        (title, post.path))
     shutil.move(path, post.path)
-    master.prepend_doc(post.docname)
+    if not master.exists_doc(post.docname):
+        master.prepend_doc(post.docname)
     return post
 

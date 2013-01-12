@@ -4,7 +4,7 @@
 
     Sidebar list of recent posts.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 #}
@@ -12,7 +12,7 @@
 {%- set recent_count = recent_count is not defined and 10 or recent_count %}
 
 <div class="widget">
-    <h3>{{ text_recent_posts }}</h3>
+    <h1>{{ text_recent_posts }}</h1>
     <ul>
         {%- for post, post_title in recent[:recent_count] %}
         <li class="recent_post">

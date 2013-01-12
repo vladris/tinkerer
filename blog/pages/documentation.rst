@@ -99,7 +99,7 @@ more about :ref:`build`.
 .. _tinkerer_reference:
 
 Tinkerer Reference
-==================
+------------------
 
 .. toctree::
     :maxdepth: 2

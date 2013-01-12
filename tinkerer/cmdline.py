@@ -9,16 +9,18 @@
     post - to create a new post
     page - to create a new page
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 import argparse
+from datetime import datetime
 import os
 import shutil
 import sphinx
 import sys
 import locale
+import tinkerer
 from tinkerer import draft, page, paths, post, writer
 
 reload(sys)
@@ -64,16 +66,16 @@ def build(quiet=False, filename_only=False):
 
 
 
-def create_post(title, quiet=False, filename_only=False):
+def create_post(title, date=None, quiet=False, filename_only=False):
     '''
     Creates a new post with the given title or makes an existing file a post.
     '''
     move = os.path.exists(title)
 
     if move:
-        new_post = post.move(title)
+        new_post = post.move(title, date)
     else:
-        new_post = post.create(title)
+        new_post = post.create(title, date)
 
     if filename_only:
         print(new_post.path)
@@ -127,6 +129,27 @@ def create_draft(title, quiet=False, filename_only=False):
 
 
 
+def preview_draft(draft_file, quiet=False, filename_only=False):
+    '''
+    Rebuilds the blog, including the given draft.
+    '''
+    if not os.path.exists(draft_file):
+        raise Exception("Draft named '%s' does not exist" % draft_file)
+
+    # promote draft
+    preview_post = post.move(draft_file)
+
+    try:
+        # rebuild
+        result = build(quiet, filename_only)
+    finally:
+        # demote post back to draft
+        draft.move(preview_post.path)
+
+    return result
+
+
+
 def main(argv=None):
     '''
     Parses command line and executes required action.
@@ -145,6 +168,15 @@ def main(argv=None):
     group.add_argument("-d", "--draft", nargs=1,
             help="creates a new draft with the title DRAFT (if a file named DRAFT "
                  "exists, it is moved to a new draft instead)")
+    group.add_argument("--preview", nargs=1,
+            help="rebuilds the blog, including the draft PREVIEW, without permanently "
+                 "promoting the draft to a post")
+    group.add_argument("-v", "--version", action="store_true", 
+            help="display version information")
+
+    parser.add_argument("--date", nargs=1,
+            help="optionally specify a date as 'YYYY/mm/dd' for the post, useful when "
+                 " migrating blogs; can only be used together with -p/--post")
 
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")
@@ -164,17 +196,33 @@ def main(argv=None):
                 "choose a different directory to setup your blog.\n")
         return -1
 
+    post_date = None
+    if command.date:
+        # --date only works with --post
+        if not command.post:
+            sys.stderr.write("Can only use --date with -p/--post.\n")
+            return -1
+
+        try:
+            post_date = datetime.strptime(command.date[0], "%Y/%m/%d")
+        except:
+            sys.stderr.write("Invalid post date: format should be YYYY/mm/dd\n")
+            return -1
 
     if command.setup:
         setup(command.quiet, command.filename)
     elif command.build:
         return build(command.quiet, command.filename)
     elif command.post:
-        create_post(command.post[0], command.quiet, command.filename)
+        create_post(command.post[0], post_date, command.quiet, command.filename)
     elif command.page:
         create_page(command.page[0], command.quiet, command.filename)
     elif command.draft:
         create_draft(command.draft[0], command.quiet, command.filename)
+    elif command.preview:
+        preview_draft(command.preview[0], command.quiet, command.filename)
+    elif command.version:
+        print("Tinkerer version %s" % tinkerer.__version__)
     else:
         parser.print_help()
 

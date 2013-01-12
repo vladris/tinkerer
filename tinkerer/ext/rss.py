@@ -4,7 +4,7 @@
 
     RSS feed generator for blog. 
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -51,7 +51,8 @@ def generate_feed(app):
                     "link": link,
                     "description": patch.strip_xml_declaration(patch.patch_links(
                             env.blog_metadata[post].body, 
-                            app.config.website + post[:11])),
+                            app.config.website + post[:11], # first 11 characters is path (YYYY/MM/DD/)
+                            post[11:])), # following characters represent filename
                     "categories": categories,
                     "pubDate": timestamp
                 })

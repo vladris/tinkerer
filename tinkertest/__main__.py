@@ -9,7 +9,7 @@
     -t, --theme builds a test blog with the given theme
     -c, --clean cleans up test directory
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''

@@ -4,13 +4,13 @@
 
     Tests creating drafts.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
 import os
-from tinkerer import draft, master, page, post
+from tinkerer import cmdline, draft, master, page, post
 from tinkertest import utils
 
 
@@ -59,6 +59,30 @@ class TestDraft(utils.BaseTinkererTest):
         lines = master.read_master()
         self.assertFalse("   %s\n" % new_post.docname in lines)
         self.assertFalse("   %s\n" % new_page.docname in lines)
+
+
+    # test draft preview
+    def test_preview(self):
+        # create a post
+        new_post = post.create("A post", datetime.datetime(2010, 10, 1))
+
+        # post should be in master doc (precondition)
+        lines = master.read_master()
+        self.assertTrue("   %s\n" % new_post.docname in lines)
+
+        # create a draft
+        new_draft = draft.create("draft")
+        self.assertTrue(os.path.exists(new_draft))
+
+        # preview it (build should succeed)
+        self.assertEqual(
+            0,
+            cmdline.main(["--preview", new_draft, "-q"]))
+        
+        # draft should not be in TOC
+        for line in master.read_master():
+            self.assertFalse("draft" in line)
+
 
 
     # test content

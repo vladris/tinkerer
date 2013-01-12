@@ -6,10 +6,11 @@
     generates these links as relative paths - aggregated pages and RSS
     feed require these to be patched.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+from os import path
 import re
 import xml.dom.minidom
 from tinkerer.ext.uistr import UIStr
@@ -89,10 +90,10 @@ def patch_links(body, docpath, docname=None, link_title=False):
     '''
     in_str = convert(body).encode("utf-8")
     doc = xml.dom.minidom.parseString(in_str)
-    patch_node(doc, docpath)
+    patch_node(doc, docpath, docname)
 
     body = doc.toxml()
-    if(docname!=None):
+    if docname:
         body = make_read_more_link(body, docpath, docname)
     
     if link_title:
@@ -130,7 +131,7 @@ def make_read_more_link(body, docpath, docname):
 
 
 
-def patch_node(node, docpath):
+def patch_node(node, docpath, docname=None):
     '''
     Recursively patches links in nodes.
     '''
@@ -152,11 +153,22 @@ def patch_node(node, docpath):
             is_relative = ref.value.startswith("../") 
             if is_relative or "internal" in node.getAttribute("class"):
                 ref.value = docpath + ref.value
-            
+
+            # html anchor with missing post.html
+            # e.g. href="2012/08/23/#the-cross-compiler"
+            # now href="2012/08/23/a_post.html#the-cross-compiler"
+            ref.value = ref.value.replace("/#", "/%s.html#" % docname)
+
+            # normalize urls so "2012/08/23/../../../_static/" becomes
+            # "_static/" - we can use normpath for this, just make sure
+            # to revert change on protocol prefix as normpath deduplicates
+            # // (http:// becomes http:/)
+            ref.value = path.normpath(ref.value).replace(":/", "://")
 
     # recurse            
     for node in node.childNodes:
-        patch_node(node, docpath)
+        patch_node(node, docpath, docname)
+
 
 
 def strip_xml_declaration(body):
@@ -164,3 +176,4 @@ def strip_xml_declaration(body):
     Remove XML declaration from document body.
     """
     return body.replace('<?xml version="1.0" ?>', '')
+

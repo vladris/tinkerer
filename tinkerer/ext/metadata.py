@@ -5,7 +5,7 @@
     Blog metadata extension. The extension extracts and computes metadata
     associated with blog posts/pages and stores it in the environment.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -39,6 +39,8 @@ class Metadata:
         self.title = None
         self.link = None
         self.date = None
+        self.formatted_date = None
+        self.formatted_date_short = None
         self.body = None
         self.author = None
         self.filing = { "tags": [], "categories": [] }
@@ -93,6 +95,16 @@ def get_metadata(app, docname):
     metadata.link = docname
     metadata.date = datetime.datetime.strptime(match.group(), "%Y/%m/%d/")
 
+    # we format date here instead of inside template due to localization issues 
+    # and Python2 vs Python3 incompatibility
+    metadata.formatted_date = metadata.date.strftime(UIStr.TIMESTAMP_FMT)
+    metadata.formatted_date_short = metadata.date.strftime(UIStr.TIMESTAMP_FMT_SHORT)
+
+    if (hasattr(metadata.formatted_date, "decode")):
+        metadata.formatted_date = metadata.formatted_date.decode("utf-8")
+    if (hasattr(metadata.formatted_date_short, "decode")):
+        metadata.formatted_date_short = metadata.formatted_date_short.decode("utf-8")
+
 
 
 def process_metadata(app, env):
@@ -146,7 +158,6 @@ def add_metadata(app, pagename, context):
     context["text_tags"] = UIStr.TAGS
     context["text_tags_cloud"] = UIStr.TAGS_CLOUD
     context["text_categories"] = UIStr.CATEGORIES
-    context["timestamp_format"] = UIStr.TIMESTAMP_FMT
 
     # recent posts
     context["recent"] = [(post, env.titles[post].astext()) for post

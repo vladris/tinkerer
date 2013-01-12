@@ -14,6 +14,8 @@
 
     :copyright: Copyright 2011 by Kevin Teague
     :copyright: Copyright 2012 by Christian Jann
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD. Parts of this file are licensed under BSD license. See
     LICENSE file.
 '''
@@ -53,11 +55,13 @@ def js_obfuscated_text(text):
     in the browser.
     """
     return """<noscript>(%s)</noscript>
-              <script type="text/javascript">document.write(
-              "%s".replace(/[a-zA-Z]/g,
-              function(c){
-                return String.fromCharCode(
-                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
+              <script type="text/javascript">
+              <!--
+                  document.write("%s".replace(/[a-zA-Z]/g,
+                  function(c){
+                    return String.fromCharCode(
+                    (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
+              -->
               </script>""" % (UIStr.MAIL_HIDDEN_BY_JAVASCRIPT, rot_13_encrypt(text))
 
 

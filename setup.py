@@ -4,7 +4,7 @@
 
     Package setup script.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -38,7 +38,7 @@ setup(
     description = "Sphinx-based blogging engine",
     long_description = long_desc,
     classifiers = [
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "Environment :: Web Environment",
         "Intended Audience :: End Users/Desktop",
@@ -54,9 +54,21 @@ setup(
     entry_points = {
         "console_scripts": [
             "tinker = tinkerer.cmdline:main"
+        ],
+        "babel.extractors": [
+            "jinja2 = jinja2.ext.babel_extract"
         ]
     },
     install_requires = requires,
     test_requires = test_requires,
     test_suite = 'nose.collector',
+    message_extractors = {
+        'tinkerer': [
+            ('**.py',   'python', None),
+            ('**.html', 'jinja2', None),
+            ('**.js', 'javascript', {
+                'extract_messages': '$._, jQuery._',
+            }),
+        ],
+    },
 )

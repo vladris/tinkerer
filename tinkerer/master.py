@@ -4,7 +4,7 @@
 
     Handles updating the master document.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -67,6 +67,11 @@ def append_doc(docname):
     write_master(lines)
 
 
+def exists_doc(docname):
+    '''
+    Return true if document in TOC.
+    '''
+    return ("   %s\n" % docname) in read_master()
 
 def remove_doc(docname):
     '''
