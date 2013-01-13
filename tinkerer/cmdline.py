@@ -23,8 +23,6 @@ import locale
 import tinkerer
 from tinkerer import draft, page, paths, post, writer
 
-reload(sys)
-sys.setdefaultencoding('utf8')
 
 def setup(quiet=False, filename_only=False):
     '''
