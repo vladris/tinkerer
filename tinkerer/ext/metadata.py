@@ -148,6 +148,7 @@ def add_metadata(app, pagename, context):
 
     # blog tagline and pages
     context["tagline"] = app.config.tagline
+    context["description"] = app.config.description
     context["pages"] = env.blog_page_list
 
     # set translation context variables
