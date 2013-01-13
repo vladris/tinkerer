@@ -24,6 +24,7 @@ import tinkerer
 from tinkerer import draft, page, paths, post, writer
 
 
+
 def setup(quiet=False, filename_only=False):
     '''
     Sets up a new blog in the current directory.

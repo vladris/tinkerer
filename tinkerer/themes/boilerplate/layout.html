@@ -169,11 +169,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         {{ metatags }}
         {%- block htmltitle -%}
-          {%- if title== "Home" -%}
-             <title>{{ docstitle|e }}</title>
-          {%- else -%} 
              <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
-          {%- endif -%} 
         {%- endblock -%}
         <meta name="description" content="{{ description }}">
         <meta name="viewport" content="width=device-width">
