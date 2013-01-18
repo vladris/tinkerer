@@ -189,6 +189,11 @@ If the user has JavaScript disabled he will see this:
 Nice code formatting for shell sessions
 ---------------------------------------
 
+.. toctree::
+   :hidden:
+
+   ../doc/shell_code_comparison
+
 You have three possibilities:
 
 - ``.. code-block:: bash``

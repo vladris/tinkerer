@@ -110,8 +110,3 @@ Tinkerer Reference
     ../doc/command_line 
     ../doc/internals
     ../doc/additional_extensions
-
-.. toctree::
-   :hidden:
-
-   ../doc/shell_code_comparison
