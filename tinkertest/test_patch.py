@@ -4,7 +4,7 @@
 
     Tests link patching on aggreated pages and RSS feed.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -121,7 +121,7 @@ class TestPatch(utils.BaseTinkererTest):
             (["index.html"],
              [
                 # relative target should get patched
-                'href="2010/10/01/../../../_images/img1.png"',
+                'href="_images/img1.png"',
 
                 # absolute and external targets should be unchanged
                 'href="/_images/img2.png"',
@@ -130,7 +130,7 @@ class TestPatch(utils.BaseTinkererTest):
             (["rss.html"],
              [
                 # relative and absolute targets should get patched
-                'href="http://127.0.0.1/blog/html/2010/10/01/../../../_images/img1.png"',
+                'href="http://127.0.0.1/blog/html/_images/img1.png"',
 
                 # absolute target doesn't get patched
                 # 'href="http://127.0.0.1/_images/img2.png"',

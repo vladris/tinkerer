@@ -5,7 +5,7 @@
     Blog metadata extension. The extension extracts and computes metadata
     associated with blog posts/pages and stores it in the environment.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -109,6 +109,7 @@ def get_metadata(app, docname):
         metadata.formatted_date_short = metadata.formatted_date_short.decode("utf-8")
 
 
+
 def process_metadata(app, env):
     '''
     Processes metadata after all sources are read - the function determines
@@ -153,6 +154,7 @@ def add_metadata(app, pagename, context):
 
     # blog tagline and pages
     context["tagline"] = app.config.tagline
+    context["description"] = app.config.description
     context["pages"] = env.blog_page_list
 
     # set translation context variables

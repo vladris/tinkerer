@@ -6,6 +6,8 @@
     Min and max for font sizes can be configured, values are in pt.
 
     :copyright: Copyright 2012 by Iñigo Serna
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 -#}
 
@@ -14,11 +16,11 @@
 
 <div class="widget">
     <h1>{{ text_tags_cloud }}</h1>
-    {%- set count_min = 1 -%}
-    {%- set count_max = tags.values()|sort|last -%}
-    {%- for tag, x in tags|dictsort -%}
-      {%- set size = (fontsize_max-fontsize_min)*(x-count_min)/(count_max-count_min) + fontsize_min -%}
+    {%- set count_min = 1 %}
+    {%- set count_max = tags.values()|sort|last %}
+    {%- for tag, x in tags|dictsort %}
+      {%- set size = (fontsize_max-fontsize_min)*(x-count_min)/(count_max-count_min) + fontsize_min %}
       <a href="{{ pathto('tags/' + taglinks[tag]) }}" style="font-size: {{ size|int }}pt">{{ tag }}</a>
-      {%- if not loop.last -%}&nbsp;&nbsp;{%- endif -%}
-    {%- endfor -%}
+      {%- if not loop.last %}&nbsp;&nbsp;{%- endif %}
+    {%- endfor %}
 </div>

@@ -4,7 +4,7 @@
 
     Archive page.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 -#}
@@ -24,7 +24,11 @@
                     <h2><a href="{{ pathto(metadata.link) }}">{{ metadata.title }}</a></h2>
                     {{ post_meta(metadata, metadata.comment_count) }}
                 </li>
-                {%- if not loop.last -%}<li><div class="separator summary_separator"></div></li>{%- endif -%}
+                {%- if not loop.last -%}
+             </ul>
+                    <div class="separator summary_separator"></div>
+             <ul>
+                {%- endif -%}
                 {%- endfor -%}
             </ul>
         </div>

@@ -9,7 +9,7 @@
     post - to create a new post
     page - to create a new page
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -60,7 +60,7 @@ def build(quiet=False, filename_only=False):
     # copy some extra files to the output directory
     if os.path.exists("_copy"):
         shutil.copytree("_copy/", paths.html)
-        
+
     return sphinx.main(flags)
 
 

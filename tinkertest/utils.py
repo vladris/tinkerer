@@ -4,7 +4,7 @@
 
     Base test case class inherited by all test cases. Utility functions.
 
-    :copyright: Copyright 2011-2012 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''

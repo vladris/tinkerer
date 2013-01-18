@@ -110,7 +110,7 @@ a, a:visited { color: {{ link_color }}; text-decoration: none; }
 a:hover { color: {{ link_color }}; text-decoration: underline; }
 a.footnote-reference { vertical-align: super; }
 div.section h1 a { color: {{ text_color }}; text-decoration: none; }
-tt.docutils.literal { background-color: {{ sidebar_color }}; }
+.docutils.literal { background-color: {{ sidebar_color }}; }
 
 div.main { background-color: {{ sidebar_color }}; }
 article { background: {{ paper_color }} url('paper.png') repeat; }
