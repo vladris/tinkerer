@@ -73,7 +73,7 @@ Make sure to replace ``$(YOUR_APP_ID)`` above with the appropriate ID.
     Tinkerer will not provide any styling for the comment box.
 
 
-Using on github pages
+Github pages
 ---------------------
 
 This extension provides support for github pages.
@@ -83,12 +83,12 @@ for directory with static content.
 To change this behaviour you need to add '.nojekyll' file in a base
 direcotry. This extension automates the process.
 
-To use this just add this module to your extensions list in conf.py file, like::
+To use this just add ``tinkerer.ext.withgithub`` module to your extensions list in conf.py file, like::
 
-    extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'tinkerer.ext.withhtml']
+    extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'tinkerer.ext.withgithub']
 
 
-Using static html pages
+Static html pages
 -----------------------
 
 If you have some static html pages and don't want to render revrite them
