@@ -9,3 +9,4 @@ syntax: glob
 blog/blog/*
 build/*
 .tox/*
+.ropeproject
