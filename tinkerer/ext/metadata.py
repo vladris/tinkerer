@@ -30,6 +30,7 @@ class Metadata:
     '''
     Metadata associated with each post/page.
     '''
+    num = 1
     def __init__(self):
         '''
         Initializes metadata with default values.
@@ -43,6 +44,8 @@ class Metadata:
         self.author = None
         self.filing = { "tags": [], "categories": [] }
         self.comments, self.comment_count = False, False
+        self.num = Metadata.num
+        Metadata.num += 1
 
 
 
@@ -133,6 +136,9 @@ def add_metadata(app, pagename, context):
     Passes metadata to the templating engine.
     '''
     env = app.builder.env
+
+    # page data
+    context['website'] = app.config.website
 
     # blog tagline and pages
     context["tagline"] = app.config.tagline
