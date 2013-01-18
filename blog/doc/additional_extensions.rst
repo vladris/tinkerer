@@ -88,5 +88,20 @@ To use this just add this module to your extensions list in conf.py file, like::
     extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'tinkerer.ext.withhtml']
 
 
+Using static html pages
+-----------------------
+
+If you have some static html pages and don't want to render revrite them
+in a rst or something else use this extension.
+It provides support for attaching static html pages in your docs dir
+To use this just add ``tinkerer.ext.withhtml`` module to your extensions list in conf.py file, like::
+
+    extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'tinkerer.ext.withhtml']
+
+and add your html files to *docs* directory.
+Then when tinkerer will build your portal, it will copy all html files
+(and render .rst files) from *docs* to *blog/html/docs*.
+
+
 
 Back to :ref:`tinkerer_reference`.
