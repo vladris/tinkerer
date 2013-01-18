@@ -17,7 +17,7 @@
 
 {%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and
                          (sidebars != []) -%}
-{%- set url_root = pathto('', 1) -%}
+{%- set url_root = pathto('', 1) -%} {#- link to root url (like: '#', '../../') #}
 {%- if not embedded and docstitle -%}
   {%- set titlesuffix = " &mdash; "|safe + docstitle|e -%}
 {%- else -%}
@@ -160,10 +160,17 @@
     </div>
 {%- endmacro -%}
 
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+{% macro html_tag() %}
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml"
+{% endmacro %}
+
+<!--[if lt IE 7]>      <html {{ html_tag() }} class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html {{ html_tag() }} class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html {{ html_tag() }} class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html {{ html_tag() }} class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
