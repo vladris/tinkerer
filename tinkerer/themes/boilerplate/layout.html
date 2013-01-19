@@ -156,6 +156,7 @@
         {{ category_list(metadata.filing["categories"]) }}
         {{ tag_list(metadata.filing["tags"]) }}
         {{ comment_count(comment_count_code) }}
+	{%- block post_meta_extra -%}{%- endblock -%}
     </div>
 {%- endmacro -%}
 
@@ -181,11 +182,12 @@
         <meta name="description" content="{{ description }}">
         <meta name="viewport" content="width=device-width">
 
-
-        <link rel="stylesheet" href="{{ pathto('_static/normalize.css', 1) }}" type="text/css">
-        <link rel="stylesheet" href="{{ pathto('_static/main.css', 1) }}" type="text/css">
-        <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
-        <link rel="stylesheet" href="{{ pathto('_static/webfont.css', 1) }}" type="text/css">
+        {%- block css -%}
+            <link rel="stylesheet" href="{{ pathto('_static/normalize.css', 1) }}" type="text/css">
+            <link rel="stylesheet" href="{{ pathto('_static/main.css', 1) }}" type="text/css">
+            <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
+            <link rel="stylesheet" href="{{ pathto('_static/webfont.css', 1) }}" type="text/css">
+        {%- endblock -%}
         {{ css() }}
         {%- if not embedded -%}
         {%- if favicon -%}
