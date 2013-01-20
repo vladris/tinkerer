@@ -9,6 +9,6 @@ Christian Jann - Configurable number of posts/page, "Read more" implementation, 
 Éric de la Musse - Localization bugfix, French localization
 Antti Kaihola - Bugfix for "more" directive
 Visa Kopu - Fix category links, XML declaration introduced in patch.py
-Robert Zaremba - Added Responsive theme, HTML5 bolierplate upgrade
+Robert Zaremba - Added Responsive theme, HTML5 bolierplate upgrade, support for Github pages
 Pedro Romano - Simplified localization based on Babel distutils commands, Great Britain localization
 Takayuki Shimizukawa and Wakayama Shirou - Japanese localization

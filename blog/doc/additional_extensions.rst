@@ -73,35 +73,19 @@ Make sure to replace ``$(YOUR_APP_ID)`` above with the appropriate ID.
     Tinkerer will not provide any styling for the comment box.
 
 
-Github pages
----------------------
+Github Pages
+------------
 
-This extension provides support for github pages.
-By default Github pages prohibits names starting with '_'.
-But sphinx requires them. It is internal strategy to use '_'
-for directory with static content.
-To change this behaviour you need to add '.nojekyll' file in a base
-direcotry. This extension automates the process.
+This extension provides support for github pages. 
 
-To use this just add ``tinkerer.ext.withgithub`` module to your extensions list in conf.py file, like::
+By default Github Pages prohibit names starting with '_', but Sphinx requires
+them. To change this behavior, a '.nojekyll' file is needed in a base 
+directory. This extension handles that automatically.
+
+To use it, just add ``tinkerer.ext.withgithub`` module to your extensions list
+in `conf.py` file::
 
     extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'tinkerer.ext.withgithub']
-
-
-Static html pages
------------------------
-
-If you have some static html pages and don't want to render revrite them
-in a rst or something else use this extension.
-It provides support for attaching static html pages in your docs dir
-To use this just add ``tinkerer.ext.withhtml`` module to your extensions list in conf.py file, like::
-
-    extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'tinkerer.ext.withhtml']
-
-and add your html files to *docs* directory.
-Then when tinkerer will build your portal, it will copy all html files
-(and render .rst files) from *docs* to *blog/html/docs*.
-
 
 
 Back to :ref:`tinkerer_reference`.

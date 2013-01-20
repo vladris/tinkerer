@@ -1,27 +1,34 @@
-"""An extension which provides support for github pages.
-By default Github pages prohibits names starting with '_'.
-But sphinx requires them. It is internal strategy to use '_'
-for directory with static content.
-To change this behaviour you need to add '.nojekyll' file in a base
-direcotry. This extension automates the process.
+'''
+    withgithub
+    ~~~~~~~~~~
 
-To use this just add this module to your extensions list in conf.py file, like:
+    An extension which provides support for Github Pages.
+    By default Github Pages prohibit names starting with '_', but Sphinx
+    requires them. To change this behavior, you need to add '.nojekyll' 
+    file in a base directory. This extension automates the process.
 
-    extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'tinkerer.ext.withhtml']
-"""
-
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
+    :license: FreeBSD, see LICENSE file
+'''
 import os
 
 
+
 def sphinx_extension(app, exception):
-    "Wrapped up as a Sphinx Extension"
+    '''
+    Wrapped up as a Sphinx Extension
+    '''
     jekyll_file = os.path.join(app.outdir, '.nojekyll')
     open(jekyll_file, 'w').close()
-    print("writed %s file to prevent github blocking _* directories" % jekyll_file)
+    print("wrote '%s' file to prevent github blocking _* directories" % jekyll_file)
+
 
 
 def setup(app):
-    "Setup function for Sphinx Extension"
-
+    '''
+    Setup function for Sphinx Extension
+    '''
     app.add_config_value("github.nojekyll", True, '')
     app.connect("build-finished", sphinx_extension)
+

@@ -156,17 +156,15 @@
         {{ category_list(metadata.filing["categories"]) }}
         {{ tag_list(metadata.filing["tags"]) }}
         {{ comment_count(comment_count_code) }}
-	{%- block post_meta_extra -%}{%- endblock -%}
+        {%- block post_meta_extra -%}{%- endblock -%}
     </div>
 {%- endmacro -%}
 
-
-
-{% macro html_tag() %}
+{%- macro html_tag() -%}
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:og="http://ogp.me/ns#"
     xmlns:fb="https://www.facebook.com/2008/fbml"
-{% endmacro %}
+{%- endmacro -%}
 
 <!--[if lt IE 7]>      <html {{ html_tag() }} class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html {{ html_tag() }} class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -185,6 +183,7 @@
         {%- block css -%}
             <link rel="stylesheet" href="{{ pathto('_static/normalize.css', 1) }}" type="text/css">
             <link rel="stylesheet" href="{{ pathto('_static/main.css', 1) }}" type="text/css">
+            <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css">
             <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
             <link rel="stylesheet" href="{{ pathto('_static/webfont.css', 1) }}" type="text/css">
         {%- endblock -%}
