@@ -189,18 +189,13 @@ If the user has JavaScript disabled he will see this:
 Nice Code Formatting For Shell Sessions
 ---------------------------------------
 
-.. toctree::
-   :hidden:
-
-   ../doc/shell_code_comparison
-
 You have three possibilities:
 
 - ``.. code-block:: bash``
 - ``.. code-block:: console``
 - ``.. code-block:: shell-session`` (new)
 
-Have a look at :doc:`the comparison <shell_code_comparison>`.
+Have a look at :doc:`the comparison <../demo/shell_code_comparison>`.
 
 To have the same style as in the comparison just copy :download:`this file <../_static/pygments.css>`
 into your ``_static`` folder.
