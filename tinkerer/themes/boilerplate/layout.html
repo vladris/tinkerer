@@ -173,20 +173,23 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        {{ metatags }}
-        {%- block htmltitle -%}
-             <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
-        {%- endblock -%}
         <meta name="description" content="{{ description }}">
         <meta name="viewport" content="width=device-width">
+        {{ metatags }}
 
-        {%- block css -%}
+        {%- block htmltitle -%}
+             <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+        {%- endblock %}
+
+        {%- block css %}
             <link rel="stylesheet" href="{{ pathto('_static/normalize.css', 1) }}" type="text/css">
             <link rel="stylesheet" href="{{ pathto('_static/main.css', 1) }}" type="text/css">
+            {%- if style not in ['none', 'main.css'] %}
             <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css">
+            {%- endif %}
             <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
             <link rel="stylesheet" href="{{ pathto('_static/webfont.css', 1) }}" type="text/css">
-        {%- endblock -%}
+        {%- endblock %}
         {{ css() }}
         {%- if not embedded -%}
         {%- if favicon -%}
