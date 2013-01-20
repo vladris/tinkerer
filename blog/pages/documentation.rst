@@ -110,5 +110,3 @@ Tinkerer Reference
     ../doc/command_line 
     ../doc/internals
     ../doc/additional_extensions
-
-    

@@ -8,7 +8,8 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, hidemail, html5, metadata, readmore, rss, uistr
+from tinkerer.ext import aggregator, author, filing, hidemail, html5, metadata, \
+                         readmore, rss, shellsession, uistr
 import gettext
 
 
@@ -126,6 +127,9 @@ def setup(app):
 
     # new roles
     app.add_role('email', hidemail.email_role)
+
+    # new pygments lexer
+    app.add_lexer("shell-session", shellsession.ShellSessionLexer())
     
     # event handlers
     app.connect("builder-inited", initialize)
