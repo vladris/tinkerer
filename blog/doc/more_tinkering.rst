@@ -186,7 +186,7 @@ If the user has JavaScript disabled he will see this:
   (Javascript must be enabled to see this e-mail address)
 
 
-Nice code formatting for shell sessions
+Nice Code Formatting For Shell Sessions
 ---------------------------------------
 
 .. toctree::
