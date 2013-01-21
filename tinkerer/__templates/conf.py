@@ -13,8 +13,8 @@ project = 'My blog'
 # Change this to the tagline of your blog
 tagline = 'Add intelligent tagline here'                  
 
-#Change this to the description of your blog for seo
-description = 'Tinkerer is a static website generator powered by Sphinx'
+# Change this to the description of your blog
+description = 'This is an awesome blog'
 
 # Change this to your name
 author = 'Winston Smith'
