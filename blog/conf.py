@@ -24,8 +24,8 @@ html_sidebars = {
            "sphinx.html", 
            "get_involved.html",
            "themes.html"],
-    "doc/*": ["reference.html"],
-    "pages/documentation": ["reference.html"]
+    "doc/*": ["reference.html", "searchbox.html"],
+    "pages/documentation": ["reference.html", "searchbox.html"]
 }
 
 source_suffix = tinkerer.source_suffix
