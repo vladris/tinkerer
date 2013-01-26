@@ -168,7 +168,11 @@ def patch_node(node, docpath, docname=None):
             # to revert change on protocol prefix as normpath deduplicates
             # // (http:// becomes http:/)
             ref.value = path.normpath(ref.value).replace(":/", "://")
-
+        # http://validator.w3.org
+        # Error:  Duplicate ID id1, id2, ...
+        ref_id = node.getAttributeNode("id")
+        if ref_id != None:
+            ref_id.value = ref_id.value + '_' + docname
     # recurse
     for node in node.childNodes:
         patch_node(node, docpath, docname)
