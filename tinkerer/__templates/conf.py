@@ -19,6 +19,10 @@ description = 'This is an awesome blog'
 # Change this to your name
 author = 'Winston Smith'
 
+# Specify a URL that should rank high on Google for the author name
+# e.g. your website or your Google+ profile
+#author_url = 'http://your-name.com'
+
 # Change this to your copyright string
 copyright = '1984, ' + author         
 

@@ -44,6 +44,7 @@ class Metadata:
         self.formatted_date_short = None
         self.body = None
         self.author = None
+        self.author_url = None
         self.filing = { "tags": [], "categories": [] }
         self.comments, self.comment_count = False, False
         self.num = Metadata.num

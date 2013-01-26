@@ -108,6 +108,7 @@ def setup(app):
     app.add_config_value("tagline", "My blog", True)
     app.add_config_value("description", "My blog", True)
     app.add_config_value("author", "Winston Smith", True)
+    app.add_config_value("author_url", None, True)
     app.add_config_value("rss_service", None, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
     app.add_config_value("posts_per_page", 10, True)
@@ -118,6 +119,7 @@ def setup(app):
     
     # new directives
     app.add_directive("author", author.AuthorDirective)
+    app.add_directive("author_url", author.AuthorUrlDirective)
     app.add_directive("comments", metadata.CommentsDirective)
     app.add_directive("tags", 
             filing.create_filing_directive("tags"))

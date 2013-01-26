@@ -32,6 +32,7 @@ def create(title):
             { "title"     : title,
               "content"   : "",
               "author"    : "default",
+              "author_url": "default",
               "categories": "none",
               "tags"      : "none"})
 

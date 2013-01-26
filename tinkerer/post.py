@@ -52,7 +52,7 @@ class Post():
 
 
 
-    def write(self, content="", author="default", 
+    def write(self, content="", author="default", author_url="default",
             categories="none", tags="none"):
         '''
         Writes the post template with given arguments.
@@ -61,6 +61,7 @@ class Post():
                { "title"     : self.title,
                  "content"   : content,
                  "author"    : author,
+                 "author_url": author_url,
                  "categories": categories,
                  "tags"      : tags})
 
