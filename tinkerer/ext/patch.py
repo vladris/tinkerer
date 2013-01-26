@@ -191,7 +191,8 @@ def patch_node(node, docpath, docname=None):
         # <div class="contents local topic" id="overview">
         node_class = node.getAttributeNode("class")
         if node_class != None:
-            if node_class.value.startswith("contents"):
+            if (node_class.value.startswith("contents") or
+            node_class.value == "section"):
                 node_id = node.getAttributeNode("id")
                 node_id.value = node_id.value + '_' + docname
     # recurse
