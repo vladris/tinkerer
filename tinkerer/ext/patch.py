@@ -173,6 +173,14 @@ def patch_node(node, docpath, docname=None):
         ref_id = node.getAttributeNode("id")
         if ref_id != None:
             ref_id.value = ref_id.value + '_' + docname
+    elif node_name == "div":
+        # Duplicate ID overview.
+        # <div class="contents local topic" id="overview">
+        node_class = node.getAttributeNode("class")
+        if node_class != None:
+            if node_class.value.startswith("contents"):
+                node_id = node.getAttributeNode("id")
+                node_id.value = node_id.value + '_' + docname
     # recurse
     for node in node.childNodes:
         patch_node(node, docpath, docname)
