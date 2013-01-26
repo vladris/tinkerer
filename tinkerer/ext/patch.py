@@ -142,7 +142,11 @@ def patch_node(node, docpath, docname=None):
         src = node.getAttributeNode("src")
         # if this is relative path (internal link)
         if src.value.startswith(".."):
-            src.value = docpath + src.value 
+            src.value = docpath + src.value
+        # normalize image urls
+        # <img alt="" src="2013/01/21/../../../_images/raspberry_pi_mod-io2_rpi-uext_light_small.jpeg"/>
+        # <img alt="" src="_images/raspberry_pi_mod-io2_rpi-uext_light_small.jpeg"/>
+        src.value = path.normpath(src.value).replace(":/", "://")
     # if node is hyperlink            
     elif node_name == "a":
         ref = node.getAttributeNode("href")
@@ -165,7 +169,7 @@ def patch_node(node, docpath, docname=None):
             # // (http:// becomes http:/)
             ref.value = path.normpath(ref.value).replace(":/", "://")
 
-    # recurse            
+    # recurse
     for node in node.childNodes:
         patch_node(node, docpath, docname)
 
