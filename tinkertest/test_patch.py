@@ -74,7 +74,7 @@ class TestPatch(utils.BaseTinkererTest):
                 'href="2010/10/01/../01/post2.html#x"' if python3 else 
                         'href="2010/10/01/post2.html#x"',
                 'href="www.archlinux.org"',
-                'src="2010/10/01/../../../_images/img.png"'
+                'src="_images/img.png"'
              ]),
             (["rss.html"],
              [
@@ -82,7 +82,7 @@ class TestPatch(utils.BaseTinkererTest):
                 'href="http://127.0.0.1/blog/html/2010/10/01/../01/post2.html#x' if python3 else
                         'href="http://127.0.0.1/blog/html/2010/10/01/post2.html#x"',
                 'href="www.archlinux.org"',
-                'src="http://127.0.0.1/blog/html/2010/10/01/../../../_images/img.png"'
+                'src="http://127.0.0.1/blog/html/_images/img.png"'
              ])
         ]
 
