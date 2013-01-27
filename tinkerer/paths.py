@@ -10,6 +10,7 @@
 '''
 import os
 import tinkerer
+import sys
 
 
 # package path
@@ -20,6 +21,11 @@ __package_path = os.path.abspath(os.path.dirname(__file__))
 __internal_templates_abs_path = os.path.join(__package_path, "__templates")
 themes = os.path.join(__package_path, "themes")
 static = os.path.join(__package_path, "static")
+
+
+# add "./exts" path to os search path so Sphinx can pick up any extensions
+# from there
+sys.path.append(os.path.abspath("./exts"))
 
 
 def set_paths(root_path="."):
