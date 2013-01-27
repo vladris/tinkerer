@@ -25,7 +25,7 @@ static = os.path.join(__package_path, "static")
 
 # add "./exts" path to os search path so Sphinx can pick up any extensions
 # from there
-sys.path.append(os.path.abspath("./exts"))
+sys.path.append(os.path.abspath("./_exts"))
 
 
 def set_paths(root_path="."):
