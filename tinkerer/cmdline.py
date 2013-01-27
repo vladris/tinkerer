@@ -19,7 +19,6 @@ import os
 import shutil
 import sphinx
 import sys
-import locale
 import tinkerer
 from tinkerer import draft, page, paths, post, writer
 
@@ -153,7 +152,6 @@ def main(argv=None):
     '''
     Parses command line and executes required action.
     '''
-    locale.setlocale(locale.LC_ALL, '')
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-s", "--setup", action="store_true", help="setup a new blog")
