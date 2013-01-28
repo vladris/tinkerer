@@ -1,5 +1,8 @@
-Community Extensions
-====================
+Extensions
+==========
+
+Thanks to the awesome Tinkerer community, besides the built-in extensions that
+come with Tinkerer, you can get an assortment of additional extensions.
 
 Community extensions are Tinkerer extensions contributed and maintained by
 various authors. They are not part of the Tinkerer distribution, but they can
@@ -9,8 +12,8 @@ be acquired separately from the
 Extensions usually go in your blog's ``_exts`` directory. Additional setup
 steps are provided for each extension.
 
-Extensions
-----------
+Extension Menu
+--------------
 
 This is the list of community extensions with descriptions by the authors:
 
