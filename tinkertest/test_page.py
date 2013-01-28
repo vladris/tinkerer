@@ -76,5 +76,6 @@ class TestPage(utils.BaseTinkererTest):
         with open(new_page.path) as f:
             self.assertEquals(f.readlines(),
                     ["My Page\n",
-                     "=======\n"])
+                     "=======\n",
+                     "\n"])
 
