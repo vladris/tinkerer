@@ -30,5 +30,3 @@ If you want to contribute an extensions, please submit a pull request to
 Please also add a ``.rst`` page with description and setup steps which will get
 added to the Tinkerer documentation here.
 
-Back to :ref:`tinkerer_reference`.
-
