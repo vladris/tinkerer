@@ -13,6 +13,8 @@
 body {
     background-color:white;
     font-family: Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+    margin: auto;
+    max-width: 1000px;
 }
 
 /* Minimal theme has narrower sidebar */
@@ -72,7 +74,9 @@ nav a:link, nav a:visited, nav a:active, nav a:hover {
     color: white;
 }
 
-nav ul {
+nav ul, nav ol {
+    line-style: none;
+    list-style-image: none; 
     margin: 0;
     padding: 0 24px;
 }
@@ -80,6 +84,12 @@ nav ul {
 nav li {
     display: inline;
     padding: 0 24px;
+    text-align: center;
+    width: 100%;
+}
+
+li.quicklink { 
+    display: none; 
 }
 
 /* Content */
@@ -92,11 +102,24 @@ h1 {
     margin-top: 0;
 }
 
+ul.related li { 
+    list-style-type: none; 
+    text-align: center;
+}
+
 article {
     padding: 0 40px;
 }
 
+article li { 
+    line-height: 1.5em; 
+}
+
 /* Sidebar */
+aside {
+    font-size: 80%;
+}
+
 aside.sidebar {
     padding: 0 40px;
 }
@@ -186,5 +209,25 @@ footer {
     body {
         font-size: 200%;
     }
+}
+
+@media only screen and (min-width: 480px) {
+    /* Style adjustments for viewports 480px and over go here */
+    nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
+
+    ul.related { margin: 0 0 8px 0; padding: 0; }
+    ul.related li { display: inline; }
+    ul.related li.right { float: right; }
+}
+
+@media only screen and (min-width: 768px) {
+    /* Style adjustments for viewports 768px and over go here */
+    li.quicklink { display: inline; float: right; }
+}
+
+@media only screen and (min-width: 999px) {
+    article { float: left; margin-right: 333px; width: 583px; }
+
+    aside { display: block; float: left; margin-left: -330px; width: 330px; }
 }
 
