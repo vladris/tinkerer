@@ -24,7 +24,11 @@ try:
     import builtins as __builtin__
 except:
     import __builtin__
-    
+
+try:
+    from patch_extra import patch_node_extra
+except ImportError:
+    patch_node_extra = None
 
 # check whether unichr builtin exists, otherwise use chr
 if "unichr" not in __builtin__.__dict__:
@@ -169,6 +173,8 @@ def patch_node(node, docpath, docname=None):
             # to revert change on protocol prefix as normpath deduplicates
             # // (http:// becomes http:/)
             ref.value = path.normpath(ref.value).replace(":/", "://")
+    if patch_node_extra:
+        patch_node_extra(node, docpath, docname)
 
     # recurse            
     for node in node.childNodes:
