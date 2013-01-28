@@ -11,6 +11,7 @@
 
 from jinja2 import ChoiceLoader, Environment, FileSystemLoader, PackageLoader
 import os
+import shutil
 from tinkerer import paths, utils
 
 
@@ -67,13 +68,26 @@ def write_conf_file(extensions=DEFAULT_EXTENSIONS, theme="modern5"):
 
 
 
+def copy_templates():
+    '''
+    Copies Tinkerer post and page templates to blog _templates directory.
+    '''
+    for template in ["post.rst", "page.rst"]:
+        shutil.copy(
+            os.path.join(paths.__internal_templates_abs_path, template),
+            os.path.join(paths.root, "_templates"))
+
+
+
 def setup_blog():
     '''
     Sets up a new blog.
     '''
     utils.get_path(paths.root, "_static")
+    utils.get_path(paths.root, "_templates")
     utils.get_path(paths.root, "drafts")
     write_master_file()
     write_index_file()
     write_conf_file()
+    copy_templates()
     

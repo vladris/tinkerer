@@ -28,6 +28,7 @@ class TestCmdLine(utils.BaseTinkererTest):
             set(os.listdir(utils.TEST_ROOT)),
             set([
                 "_static",
+                "_templates",
                 "drafts",
                 "conf.py",
                 "index.html",
