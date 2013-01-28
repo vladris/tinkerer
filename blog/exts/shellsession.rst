@@ -9,7 +9,7 @@ You have three possibilities:
 
 Have a look at :ref:`comparison`.
 
-To have the same style as in the comparison just copy :download:`this file <../../_static/pygments.css>`
+To have the same style as in the comparison just copy :download:`this file <../_static/pygments.css>`
 into your ``_static`` folder.
 
 You can also change the color of your command prompt inside ``pygments.css``:

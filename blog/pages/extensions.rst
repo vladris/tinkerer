@@ -17,9 +17,9 @@ This is the list of community extensions with descriptions by the authors:
 .. toctree::
     :maxdepth: 1
 
-    exts/fbcomments
-    exts/withgithub
-    exts/shellsession
+    ../exts/fbcomments
+    ../exts/withgithub
+    ../exts/shellsession
 
 Contribute
 ----------
