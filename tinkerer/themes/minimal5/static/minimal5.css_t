@@ -17,14 +17,6 @@ body {
     max-width: 1000px;
 }
 
-/* Minimal theme has narrower sidebar */
-@media only screen and (min-width: 999px) {
-    article { float: left; margin-right: 303px; width: 613px; }
-
-    aside { display: block; float: left; margin-left: -300px; width: 220px; }
-}
-
-
 a:link, a:visited, a:active {
     color: #808080;
     text-decoration: none;
@@ -225,9 +217,10 @@ footer {
     li.quicklink { display: inline; float: right; }
 }
 
+/* Minimal theme has narrower sidebar */
 @media only screen and (min-width: 999px) {
-    article { float: left; margin-right: 333px; width: 583px; }
+    article { float: left; margin-right: 303px; width: 613px; }
 
-    aside { display: block; float: left; margin-left: -330px; width: 330px; }
+    aside { display: block; float: left; margin-left: -300px; width: 220px; }
 }
 
