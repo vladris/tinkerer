@@ -57,6 +57,7 @@ nav a {
 
     color: white;
     background: #e44d26;
+    overflow: hidden;
 }
 
 nav a:hover,
