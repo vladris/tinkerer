@@ -9,12 +9,17 @@
     :license: FreeBSD, see LICENSE file
 '''
 
-from jinja2 import Environment, PackageLoader
+from jinja2 import ChoiceLoader, Environment, FileSystemLoader, PackageLoader
+import os
 from tinkerer import paths, utils
 
 
 # jinja environment
-env = Environment(loader=PackageLoader("tinkerer", "__templates"))
+env = Environment(loader=ChoiceLoader([
+        # first choice is _templates subdir from blog root
+        FileSystemLoader(os.path.join(paths.root, "_templates")),
+        # if template is not there, use tinkerer builtin
+        PackageLoader("tinkerer", "__templates")]))
 
 
 def render(template, destination, context={}):
