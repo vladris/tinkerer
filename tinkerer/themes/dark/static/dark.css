@@ -317,6 +317,7 @@ nav a {
 
     color: white;
     background: #222;
+    overflow: hidden;
 }
 
 nav a:hover,

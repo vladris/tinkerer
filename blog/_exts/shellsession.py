@@ -30,7 +30,7 @@
     :copyright: Copyright 2006-2010 by the Pygments team, see
                 https://bitbucket.org/birkenfeld/pygments-main/src/default/AUTHORS.
     :copyright: Copyright 2013 by Christian Jann.
-    :license: BSD, see LICENSE for details.
+    :license: BSD
 
 """
 
@@ -87,3 +87,7 @@ class ShellSessionLexer(Lexer):
                                          bashlexer.get_tokens_unprocessed(curcode)):
                 yield pos+i, t, v
 
+
+def setup(app):
+    app.add_lexer("shell-session", ShellSessionLexer())
+ 

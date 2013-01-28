@@ -126,6 +126,10 @@ def make_read_more_link(body, docpath, docname):
         return body
 
     body = body[:pos]
+
+    # when the .. more:: directive comes after a subsection:
+    body += "</div>" * (body.count("<div") - body.count("</div"))
+
     return body + ('<a class="readmore" href="%s.html#more">%s</a></div>' %
                 (docpath + docname, UIStr.READ_MORE))
 
@@ -142,7 +146,8 @@ def patch_node(node, docpath, docname=None):
         src = node.getAttributeNode("src")
         # if this is relative path (internal link)
         if src.value.startswith(".."):
-            src.value = docpath + src.value 
+            src.value = docpath + src.value
+        src.value = path.normpath(src.value).replace(":/", "://")
     # if node is hyperlink            
     elif node_name == "a":
         ref = node.getAttributeNode("href")

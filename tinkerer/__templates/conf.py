@@ -13,8 +13,8 @@ project = 'My blog'
 # Change this to the tagline of your blog
 tagline = 'Add intelligent tagline here'                  
 
-#Change this to the description of your blog for seo
-description = 'Tinkerer is a static website generator powered by Sphinx'
+# Change this to the description of your blog
+description = 'This is an awesome blog'
 
 # Change this to your name
 author = 'Winston Smith'
@@ -46,7 +46,7 @@ html_theme_options = { }
 rss_service = None
 
 # Number of blog posts per page
-posts_per_page = 2
+posts_per_page = 10
 
 # **************************************************************
 # Edit lines below to further customize Sphinx build
@@ -62,10 +62,10 @@ templates_path = ['_templates']
 html_static_path = ['_static', tinkerer.paths.static]
 
 # Add other theme paths here
-html_theme_path = [tinkerer.paths.themes]                 
+html_theme_path = ['_themes', tinkerer.paths.themes]                 
 
 # Add file patterns to exclude from build
-exclude_patterns = ["drafts/*"]                                     
+exclude_patterns = ["drafts/*", "_templates/*"]
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {

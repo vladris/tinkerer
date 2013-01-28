@@ -29,6 +29,9 @@ There is some minimal configuration required in ``conf.py``::
     # Change this to the tagline of your blog
     tagline = 'Add intelligent tagline here'                  
 
+    # Change this to the description of your blog
+    description = 'This is an awesome blog'
+
     # Change this to your name
     author = 'Winston Smith'
 
@@ -46,6 +49,11 @@ There is some minimal configuration required in ``conf.py``::
 
     The tagline is displayed right after the name of the blog and as the blog
     description in the RSS feed.
+
+**description**
+
+    This will be added to the ``description`` meta tag of your blog pages and
+    will be consumed by search engines crawling your blog.
 
 **author**
 
@@ -109,4 +117,5 @@ Tinkerer Reference
     ../doc/deploying
     ../doc/command_line 
     ../doc/internals
-    ../doc/additional_extensions
+    ../doc/theming
+    ../doc/extensions
