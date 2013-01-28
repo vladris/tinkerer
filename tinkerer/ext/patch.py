@@ -128,7 +128,7 @@ def make_read_more_link(body, docpath, docname):
     body = body[:pos]
 
     # when the .. more:: directive comes after a subsection:
-    body += "</div>" * (body.count("<div") - body.count("</div"))
+    body += "</div>" * (body.count("<div") - body.count("</div") - 1)
 
     return body + ('<a class="readmore" href="%s.html#more">%s</a></div>' %
                 (docpath + docname, UIStr.READ_MORE))
