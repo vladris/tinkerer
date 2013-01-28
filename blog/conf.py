@@ -13,7 +13,7 @@ html_favicon = 'tinkerer.ico'
 html_theme = 'modern5'
 rss_service = 'http://feeds.feedburner.com/tinkerer'
 
-extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus'] 
+extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'shellsession'] 
 templates_path = ['_templates']
 html_static_path = ['_static', tinkerer.paths.static]
 html_theme_path = [tinkerer.paths.themes]                 

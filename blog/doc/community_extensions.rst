@@ -19,6 +19,7 @@ This is the list of community extensions with descriptions by the authors:
 
     exts/fbcomments
     exts/withgithub
+    exts/shellsession
 
 Contribute
 ----------

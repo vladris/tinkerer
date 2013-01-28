@@ -136,26 +136,5 @@ If the user has JavaScript disabled he will see this:
   (Javascript must be enabled to see this e-mail address)
 
 
-Shell-Session Pygments Formatting
----------------------------------
-
-You have three possibilities:
-
-- ``.. code-block:: bash``
-- ``.. code-block:: console``
-- ``.. code-block:: shell-session`` (new)
-
-Have a look at :doc:`the comparison <../demo/shell_code_comparison>`.
-
-To have the same style as in the comparison just copy :download:`this file <../_static/pygments.css>`
-into your ``_static`` folder.
-
-You can also change the color of your command prompt inside ``pygments.css``:
-
-.. code-block:: html
-
-  .highlight .go { color: #808080 } /* Generic.Output */
-  .highlight .gp { color: #18B218; font-weight: bold } /* Generic.Prompt */
-
 Back to :ref:`tinkerer_reference`.
 
