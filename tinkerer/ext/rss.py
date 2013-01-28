@@ -60,7 +60,7 @@ def generate_feed(app):
     # feed metadata 
     context["title"] = app.config.project
     context["link"] = app.config.website
-    context["description"] = app.config.tagline
+    context["tagline"] = app.config.tagline
     context["language"] = "en-us"
   
     # feed pubDate is equal to latest post pubDate

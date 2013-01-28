@@ -44,12 +44,13 @@ class Page():
         self.docname = "pages/" + self.name
 
 
-    def write(self):
+    def write(self, content=""):
         '''
         Writes the page template.
         '''
         writer.render("page.rst", self.path,
-                { "title": self.title })
+                { "title": self.title,
+                  "content": content })
 
 
 

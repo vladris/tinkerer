@@ -19,7 +19,6 @@ import os
 import shutil
 import sphinx
 import sys
-import locale
 import tinkerer
 from tinkerer import draft, page, paths, post, writer
 
@@ -29,13 +28,17 @@ def setup(quiet=False, filename_only=False):
     '''
     Sets up a new blog in the current directory.
     '''
-    writer.setup_blog()
+    # it is a new blog if conf.py doesn't already exist
+    new_blog = writer.setup_blog()
 
     if filename_only:
         print("conf.py")
     elif not quiet:
-        print("Your new blog is almost ready!")
-        print("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
+        if new_blog:
+            print("Your new blog is almost ready!")
+            print("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
+        else:
+            print("Done")
 
 
 
@@ -153,7 +156,6 @@ def main(argv=None):
     '''
     Parses command line and executes required action.
     '''
-    locale.setlocale(locale.LC_ALL, '')
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-s", "--setup", action="store_true", help="setup a new blog")
@@ -188,11 +190,6 @@ def main(argv=None):
     if not command.setup and not os.path.exists(paths.conf_file):
         sys.stderr.write("Tinkerer must be run from your blog root "
                 "(directory containing 'conf.py')\n")
-        return -1
-    # in setup mode it should fail if run from a blog root
-    elif command.setup and os.path.exists(paths.conf_file):
-        sys.stderr.write("'conf.py' already exists in current directory, "
-                "choose a different directory to setup your blog.\n")
         return -1
 
     post_date = None

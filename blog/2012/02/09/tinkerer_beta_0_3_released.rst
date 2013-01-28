@@ -14,7 +14,7 @@ What's New
 
     language = "ca"
 
-* Limited support for :ref:`fb-comments` as an alternative to Disqus comments
+* Limited support for Facebook comments as an alternative to Disqus comments
 * RSS feed enhancements: RSS feed auto-discovery and feed categories
 * Multiple bugfixes and minor style tweaks to the Modern theme
 

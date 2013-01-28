@@ -127,17 +127,8 @@ def make_read_more_link(body, docpath, docname):
 
     body = body[:pos]
 
-    # When the .. more:: directive comes after an subsection e.g.:
-    #
-    # Subsection
-    # ----------
-    #
-    num_opening_divs = body.count("<div")
-    num_closing_divs = body.count("</div")
-    #print("num_opening_divs", num_opening_divs)
-    #print("num_closing_divs", num_closing_divs)
-    for i in range(num_opening_divs-num_closing_divs-1):
-        body += "</div>"
+    # when the .. more:: directive comes after a subsection:
+    body += "</div>" * (body.count("<div") - body.count("</div"))
 
     return body + ('<a class="readmore" href="%s.html#more">%s</a></div>' %
                 (docpath + docname, UIStr.READ_MORE))
@@ -156,9 +147,6 @@ def patch_node(node, docpath, docname=None):
         # if this is relative path (internal link)
         if src.value.startswith(".."):
             src.value = docpath + src.value
-        # normalize image urls
-        # <img alt="" src="2013/01/21/../../../_images/raspberry_pi_mod-io2_rpi-uext_light_small.jpeg"/>
-        # <img alt="" src="_images/raspberry_pi_mod-io2_rpi-uext_light_small.jpeg"/>
         src.value = path.normpath(src.value).replace(":/", "://")
     # if node is hyperlink            
     elif node_name == "a":
@@ -181,21 +169,8 @@ def patch_node(node, docpath, docname=None):
             # to revert change on protocol prefix as normpath deduplicates
             # // (http:// becomes http:/)
             ref.value = path.normpath(ref.value).replace(":/", "://")
-        # http://validator.w3.org
-        # Error:  Duplicate ID id1, id2, ...
-        ref_id = node.getAttributeNode("id")
-        if ref_id != None:
-            ref_id.value = ref_id.value + '_' + docname
-    elif node_name == "div":
-        # Duplicate ID overview.
-        # <div class="contents local topic" id="overview">
-        node_class = node.getAttributeNode("class")
-        if node_class != None:
-            if (node_class.value.startswith("contents") or
-            node_class.value == "section"):
-                node_id = node.getAttributeNode("id")
-                node_id.value = node_id.value + '_' + docname
-    # recurse
+
+    # recurse            
     for node in node.childNodes:
         patch_node(node, docpath, docname)
 

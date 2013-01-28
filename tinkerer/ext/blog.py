@@ -8,8 +8,8 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, hidemail, html5, metadata, \
-                         readmore, rss, shellsession, uistr
+from tinkerer.ext import aggregator, author, filing, html5, metadata, \
+                         readmore, rss, uistr
 import gettext
 
 
@@ -108,7 +108,6 @@ def setup(app):
     app.add_config_value("tagline", "My blog", True)
     app.add_config_value("description", "My blog", True)
     app.add_config_value("author", "Winston Smith", True)
-    app.add_config_value("author_url", None, True)
     app.add_config_value("rss_service", None, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
     app.add_config_value("posts_per_page", 10, True)
@@ -119,20 +118,13 @@ def setup(app):
     
     # new directives
     app.add_directive("author", author.AuthorDirective)
-    app.add_directive("author_url", author.AuthorUrlDirective)
     app.add_directive("comments", metadata.CommentsDirective)
     app.add_directive("tags", 
             filing.create_filing_directive("tags"))
     app.add_directive("categories", 
             filing.create_filing_directive("categories"))
     app.add_directive("more", readmore.InsertReadMoreLink)
-
-    # new roles
-    app.add_role('email', hidemail.email_role)
-
-    # new pygments lexer
-    app.add_lexer("shell-session", shellsession.ShellSessionLexer())
-    
+  
     # event handlers
     app.connect("builder-inited", initialize)
     app.connect("source-read", source_read)

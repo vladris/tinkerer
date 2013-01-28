@@ -101,14 +101,10 @@
 {%- endmacro -%}
 
 {#- Author -#}
-{%- macro author(author_name, author_url) -%}
+{%- macro author(author_name) -%}
     {%- if author_name -%}
         <div class="author">
-            {%- if author_url -%}
-            <span>{{ text_posted_by }} <a href="{{ author_url }}">{{ author_name }}</a></span>
-            {%- else -%}
             <span>{{ text_posted_by }} {{ author_name }}</span>
-            {%- endif -%}
         </div>
     {%- endif -%}
 {%- endmacro -%}
@@ -156,7 +152,7 @@
 {#- Post metadata -#}
 {%- macro post_meta(metadata, comment_count_code=None) -%}
     <div class="postmeta">
-        {{ author(metadata.author, metadata.author_url) }}
+        {{ author(metadata.author) }}
         {{ category_list(metadata.filing["categories"]) }}
         {{ tag_list(metadata.filing["tags"]) }}
         {{ comment_count(comment_count_code) }}

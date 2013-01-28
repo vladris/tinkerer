@@ -12,4 +12,5 @@ Sitemap
    2011/12/13/tinkerer_0_1_beta_is_out_
    demo/shell_code_comparison
    pages/documentation
+   pages/extensions
 

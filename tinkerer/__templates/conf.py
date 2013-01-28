@@ -19,10 +19,6 @@ description = 'This is an awesome blog'
 # Change this to your name
 author = 'Winston Smith'
 
-# Specify a URL that should rank high on Google for the author name
-# e.g. your website or your Google+ profile
-#author_url = 'http://your-name.com'
-
 # Change this to your copyright string
 copyright = '1984, ' + author         
 
@@ -50,7 +46,7 @@ html_theme_options = { }
 rss_service = None
 
 # Number of blog posts per page
-posts_per_page = 2
+posts_per_page = 10
 
 # **************************************************************
 # Edit lines below to further customize Sphinx build
@@ -66,10 +62,10 @@ templates_path = ['_templates']
 html_static_path = ['_static', tinkerer.paths.static]
 
 # Add other theme paths here
-html_theme_path = [tinkerer.paths.themes]                 
+html_theme_path = ['_themes', tinkerer.paths.themes]                 
 
 # Add file patterns to exclude from build
-exclude_patterns = ["drafts/*"]                                     
+exclude_patterns = ["drafts/*", "_templates/*"]
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {

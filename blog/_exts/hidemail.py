@@ -14,10 +14,7 @@
 
     :copyright: Copyright 2011 by Kevin Teague
     :copyright: Copyright 2012 by Christian Jann
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
-    CONTRIBUTORS file)
-    :license: FreeBSD. Parts of this file are licensed under BSD license. See
-    LICENSE file.
+    :license: BSD license
 '''
 from docutils import nodes
 import re
@@ -100,3 +97,8 @@ def email_role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
     obfuscated = js_obfuscated_mailto(email, displayname=name)
     node = nodes.raw('', obfuscated, format="html")
     return [node], []
+
+
+def setup(app):
+    app.add_role('email', email_role)
+   

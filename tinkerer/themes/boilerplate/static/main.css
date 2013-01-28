@@ -90,28 +90,6 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-body { margin: auto; max-width: 1000px; }
-
-li.quicklink { display: none; }
-
-nav li { text-align: center; width: 100%; }
-
-ul.related li { list-style-type: none; text-align: center; }
-
-article li { line-height: 1.5em; }
-
-nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
-
-aside {font-size: 80%; }
-
-/* ==========================================================================
    Helper classes
    ========================================================================== */
 
@@ -211,47 +189,6 @@ aside {font-size: 80%; }
 .clearfix {
     *zoom: 1;
 }
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   Theses examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min-resolution: 144dpi) {
-    /* Style adjustments for high resolution devices */
-}
-
-
-@media only screen and (min-width: 480px) {
-    /* Style adjustments for viewports 480px and over go here */
-    nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
-
-    ul.related { margin: 0 0 8px 0; padding: 0; }
-    ul.related li { display: inline; }
-    ul.related li.right { float: right; }
-}
-
-@media only screen and (min-width: 768px) {
-    /* Style adjustments for viewports 768px and over go here */
-    li.quicklink { display: inline; float: right; }
-}
-
-@media only screen and (min-width: 999px) {
-    article { float: left; margin-right: 333px; width: 583px; }
-
-    aside { display: block; float: left; margin-left: -330px; width: 330px; }
-}
-
-
-
-
-
 
 /* ==========================================================================
    Print styles.

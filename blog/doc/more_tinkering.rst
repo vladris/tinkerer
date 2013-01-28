@@ -67,54 +67,6 @@ replace this with your own icon by placing your icon under the blog's
 ``_static`` directory and changing the ``html_favicon`` value to the name
 of your icon file (path is not required, only filename).
 
-Theming
--------
-
-Tinkerer comes with a base *boilerplate* theme. This is an unstyled theme based
-on HTML5 Boilerplate. Custom themes should inherit from it.
-
-The default Tinkerer theme is *modern5*, which is based on the *boilerplate*.
-
-Before version 0.4, Tinkerer came with other three themes: *modern* - the 
-default theme, *minimal* - a minimalist black and white theme and a base 
-*tinkerbase* theme from which the others inherit. These themes are still 
-available for backwards compatibility though future development will be based
-on the *boilerplate* theme and HTML5.
-
-Due to the inherent differences between documentation and blogs, Sphinx themes 
-are not fully compatible with Tinkerer.
-
-To tinker with the look of your blog, you have two options:
-
-Add a custom stylesheet
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Create your own ``style.css`` (filename is not important) and place it under 
-the blog's ``_static`` directory and create a new ``page.html`` file under 
-your blog's ``_templates`` directory with the following content::
-
-    {% extends "!page.html" %}
-
-    {% set css_files = css_files + ["_static/style.css"] %}
-
-More information on extending templates can be found 
-`here <http://sphinx.pocoo.org/templating.html#css_files>`_.
-
-Create your own theme
-~~~~~~~~~~~~~~~~~~~~~
-
-Tinkerer themes should inherit from the *boilerplate* theme. For more 
-information on creating themes see 
-`Creating themes <http://sphinx.pocoo.org/theming.html#creating-themes>`_.
-
-Extensions
-----------
-
-To add a Sphinx extension to your blog, update the ``extensions`` list in
-``conf.py``. The ``tinkerer.ext.blog`` extension contains the Tinkerer logic to
-enable blogging with Sphinx and the ``tinkerer.ext.disqus`` extension is the 
-Disqus comment handler.
-
 .. _sidebar:
 
 Sidebar
@@ -148,62 +100,6 @@ distribution and can be easily added by updating the ``html_sidebars`` setting i
 
 `More information on sidebars <http://sphinx.pocoo.org/config.html#confval-html_sidebars>`_.
 
+
 Back to :ref:`tinkerer_reference`.
-
-.. _hide_mail:
-
-Hide Email Addresses From Spam Bots
------------------------------------
-
-Tinkerer has a simple built in mechanism to hide your email address from spambots 
-by generating an obfuscated email address which than gets decrypted in the browser
-with the help of a little bit JavaScript.
-
-To insert an email address just use:
-
-.. code-block:: rst
-
-  :email:`tinkerer-dev <tinkerer-dev@googlegroups.com>`
-  
-:email:`tinkerer-dev <tinkerer-dev@googlegroups.com>`
-
-The encrypted html looks like this:
-
-.. code-block:: html
-
-  <noscript>(Javascript must be enabled to see this e-mail address)</noscript>
-  <script type="text/javascript">document.write(
-  "<n uers=\"znvygb:gvaxrere-qri\100tbbtyrtebhcf\056pbz\">gvaxrere-qri <\057n>".replace(/[a-zA-Z]/g,
-  function(c){
-  return String.fromCharCode(
-  (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
-  </script>
-
-If the user has JavaScript disabled he will see this:
-
-.. code-block:: html
-
-  (Javascript must be enabled to see this e-mail address)
-
-
-Shell-Session Pygments Formatting
----------------------------------
-
-You have three possibilities:
-
-- ``.. code-block:: bash``
-- ``.. code-block:: console``
-- ``.. code-block:: shell-session`` (new)
-
-Have a look at :doc:`the comparison <../demo/shell_code_comparison>`.
-
-To have the same style as in the comparison just copy :download:`this file <../_static/pygments.css>`
-into your ``_static`` folder.
-
-You can also change the color of your command prompt inside ``pygments.css``:
-
-.. code-block:: html
-
-  .highlight .go { color: #808080 } /* Generic.Output */
-  .highlight .gp { color: #18B218; font-weight: bold } /* Generic.Prompt */
 

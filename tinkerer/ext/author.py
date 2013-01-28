@@ -36,25 +36,4 @@ class AuthorDirective(Directive):
 
         return []
 
-class AuthorUrlDirective(Directive):
-    '''
-    Author URL directive. The directive is not rendered, just stored in the
-    metadata and passed to the templating engine.
-    '''
-    required_arguments = 0
-    optional_arguments = 100
-    has_content = False
 
-    def run(self):
-        '''
-        Called when parsing the document.
-        '''
-        env = self.state.document.settings.env
-
-        # store author in metadata
-        author_url = " ".join(self.arguments)
-        if author_url == "default":
-            author_url = env.config.author_url
-        env.blog_metadata[env.docname].author_url = author_url
-
-        return []
