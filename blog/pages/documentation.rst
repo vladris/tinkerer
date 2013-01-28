@@ -117,4 +117,6 @@ Tinkerer Reference
     ../doc/deploying
     ../doc/command_line 
     ../doc/internals
-    ../doc/additional_extensions
+    ../doc/community_extensions
+    ../doc/theming
+    ../doc/extensions

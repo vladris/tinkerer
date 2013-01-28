@@ -1,15 +1,11 @@
-Additional Extensions
-=====================
-
-.. _fb-comments:
-
 Facebook Comments
------------------
+=================
 .. highlight:: python
 
 As an alternative to Disqus comments, you can use Facebook Comments on your
-blog. To enable Facebook comments, replace the default ``tinkerer.ext.disqus``
-extension in ``conf.py`` with ``tinkerer.ext.fbcomments``::
+blog. To enable Facebook comments, download ``fbcomments.py`` in your blog's
+``_exts`` directory and replace the default ``tinkerer.ext.disqus`` extension
+in ``conf.py`` with ``fbcomments``::
 
     # Add other Sphinx extensions here
     extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus']
@@ -17,7 +13,7 @@ extension in ``conf.py`` with ``tinkerer.ext.fbcomments``::
 should become::
 
     # Add other Sphinx extensions here
-    extensions = ['tinkerer.ext.blog', 'tinkerer.ext.fbcomments']
+    extensions = ['tinkerer.ext.blog', 'fbcomments']
 
 Blog posts don't need to change as this extension is a different handler for
 the same ``comments`` directive.
@@ -30,7 +26,7 @@ There are two options for managing comments: using a user ID or an app ID.
 .. highlight:: html
 
 User Admin
-~~~~~~~~~~
+----------
 
 To enable comment administration, you will need to list yourself as an admin
 using a meta tag. You can do this by extending the ``page.html`` template:
@@ -48,7 +44,7 @@ Make sure to replace ``$(YOUR_FACEBOOK_USER_ID)`` above with the appropriate
 ID.
 
 App Admin
-~~~~~~~~~
+---------
 
 Facebook recommends to get an application ID so you can manage all comments on
 the website in a centralized place. Go to `Facebook Developers Webiste
@@ -72,20 +68,3 @@ Make sure to replace ``$(YOUR_APP_ID)`` above with the appropriate ID.
     Unlike Disqus, Facebook comment box does not inherit the blog theme style.
     Tinkerer will not provide any styling for the comment box.
 
-
-Github Pages
-------------
-
-This extension provides support for github pages. 
-
-By default Github Pages prohibit names starting with '_', but Sphinx requires
-them. To change this behavior, a '.nojekyll' file is needed in a base 
-directory. This extension handles that automatically.
-
-To use it, just add ``tinkerer.ext.withgithub`` module to your extensions list
-in `conf.py` file::
-
-    extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'tinkerer.ext.withgithub']
-
-
-Back to :ref:`tinkerer_reference`.
