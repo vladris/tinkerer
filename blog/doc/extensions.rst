@@ -10,8 +10,16 @@ reading about `Sphinx extensions <http://sphinx-doc.org/extensions.html>`_.
 
 What Tinkerer adds to this is a set of metadata and other information which is
 passed to the templating engine when rendering each file. This information
-resides in the context variable and your extensions can use and/or alter it
+resides in the :ref:`context` variable and your extensions can use and/or alter it
 to extend Tinkerer functionality.
+
+Going forward, the Tinkerer post and page RST templates can be found in the
+``_templates`` subdirectory of a blog, so if your custom extension adds, for
+example, an additional directive which should appear in each new post, you can
+instruct the user to update his post template accordingly (or have a setup 
+script that does it automatically).
+
+.. _context:
 
 Context
 -------
