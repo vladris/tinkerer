@@ -18,6 +18,7 @@ This is the list of community extensions with descriptions by the authors:
     :maxdepth: 1
 
     ../exts/fbcomments
+    ../exts/hidemail
     ../exts/withgithub
     ../exts/shellsession
 

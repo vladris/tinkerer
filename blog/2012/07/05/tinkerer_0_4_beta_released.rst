@@ -19,7 +19,7 @@ HTML5-based themes.
 New Built-in Extensions
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-* An email obfuscator: :ref:`hide_mail`
+* An email obfuscator
 * A new ``Read more`` directive - more info under :ref:`posts`
 
 New Sidebard Widgets
