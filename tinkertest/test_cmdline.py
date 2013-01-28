@@ -163,9 +163,3 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.assertEqual(0,
                 cmdline.main(["--setup", "--quiet"]))
 
-
-    # ensure tinkerer setup cannot be run on top of an existing blog
-    def test_safe_setup(self):
-        # setup should fail
-        self.assertNotEqual(0, cmdline.main(["--setup"]))
-

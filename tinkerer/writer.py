@@ -23,7 +23,7 @@ env = Environment(loader=ChoiceLoader([
         PackageLoader("tinkerer", "__templates")]))
 
 
-def render(template, destination, context={}):
+def render(template, destination, context={}, safe=False):
     '''
     Renders the given template at the given destination with the given context.
     '''
@@ -32,11 +32,26 @@ def render(template, destination, context={}):
 
 
 
+def render_safe(template, destination, context={}):
+    '''
+    Similar to render but only renders the template if the destination doesn't
+    already exist.
+    '''
+    # if safe is set to True, abort if file already exists
+    if os.path.exists(destination):
+        return False
+
+    render(template, destination, context)
+
+    return True
+
+
+
 def write_master_file():
     '''
     Writes the blog master document.
     '''
-    render("master.rst", paths.master_file)
+    return render_safe("master.rst", paths.master_file)
 
 
 
@@ -44,7 +59,7 @@ def write_index_file():
     '''
     Writes the root index.html file.
     '''
-    render("index.html", paths.index_file)
+    return render_safe("index.html", paths.index_file)
 
 
 
@@ -62,9 +77,9 @@ def write_conf_file(extensions=DEFAULT_EXTENSIONS, theme="modern5"):
     '''
     Writes the Sphinx configuration file.
     '''
-    render("conf.py", paths.conf_file,
-           {"extensions": ", ".join(["'%s'" % ext for ext in extensions]),
-            "theme": theme })
+    return render_safe("conf.py", paths.conf_file,
+                {"extensions": ", ".join(["'%s'" % ext for ext in extensions]),
+                 "theme": theme })
 
 
 
@@ -73,9 +88,10 @@ def copy_templates():
     Copies Tinkerer post and page templates to blog _templates directory.
     '''
     for template in ["post.rst", "page.rst"]:
-        shutil.copy(
-            os.path.join(paths.__internal_templates_abs_path, template),
-            os.path.join(paths.root, "_templates"))
+        if not os.path.exists(os.path.join(paths.root, "_templates", template)):
+            shutil.copy(
+                os.path.join(paths.__internal_templates_abs_path, template),
+                    os.path.join(paths.root, "_templates"))
 
 
 
@@ -86,8 +102,8 @@ def setup_blog():
     utils.get_path(paths.root, "_static")
     utils.get_path(paths.root, "_templates")
     utils.get_path(paths.root, "drafts")
+    copy_templates()
     write_master_file()
     write_index_file()
-    write_conf_file()
-    copy_templates()
-    
+    return write_conf_file()
+
