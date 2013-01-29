@@ -84,6 +84,18 @@ pre {
     line-height: 16px;
 }
 
+pre span::-moz-selection,
+pre::-moz-selection {
+    background: #1919BC;
+    text-shadow: none;
+}
+
+pre span::selection,
+pre::selection {
+    background: #1919BC;
+    text-shadow: none;
+}
+
 .docutils, div.admonition p .docutils {
     padding: 0 1px;
     border: 1px dashed #ccc;
