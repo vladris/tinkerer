@@ -139,6 +139,11 @@ ul.related li { list-style-type: none; text-align: center; }
         margin-bottom: 0;
     }
 
+    nav.big_nav a {
+        padding: 25px 0;
+        width: 20%;
+    }
+
     nav li:first-child a {
         margin-left: 0;
     }
@@ -184,6 +189,11 @@ ul.related li { list-style-type: none; text-align: center; }
     nav {
         float: right;
         width: 38%;
+    }
+
+    nav.big_nav a {
+        width: 22%;
+        padding: 25px 0;
     }
 
 /* ============
