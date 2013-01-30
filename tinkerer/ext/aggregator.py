@@ -38,7 +38,7 @@ def make_aggregated_pages(app):
         for post in posts:
             # deepcopy metadata and patch links
             metadata = copy.deepcopy(env.blog_metadata[post])
-            metadata.body = patch.patch_links(
+            metadata.body = patch.patch_links(app,
                     metadata.body, 
                     post[:11], # first 11 characters is path (YYYY/MM/DD/)
                     post[11:], # following characters represent filename

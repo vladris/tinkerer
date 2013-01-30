@@ -49,7 +49,7 @@ def generate_feed(app):
         context["items"].append({
                     "title": env.titles[post].astext(),
                     "link": link,
-                    "description": patch.strip_xml_declaration(patch.patch_links(
+                    "description": patch.strip_xml_declaration(patch.patch_links(app,
                             env.blog_metadata[post].body, 
                             app.config.website + post[:11], # first 11 characters is path (YYYY/MM/DD/)
                             post[11:])), # following characters represent filename

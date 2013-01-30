@@ -115,7 +115,9 @@ def setup(app):
     # hook up our html5 translator instead of the Sphinx built-in html 
     # translator
     app.config.html_translator_class = "tinkerer.ext.html5.SmartyPantsHTML5Translator"
-    
+
+    app._events['patch-node'] = 'node, docpath, docname'
+
     # new directives
     app.add_directive("author", author.AuthorDirective)
     app.add_directive("comments", metadata.CommentsDirective)

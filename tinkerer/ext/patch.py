@@ -25,16 +25,11 @@ try:
 except:
     import __builtin__
 
-try:
-    from patch_extra import patch_node_extra
-except ImportError:
-    patch_node_extra = None
-
 # check whether unichr builtin exists, otherwise use chr
 if "unichr" not in __builtin__.__dict__:
     unichr = chr
-    
-            
+
+
 
 def build_html_only_codepoints():
     """
@@ -86,7 +81,7 @@ def convert(s):
 
 
 
-def patch_links(body, docpath, docname=None, link_title=False):
+def patch_links(app, body, docpath, docname=None, link_title=False):
     '''
     Parses the document body and calls patch_node from the document root
     to fix hyperlinks. Also hyperlinks document title. Returns resulting 
@@ -94,7 +89,7 @@ def patch_links(body, docpath, docname=None, link_title=False):
     '''
     in_str = convert(body).encode("utf-8")
     doc = xml.dom.minidom.parseString(in_str)
-    patch_node(doc, docpath, docname)
+    patch_node(app, doc, docpath, docname)
 
     body = doc.toxml()
     if docname:
@@ -139,7 +134,7 @@ def make_read_more_link(body, docpath, docname):
 
 
 
-def patch_node(node, docpath, docname=None):
+def patch_node(app, node, docpath, docname=None):
     '''
     Recursively patches links in nodes.
     '''
@@ -173,12 +168,20 @@ def patch_node(node, docpath, docname=None):
             # to revert change on protocol prefix as normpath deduplicates
             # // (http:// becomes http:/)
             ref.value = path.normpath(ref.value).replace(":/", "://")
-    if patch_node_extra:
-        patch_node_extra(node, docpath, docname)
+
+    # This may throw a UnicodeEncodeError in sphinx/application.py self.debug2()
+    # in Python 2.x because node's __repr__() may return unicode characters
+    # https://bitbucket.org/birkenfeld/sphinx/commits/71444a5b62861a113abdd175a83eaf54ee7da3d3
+    # http://sourceforge.net/tracker/?func=detail&aid=3601607&group_id=38414&atid=422030
+    # I have temporary changed the line self.debug2('[app] emitting event: %r%s', event, repr(args)[:100])
+    # to self.debug2('[app] emitting event: %r%s', event) in sphinx/application.py
+    # The error is already patched in Sphinx and Docutils, they will return unicode.__repr__
+    # on Python 2.x, but not in minidom, maybe xml.etree.ElementTree works better.
+    app.emit('patch-node', node, docpath, docname)
 
     # recurse            
     for node in node.childNodes:
-        patch_node(node, docpath, docname)
+        patch_node(app, node, docpath, docname)
 
 
 
