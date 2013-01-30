@@ -12,7 +12,7 @@
 '''
 from os import path
 import re
-import xml.dom.minidom
+import xml.etree.ElementTree as ET
 from tinkerer.ext.uistr import UIStr
 
 try:
@@ -88,13 +88,14 @@ def patch_links(app, body, docpath, docname=None, link_title=False):
     XML as string.
     '''
     in_str = convert(body).encode("utf-8")
-    doc = xml.dom.minidom.parseString(in_str)
+    doc = ET.fromstring(in_str)
     patch_node(app, doc, docpath, docname)
 
-    body = doc.toxml()
+    #body = ET.tostring(doc, encoding="utf-8", method="xml") # Python 3.x
+    body = convert(ET.tostring(doc))
     if docname:
         body = make_read_more_link(body, docpath, docname)
-    
+
     if link_title:
         return hyperlink_title(body, docpath, docname)
     else:
@@ -114,7 +115,7 @@ def hyperlink_title(body, docpath, docname):
 
 
 
-def make_read_more_link(body, docpath, docname):            
+def make_read_more_link(body, docpath, docname):
     """
     Create "read more" link if marker exists.
     """
@@ -138,50 +139,44 @@ def patch_node(app, node, docpath, docname=None):
     '''
     Recursively patches links in nodes.
     '''
-    node_name = node.localName
+    node_name = node.tag
 
     # if node is <img>
     if node_name == "img":
-        src = node.getAttributeNode("src")
+        src = node.get("src")
         # if this is relative path (internal link)
-        if src.value.startswith(".."):
-            src.value = docpath + src.value
-        src.value = path.normpath(src.value).replace(":/", "://")
-    # if node is hyperlink            
+        if src.startswith(".."):
+            src = docpath + src
+        src = path.normpath(src).replace(":/", "://")
+        node.set('src', src)
+    # if node is hyperlink
     elif node_name == "a":
-        ref = node.getAttributeNode("href")
-        # skip anchor links <a name="anchor1"></a>, <a name="more"/>
-        if ref != None:
-            # patch links only - either starting with "../" or having
-            # "internal" class
-            is_relative = ref.value.startswith("../") 
-            if is_relative or "internal" in node.getAttribute("class"):
-                ref.value = docpath + ref.value
+        ref = node.get("href")
+        # patch links only - either starting with "../" or having
+        # "internal" class
+        is_relative = ref.startswith("../")
+        node_class = node.get("class")
+        is_internal = node_class != None and "internal" in node_class
+        if is_relative or is_internal:
+            ref = docpath + ref
 
-            # html anchor with missing post.html
-            # e.g. href="2012/08/23/#the-cross-compiler"
-            # now href="2012/08/23/a_post.html#the-cross-compiler"
-            ref.value = ref.value.replace("/#", "/%s.html#" % docname)
+        # html anchor with missing post.html
+        # e.g. href="2012/08/23/#the-cross-compiler"
+        # now href="2012/08/23/a_post.html#the-cross-compiler"
+        ref = ref.replace("/#", "/%s.html#" % docname)
 
-            # normalize urls so "2012/08/23/../../../_static/" becomes
-            # "_static/" - we can use normpath for this, just make sure
-            # to revert change on protocol prefix as normpath deduplicates
-            # // (http:// becomes http:/)
-            ref.value = path.normpath(ref.value).replace(":/", "://")
+        # normalize urls so "2012/08/23/../../../_static/" becomes
+        # "_static/" - we can use normpath for this, just make sure
+        # to revert change on protocol prefix as normpath deduplicates
+        # // (http:// becomes http:/)
+        ref = path.normpath(ref).replace(":/", "://")
+        node.set('href', ref)
 
-    # This may throw a UnicodeEncodeError in sphinx/application.py self.debug2()
-    # in Python 2.x because node's __repr__() may return unicode characters
-    # https://bitbucket.org/birkenfeld/sphinx/commits/71444a5b62861a113abdd175a83eaf54ee7da3d3
-    # http://sourceforge.net/tracker/?func=detail&aid=3601607&group_id=38414&atid=422030
-    # I have temporary changed the line self.debug2('[app] emitting event: %r%s', event, repr(args)[:100])
-    # to self.debug2('[app] emitting event: %r%s', event) in sphinx/application.py
-    # The error is already patched in Sphinx and Docutils, they will return unicode.__repr__
-    # on Python 2.x, but not in minidom, maybe xml.etree.ElementTree works better.
     app.emit('patch-node', node, docpath, docname)
 
     # recurse            
-    for node in node.childNodes:
-        patch_node(app, node, docpath, docname)
+    for child_node in node:
+        patch_node(app, child_node, docpath, docname)
 
 
 
