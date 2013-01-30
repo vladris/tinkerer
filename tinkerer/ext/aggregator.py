@@ -43,7 +43,6 @@ def make_aggregated_pages(app):
                     post[:11], # first 11 characters is path (YYYY/MM/DD/)
                     post[11:], # following characters represent filename
                     True)      # hyperlink title to post
-            metadata.body = patch.strip_xml_declaration(metadata.body)
             context["posts"].append(metadata)
 
 

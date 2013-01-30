@@ -177,12 +177,3 @@ def patch_node(app, node, docpath, docname=None):
     # recurse            
     for child_node in node:
         patch_node(app, child_node, docpath, docname)
-
-
-
-def strip_xml_declaration(body):
-    """
-    Remove XML declaration from document body.
-    """
-    return body.replace('<?xml version="1.0" ?>', '')
-
