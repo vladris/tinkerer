@@ -82,6 +82,20 @@ def convert(s):
 
 
 
+def patch_aggregated_metadata(context):
+    """
+    Patches context in aggregated pages
+    """
+    for metadata in context["posts"]:
+        metadata.body = patch_links(
+            metadata.body, 
+            metadata.link[:11], # first 11 characters is path (YYYY/MM/DD/)
+            metadata.link[11:], # following characters represent filename
+            True)      # hyperlink title to post
+        metadata.body = strip_xml_declaration(metadata.body)
+
+
+
 def patch_links(body, docpath, docname=None, link_title=False):
     '''
     Parses the document body and calls patch_node from the document root

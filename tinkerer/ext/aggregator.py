@@ -9,7 +9,6 @@
     :license: FreeBSD, see LICENSE file
 '''
 import copy
-from tinkerer.ext import patch
 from tinkerer.ext.uistr import UIStr
 
 
@@ -36,14 +35,8 @@ def make_aggregated_pages(app):
 
         # add posts to context
         for post in posts:
-            # deepcopy metadata and patch links
+            # deepcopy metadata for each post
             metadata = copy.deepcopy(env.blog_metadata[post])
-            metadata.body = patch.patch_links(
-                    metadata.body, 
-                    post[:11], # first 11 characters is path (YYYY/MM/DD/)
-                    post[11:], # following characters represent filename
-                    True)      # hyperlink title to post
-            metadata.body = patch.strip_xml_declaration(metadata.body)
             context["posts"].append(metadata)
 
 
@@ -67,6 +60,9 @@ def make_aggregated_pages(app):
             # other pages next-link to following page (titled as "Older")
             context["next"]["title"] = UIStr.OLDER
             context["next"]["link"] = "page%d.html" % (i + 1)
+
+        # context is ready for aggregated page, emit event
+        app.emit("html-aggregated-context", app, pagename, context)
 
         yield (pagename, context, "aggregated.html")
 
