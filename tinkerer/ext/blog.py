@@ -9,7 +9,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 from tinkerer.ext import aggregator, author, filing, html5, metadata, \
-                         readmore, rss, uistr
+                         patch, readmore, rss, uistr
 import gettext
 
 
@@ -100,6 +100,14 @@ def html_collect_pages(app):
 
 
 
+def html_aggregated_context(app, pagename, templatename, context):
+    '''
+    Patches HTML in aggregated pages
+    '''
+    patch.patch_aggregated_metadata(context)
+
+
+
 def setup(app):
     '''
     Sets up the extension.
@@ -115,9 +123,7 @@ def setup(app):
     # hook up our html5 translator instead of the Sphinx built-in html 
     # translator
     app.config.html_translator_class = "tinkerer.ext.html5.SmartyPantsHTML5Translator"
-
-    app._events['patch-node'] = 'node, docpath, docname'
-
+    
     # new directives
     app.add_directive("author", author.AuthorDirective)
     app.add_directive("comments", metadata.CommentsDirective)
@@ -126,10 +132,15 @@ def setup(app):
     app.add_directive("categories", 
             filing.create_filing_directive("categories"))
     app.add_directive("more", readmore.InsertReadMoreLink)
-  
+ 
+    # create a new Sphinx event which gets called when we generate aggregated
+    # pages
+    app._events["html-aggregated-context"] = "app, pagename, context"
+ 
     # event handlers
     app.connect("builder-inited", initialize)
     app.connect("source-read", source_read)
     app.connect("env-updated", env_updated)
     app.connect("html-page-context", html_page_context)
     app.connect("html-collect-pages", html_collect_pages)
+    app.connect("html-aggregated-context", html_aggregated_context)
