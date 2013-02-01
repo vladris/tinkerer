@@ -18,19 +18,19 @@ from tinkerer.ext.uistr import UIStr
 try:
     from html.entities import name2codepoint
 except:
-    from htmlentitydefs import name2codepoint    
+    from htmlentitydefs import name2codepoint
 
 try:
     import builtins as __builtin__
 except:
     import __builtin__
-    
+
 
 # check whether unichr builtin exists, otherwise use chr
 if "unichr" not in __builtin__.__dict__:
     unichr = chr
-    
-            
+
+
 
 def build_html_only_codepoints():
     """
@@ -51,7 +51,7 @@ HTML_ONLY_NAME2CODEPOINTS = build_html_only_codepoints()
 
 def convert(s):
     """
-    Take an input string s, find all things that look like SGML character 
+    Take an input string s, find all things that look like SGML character
     entities, and replace them with the Unicode equivalent.
 
     Source:
@@ -88,7 +88,7 @@ def patch_aggregated_metadata(context):
     """
     for metadata in context["posts"]:
         metadata.body = patch_links(
-            metadata.body, 
+            metadata.body,
             metadata.link[:11], # first 11 characters is path (YYYY/MM/DD/)
             metadata.link[11:], # following characters represent filename
             True)      # hyperlink title to post
@@ -99,7 +99,7 @@ def patch_aggregated_metadata(context):
 def patch_links(body, docpath, docname=None, link_title=False):
     '''
     Parses the document body and calls patch_node from the document root
-    to fix hyperlinks. Also hyperlinks document title. Returns resulting 
+    to fix hyperlinks. Also hyperlinks document title. Returns resulting
     XML as string.
     '''
     in_str = convert(body).encode("utf-8")
@@ -109,7 +109,7 @@ def patch_links(body, docpath, docname=None, link_title=False):
     body = doc.toxml()
     if docname:
         body = make_read_more_link(body, docpath, docname)
-    
+
     if link_title:
         return hyperlink_title(body, docpath, docname)
     else:
@@ -120,16 +120,16 @@ def patch_links(body, docpath, docname=None, link_title=False):
 def hyperlink_title(body, docpath, docname):
     """
     Hyperlink titles by embedding appropriate a tag inside
-    h1 tags (which should only be post titles). 
+    h1 tags (which should only be post titles).
     """
-    body = body.replace("<h1>", '<h1><a href="%s.html">' % 
+    body = body.replace("<h1>", '<h1><a href="%s.html">' %
             (docpath + docname), 1)
     body = body.replace("</h1>", "</a></h1>", 1)
     return body
 
 
 
-def make_read_more_link(body, docpath, docname):            
+def make_read_more_link(body, docpath, docname):
     """
     Create "read more" link if marker exists.
     """
@@ -162,14 +162,14 @@ def patch_node(node, docpath, docname=None):
         if src.value.startswith(".."):
             src.value = docpath + src.value
         src.value = path.normpath(src.value).replace(":/", "://")
-    # if node is hyperlink            
+    # if node is hyperlink
     elif node_name == "a":
         ref = node.getAttributeNode("href")
         # skip anchor links <a name="anchor1"></a>, <a name="more"/>
         if ref != None:
             # patch links only - either starting with "../" or having
             # "internal" class
-            is_relative = ref.value.startswith("../") 
+            is_relative = ref.value.startswith("../")
             if is_relative or "internal" in node.getAttribute("class"):
                 ref.value = docpath + ref.value
 
@@ -184,7 +184,7 @@ def patch_node(node, docpath, docname=None):
             # // (http:// becomes http:/)
             ref.value = path.normpath(ref.value).replace(":/", "://")
 
-    # recurse            
+    # recurse
     for node in node.childNodes:
         patch_node(node, docpath, docname)
 
