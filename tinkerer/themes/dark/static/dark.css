@@ -307,7 +307,13 @@ div.body p.centered {
 
 .title a {
     color: white;
+    text-decoration: none;
 }
+
+.title a:hover {
+    text-decoration: underline;
+}
+
 
 /* ==============
     MOBILE: Menu
@@ -342,8 +348,8 @@ nav a:hover {
 }
 
 article {
-    font-size: 17px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 26px;
 }
 article a {
     color: #000;
@@ -383,7 +389,7 @@ footer a:hover {
 }
 
 .main article h1 {
-    font-size: 2em;
+    font-size: 1.6em;
     line-height: 1.4;
 }
 
@@ -430,6 +436,7 @@ ul.related li { list-style-type: none; text-align: center; }
     nav a {
         float: left;
         width: 27%;
+        height: 28px;
         margin: 0 1.7%;
         padding: 25px 2%;
         margin-bottom: 0;
@@ -598,16 +605,32 @@ ul.related li { list-style-type: none; text-align: center; }
         text-shadow: none !important;
     }
 
+    header.wrapper nav,
+    li.right, li.left,
+    aside.sidebar,
+    div.main article noscript,
+    .archive_link, #fork_me {
+        display:none;
+    }
+
+    .header-container {
+        border-bottom: 0;
+    }
+
+    .footer-container {
+        border-top: 0;
+    }
+
     a,
     a:visited {
         text-decoration: underline;
     }
 
-    /*
+
     a[href]:after {
-        content: " (" attr(href) ")";
+        content: ""; /*" (" attr(href) ")";*/
     }
-    */
+
     abbr[title]:after {
         content: " (" attr(title) ")";
     }
@@ -622,8 +645,11 @@ ul.related li { list-style-type: none; text-align: center; }
         content: "";
     }
 
-    pre,
     blockquote {
+        border: 0;
+    }
+
+    pre {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
