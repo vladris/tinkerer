@@ -79,7 +79,7 @@ def html_page_context(app, pagename, templatename, context, doctree):
 
 
 
-def html_collect_pages(app):
+def collect_additional_pages(app):
     '''
     Generates additional pages.
     '''
@@ -100,11 +100,23 @@ def html_collect_pages(app):
 
 
 
-def html_aggregated_context(app, pagename, templatename, context):
+def html_collect_pages(app):
+    '''
+    Collect html pages and emit event
+    '''        
+    for name, context, template in collect_additional_pages(app):
+        # emit event
+        app.emit("html-collected-context", name, template, context)
+        yield (name, context, template)
+
+
+
+def html_collected_context(app, name, template, context):
     '''
     Patches HTML in aggregated pages
     '''
-    patch.patch_aggregated_metadata(context)
+    if template == "aggregated.html":
+        patch.patch_aggregated_metadata(context)
 
 
 
@@ -135,7 +147,7 @@ def setup(app):
  
     # create a new Sphinx event which gets called when we generate aggregated
     # pages
-    app._events["html-aggregated-context"] = "app, pagename, context"
+    app._events["html-collected-context"] = "pagename, templatename, context"
  
     # event handlers
     app.connect("builder-inited", initialize)
@@ -143,4 +155,4 @@ def setup(app):
     app.connect("env-updated", env_updated)
     app.connect("html-page-context", html_page_context)
     app.connect("html-collect-pages", html_collect_pages)
-    app.connect("html-aggregated-context", html_aggregated_context)
+    app.connect("html-collected-context", html_collected_context)
