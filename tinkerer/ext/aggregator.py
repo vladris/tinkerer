@@ -61,8 +61,5 @@ def make_aggregated_pages(app):
             context["next"]["title"] = UIStr.OLDER
             context["next"]["link"] = "page%d.html" % (i + 1)
 
-        # context is ready for aggregated page, emit event
-        app.emit("html-aggregated-context", app, pagename, context)
-
         yield (pagename, context, "aggregated.html")
 
