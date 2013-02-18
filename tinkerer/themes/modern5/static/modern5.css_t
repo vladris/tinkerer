@@ -93,10 +93,10 @@ footer { padding: 5px 20px; }
     li.quicklink { display: inline; float: right; }
 }
 
-@media only screen and (min-width: 999px) {
+@media only screen and (min-width: 1020px) {
     article { float: left; margin-right: 333px; width: 583px; }
 
-    aside { display: block; float: left; margin-left: -330px; width: 330px; }
+    aside { display: block; float: left; margin-left: -330px; width: 320px; }
 }
 
 /* Palette */
