@@ -48,9 +48,9 @@ def make_aggregated_pages(app):
             context["title"] = UIStr.HOME
         else:
             # following pages prev-link to previous page (titled as "Newer")
-            pagename = "page%d" % i
+            pagename = "page%d" % (i + 1)
             context["prev"]["title"] = UIStr.NEWER
-            context["prev"]["link"] = "index.html" if i == 1 else "page%d.html" % (i - 1)
+            context["prev"]["link"] = "index.html" if i == 1 else "page%d.html" % i
             context["title"] = UIStr.PAGE_FMT % (i + 1)
 
         if i == len(groups) - 1:
@@ -59,7 +59,7 @@ def make_aggregated_pages(app):
         else:
             # other pages next-link to following page (titled as "Older")
             context["next"]["title"] = UIStr.OLDER
-            context["next"]["link"] = "page%d.html" % (i + 1)
+            context["next"]["link"] = "page%d.html" % (i + 2)
 
         yield (pagename, context, "aggregated.html")
 
