@@ -8,8 +8,8 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, html5, metadata, \
-                         patch, readmore, rss, uistr
+from tinkerer.ext import aggregator, author, filing, metadata, patch, html5, \
+                         readmore, rss, uistr
 import gettext
 
 
@@ -132,10 +132,6 @@ def setup(app):
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
     app.add_config_value("posts_per_page", 10, True)
 
-    # hook up our html5 translator instead of the Sphinx built-in html 
-    # translator
-    app.config.html_translator_class = "tinkerer.ext.html5.SmartyPantsHTML5Translator"
-    
     # new directives
     app.add_directive("author", author.AuthorDirective)
     app.add_directive("comments", metadata.CommentsDirective)
@@ -156,3 +152,6 @@ def setup(app):
     app.connect("html-page-context", html_page_context)
     app.connect("html-collect-pages", html_collect_pages)
     app.connect("html-collected-context", html_collected_context)
+
+    # monkey-patch Sphinx html translator to emit proper HTML5
+    html5.patch_translator()
