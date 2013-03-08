@@ -34,5 +34,6 @@ Contribute
 If you want to contribute an extensions, please submit a pull request to
 ``tinkerer-contrib``. Your extension should be contained in a new subdirectory.
 Please also add a ``.rst`` page with description and setup steps which will get
-added to the Tinkerer documentation here.
+added to the Tinkerer documentation here. Don't forget to edit the CONTRIBUTORS
+file for props.
 
