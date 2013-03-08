@@ -20,10 +20,13 @@ This is the list of community extensions with descriptions by the authors:
 .. toctree::
     :maxdepth: 1
 
+    ../exts/authorurl-directive
+    ../exts/authorurl
+    ../exts/extrapatches
     ../exts/fbcomments
     ../exts/hidemail
+    ../exts/jinjafilters
     ../exts/withgithub
-    ../exts/shellsession
 
 Contribute
 ----------
