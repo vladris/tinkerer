@@ -22,7 +22,8 @@
 
             if (sidebar.offsetHeight > documentwrapper.offsetHeight)
             {
-                documentwrapper.style.minHeight = sidebar.offsetHeight + "px";
+                var mainwrapper = document.getElementsByClassName("main")[0];
+                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
             }
 
             // Scroll to content if on small screen

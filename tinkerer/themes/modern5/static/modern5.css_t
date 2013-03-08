@@ -94,9 +94,9 @@ footer { padding: 5px 20px; }
 }
 
 @media only screen and (min-width: 999px) {
-    article { float: left; margin-right: 333px; width: auto; }
+    article { float: left; width: 583px; }
 
-    aside { display: block; float: left; margin-left: -330px; width: 330px; }
+    aside { display: block; margin-left: 669px; width: 330px; }
 }
 
 /* Palette */
