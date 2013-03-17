@@ -11,7 +11,7 @@ milestone for the project.
 What's New
 ----------
 
-* Updated `HTML5 Bolierplate <http://html5bolierplate.com>`_ base template
+* Updated `HTML5 Boilerplate <http://html5bolierplate.com>`_ base template
 * New *Responsive* theme
 * ``--preview`` command line argument enabling draft preview
 * ``--date`` command line argument for specifying post dates (useful when 
