@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2013/03/17/tinkerer_1_1_released
    2012/12/16/tinkerer_1_0_released
    2012/11/13/tinkerer_private_blogs
    2012/07/05/tinkerer_0_4_beta_released
