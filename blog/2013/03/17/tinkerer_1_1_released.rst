@@ -17,17 +17,18 @@ Upgrading
 
 Important notes on upgrading:
 
-* Run `tinkerer --setup` in your blog root. This will copy `page.rst` and
-  `post.rst` to your blog's `_templates` directory. You can customize them to
-  tweak your default posts and pages (other contrib extensions can also
+* Run ``tinkerer --setup`` in your blog root. This will copy ``page.rst`` and
+  ``post.rst`` to your blog' ``_templates`` directory. You can customize them
+  to tweak your default posts and pages (other contrib extensions can also
   leverage this).
-* If you are using `hidemail` or `fbcomments` extensions, the extensions moved
-  to `tinkerer-contrib`, meaning they no longer come out-of-the-box. Please
-  pull them from there and place them in the `_exts` subdirectory of your blog.
-* There is a new `description` field you can add to your `conf.py`, which will
-  become an HTML meta description on the generated pages. This appears
+* If you are using ``hidemail`` or ``fbcomments`` extensions, the extensions
+  moved to ``tinkerer-contrib``, meaning they no longer come out-of-the-box.
+  Please pull them from there and place them in the ``_exts`` subdirectory of
+  your blog.
+* There is a new ``description`` field you can add to your ``conf.py``, which
+  will become an HTML meta description on the generated pages. This appears
   automatically in newly setup blogs but, by design, Tinkerer upgrade does not
-  alter existing `conf.py` files in any way.
+  alter existing ``conf.py`` files in any way.
 
 Deprecation Notice
 ------------------
