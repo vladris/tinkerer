@@ -149,6 +149,14 @@ def make_read_more_link(body, docpath, docname):
 
 
 
+def collapse_path(path_url):
+    '''
+    Normalize relative path and patch protocol prefix and Windows path separator
+    '''
+    return path.normpath(path_url).replace("\\", "/").replace(":/", "://")
+
+
+
 def patch_node(node, docpath, docname=None):
     '''
     Recursively patches links in nodes.
@@ -161,7 +169,7 @@ def patch_node(node, docpath, docname=None):
         # if this is relative path (internal link)
         if src.value.startswith(".."):
             src.value = docpath + src.value
-        src.value = path.normpath(src.value).replace(":/", "://")
+        src.value = collapse_path(src.value)
     # if node is hyperlink
     elif node_name == "a":
         ref = node.getAttributeNode("href")
@@ -182,7 +190,7 @@ def patch_node(node, docpath, docname=None):
             # "_static/" - we can use normpath for this, just make sure
             # to revert change on protocol prefix as normpath deduplicates
             # // (http:// becomes http:/)
-            ref.value = path.normpath(ref.value).replace(":/", "://")
+            ref.value = collapse_path(ref.value)
 
     # recurse
     for node in node.childNodes:
