@@ -28,7 +28,7 @@ def create(title):
                         "drafts"), 
                     name + tinkerer.source_suffix)
 
-    writer.render("post.rst", path,
+    writer.render(paths.post_template, path,
             { "title"     : title,
               "content"   : "",
               "author"    : "default",

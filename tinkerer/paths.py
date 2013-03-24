@@ -23,6 +23,11 @@ themes = os.path.join(__package_path, "themes")
 static = os.path.join(__package_path, "static")
 
 
+# template names
+post_template = "post.rst"
+page_template = "page.rst"
+
+
 # add "./exts" path to os search path so Sphinx can pick up any extensions
 # from there
 sys.path.append(os.path.abspath("./_exts"))

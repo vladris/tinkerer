@@ -48,7 +48,7 @@ class Page():
         '''
         Writes the page template.
         '''
-        writer.render("page.rst", self.path,
+        writer.render(paths.page_template, self.path,
                 { "title": self.title,
                   "content": content })
 
