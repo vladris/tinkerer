@@ -247,7 +247,7 @@
           <header>
             <hgroup>
               <h1><a href="{{ pathto(pages[0][0]) }}">{{ shorttitle|e }}</a></h1>
-              <h2>{{ tagline|e }}</h2>
+              {%- if tagline -%}<h2>{{ tagline|e }}</h2>{%- endif -%}
             </hgroup>
           </header>
       {% endblock -%}
