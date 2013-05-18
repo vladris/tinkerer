@@ -186,8 +186,8 @@ def main(argv=None):
 
     command = parser.parse_args(argv)
 
-    # tinkerer should be run from the blog root unless in setup mode
-    if not command.setup and not os.path.exists(paths.conf_file):
+    # tinkerer should be run from the blog root unless in setup mode or -v
+    if not command.setup and not command.version and not os.path.exists(paths.conf_file):
         sys.stderr.write("Tinkerer must be run from your blog root "
                 "(directory containing 'conf.py')\n")
         return -1
