@@ -1,0 +1,685 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #000;
+}
+
+body {
+    background-color:white;
+    background-image: url('img/x.png');
+    background-repeat:repeat-x repeat-y;
+    background-attachment: scroll;
+    background-position: left top;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+div.topic {
+    border: 1px solid #ccc;
+    padding: 7px 7px 0 7px;
+    margin: 10px 0 10px 0;
+}
+
+div.postmeta {
+    margin-top: 20px;
+    font-style: italic;
+    padding-bottom: 24px;
+    font-size: 15px;
+}
+
+div.timestamp {
+    font-style: italic;
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+div.post_separator {
+    border-top: 1px dashed black;
+    width: 100%;
+}
+
+div.separator {
+    padding-bottom: 24px;
+}
+
+div.archive_link {
+    border-bottom: 1px dashed black;
+    border-top: 1px dashed black;
+    font-size: 120%;
+    margin-top: 24px;
+    margin-bottom: 15px;
+    padding: 24px 0;
+    text-align: center;
+}
+
+.archive_link a {
+    text-decoration: none;
+}
+
+.archive_link a:hover {
+    text-decoration: underline;
+}
+
+pre {
+    display: block;
+    white-space:pre-wrap;      /* CSS3 */
+    white-space:-moz-pre-wrap; /* Gecko */
+    white-space:-pre-wrap;     /* Opera 4-6 */
+    white-space:-o-pre-wrap;   /* Opera 7+ */
+    word-wrap:break-word;      /* IE 5.5+ */
+    padding:1px 5px 1px 5px;
+    margin-bottom: 1.33em;
+    border: 1px dashed #6e6e6e;
+    background: none repeat scroll 0 0 #202020;
+    color: #D0D0D0;
+    font-family: 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New';
+    font-size: 14px;
+    line-height: 16px;
+}
+
+pre span::-moz-selection,
+pre::-moz-selection {
+    background: #1919BC;
+    text-shadow: none;
+}
+
+pre span::selection,
+pre::selection {
+    background: #1919BC;
+    text-shadow: none;
+}
+
+.docutils, div.admonition p .docutils {
+    padding: 0 1px;
+    border: 1px dashed #ccc;
+    background-color: #eee;
+    font-family: 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New';
+    font-size: 15px;
+}
+
+a.reference span.xref {
+    padding: 0;
+    background-color:transparent;
+    border: 0px solid;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 17px;
+    line-height: 28px;
+}
+
+cite {
+
+}
+
+blockquote.pull-quote
+{
+    margin: 1em 1.3em;
+    color: #515151;
+    border-left: 3px solid #999;
+    padding-left: 1em;
+}
+
+blockquote.epigraph {
+    font-style: italic;
+}
+
+p.attribution, blockquote.epigraph div p {
+    margin: 0;
+}
+
+p.caption {
+  margin-top: 0;
+}
+
+p.rubric {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+div.note {
+    border: 1px solid #CCCCCC;
+    margin: 10px 0;
+    padding: 7px 7px 0;
+}
+
+div.topic {
+    background: none repeat scroll 0 0 #F8F8F8;
+}
+.warning tt {
+    background: none repeat scroll 0 0 #EFC2C2;
+}
+
+.note tt {
+    background: none repeat scroll 0 0 #D6D6D6;
+}
+
+div.figure img {
+    border: 0;
+    vertical-align: middle;
+    max-width: 90%;
+}
+
+img.align-left, .figure.align-left, object.align-left {
+    clear: left;
+    float: left;
+    margin-right: 1em;
+    max-width: 90%;
+}
+
+img.align-right, .figure.align-right, object.align-right {
+    clear: right;
+    float: right;
+    margin-left: 1em;
+    max-width: 90%;
+}
+
+img.align-center, .figure.align-center, object.align-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+a.readmore {
+    font-weight:bold;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+form input {
+    max-width: 80%;
+}
+
+dl, menu, ol, ul {
+    margin: 0.2em 0;
+}
+
+div.widget ul {
+    padding: 0 0 0 25px;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* -- admonitions ----------------------------------------------------------- */
+
+div.admonition {
+    background: #f8f8f8;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 7px;
+}
+
+div.admonition dt {
+    font-weight: bold;
+}
+
+div.admonition dl {
+    margin-bottom: 0;
+}
+
+p.admonition-title, p.topic-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0px 10px 5px 0px;
+}
+
+div.body p.centered {
+    text-align: center;
+    margin-top: 25px;
+}
+
+
+/* ===== Initializr Styles ==================================================
+   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+   ========================================================================== */
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+/* ===================
+    ALL: Orange Theme
+   =================== */
+
+.header-container {
+    border-bottom: 20px solid #222;
+}
+
+.footer-container,
+.main aside {
+    border-top: 20px solid #222;
+}
+
+.header-container,
+.footer-container,
+.main aside {
+    background: #000;
+}
+
+.title {
+    color: white;
+}
+
+.title h1, .title h2, .title .h3, .title h4 {
+  margin: 10px;
+}
+
+.title a {
+    color: white;
+    text-decoration: none;
+}
+
+.title a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============
+    MOBILE: Menu
+   ============== */
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px 0;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+
+    color: white;
+    background: #222;
+    overflow: hidden;
+}
+
+nav a:hover,
+nav a:visited {
+    color: white;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+article {
+    font-size: 16px;
+    line-height: 26px;
+}
+article a {
+    color: #000;
+}
+
+article a:hover {
+    text-decoration: none;
+}
+
+article .timestamp {
+    margin-bottom: -0.67em;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+.widget a {
+    color: #eee;
+    text-decoration: none;
+}
+
+.widget a:hover {
+    text-decoration: underline;
+}
+
+/* ==============
+    MOBILE: Main
+   ============== */
+
+.main {
+    padding: 30px 0;
+}
+
+.main article h1 {
+    font-size: 1.6em;
+    line-height: 1.4;
+}
+
+.main aside {
+    color: white;
+    padding: 0px 5% 10px;
+}
+
+.footer-container footer {
+    color: white;
+    padding: 20px 0;
+}
+
+/* ===============
+    ALL: IE Fixes
+   =============== */
+
+.ie7 .title {
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+ul.related li { list-style-type: none; text-align: center; }
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+
+    ul.related { margin: 0 0 8px 0; padding: 0; }
+    ul.related li { display: inline; }
+    ul.related li.right { float: right; }
+
+/* ====================
+    INTERMEDIATE: Menu
+   ==================== */
+
+    nav a {
+        float: left;
+        width: 27%;
+        height: 28px;
+        margin: 0 1.7%;
+        padding: 25px 2%;
+        margin-bottom: 0;
+        font-size: 15px;
+    }
+
+    nav.big_nav a {
+        padding: 25px 0;
+        width: 20%;
+    }
+
+    nav li:first-child a {
+        margin-left: 0;
+    }
+
+    nav li:last-child a {
+        margin-right: 0;
+    }
+
+/* ========================
+    INTERMEDIATE: IE Fixes
+   ======================== */
+
+    nav ul li {
+        display: inline;
+    }
+
+    .oldie nav a {
+        margin: 0 0.7%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+/* ====================
+    WIDE: CSS3 Effects
+   ==================== */
+
+    .header-container,
+    .main aside {
+        -webkit-box-shadow: 0 5px 10px #aaa;
+           -moz-box-shadow: 0 5px 10px #aaa;
+                box-shadow: 0 5px 10px #aaa;
+    }
+
+/* ============
+    WIDE: Menu
+   ============ */
+
+    .title {
+        float: left;
+    }
+
+    nav {
+        float: right;
+        width: 35%;
+    }
+
+    nav.big_nav a {
+        width: 22%;
+        padding: 25px 0;
+    }
+
+/* ============
+    WIDE: Main
+   ============ */
+
+    .main article {
+        float: left;
+        width: 60%;
+    }
+
+    .main aside {
+        float: right;
+        width: 25%;
+    }
+
+    form input {
+        max-width: 70%;
+    }
+}
+
+@media only screen and (min-width: 1140px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    .wrapper {
+        width: 1100px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    header.wrapper nav,
+    li.right, li.left,
+    aside.sidebar,
+    div.main article noscript,
+    .archive_link, #fork_me {
+        display:none;
+    }
+
+    .header-container {
+        border-bottom: 0;
+    }
+
+    .footer-container {
+        border-top: 0;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+
+    a[href]:after {
+        content: ""; /*" (" attr(href) ")";*/
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    blockquote {
+        border: 0;
+    }
+
+    pre {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

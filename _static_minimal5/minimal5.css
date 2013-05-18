@@ -1,0 +1,225 @@
+/*
+ * minimal5.css_t
+ * ~~~~~~~~~~~~~
+ *
+ * Stylesheet for minimal5 theme.
+ *
+ * :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+ * CONTRIBUTORS file)
+ * :license: FreeBSD, see LICENSE file
+ */
+
+/* General style */
+body {
+    background-color:white;
+    font-family: Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+    margin: auto;
+    max-width: 1000px;
+}
+
+a:link, a:visited, a:active {
+    color: #808080;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #cccccc;
+}
+
+h1 a:link, h1 a:visited, h1 a:active, h1 a:hover {
+    color: black;
+}
+
+a.readmore {
+  font-weight:bold;
+}
+
+/* Header */
+header {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 300%;
+    margin: 12px;
+}
+
+header h2 {
+    font-size: 110%;
+    font-style: italic;
+    margin: 0px;
+}
+
+/* Page navigation */
+nav {
+    background-color: black;
+    font-size: 125%;
+    font-weight: bold;
+    height: 2em;
+    line-height: 2em;
+    width: 100%;
+    top: 0;
+}
+
+nav a:link, nav a:visited, nav a:active, nav a:hover {
+    color: white;
+}
+
+nav ul, nav ol {
+    line-style: none;
+    list-style-image: none; 
+    margin: 0;
+    padding: 0 24px;
+}
+
+nav li {
+    display: inline;
+    padding: 0 24px;
+    text-align: center;
+    width: 100%;
+}
+
+li.quicklink { 
+    display: none; 
+}
+
+/* Content */
+div.admonition {
+    background: #f8f8f8;
+}
+
+/* Body */
+h1 {
+    margin-top: 0;
+}
+
+ul.related li { 
+    list-style-type: none; 
+    text-align: center;
+}
+
+article {
+    padding: 0 40px;
+}
+
+article li { 
+    line-height: 1.5em; 
+}
+
+/* Sidebar */
+aside {
+    font-size: 80%;
+}
+
+aside.sidebar {
+    padding: 0 40px;
+}
+
+/* Meta */
+div.postmeta {
+    margin-top: 40px;
+    font-style: italic;
+}
+
+div.timestamp {
+    font-style: italic;
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+
+/* Archive */
+span.title_tag, span.title_category {
+    font-style: italic;
+}
+
+div.year h1 {
+    float: left;
+    margin-right: -100%;
+    margin-top: 20px;
+}
+
+div.year ul {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+}
+
+div.year div.postmeta {
+    margin-left: 50%;
+    margin-top: 12px;
+}
+
+div.year div.timestamp {
+    float: left;
+    line-height: 1.5em;
+    margin-left: 27%;
+    margin-top: 0;
+    font-style: normal;
+    font-weight: bold;
+}
+
+div.year h2 {
+    margin-bottom: 0;
+    margin-left: 50%;
+    margin-top: 0;
+}
+
+/* Separators */
+div.post_separator {
+    width: 100%;
+    margin: 20px 0;
+    border-top: 1px dashed black;
+}
+
+div.year_separator {
+    width: 100%;
+    border-top: 1px dashed black;
+}
+
+/* Archive */
+div.archive_link {
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+    font-size: 120%;
+    margin-top: 24px;
+    padding: 24px 0;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Retina displays ========================================================= */
+@media screen and (-webkit-min-device-pixel-ratio: 2)
+{
+    /* Body ---------------------------------------------------------------- */
+    body {
+        font-size: 200%;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    /* Style adjustments for viewports 480px and over go here */
+    nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
+
+    ul.related { margin: 0 0 8px 0; padding: 0; }
+    ul.related li { display: inline; }
+    ul.related li.right { float: right; }
+}
+
+@media only screen and (min-width: 768px) {
+    /* Style adjustments for viewports 768px and over go here */
+    li.quicklink { display: inline; float: right; }
+}
+
+/* Minimal theme has narrower sidebar */
+@media only screen and (min-width: 999px) {
+    article { float: left; margin-right: 303px; width: 613px; }
+
+    aside { display: block; float: left; margin-left: -300px; width: 220px; }
+}
