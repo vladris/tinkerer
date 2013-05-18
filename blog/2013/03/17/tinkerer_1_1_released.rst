@@ -4,7 +4,7 @@ Tinkerer 1.1 Released
 What's New
 ----------
 
-* Tinkerer extension repository at `tinkerer-contrib <https://bitbucket.org/vladris/tinkerer-contrib>`_.
+* Tinkerer extension repository at `tinkerer-contrib <https://github.com/vladris/tinkerer-contrib>`_.
 * Improved extension mechanism and documentation
 * Easier to customize post and page templates for your blog
 * Improved HTML5 compliance

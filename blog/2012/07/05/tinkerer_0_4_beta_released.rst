@@ -7,9 +7,9 @@ What's New
 New HTML5 Themes
 ~~~~~~~~~~~~~~~~
 
-* *boilerplate* is a brand new theme based on 
+* *boilerplate* is a brand new theme based on
   `HTML5 Boilerplate <http://html5boilerplate.com>`_
-* *modern5* is a rewrite of the old *modern* theme based on the new 
+* *modern5* is a rewrite of the old *modern* theme based on the new
   *boilerplate* and including a lot more detail-work
 
 The old themes (*tinkerbase*, *modern* and *minimal*) are still around for
@@ -46,10 +46,10 @@ Acknowledgements
 ----------------
 
 Many thanks to everyone who helped out with suggestions, bug reports, patches
-and pull requests and special thanks to the people on the ever-growing 
+and pull requests and special thanks to the people on the ever-growing
 `contributors`_ list for their valuable contributions.
 
-.. _contributors: https://bitbucket.org/vladris/tinkerer/raw/tip/CONTRIBUTORS
+.. _contributors: https://raw.github.com/vladris/tinkerer/master/CONTRIBUTORS
 
 .. author:: default
 .. categories:: tinkerer
