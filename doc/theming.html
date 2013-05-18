@@ -1,0 +1,205 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Tinkerer is a Python blogging engine/static website generator powered by Sphinx">
+        <meta name="viewport" content="width=device-width">
+        <title>Theming &mdash; Tinkerer</title>
+            <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../_static/plugins.js"></script>
+        <script src="../_static/main.js"></script>
+        <link rel="next" title="Creating Custom Extensions" href="extensions.html" /><link rel="prev" title="Internals" href="internals.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName("article")[0];
+            var sidebar = document.getElementsByClassName("sidebar")[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                var mainwrapper = document.getElementsByClassName("main")[0];
+                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script>
+<style media="screen" type="text/css">
+    #fork_me { display: none; }
+
+    @media only screen and (min-width: 768px) {
+        #fork_me { display: inline; }
+    } 
+</style></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="quicklink"><div class="rss">
+        <a href="http://feeds.feedburner.com/tinkerer" title="Subscribe via RSS"><span class="webfont">B</span></a>
+    </div></li><li class="main-nav">
+                  <a href="../index.html">Home</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../pages/documentation.html">Documentation</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../pages/extensions.html">Extensions</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="internals.html">Internals</a></li>
+            <li class="right"><a href="extensions.html">Creating Custom Extensions</a> &raquo; </li>
+        </ul>
+    <div class="section" id="theming">
+<h1>Theming</h1>
+<p>Tinkerer comes with a base <em>boilerplate</em> theme. This is an unstyled theme based
+on HTML5 Boilerplate. Custom themes should inherit from it.</p>
+<p>The default Tinkerer theme is <em>modern5</em>, which is based on the <em>boilerplate</em>.</p>
+<p>Tinkerer also ships with <em>minimal5</em>, <em>responsive</em> and <em>dark</em> themes (preview
+on the sidebar).</p>
+<div class="section" id="add-a-custom-stylesheet">
+<h2>Add a custom stylesheet</h2>
+<p>Create your own <span class="docutils literal"><span class="pre">style.css</span></span> (filename is not important) and place it under
+the blog&#8217;s <span class="docutils literal"><span class="pre">_static</span></span> directory and create a new <span class="docutils literal"><span class="pre">page.html</span></span> file under
+your blog&#8217;s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the following content:</p>
+<div class="highlight-html"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
+
+{% set css_files = css_files + [&quot;_static/style.css&quot;] %}
+</pre></div>
+</div>
+<p>More information on extending templates can be found
+<a class="reference external" href="http://sphinx.pocoo.org/templating.html#css_files">here</a>.</p>
+<p>This will apply your stylesheet on top of the styles of the theme you are
+using. This way you can easily tweak an existing theme.</p>
+</div>
+<div class="section" id="create-your-own-theme">
+<h2>Create your own theme</h2>
+<p>Tinkerer uses Sphinx under the hood so its themes are also based on Jinja2 and
+somewhat similar to Sphinx, though due to the inherent differences between
+documentation and blogs, Sphinx themes are not fully compatible with Tinkerer.
+That said, you can still learn the basics from the Sphinx documentation on
+<a class="reference external" href="http://sphinx.pocoo.org/theming.html#creating-themes">Creating themes</a>.</p>
+<p>Place your new theme in a directory under <span class="docutils literal"><span class="pre">/_themes</span></span>. For example,
+<span class="docutils literal"><span class="pre">_themes/my_awesome_theme</span></span> directory relative to your blog root.</p>
+<p>Your theme should contain, at the least, a <span class="docutils literal"><span class="pre">theme.conf</span></span> file, as described by
+Sphinx documentation.</p>
+<p>You will probably also want to add at least a custom CSS file in its <span class="docutils literal"><span class="pre">static</span></span>
+subdirectory and maybe extend some boilerplate templates.</p>
+<p>To understand how this works, take a peek at the sources of other
+<a class="reference external" href="https://github.com/vladris/tinkerer/src/tip/tinkerer/themes">Tinkerer themes</a>.</p>
+</div>
+<div class="section" id="tinkerer-boilerplate-theme">
+<h2>Tinkerer boilerplate theme</h2>
+<p>Tinkerer boilerplate theme consist of the following templates:</p>
+<p><span class="docutils literal"><span class="pre">layout.html</span></span></p>
+<blockquote>
+<div>This is the most complex template and defines the general layout of a blog
+web page. It is a merge between the base Sphinx <span class="docutils literal"><span class="pre">layout.html</span></span> and an
+HTML5 Boilerplate page plus Tinkerer additions.</div></blockquote>
+<p><span class="docutils literal"><span class="pre">page.html</span></span></p>
+<blockquote>
+<div>This extends the <span class="docutils literal"><span class="pre">layout.html</span></span> template and represents a blog post or
+page (it is an extension of a Sphinx page).</div></blockquote>
+<p><span class="docutils literal"><span class="pre">aggregated.html</span></span></p>
+<blockquote>
+<div>This template represents a page containing multiple aggregated posts, for
+example the homepage of a blog and subsequent pages, each containing a
+number of posts.</div></blockquote>
+<p><span class="docutils literal"><span class="pre">archive.html</span></span></p>
+<blockquote>
+<div>The template represents a list of posts (just titles and metadata), like
+)he post archive or posts in a particular category, etc.</div></blockquote>
+<p><span class="docutils literal"><span class="pre">rss.html</span></span></p>
+<blockquote>
+<div>This is the template for the RSS feed (and should probably be left alone).</div></blockquote>
+<p><span class="docutils literal"><span class="pre">search.html</span></span></p>
+<blockquote>
+<div>Search results page (when using search box).</div></blockquote>
+<p>Besides these, there are also a number of sidebar widgets (<span class="docutils literal"><span class="pre">categories.html</span></span>,
+<span class="docutils literal"><span class="pre">tags.html</span></span>, <span class="docutils literal"><span class="pre">tags_cloud.html</span></span>, <span class="docutils literal"><span class="pre">recent.html</span></span>, <span class="docutils literal"><span class="pre">searchbox.html</span></span>).</p>
+<p>Boilerplate theme style is based on HTML5 boilerplate. You also get the awesome
+Web Symbols font included by default, which Tinkerer uses for its RSS symbol
+but which also contains a number of other popular symbols you can use.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><em>Tinkerer Reference</em></a>.</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        
+        
+        
+        </div>
+    <ul class="related clearfix">
+            <li class="left"> &laquo; <a href="internals.html">Internals</a></li>
+            <li class="right"><a href="extensions.html">Creating Custom Extensions</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+<h1>On This Page</h1>
+<p><ul>
+<li><a class="reference internal" href="#">Theming</a><ul>
+<li><a class="reference internal" href="#add-a-custom-stylesheet">Add a custom stylesheet</a></li>
+<li><a class="reference internal" href="#create-your-own-theme">Create your own theme</a></li>
+<li><a class="reference internal" href="#tinkerer-boilerplate-theme">Tinkerer boilerplate theme</a></li>
+</ul>
+</li>
+</ul>
+</p><h1>Previous Topic</h1>
+<p><a href="internals.html">Internals</a></p><h1>Next Topic</h1>
+<p><a href="extensions.html">Creating Custom Extensions</a></p></div></section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2011-2013, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+    <a id="fork_me" href="http://github.com/vladris/tinkerer">
+        <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
+    </a></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "tinkerer";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

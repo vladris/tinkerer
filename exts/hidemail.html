@@ -1,0 +1,196 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Tinkerer is a Python blogging engine/static website generator powered by Sphinx">
+        <meta name="viewport" content="width=device-width">
+        <title>Hide Email Addresses From Spam Bots &mdash; Tinkerer</title>
+            <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../_static/plugins.js"></script>
+        <script src="../_static/main.js"></script>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName("article")[0];
+            var sidebar = document.getElementsByClassName("sidebar")[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                var mainwrapper = document.getElementsByClassName("main")[0];
+                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script>
+<style media="screen" type="text/css">
+    #fork_me { display: none; }
+
+    @media only screen and (min-width: 768px) {
+        #fork_me { display: inline; }
+    } 
+</style></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="quicklink"><div class="rss">
+        <a href="http://feeds.feedburner.com/tinkerer" title="Subscribe via RSS"><span class="webfont">B</span></a>
+    </div></li><li class="main-nav">
+                  <a href="../index.html">Home</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../pages/documentation.html">Documentation</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../pages/extensions.html">Extensions</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article>
+    <div class="section" id="hide-email-addresses-from-spam-bots">
+<h1>Hide Email Addresses From Spam Bots</h1>
+<p>Tinkerer has a simple built in mechanism to hide your email address from spambots
+by generating an obfuscated email address which than gets decrypted in the browser
+with the help of a little bit JavaScript.</p>
+<p>To insert an email address just use:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span class="na">:email:</span><span class="nv">`tinkerer-dev &lt;tinkerer-dev@googlegroups.com&gt;`</span>
+</pre></div>
+</div>
+<p><noscript>(Javascript must be enabled to see this e-mail address)</noscript>
+              <script type="text/javascript">
+              <!--
+                  document.write("<n uers=\"znvygb:gvaxrere-qri\100tbbtyrtebhcf\056pbz\">gvaxrere-qri <\057n>".replace(/[a-zA-Z]/g,
+                  function(c){
+                    return String.fromCharCode(
+                    (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
+              -->
+              </script></p>
+<p>The encrypted html looks like this:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;noscript&gt;</span>(Javascript must be enabled to see this e-mail address)<span class="nt">&lt;/noscript&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span>
+<span class="s2">&quot;&lt;n uers=\&quot;znvygb:gvaxrere-qri\100tbbtyrtebhcf\056pbz\&quot;&gt;gvaxrere-qri &lt;\057n&gt;&quot;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[a-zA-Z]/g</span><span class="p">,</span>
+<span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">){</span>
+<span class="k">return</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span>
+<span class="p">(</span><span class="nx">c</span><span class="o">&lt;=</span><span class="s2">&quot;Z&quot;</span><span class="o">?</span><span class="mi">90</span><span class="o">:</span><span class="mi">122</span><span class="p">)</span><span class="o">&gt;=</span><span class="p">(</span><span class="nx">c</span><span class="o">=</span><span class="nx">c</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="mi">13</span><span class="p">)</span><span class="o">?</span><span class="nx">c</span><span class="o">:</span><span class="nx">c</span><span class="o">-</span><span class="mi">26</span><span class="p">);}));</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+</div>
+<p>If the user has JavaScript disabled he will see this:</p>
+<div class="highlight-html"><div class="highlight"><pre>(Javascript must be enabled to see this e-mail address)
+</pre></div>
+</div>
+</div>
+
+    <div class="postmeta">
+        
+        
+        
+        </div>
+    </article><aside class="sidebar"><section><div class="widget">
+    <h1>Recent Posts</h1>
+    <ul><li>
+            <a href="../2013/03/17/tinkerer_1_1_released.html">Tinkerer 1.1 Released</a>
+        </li><li>
+            <a href="../2012/12/16/tinkerer_1_0_released.html">Tinkerer 1.0 Released</a>
+        </li><li>
+            <a href="../2012/11/13/tinkerer_private_blogs.html">Tinkerer Private Blogs</a>
+        </li><li>
+            <a href="../2012/07/05/tinkerer_0_4_beta_released.html">Tinkerer 0.4 Beta Released</a>
+        </li><li>
+            <a href="../2012/02/09/tinkerer_beta_0_3_released.html">Tinkerer 0.3 Beta Released</a>
+        </li><li>
+            <a href="../2011/12/19/tinkerer_0_2_beta_released.html">Tinkerer 0.2 Beta Released</a>
+        </li><li>
+            <a href="../2011/12/13/tinkerer_0_1_beta_is_out_.html">Tinkerer 0.1 Beta is Out!</a>
+        </li></ul>
+</div>
+</section><section><div class="widget">
+    <h1>How to Tinker?</h1>
+    <p>Get Tinkerer:</p>
+    <div class="highligh-bash">
+        <div class="highlight">
+            <pre>easy_install -U Tinkerer</pre>
+        </div>
+    </div>
+    <p>Skim through the <a href="http://tinkerer.me/pages/documentation.html">Documentation</a>.</p>
+</div></section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section><section><div class="widget">
+<h1>Sphinx Documentation</h1>
+<p>
+Tinkerer is powered by Sphinx so a lot of useful information can be found on
+the <a href="http://sphinx.pocoo.org">Sphinx webiste</a>.
+</p>
+</div></section><section><div class="widget">
+<h1>Get Involved</h1>
+<p>Have a question? Have an answer? Join the <a href="http://groups.google.com/group/tinkerer-dev">google group</a>.</p>
+<p>Found an issue? Report it on the <a href="https://github.com/vladris/tinkerer/issues/new">issue tracker</a>.</p>
+<p>Also please consider contributing your themes and extensions. Patches are also welcomed :)</p>
+<p>You can also <a href="http://github.com/vladris/tinkerer/">follow Tinkerer on GitHub.</a></p>
+</div></section><section><div class="widget">
+<h1>Preview Another Theme</h1>
+
+<ul>
+<li><a href="/index_minimal5.html">minimal5</a></li>
+<li><a href="/index_responsive.html">responsive</a></li>
+<li><a href="/index_dark.html">dark</a></li>
+<li><a href="/index.html">modern5</a></li>
+</ul>
+
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2011-2013, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+    <a id="fork_me" href="http://github.com/vladris/tinkerer">
+        <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
+    </a></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "tinkerer";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

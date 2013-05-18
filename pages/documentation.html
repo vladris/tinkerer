@@ -1,0 +1,271 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Tinkerer is a Python blogging engine/static website generator powered by Sphinx">
+        <meta name="viewport" content="width=device-width">
+        <title>Documentation &mdash; Tinkerer</title>
+            <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../_static/webfont.css" type="text/css">
+        <link rel="shortcut icon" href="../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../_static/plugins.js"></script>
+        <script src="../_static/main.js"></script>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Adjusts document height if sidebar is taller
+            var documentwrapper = document.getElementsByTagName("article")[0];
+            var sidebar = document.getElementsByClassName("sidebar")[0];
+
+            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
+            {
+                var mainwrapper = document.getElementsByClassName("main")[0];
+                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
+            }
+
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script>
+<style media="screen" type="text/css">
+    #fork_me { display: none; }
+
+    @media only screen and (min-width: 768px) {
+        #fork_me { display: inline; }
+    } 
+</style></head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header>
+            <hgroup>
+              <h1><a href="../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
+          </header>
+      <nav>
+            <ul><li class="quicklink"><div class="rss">
+        <a href="http://feeds.feedburner.com/tinkerer" title="Subscribe via RSS"><span class="webfont">B</span></a>
+    </div></li><li class="main-nav">
+                  <a href="../index.html">Home</a>
+                </li>
+              <li class="main-nav">
+                  <a href="#">Documentation</a>
+                </li>
+              <li class="main-nav">
+                  <a href="extensions.html">Extensions</a>
+                </li>
+              </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article>
+    <div class="section" id="documentation">
+<h1>Documentation</h1>
+<div class="section" id="getting-started">
+<h2>Getting Started</h2>
+<div class="section" id="setup">
+<h3>Setup</h3>
+<p>After you installed the Tinkerer package, create your blog directory and cd
+into it:</p>
+<div class="highlight-bash"><div class="highlight"><pre>mkdir myblog
+<span class="nb">cd </span>myblog
+</pre></div>
+</div>
+<p>Run Tinkerer setup:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --setup
+</pre></div>
+</div>
+<p>There is some minimal configuration required in <span class="docutils literal"><span class="pre">conf.py</span></span>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Change this to the name of your blog</span>
+<span class="n">project</span> <span class="o">=</span> <span class="s">&#39;My blog&#39;</span>
+
+<span class="c"># Change this to the tagline of your blog</span>
+<span class="n">tagline</span> <span class="o">=</span> <span class="s">&#39;Add intelligent tagline here&#39;</span>
+
+<span class="c"># Change this to the description of your blog</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s">&#39;This is an awesome blog&#39;</span>
+
+<span class="c"># Change this to your name</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s">&#39;Winston Smith&#39;</span>
+
+<span class="c"># Change this to your copyright string</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="s">&#39;1984, &#39;</span> <span class="o">+</span> <span class="n">author</span>
+
+<span class="c"># Change this to your blog root URL (required for RSS feed)</span>
+<span class="n">website</span> <span class="o">=</span> <span class="s">&#39;http://127.0.0.1/blog/html/&#39;</span>
+</pre></div>
+</div>
+<p><strong>project</strong></p>
+<blockquote>
+<div>This will be the name of your blog.</div></blockquote>
+<p><strong>tagline</strong></p>
+<blockquote>
+<div>The tagline is displayed right after the name of the blog and as the blog
+description in the RSS feed.</div></blockquote>
+<p><strong>description</strong></p>
+<blockquote>
+<div>This will be added to the <span class="docutils literal"><span class="pre">description</span></span> meta tag of your blog pages and
+will be consumed by search engines crawling your blog.</div></blockquote>
+<p><strong>author</strong></p>
+<blockquote>
+<div>Your name.</div></blockquote>
+<p><strong>copyright</strong></p>
+<blockquote>
+<div>The copyright string is displayed at the bottom of each page.</div></blockquote>
+<p><strong>website</strong></p>
+<blockquote>
+<div>The RSS feed requires the address of the website to properly link articles.</div></blockquote>
+</div>
+<div class="section" id="create-a-post">
+<h3>Create a post</h3>
+<p>From your blog root directory, call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --post <span class="s1">&#39;Hello World!&#39;</span>
+</pre></div>
+</div>
+<p>Tinkerer will let you know where the file was created. You can edit it right
+away, using reStructuredText! Read more about <a class="reference internal" href="../doc/tinkering.html#posts"><em>Posts</em></a>.</p>
+</div>
+<div class="section" id="create-a-page">
+<h3>Create a page</h3>
+<p>Create an <em>About</em> page to tell your readers about yourself. From your blog
+root directory, call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --page <span class="s1">&#39;About&#39;</span>
+</pre></div>
+</div>
+<p>Tinkerer will let you know where the file was created. Read more about
+<a class="reference internal" href="../doc/tinkering.html#pages"><em>Pages</em></a>.</p>
+</div>
+<div class="section" id="build-your-blog">
+<h3>Build your blog</h3>
+<p>From your blog root directory call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --build
+</pre></div>
+</div>
+<p>Open the <span class="docutils literal"><span class="pre">index.html</span></span> file in your blog&#8217;s root to preview your blog. Read
+more about <a class="reference internal" href="../doc/tinkering.html#build"><em>Build</em></a>.</p>
+</div>
+</div>
+<div class="section" id="tinkerer-reference">
+<span id="id1"></span><h2>Tinkerer Reference</h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../doc/tinkering.html">Tinkering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc/tinkering.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/tinkering.html#posts">Posts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/tinkering.html#pages">Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/tinkering.html#drafts">Drafts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/tinkering.html#build">Build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/more_tinkering.html">More Tinkering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc/more_tinkering.html#enabling-disqus-comments">Enabling Disqus Comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/more_tinkering.html#enabling-google-analytics">Enabling Google Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/more_tinkering.html#localization">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/more_tinkering.html#rss">RSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/more_tinkering.html#favicon">Favicon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/more_tinkering.html#sidebar">Sidebar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/deploying.html">Deploying</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc/deploying.html#hosting-on-bitbucket">Hosting on Bitbucket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/deploying.html#copying-extra-files-to-the-html-output-directory">Copying extra files to the html output directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/deploying.html#creating-custom-404-and-403-error-pages">Creating custom 404 and 403 error pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/deploying.html#adding-custom-analytics-code">Adding custom analytics code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/command_line.html">Command Line Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc/command_line.html#optional-flags">Optional Flags</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/internals.html">Internals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc/internals.html#the-master-document">The master document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/internals.html#posts">Posts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/internals.html#pages">Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/internals.html#drafts">Drafts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/internals.html#other-documents">Other documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/theming.html">Theming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#add-a-custom-stylesheet">Add a custom stylesheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#create-your-own-theme">Create your own theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#tinkerer-boilerplate-theme">Tinkerer boilerplate theme</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/extensions.html">Creating Custom Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc/extensions.html#context">Context</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        
+        
+        
+        </div>
+    </article><aside class="sidebar"><section><div class="widget">
+<h1>On This Page</h1>
+<p><ul>
+<li><a class="reference internal" href="#">Documentation</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#create-a-post">Create a post</a></li>
+<li><a class="reference internal" href="#create-a-page">Create a page</a></li>
+<li><a class="reference internal" href="#build-your-blog">Build your blog</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tinkerer-reference">Tinkerer Reference</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p></div></section><section><div class="widget" id="searchbox">
+    <h1>Search</h1>
+    <form action="../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="webfont">L</span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2011-2013, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+    <a id="fork_me" href="http://github.com/vladris/tinkerer">
+        <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
+    </a></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "tinkerer";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>
