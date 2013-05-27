@@ -45,6 +45,9 @@ html_theme_options = { }
 # linked directly
 rss_service = None
 
+# Generate full posts (without "read more" link) for RSS feed
+rss_generate_full_posts = False
+
 # Number of blog posts per page
 posts_per_page = 10
 
