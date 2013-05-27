@@ -17,7 +17,7 @@ extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'hidemail']
 templates_path = ['_templates']
 html_static_path = ['_static', tinkerer.paths.static]
 html_theme_path = [tinkerer.paths.themes]                 
-exclude_patterns = []                                     
+exclude_patterns = ["drafts/*", "_templates/*"]
 html_sidebars = {
     '**': ['recent.html', 
            'get_tinkerer.html', 
