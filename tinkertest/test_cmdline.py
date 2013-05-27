@@ -9,6 +9,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
+import logging
 import os
 import tinkerer
 from tinkerer import cmdline, paths, post
@@ -17,6 +18,18 @@ from tinkertest import utils
 
 # test tinkerer command line
 class TestCmdLine(utils.BaseTinkererTest):
+    # these tests cause lots of output, disable logging while they are running
+    def setUp(self):
+        logging.disable(logging.CRITICAL)
+        utils.setup()
+
+
+    # re-enable logging
+    def tearDown(self):
+        logging.disable(logging.NOTSET)
+        utils.cleanup()
+
+
     # test blog setup
     def test_setup(self):
         # blog is setup as part of test setup, tear it down and re-create it via

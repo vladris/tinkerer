@@ -18,31 +18,29 @@ from datetime import datetime
 import os
 import shutil
 import sphinx
-import sys
 import tinkerer
-from tinkerer import draft, page, paths, post, writer
+from tinkerer import draft, output, page, paths, post, writer
+from output import write, filename
 
 
 
-def setup(quiet=False, filename_only=False):
+def setup():
     '''
     Sets up a new blog in the current directory.
     '''
     # it is a new blog if conf.py doesn't already exist
     new_blog = writer.setup_blog()
 
-    if filename_only:
-        print("conf.py")
-    elif not quiet:
-        if new_blog:
-            print("Your new blog is almost ready!")
-            print("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
-        else:
-            print("Done")
+    filename.info("conf.py")
+    if new_blog:
+        write.info("Your new blog is almost ready!")
+        write.info("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
+    else:
+        write.info("Done")
 
 
 
-def build(quiet=False, filename_only=False):
+def build():
     '''
     Runs a clean Sphinx build of the blog.
     '''
@@ -52,13 +50,12 @@ def build(quiet=False, filename_only=False):
 
     flags = ["sphinx-build"]
     # silence Sphinx if in quiet mode
-    if quiet or filename_only:
+    if output.quiet:
         flags.append("-q")
     flags += ["-d", paths.doctree, "-b", "html", paths.root, paths.html]
 
     # build always prints "index.html"
-    if filename_only:
-        print("index.html")
+    filename.info("index.html")
 
     # copy some extra files to the output directory
     if os.path.exists("_copy"):
@@ -68,7 +65,7 @@ def build(quiet=False, filename_only=False):
 
 
 
-def create_post(title, date=None, quiet=False, filename_only=False):
+def create_post(title, date=None):
     '''
     Creates a new post with the given title or makes an existing file a post.
     '''
@@ -79,17 +76,15 @@ def create_post(title, date=None, quiet=False, filename_only=False):
     else:
         new_post = post.create(title, date)
 
-    if filename_only:
-        print(new_post.path)
-    elif not quiet:
-        if move:
-            print("Draft moved to post '%s'" % new_post.path)
-        else:
-            print("New post created as '%s'" % new_post.path)
+    filename.info(new_post.path)
+    if move:
+        write.info("Draft moved to post '%s'" % new_post.path)
+    else:
+        write.info("New post created as '%s'" % new_post.path)
 
 
 
-def create_page(title, quiet=False, filename_only=False):
+def create_page(title):
     '''
     Creates a new page with the given title or makes an existing file a page.
     '''
@@ -100,17 +95,15 @@ def create_page(title, quiet=False, filename_only=False):
     else:
         new_page = page.create(title)
 
-    if filename_only:
-        print(new_page.path)
-    elif not quiet:
-        if move:
-            print("Draft moved to page '%s'" % new_page.path)
-        else:
-            print("New page created as '%s'" % new_page.path)
+    filename.info(new_page.path)
+    if move:
+        write.info("Draft moved to page '%s'" % new_page.path)
+    else:
+        write.info("New page created as '%s'" % new_page.path)
 
 
 
-def create_draft(title, quiet=False, filename_only=False):
+def create_draft(title):
     '''
     Creates a new draft with the given title or makes an existing file a draft.
     '''
@@ -121,17 +114,15 @@ def create_draft(title, quiet=False, filename_only=False):
     else:
         new_draft = draft.create(title)
 
-    if filename_only:
-        print(new_draft)
-    elif not quiet:
-        if move:
-            print("File moved to draft '%s'" % new_draft)
-        else:
-            print("New draft created as '%s'" % new_draft)
+    filename.info(new_draft)
+    if move:
+        write.info("File moved to draft '%s'" % new_draft)
+    else:
+        write.info("New draft created as '%s'" % new_draft)
 
 
 
-def preview_draft(draft_file, quiet=False, filename_only=False):
+def preview_draft(draft_file):
     '''
     Rebuilds the blog, including the given draft.
     '''
@@ -143,7 +134,7 @@ def preview_draft(draft_file, quiet=False, filename_only=False):
 
     try:
         # rebuild
-        result = build(quiet, filename_only)
+        result = build()
     finally:
         # demote post back to draft
         draft.move(preview_post.path)
@@ -172,7 +163,7 @@ def main(argv=None):
     group.add_argument("--preview", nargs=1,
             help="rebuilds the blog, including the draft PREVIEW, without permanently "
                  "promoting the draft to a post")
-    group.add_argument("-v", "--version", action="store_true", 
+    group.add_argument("-v", "--version", action="store_true",
             help="display version information")
 
     parser.add_argument("--date", nargs=1,
@@ -186,39 +177,41 @@ def main(argv=None):
 
     command = parser.parse_args(argv)
 
+    output.init(command.quiet, command.filename)
+
     # tinkerer should be run from the blog root unless in setup mode or -v
     if not command.setup and not command.version and not os.path.exists(paths.conf_file):
-        sys.stderr.write("Tinkerer must be run from your blog root "
-                "(directory containing 'conf.py')\n")
+        write.error("Tinkerer must be run from your blog root "
+                    "(directory containing 'conf.py')")
         return -1
 
     post_date = None
     if command.date:
         # --date only works with --post
         if not command.post:
-            sys.stderr.write("Can only use --date with -p/--post.\n")
+            write.error("Can only use --date with -p/--post.")
             return -1
 
         try:
             post_date = datetime.strptime(command.date[0], "%Y/%m/%d")
         except:
-            sys.stderr.write("Invalid post date: format should be YYYY/mm/dd\n")
+            write.error("Invalid post date: format should be YYYY/mm/dd")
             return -1
 
     if command.setup:
-        setup(command.quiet, command.filename)
+        setup()
     elif command.build:
-        return build(command.quiet, command.filename)
+        return build()
     elif command.post:
-        create_post(command.post[0], post_date, command.quiet, command.filename)
+        create_post(command.post[0], post_date)
     elif command.page:
-        create_page(command.page[0], command.quiet, command.filename)
+        create_page(command.page[0])
     elif command.draft:
-        create_draft(command.draft[0], command.quiet, command.filename)
+        create_draft(command.draft[0])
     elif command.preview:
-        preview_draft(command.preview[0], command.quiet, command.filename)
+        preview_draft(command.preview[0])
     elif command.version:
-        print("Tinkerer version %s" % tinkerer.__version__)
+        write.info("Tinkerer version %s" % tinkerer.__version__)
     else:
         parser.print_help()
 

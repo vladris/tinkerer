@@ -12,7 +12,7 @@ import datetime
 import os
 import shutil
 import sys
-from tinkerer import cmdline, page, paths, post, writer
+from tinkerer import cmdline, output, page, paths, post, writer
 import types
 import unittest
 
@@ -29,13 +29,14 @@ test = None
 class BaseTinkererTest(unittest.TestCase):
     # common setup
     def setUp(self):
+        output.quiet = True
         setup()
 
 
     # invoke build
     def build(self):
         print("")
-        self.assertEquals(0, cmdline.build(quiet=True))
+        self.assertEquals(0, cmdline.build())
 
 
     # common teardown - cleanup working directory
@@ -81,12 +82,12 @@ def build_theme(use_theme):
     page.create("Second page").write()
 
     # build
-    cmdline.build(quiet=True)
+    cmdline.build()
 
 
 # benchmark build
 def benchmark(post_count, iterations):
-    print("Running benchmark with %d posts, %d iterations" % 
+    print("Running benchmark with %d posts, %d iterations" %
             (post_count, iterations))
 
     times = []
@@ -107,7 +108,7 @@ def benchmark(post_count, iterations):
         print("Iteration %d..." % i)
 
         start = datetime.datetime.now()
-        cmdline.build(quiet=True)
+        cmdline.build()
         times.append(datetime.datetime.now() - start)
 
         print(times[-1])
