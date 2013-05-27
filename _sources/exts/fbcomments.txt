@@ -43,6 +43,9 @@ following content::
 Make sure to replace ``$(YOUR_FACEBOOK_USER_ID)`` above with the appropriate
 ID.
 
+You will also have to copy the ``fb.js`` file supplied with this extension to
+your blog's ``_static`` directory.
+
 App Admin
 ---------
 

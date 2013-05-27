@@ -93,7 +93,23 @@
     <div class="section" id="deploying">
 <h1>Deploying</h1>
 <p>Tinkerer generates a static website under <span class="docutils literal"><span class="pre">blog/html</span></span>. The files can be
-uploaded anywhere. An option is to host your blog on <a class="reference external" href="http://www.bitbucket.org">Bitbucket</a>.</p>
+uploaded anywhere. A couple of options are <a class="reference external" href="pages.github.com">GitHub Pages</a>
+and <a class="reference external" href="http://www.bitbucket.org">Bitbucket</a>.</p>
+<div class="section" id="hosting-on-github">
+<h2>Hosting on GitHub</h2>
+<p>Create a repository named <span class="docutils literal"><span class="pre">$(USERNAME).github.io</span></span> where <span class="docutils literal"><span class="pre">$(USERNAME)</span></span> is
+your GitHub username, for example <span class="docutils literal"><span class="pre">johndoe.github.io</span></span>. If you create such a
+repository, when accessing <span class="docutils literal"><span class="pre">http://johndoe.github.io</span></span>, GitHub will
+automatically server the <span class="docutils literal"><span class="pre">index.html</span></span> found under the root of the repository.</p>
+<p>You can also easily create websites for individual projects, by creating a
+<span class="docutils literal"><span class="pre">gh-pages</span></span> branch and placing the blog there. More information on GitHub
+<a class="reference external" href="https://help.github.com/categories/20/articles">here</a>.</p>
+<p>Please note that you must create an empty <span class="docutils literal"><span class="pre">.nojekyll</span></span> file in the project
+root. By default, GitHub Pages runs Jekyll on the files (not needed for
+Tinkerer), unless <span class="docutils literal"><span class="pre">.nojekyll</span></span> is present. This causes some issues as Jekyll
+ignores files and folders which start with an underscore, like Tinkerer static
+folder (<span class="docutils literal"><span class="pre">_static</span></span>).</p>
+</div>
 <div class="section" id="hosting-on-bitbucket">
 <h2>Hosting on Bitbucket</h2>
 <p>Create a repository named <span class="docutils literal"><span class="pre">$(USERNAME).bitbucket.org</span></span> where <span class="docutils literal"><span class="pre">$(USERNAME)</span></span>
@@ -103,7 +119,11 @@ Bitbucket will automatically serve the <span class="docutils literal"><span clas
 the repository. The repository name <strong>must</strong> include <span class="docutils literal"><span class="pre">.bitbucket.org</span></span>, so in
 the example above the actual repository URL would be
 <span class="docutils literal"><span class="pre">http://bitbucket.org/johndoe/johndoe.bitbucket.org/</span></span>.</p>
-<p>You have two options:</p>
+</div>
+<div class="section" id="deployment-options">
+<h2>Deployment options</h2>
+<p>You have two options: you can either deploy only the built html or you can
+deploy everything, including sources, <span class="docutils literal"><span class="pre">conf.py</span></span>, html etc.</p>
 <div class="section" id="upload-html-only">
 <h3>Upload HTML only</h3>
 <p>Commit the content of your blog&#8217;s <span class="docutils literal"><span class="pre">blog/html</span></span> directory to the repository.
@@ -227,7 +247,9 @@ you can add custom JavaScript code by placing an file named <span class="docutil
 <h1>On This Page</h1>
 <p><ul>
 <li><a class="reference internal" href="#">Deploying</a><ul>
-<li><a class="reference internal" href="#hosting-on-bitbucket">Hosting on Bitbucket</a><ul>
+<li><a class="reference internal" href="#hosting-on-github">Hosting on GitHub</a></li>
+<li><a class="reference internal" href="#hosting-on-bitbucket">Hosting on Bitbucket</a></li>
+<li><a class="reference internal" href="#deployment-options">Deployment options</a><ul>
 <li><a class="reference internal" href="#upload-html-only">Upload HTML only</a></li>
 <li><a class="reference internal" href="#upload-both-html-and-sources">Upload both HTML and sources</a></li>
 </ul>
