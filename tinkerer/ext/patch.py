@@ -96,7 +96,7 @@ def patch_aggregated_metadata(context):
 
 
 
-def patch_links(body, docpath, docname=None, link_title=False):
+def patch_links(body, docpath, docname=None, link_title=False, replace_read_more_link=True):
     '''
     Parses the document body and calls patch_node from the document root
     to fix hyperlinks. Also hyperlinks document title. Returns resulting
@@ -107,7 +107,7 @@ def patch_links(body, docpath, docname=None, link_title=False):
     patch_node(doc, docpath, docname)
 
     body = doc.toxml()
-    if docname:
+    if docname and replace_read_more_link:
         body = make_read_more_link(body, docpath, docname)
 
     if link_title:
