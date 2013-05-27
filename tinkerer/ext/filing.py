@@ -35,6 +35,10 @@ def create_filing_directive(name):
                 if item == "none":
                     continue
 
+                if not item:
+                    env.warn(env.docname, "Empty string in '%s' directive" % (name,))
+                    continue
+
                 if item not in env.filing[name]:
                     env.filing[name][item] = []
                 env.filing[name][item].append(env.docname)
