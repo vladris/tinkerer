@@ -18,6 +18,10 @@
 {%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and
                          (sidebars != []) -%}
 {%- set url_root = pathto('', 1) -%} {#- link to root url (like: '#', '../../') #}
+{%- if url_root == '#' -%}
+    {%- set url_root = '' -%}
+{%- endif -%}
+
 {%- if not embedded and docstitle -%}
   {%- set titlesuffix = " &mdash; "|safe + docstitle|e -%}
 {%- else -%}

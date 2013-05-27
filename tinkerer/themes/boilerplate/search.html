@@ -48,9 +48,7 @@
     <ul>
     {%- for href, caption, context in search_results -%}
       <li><a href="{{ pathto(item.href) }}">{{ caption }}</a>
-{#- Temporary disabled as context is broken. 
         <div class="context">{{ context|e }}</div>
--#}
       </li>
     {%- endfor -%}
     </ul>
