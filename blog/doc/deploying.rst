@@ -1,22 +1,44 @@
 Deploying
 =========
 
-Tinkerer generates a static website under ``blog/html``. The files can be 
-uploaded anywhere. An option is to host your blog on `Bitbucket 
-<http://www.bitbucket.org>`_.
+Tinkerer generates a static website under ``blog/html``. The files can be
+uploaded anywhere. A couple of options are `GitHub Pages <pages.github.com>`_
+and `Bitbucket <http://www.bitbucket.org>`_.
+
+Hosting on GitHub
+-----------------
+
+Create a repository named ``$(USERNAME).github.io`` where ``$(USERNAME)`` is
+your GitHub username, for example ``johndoe.github.io``. If you create such a
+repository, when accessing ``http://johndoe.github.io``, GitHub will
+automatically server the ``index.html`` found under the root of the repository.
+
+You can also easily create websites for individual projects, by creating a
+``gh-pages`` branch and placing the blog there. More information on GitHub
+`here <https://help.github.com/categories/20/articles>`_.
+
+Please note that you must create an empty ``.nojekyll`` file in the project
+root. By default, GitHub Pages runs Jekyll on the files (not needed for
+Tinkerer), unless ``.nojekyll`` is present. This causes some issues as Jekyll
+ignores files and folders which start with an underscore, like Tinkerer static
+folder (``_static``).
 
 Hosting on Bitbucket
 --------------------
 
 Create a repository named ``$(USERNAME).bitbucket.org`` where ``$(USERNAME)``
 is your Bitbucket username, for example ``johndoe.bitbucket.org``. If you
-create such a repository, when accessing ``http://johndoe.bitbucket.org``, 
+create such a repository, when accessing ``http://johndoe.bitbucket.org``,
 Bitbucket will automatically serve the ``index.html`` found under the root of
-the repository. The repository name **must** include ``.bitbucket.org``, so in 
+the repository. The repository name **must** include ``.bitbucket.org``, so in
 the example above the actual repository URL would be
 ``http://bitbucket.org/johndoe/johndoe.bitbucket.org/``.
 
-You have two options:
+Deployment options
+------------------
+
+You have two options: you can either deploy only the built html or you can
+deploy everything, including sources, ``conf.py``, html etc.
 
 Upload HTML only
 ~~~~~~~~~~~~~~~~
@@ -33,14 +55,14 @@ Upload both HTML and sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Commit your whole blog to the repository, including files in the root directory
-and source. Tinkerer generates an ``index.html`` file in the blog's root which 
+and source. Tinkerer generates an ``index.html`` file in the blog's root which
 redirects to ``blog/html/index.html`` to enable this scenario.
 
 .. note::
     Make sure to update the ``website`` variable in ``conf.py`` to
-    ``http://johndoe.bitbucket.org/blog/html/`` so the RSS feed can properly 
-    link your posts. Note the trailing ``blog/html`` - the website variable 
-    must point to the root of your blog's *build* directory, not root 
+    ``http://johndoe.bitbucket.org/blog/html/`` so the RSS feed can properly
+    link your posts. Note the trailing ``blog/html`` - the website variable
+    must point to the root of your blog's *build* directory, not root
     directory.
 
 Copying extra files to the html output directory
@@ -72,8 +94,8 @@ Add an file ``404.rst`` to the document root:
   The URL you requested was not found.
   ====================================
 
-  .. comments:: 
-  
+  .. comments::
+
   Your own text.
 
 Add an file ``403.rst`` to the document root:
@@ -83,10 +105,10 @@ Add an file ``403.rst`` to the document root:
   403 Permission Denied
   =====================
 
-  .. comments:: 
-  
+  .. comments::
+
   Your own text.
-  
+
 And add these two pages to the ``master.rst`` file:
 
 .. code-block:: rst
@@ -96,16 +118,16 @@ And add these two pages to the ``master.rst`` file:
 
   .. toctree::
     :hidden:
-    
+
     404.rst
     403.rst
-    
+
   .. toctree::
     :maxdepth: 1
 
     2012/04/21/a_blog_post
     pages/about
-    
+
 Adding custom analytics code
 ----------------------------
 
@@ -121,7 +143,7 @@ you can add custom JavaScript code by placing an file named ``page.html`` under
       {{ super() }}
       {% include "../_static/piwik.js" %}
   {% endblock %}
-  
+
 And the analytics code inside ``_static/piwik.js``:
 
 .. code-block:: html
