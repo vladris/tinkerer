@@ -18,6 +18,10 @@
 {%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and
                          (sidebars != []) -%}
 {%- set url_root = pathto('', 1) -%} {#- link to root url (like: '#', '../../') #}
+{%- if url_root == '#' -%}
+    {%- set url_root = '' -%}
+{%- endif -%}
+
 {%- if not embedded and docstitle -%}
   {%- set titlesuffix = " &mdash; "|safe + docstitle|e -%}
 {%- else -%}
@@ -183,6 +187,7 @@
 
         {%- block css %}
             <link rel="stylesheet" href="{{ pathto('_static/normalize.css', 1) }}" type="text/css">
+            <link rel="stylesheet" href="{{ pathto('_static/sphinx.css', 1) }}" type="text/css">
             <link rel="stylesheet" href="{{ pathto('_static/main.css', 1) }}" type="text/css">
             {%- if style not in ['none', 'main.css'] %}
             <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css">
@@ -247,7 +252,7 @@
           <header>
             <hgroup>
               <h1><a href="{{ pathto(pages[0][0]) }}">{{ shorttitle|e }}</a></h1>
-              <h2>{{ tagline|e }}</h2>
+              {%- if tagline -%}<h2>{{ tagline|e }}</h2>{%- endif -%}
             </hgroup>
           </header>
       {% endblock -%}

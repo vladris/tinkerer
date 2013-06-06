@@ -4,7 +4,8 @@ if [ ! -d ./themes ]; then mkdir ./themes; fi;
 
 DEFAULT_THEME="modern5"
 
-OTHER_THEMES="minimal5
+OTHER_THEMES="flat
+minimal5
 responsive
 dark
 "

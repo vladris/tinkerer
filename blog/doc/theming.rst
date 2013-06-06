@@ -14,15 +14,15 @@ Add a custom stylesheet
 
 .. highlight:: html
 
-Create your own ``style.css`` (filename is not important) and place it under 
-the blog's ``_static`` directory and create a new ``page.html`` file under 
+Create your own ``style.css`` (filename is not important) and place it under
+the blog's ``_static`` directory and create a new ``page.html`` file under
 your blog's ``_templates`` directory with the following content::
 
     {% extends "!page.html" %}
 
     {% set css_files = css_files + ["_static/style.css"] %}
 
-More information on extending templates can be found 
+More information on extending templates can be found
 `here <http://sphinx.pocoo.org/templating.html#css_files>`_.
 
 This will apply your stylesheet on top of the styles of the theme you are
@@ -46,8 +46,8 @@ Sphinx documentation.
 You will probably also want to add at least a custom CSS file in its ``static``
 subdirectory and maybe extend some boilerplate templates.
 
-To understand how this works, take a peek at the sources of other 
-`Tinkerer themes <https://bitbucket.org/vladris/tinkerer/src/tip/tinkerer/themes>`_.
+To understand how this works, take a peek at the sources of other
+`Tinkerer themes <https://github.com/vladris/tinkerer/src/tip/tinkerer/themes>`_.
 
 Tinkerer boilerplate theme
 --------------------------
@@ -66,7 +66,7 @@ Tinkerer boilerplate theme consist of the following templates:
     page (it is an extension of a Sphinx page).
 
 ``aggregated.html``
-    
+
     This template represents a page containing multiple aggregated posts, for
     example the homepage of a blog and subsequent pages, each containing a
     number of posts.

@@ -1,0 +1,10 @@
+*~
+*.pyc
+*.orig
+*.swp
+*.egg
+*.egg-info/*
+blog/blog/*
+build/*
+.tox/*
+.ropeproject

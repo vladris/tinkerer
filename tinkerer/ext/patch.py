@@ -96,7 +96,7 @@ def patch_aggregated_metadata(context):
 
 
 
-def patch_links(body, docpath, docname=None, link_title=False):
+def patch_links(body, docpath, docname=None, link_title=False, replace_read_more_link=True):
     '''
     Parses the document body and calls patch_node from the document root
     to fix hyperlinks. Also hyperlinks document title. Returns resulting
@@ -107,7 +107,7 @@ def patch_links(body, docpath, docname=None, link_title=False):
     patch_node(doc, docpath, docname)
 
     body = doc.toxml()
-    if docname:
+    if docname and replace_read_more_link:
         body = make_read_more_link(body, docpath, docname)
 
     if link_title:
@@ -144,8 +144,16 @@ def make_read_more_link(body, docpath, docname):
     # when the .. more:: directive comes after a subsection:
     body += "</div>" * (body.count("<div") - body.count("</div") - 1)
 
-    return body + ('<a class="readmore" href="%s.html#more">%s</a></div>' %
+    return body + ('<p><a class="readmore" href="%s.html#more">%s</a></p></div>' %
                 (docpath + docname, UIStr.READ_MORE))
+
+
+
+def collapse_path(path_url):
+    '''
+    Normalize relative path and patch protocol prefix and Windows path separator
+    '''
+    return path.normpath(path_url).replace("\\", "/").replace(":/", "://")
 
 
 
@@ -161,7 +169,7 @@ def patch_node(node, docpath, docname=None):
         # if this is relative path (internal link)
         if src.value.startswith(".."):
             src.value = docpath + src.value
-        src.value = path.normpath(src.value).replace(":/", "://")
+        src.value = collapse_path(src.value)
     # if node is hyperlink
     elif node_name == "a":
         ref = node.getAttributeNode("href")
@@ -182,7 +190,7 @@ def patch_node(node, docpath, docname=None):
             # "_static/" - we can use normpath for this, just make sure
             # to revert change on protocol prefix as normpath deduplicates
             # // (http:// becomes http:/)
-            ref.value = path.normpath(ref.value).replace(":/", "://")
+            ref.value = collapse_path(ref.value)
 
     # recurse
     for node in node.childNodes:

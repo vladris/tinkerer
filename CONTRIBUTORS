@@ -11,4 +11,8 @@ Antti Kaihola - Bugfix for "more" directive
 Visa Kopu - Fix category links, XML declaration introduced in patch.py
 Robert Zaremba - Added Responsive theme, HTML5 bolierplate upgrade
 Pedro Romano - Simplified localization based on Babel distutils commands, Great Britain localization
-Takayuki Shimizukawa and Wakayama Shirou - Japanese localization
+Takayuki Shimizukawa - Japanese localization
+Wakayama Shirou - Japanese localization, migration to GitHub
+Artem Krylysov - Bug fixes, configurable "read more" for RSS
+Gianluigi Cusimano - Italian localization
+Nathan Yergler - Migration to GitHub

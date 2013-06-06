@@ -52,7 +52,8 @@ def generate_feed(app):
                     "description": patch.strip_xml_declaration(patch.patch_links(
                             env.blog_metadata[post].body, 
                             app.config.website + post[:11], # first 11 characters is path (YYYY/MM/DD/)
-                            post[11:])), # following characters represent filename
+                            post[11:], # following characters represent filename
+                            replace_read_more_link=not app.config.rss_generate_full_posts)),
                     "categories": categories,
                     "pubDate": timestamp
                 })

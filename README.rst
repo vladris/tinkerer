@@ -26,7 +26,7 @@ How to Tinker?
 
 Get Tinkerer::
 
-    easy_install -U Tinkerer
+    pip install tinkerer
 
 Skim through the `Documentation <http://tinkerer.me/pages/documentation.html>`_.
 

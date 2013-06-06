@@ -40,7 +40,7 @@ li.quicklink { display: none; }
 
 ul.related { padding: 20px 0 20px 0; list-style: none; }
 ul.related li { line-height: 2em; list-style-type: none; text-align: center; }
-article { padding: 20px 40px 10px 40px; }
+article { padding: 20px 20px 10px 20px; }
 article li { line-height: 1.5em; }
 article h1 { margin-top: 0; }
 ul.related:first-child { padding: 0 0 20px 0; }

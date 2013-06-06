@@ -1,0 +1,163 @@
+# Italian translations for Tinkerer.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the Tinkerer project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Tinkerer 0.4b\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-08-18 20:13+0100\n"
+"PO-Revision-Date: 2013-04-03 19:35+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: tinkerer/ext/uistr.py:34
+msgid "Home"
+msgstr "Pagina iniziale"
+
+#: tinkerer/ext/uistr.py:35
+msgid "Recent Posts"
+msgstr "Articoli Recenti"
+
+#: tinkerer/ext/uistr.py:36
+msgid "Posted by"
+msgstr "Scritto da"
+
+#: tinkerer/ext/uistr.py:37
+msgid "Blog Archive"
+msgstr "Archivio Blog"
+
+#: tinkerer/ext/uistr.py:38
+msgid "Filed under"
+msgstr "Pubblicato in"
+
+#: tinkerer/ext/uistr.py:39
+msgid "Tags"
+msgstr "Tag"
+
+#: tinkerer/ext/uistr.py:40
+msgid "Tags Cloud"
+msgstr "Tag Cloud"
+
+#: tinkerer/ext/uistr.py:41
+msgid "Categories"
+msgstr "Categorie"
+
+#: tinkerer/ext/uistr.py:42
+#, python-format
+msgid "%B %d, %Y"
+msgstr "%d %b, %Y"
+
+#: tinkerer/ext/uistr.py:43
+#, python-format
+msgid "Posts tagged with <span class=\"title_tag\">%s</span>"
+msgstr "Articolo taggato in <span class=\"title_tag\">%s</span>"
+
+#: tinkerer/ext/uistr.py:44
+#, python-format
+msgid "Filed under <span class=\"title_category\">%s</span>"
+msgstr "Pubblicato in <span class=\"title_category\">%s</span>"
+
+#: tinkerer/ext/uistr.py:45
+msgid "Newer"
+msgstr "Articoli più recenti"
+
+#: tinkerer/ext/uistr.py:46
+msgid "Older"
+msgstr "Articoli meno recenti"
+
+#: tinkerer/ext/uistr.py:47
+#, python-format
+msgid "Page %d"
+msgstr "Pagina %d"
+
+#: tinkerer/ext/uistr.py:48
+msgid "Read more..."
+msgstr "Continua a leggere..."
+
+#: tinkerer/ext/uistr.py:49
+msgid "Javascript must be enabled to see this e-mail address"
+msgstr "Abilita Javascript per vedere questo indirizzo e-mail"
+
+#: tinkerer/themes/boilerplate/layout.html:198
+#, python-format
+msgid "Search within %(docstitle)s"
+msgstr "Cerca all'interno di %(docstitle)s"
+
+#: tinkerer/themes/boilerplate/layout.html:204
+msgid "About these documents"
+msgstr "Riguardo queste pagine"
+
+#: tinkerer/themes/boilerplate/layout.html:207
+msgid "Index"
+msgstr "Indice"
+
+#: tinkerer/themes/boilerplate/layout.html:210
+#: tinkerer/themes/boilerplate/search.html:12
+#: tinkerer/themes/boilerplate/search.html:21
+msgid "Search"
+msgstr "Cerca"
+
+#: tinkerer/themes/boilerplate/layout.html:213
+msgid "Copyright"
+msgstr "Copyright"
+
+#: tinkerer/themes/boilerplate/layout.html:288
+#, python-format
+msgid "&copy; Copyright %(copyright)s. "
+msgstr "&copy; Copyright %(copyright)s."
+
+#: tinkerer/themes/boilerplate/search.html:25
+msgid ""
+"Please activate JavaScript to enable the search\n"
+"    functionality."
+msgstr "Per favore attiva JavaScript per abilitare la funzionalità     di ricerca."
+
+#: tinkerer/themes/boilerplate/search.html:30
+msgid ""
+"From here you can search these documents. Enter your search\n"
+"    words into the box below and click \"search\". Note that the search\n"
+"    function will automatically search for all of the words. Pages\n"
+"    containing fewer words won't appear in the result list."
+msgstr ""
+"Da qui puoi effettuare ricerche all'interno delle pagine. Scrivi le\n"
+"    parole da cercare nel modulo sottostante e premi il tasto \"cerca\".\n"
+"    Nota che questa funzione cercherà le pagine che conterranno\n"
+"    tutte le parole inserite. Quelle che invece hanno un numero di parole\n"
+"    inferiore non saranno mostrate."
+
+#: tinkerer/themes/boilerplate/search.html:37
+msgid "search"
+msgstr "cerca"
+
+#: tinkerer/themes/boilerplate/search.html:41
+msgid "Search Results"
+msgstr "Risultati ricerca"
+
+#: tinkerer/themes/boilerplate/search.html:43
+msgid "Your search did not match any results."
+msgstr "La tua ricerca non ha prodotto alcun risultato"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:154
+msgid "Permalink to this headline"
+msgstr "Permalink a questo titolo"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:160
+msgid "Permalink to this definition"
+msgstr "Permalink a questa definizione"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:189
+msgid "Hide Search Matches"
+msgstr "Nascondi i risultati di ricerca"
+
+#: tinkerer/themes/tinkerbase/layout.html:209
+#, python-format
+msgid "&copy; Copyright %(copyright)s."
+msgstr "&copy; Copyright %(copyright)s."
+

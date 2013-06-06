@@ -87,7 +87,7 @@ def copy_templates():
     '''
     Copies Tinkerer post and page templates to blog _templates directory.
     '''
-    for template in ["post.rst", "page.rst"]:
+    for template in [paths.post_template, paths.page_template]:
         if not os.path.exists(os.path.join(paths.root, "_templates", template)):
             shutil.copy(
                 os.path.join(paths.__internal_templates_abs_path, template),

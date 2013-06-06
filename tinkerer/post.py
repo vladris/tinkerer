@@ -57,7 +57,7 @@ class Post():
         '''
         Writes the post template with given arguments.
         '''
-        writer.render("post.rst", self.path,
+        writer.render(paths.post_template, self.path,
                { "title"     : self.title,
                  "content"   : content,
                  "author"    : author,
