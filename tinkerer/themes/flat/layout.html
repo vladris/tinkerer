@@ -1,0 +1,38 @@
+{#-
+    flat/layout.html
+    ~~~~~~~~~~~~~~~~
+
+    Layout for Flat theme.
+
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
+    :license: FreeBSD, see LICENSE file
+-#}
+
+{%- extends "boilerplate/layout.html" -%}
+
+{%- block extrahead -%}
+    {{ super() }}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script>
+{%- endblock -%}
+
+{#- Supress quicklinks -#}
+{%- block quicklinks -%}{%- endblock -%}
+
+{#- Post layout -#}
+{%- block document -%}
+    <article>
+        {%- block body -%}{%- endblock -%}
+        {%- block relbar -%}{{ relbar() }}{%- endblock -%}
+        {%- block comments_section -%}{%- endblock -%}
+    </article>
+{%- endblock -%}

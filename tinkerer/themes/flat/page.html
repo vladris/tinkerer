@@ -1,0 +1,22 @@
+{#-
+    flat/page.html
+    ~~~~~~~~~~~~~~
+
+    Flat page layout.
+
+    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    CONTRIBUTORS file)
+    :license: FreeBSD, see LICENSE file
+-#}
+
+{%- extends "layout.html" -%}
+
+{%- block body -%}
+    {{ timestamp(metadata.formatted_date) }}
+    {{ body }}
+    {{ post_meta(metadata) }}
+{%- endblock -%}
+
+{%- block comments_section -%}
+    {{ comments }} 
+{%- endblock -%}
