@@ -70,7 +70,7 @@ footer { margin-bottom: 20px; padding: 20px; text-align: center; }
     header h2 { padding: 0 40px; }
 
     nav { padding: 10px 0; }
-    nav ul { margin: 0 40px 0 20px; padding: 0; text-align: center; }
+    nav ul { margin: 0 40px; padding: 0; text-align: center; }
     nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
     nav li.main-nav { margin: 20px 0; padding: 0; }
     nav li.main-nav a { padding: 0 20px; }
