@@ -61,5 +61,7 @@ def make_aggregated_pages(app):
             context["next"]["title"] = UIStr.OLDER
             context["next"]["link"] = "page%d.html" % (i + 2)
 
+        context["archive_title"] = UIStr.BLOG_ARCHIVE
+
         yield (pagename, context, "aggregated.html")
 
