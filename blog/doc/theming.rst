@@ -4,10 +4,10 @@ Theming
 Tinkerer comes with a base *boilerplate* theme. This is an unstyled theme based
 on HTML5 Boilerplate. Custom themes should inherit from it.
 
-The default Tinkerer theme is *modern5*, which is based on the *boilerplate*.
+The default Tinkerer theme is *flat*, which is based on the *boilerplate*.
 
-Tinkerer also ships with *minimal5*, *responsive* and *dark* themes (preview
-on the sidebar).
+Tinkerer also ships with *modern5*, *minimal5*, *responsive* and *dark* themes
+(preview on the sidebar).
 
 Add a custom stylesheet
 -----------------------

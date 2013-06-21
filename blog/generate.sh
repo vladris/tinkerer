@@ -2,9 +2,9 @@
 
 if [ ! -d ./themes ]; then mkdir ./themes; fi;
 
-DEFAULT_THEME="modern5"
+DEFAULT_THEME="flat"
 
-OTHER_THEMES="flat
+OTHER_THEMES="modern5
 minimal5
 responsive
 dark
