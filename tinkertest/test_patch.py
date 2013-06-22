@@ -40,6 +40,9 @@ class TestPatch(utils.BaseTinkererTest):
             with open(os.path.join(paths.html, *test[0]), "r") as f:
                 content = f.read()
                 for data in test[1]:
+                    if data not in content:
+                        print(data)
+                        print(content)
                     self.assertTrue(data in content)
 
 
@@ -51,15 +54,11 @@ class TestPatch(utils.BaseTinkererTest):
             ("Post2", ".. _x:\n\nX\n-\n.. image:: ../../../img.png")
         ]
 
-        # for some reason Sphinx on Python 3 creates different relative links:
-        # Post1 referencing Post2 which is in same dir results in a href like
-        # "../01/post2.html" while on Python 2 href is "post2.html"
-        python3 = sys.version_info[0] == 3
-
         expected = [
             (["2010", "10", "01", "post1.html"], 
              [
-                'href="../01/post2.html#x"' if python3 else 
+                # Sphinx running on Python3 has an achor here, Python2 doesn't
+                'href="post2.html#x"' if sys.version_info[0] == 3 else 
                         'href="post2.html"',
                 'href="www.archlinux.org"'
              ]),
@@ -71,16 +70,14 @@ class TestPatch(utils.BaseTinkererTest):
             (["index.html"],
              [
                 # index.html should have links patched with relative address
-                'href="2010/10/01/../01/post2.html#x"' if python3 else 
-                        'href="2010/10/01/post2.html#x"',
+                'href="2010/10/01/post2.html#x"',
                 'href="www.archlinux.org"',
                 'src="_images/img.png"'
              ]),
             (["rss.html"],
              [
                 # RSS feed should have links patched with absolute address
-                'href="http://127.0.0.1/blog/html/2010/10/01/../01/post2.html#x' if python3 else
-                        'href="http://127.0.0.1/blog/html/2010/10/01/post2.html#x"',
+                'href="http://127.0.0.1/blog/html/2010/10/01/post2.html#x"',
                 'href="www.archlinux.org"',
                 'src="http://127.0.0.1/blog/html/_images/img.png"'
              ])
