@@ -11,6 +11,7 @@
 '''
 import re
 import datetime
+import locale
 from sphinx.util.compat import Directive
 import tinkerer
 from tinkerer.ext.uistr import UIStr
@@ -23,6 +24,9 @@ def initialize(app):
     Initializes metadata in environment.
     '''
     app.builder.env.blog_metadata = dict()
+
+    # make sure we use system locale for date formatting
+    locale.setlocale(locale.LC_TIME, '')
 
 
 
@@ -98,7 +102,7 @@ def get_metadata(app, docname):
     metadata.link = docname
     metadata.date = datetime.datetime.strptime(match.group(), "%Y/%m/%d/")
 
-    # we format date here instead of inside template due to localization issues 
+    # we format date here instead of inside template due to localization issues
     # and Python2 vs Python3 incompatibility
     metadata.formatted_date = metadata.date.strftime(UIStr.TIMESTAMP_FMT)
     metadata.formatted_date_short = metadata.date.strftime(UIStr.TIMESTAMP_FMT_SHORT)
