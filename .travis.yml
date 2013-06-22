@@ -6,7 +6,7 @@ python:
   - "3.3"
 
 # command to install dependencies
-install: "./setup.py develop"
+install: "python setup.py develop"
 
 # command to run tests
 script: nosetests
