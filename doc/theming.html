@@ -19,7 +19,7 @@
             <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
             <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
             <link rel="stylesheet" href="../_static/main.css" type="text/css">
-            <link rel="stylesheet" href="../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../_static/flat.css" type="text/css">
             <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
             <link rel="stylesheet" href="../_static/webfont.css" type="text/css">
         <link rel="shortcut icon" href="../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
@@ -31,7 +31,7 @@
         <link rel="next" title="Creating Custom Extensions" href="extensions.html" /><link rel="prev" title="Internals" href="internals.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -40,16 +40,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            // Adjusts document height if sidebar is taller
-            var documentwrapper = document.getElementsByTagName("article")[0];
-            var sidebar = document.getElementsByClassName("sidebar")[0];
-
-            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
-            {
-                var mainwrapper = document.getElementsByClassName("main")[0];
-                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
-            }
-
             // Scroll to content if on small screen
             if (screen.width < 480)
             {
@@ -74,9 +64,7 @@
               <h1><a href="../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
           </header>
       <nav>
-            <ul><li class="quicklink"><div class="rss">
-        <a href="http://feeds.feedburner.com/tinkerer" title="Subscribe via RSS"><span class="webfont">B</span></a>
-    </div></li><li class="main-nav">
+            <ul><li class="main-nav">
                   <a href="../index.html">Home</a>
                 </li>
               <li class="main-nav">
@@ -86,17 +74,32 @@
                   <a href="../pages/extensions.html">Extensions</a>
                 </li>
               </ul>
-          </nav><div class="main-container"><div class="main wrapper clearfix"><article><ul class="related clearfix">
-            <li class="left"> &laquo; <a href="internals.html">Internals</a></li>
-            <li class="right"><a href="extensions.html">Creating Custom Extensions</a> &raquo; </li>
-        </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article>
     <div class="section" id="theming">
 <h1>Theming</h1>
 <p>Tinkerer comes with a base <em>boilerplate</em> theme. This is an unstyled theme based
 on HTML5 Boilerplate. Custom themes should inherit from it.</p>
-<p>The default Tinkerer theme is <em>modern5</em>, which is based on the <em>boilerplate</em>.</p>
-<p>Tinkerer also ships with <em>minimal5</em>, <em>responsive</em> and <em>dark</em> themes (preview
-on the sidebar).</p>
+<p>The default Tinkerer theme is <em>flat</em>, which is based on the <em>boilerplate</em>.</p>
+<p>Tinkerer also ships with <em>modern5</em>, <em>minimal5</em>, <em>responsive</em> and <em>dark</em> themes
+(preview on the sidebar).</p>
+<div class="section" id="tweaking-the-flat-theme">
+<h2>Tweaking the flat theme</h2>
+<p>You can change the accent color by setting the <cite>accent_color</cite> option in
+<cite>conf.py</cite>, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;accent_color&#39;</span><span class="p">:</span> <span class="s">&#39;#e74c3c&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can also hide various elements, for example the nav menu on the left if you
+don&#8217;t plan to have any pages. This can be done by creating a <span class="docutils literal"><span class="pre">page.html</span></span> file
+under your blog&#8217;s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the following content:</p>
+<div class="highlight-html"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
+
+{% block navigation %}{% endblock %}
+</pre></div>
+</div>
+</div>
 <div class="section" id="add-a-custom-stylesheet">
 <h2>Add a custom stylesheet</h2>
 <p>Create your own <span class="docutils literal"><span class="pre">style.css</span></span> (filename is not important) and place it under
@@ -168,14 +171,14 @@ but which also contains a number of other popular symbols you can use.</p>
         
         
         
-        </div>
-    <ul class="related clearfix">
+        </div><ul class="related clearfix">
             <li class="left"> &laquo; <a href="internals.html">Internals</a></li>
             <li class="right"><a href="extensions.html">Creating Custom Extensions</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">
 <h1>On This Page</h1>
 <p><ul>
 <li><a class="reference internal" href="#">Theming</a><ul>
+<li><a class="reference internal" href="#tweaking-the-flat-theme">Tweaking the flat theme</a></li>
 <li><a class="reference internal" href="#add-a-custom-stylesheet">Add a custom stylesheet</a></li>
 <li><a class="reference internal" href="#create-your-own-theme">Create your own theme</a></li>
 <li><a class="reference internal" href="#tinkerer-boilerplate-theme">Tinkerer boilerplate theme</a></li>

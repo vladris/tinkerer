@@ -9,8 +9,7 @@ What's New
   Make sure to star/fork Tinkerer `here <https://github.com/vladris/tinkerer>`_
 * A brand new *flat* theme optimized around distraction-free reading and a
   customized Pygments style displaying code in the
-  `Solarized <http://ethanschoonover.com/solarized>`_ dark theme. `Preview it
-  <http://tinkerer.me/index_flat.html>`_
+  `Solarized <http://ethanschoonover.com/solarized>`_ dark theme.
 * A new ``conf.py`` setting, ``rss_generate_full_posts``, enabling generation
   of full posts even when using the ``readmore`` directive on the website
 * Italian localization

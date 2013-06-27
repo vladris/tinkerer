@@ -19,7 +19,7 @@
             <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
             <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
             <link rel="stylesheet" href="../_static/main.css" type="text/css">
-            <link rel="stylesheet" href="../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../_static/flat.css" type="text/css">
             <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
             <link rel="stylesheet" href="../_static/webfont.css" type="text/css">
         <link rel="shortcut icon" href="../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
@@ -31,7 +31,7 @@
         <link rel="next" title="Command Line Reference" href="command_line.html" /><link rel="prev" title="More Tinkering" href="more_tinkering.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -40,16 +40,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            // Adjusts document height if sidebar is taller
-            var documentwrapper = document.getElementsByTagName("article")[0];
-            var sidebar = document.getElementsByClassName("sidebar")[0];
-
-            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
-            {
-                var mainwrapper = document.getElementsByClassName("main")[0];
-                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
-            }
-
             // Scroll to content if on small screen
             if (screen.width < 480)
             {
@@ -74,9 +64,7 @@
               <h1><a href="../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
           </header>
       <nav>
-            <ul><li class="quicklink"><div class="rss">
-        <a href="http://feeds.feedburner.com/tinkerer" title="Subscribe via RSS"><span class="webfont">B</span></a>
-    </div></li><li class="main-nav">
+            <ul><li class="main-nav">
                   <a href="../index.html">Home</a>
                 </li>
               <li class="main-nav">
@@ -86,10 +74,7 @@
                   <a href="../pages/extensions.html">Extensions</a>
                 </li>
               </ul>
-          </nav><div class="main-container"><div class="main wrapper clearfix"><article><ul class="related clearfix">
-            <li class="left"> &laquo; <a href="more_tinkering.html">More Tinkering</a></li>
-            <li class="right"><a href="command_line.html">Command Line Reference</a> &raquo; </li>
-        </ul>
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article>
     <div class="section" id="deploying">
 <h1>Deploying</h1>
 <p>Tinkerer generates a static website under <span class="docutils literal"><span class="pre">blog/html</span></span>. The files can be
@@ -239,8 +224,7 @@ you can add custom JavaScript code by placing an file named <span class="docutil
         
         
         
-        </div>
-    <ul class="related clearfix">
+        </div><ul class="related clearfix">
             <li class="left"> &laquo; <a href="more_tinkering.html">More Tinkering</a></li>
             <li class="right"><a href="command_line.html">Command Line Reference</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="widget">

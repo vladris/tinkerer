@@ -4,10 +4,32 @@ Theming
 Tinkerer comes with a base *boilerplate* theme. This is an unstyled theme based
 on HTML5 Boilerplate. Custom themes should inherit from it.
 
-The default Tinkerer theme is *modern5*, which is based on the *boilerplate*.
+The default Tinkerer theme is *flat*, which is based on the *boilerplate*.
 
-Tinkerer also ships with *minimal5*, *responsive* and *dark* themes (preview
-on the sidebar).
+Tinkerer also ships with *modern5*, *minimal5*, *responsive* and *dark* themes
+(preview on the sidebar).
+
+Tweaking the flat theme
+-----------------------
+
+.. highlight:: python
+
+You can change the accent color by setting the `accent_color` option in
+`conf.py`, for example::
+
+    html_theme_options = {
+        'accent_color': '#e74c3c'
+    }
+
+.. highlight:: html
+
+You can also hide various elements, for example the nav menu on the left if you
+don't plan to have any pages. This can be done by creating a ``page.html`` file
+under your blog's ``_templates`` directory with the following content::
+
+    {% extends "!page.html" %}
+
+    {% block navigation %}{% endblock %}
 
 Add a custom stylesheet
 -----------------------

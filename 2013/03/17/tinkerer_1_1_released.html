@@ -19,7 +19,7 @@
             <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
-            <link rel="stylesheet" href="../../../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/flat.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
             <link rel="stylesheet" href="../../../_static/webfont.css" type="text/css">
         <link rel="shortcut icon" href="../../../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
@@ -31,7 +31,7 @@
         <link rel="next" title="Tinkerer 1.0 Released" href="../../../2012/12/16/tinkerer_1_0_released.html" /><link rel="prev" title="Tinkerer 1.2 Released" href="../../06/05/tinkerer_1_2_released.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -40,16 +40,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            // Adjusts document height if sidebar is taller
-            var documentwrapper = document.getElementsByTagName("article")[0];
-            var sidebar = document.getElementsByClassName("sidebar")[0];
-
-            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
-            {
-                var mainwrapper = document.getElementsByClassName("main")[0];
-                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
-            }
-
             // Scroll to content if on small screen
             if (screen.width < 480)
             {
@@ -74,9 +64,7 @@
               <h1><a href="../../../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
           </header>
       <nav>
-            <ul><li class="quicklink"><div class="rss">
-        <a href="http://feeds.feedburner.com/tinkerer" title="Subscribe via RSS"><span class="webfont">B</span></a>
-    </div></li><li class="main-nav">
+            <ul><li class="main-nav">
                   <a href="../../../index.html">Home</a>
                 </li>
               <li class="main-nav">
@@ -86,10 +74,7 @@
                   <a href="../../../pages/extensions.html">Extensions</a>
                 </li>
               </ul>
-          </nav><div class="main-container"><div class="main wrapper clearfix"><article><ul class="related clearfix">
-            <li class="left"> &laquo; <a href="../../06/05/tinkerer_1_2_released.html">Tinkerer 1.2 Released</a></li>
-            <li class="right"><a href="../../../2012/12/16/tinkerer_1_0_released.html">Tinkerer 1.0 Released</a> &raquo; </li>
-        </ul><div class="timestamp postmeta">
+          </nav><div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
             <span>March 17, 2013</span>
         </div>
     <div class="section" id="tinkerer-1-1-released">
@@ -156,11 +141,10 @@ and pull requests!</p>
                 Tags:
                 <a href="../../../tags/tinkerer.html">tinkerer</a>, <a href="../../../tags/release.html">release</a></span>
         </div>
-        </div>
-    <div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "tinkerer";    var disqus_identifier = "2013/03/17/tinkerer_1_1_released";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><ul class="related clearfix">
+        </div><ul class="related clearfix">
             <li class="left"> &laquo; <a href="../../06/05/tinkerer_1_2_released.html">Tinkerer 1.2 Released</a></li>
             <li class="right"><a href="../../../2012/12/16/tinkerer_1_0_released.html">Tinkerer 1.0 Released</a> &raquo; </li>
-        </ul></article><aside class="sidebar"><section><div class="widget">
+        </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "tinkerer";    var disqus_identifier = "2013/03/17/tinkerer_1_1_released";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
             <a href="../../06/05/tinkerer_1_2_released.html">Tinkerer 1.2 Released</a>
@@ -211,11 +195,11 @@ the <a href="http://sphinx.pocoo.org">Sphinx webiste</a>.
 <h1>Preview Another Theme</h1>
 
 <ul>
-<li><a href="/index_flat.html">flat</a></li>
+<li><a href="/index.html">flat</a></li>
+<li><a href="/index_modern5.html">modern5</a></li>
 <li><a href="/index_minimal5.html">minimal5</a></li>
 <li><a href="/index_responsive.html">responsive</a></li>
 <li><a href="/index_dark.html">dark</a></li>
-<li><a href="/index.html">modern5</a></li>
 </ul>
 
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->

@@ -19,7 +19,7 @@
             <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
             <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
             <link rel="stylesheet" href="../_static/main.css" type="text/css">
-            <link rel="stylesheet" href="../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../_static/flat.css" type="text/css">
             <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
             <link rel="stylesheet" href="../_static/webfont.css" type="text/css">
         <link rel="shortcut icon" href="../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
@@ -31,7 +31,7 @@
         <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -40,16 +40,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            // Adjusts document height if sidebar is taller
-            var documentwrapper = document.getElementsByTagName("article")[0];
-            var sidebar = document.getElementsByClassName("sidebar")[0];
-
-            if (sidebar.offsetHeight > documentwrapper.offsetHeight)
-            {
-                var mainwrapper = document.getElementsByClassName("main")[0];
-                documentwrapper.style.minHeight = mainwrapper.offsetHeight + "px";
-            }
-
             // Scroll to content if on small screen
             if (screen.width < 480)
             {
@@ -74,9 +64,7 @@
               <h1><a href="../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
           </header>
       <nav>
-            <ul><li class="quicklink"><div class="rss">
-        <a href="http://feeds.feedburner.com/tinkerer" title="Subscribe via RSS"><span class="webfont">B</span></a>
-    </div></li><li class="main-nav">
+            <ul><li class="main-nav">
                   <a href="../index.html">Home</a>
                 </li>
               <li class="main-nav">
@@ -216,6 +204,7 @@ more about <a class="reference internal" href="../doc/tinkering.html#build"><em>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/theming.html">Theming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#tweaking-the-flat-theme">Tweaking the flat theme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#add-a-custom-stylesheet">Add a custom stylesheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#create-your-own-theme">Create your own theme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#tinkerer-boilerplate-theme">Tinkerer boilerplate theme</a></li>
@@ -234,8 +223,7 @@ more about <a class="reference internal" href="../doc/tinkering.html#build"><em>
         
         
         
-        </div>
-    </article><aside class="sidebar"><section><div class="widget">
+        </div></article><aside class="sidebar"><section><div class="widget">
 <h1>On This Page</h1>
 <p><ul>
 <li><a class="reference internal" href="#">Documentation</a><ul>
