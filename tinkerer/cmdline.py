@@ -20,7 +20,6 @@ import shutil
 import sphinx
 import tinkerer
 from tinkerer import draft, output, page, paths, post, writer
-from output import write, filename
 
 
 
@@ -31,12 +30,12 @@ def setup():
     # it is a new blog if conf.py doesn't already exist
     new_blog = writer.setup_blog()
 
-    filename.info("conf.py")
+    output.filename.info("conf.py")
     if new_blog:
-        write.info("Your new blog is almost ready!")
-        write.info("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
+        output.write.info("Your new blog is almost ready!")
+        output.write.info("You just need to edit a couple of lines in %s" % (os.path.relpath(paths.conf_file), ))
     else:
-        write.info("Done")
+        output.write.info("Done")
 
 
 
@@ -55,7 +54,7 @@ def build():
     flags += ["-d", paths.doctree, "-b", "html", paths.root, paths.html]
 
     # build always prints "index.html"
-    filename.info("index.html")
+    output.filename.info("index.html")
 
     # copy some extra files to the output directory
     if os.path.exists("_copy"):
@@ -76,11 +75,11 @@ def create_post(title, date=None):
     else:
         new_post = post.create(title, date)
 
-    filename.info(new_post.path)
+    output.filename.info(new_post.path)
     if move:
-        write.info("Draft moved to post '%s'" % new_post.path)
+        output.write.info("Draft moved to post '%s'" % new_post.path)
     else:
-        write.info("New post created as '%s'" % new_post.path)
+        output.write.info("New post created as '%s'" % new_post.path)
 
 
 
@@ -95,11 +94,11 @@ def create_page(title):
     else:
         new_page = page.create(title)
 
-    filename.info(new_page.path)
+    output.filename.info(new_page.path)
     if move:
-        write.info("Draft moved to page '%s'" % new_page.path)
+        output.write.info("Draft moved to page '%s'" % new_page.path)
     else:
-        write.info("New page created as '%s'" % new_page.path)
+        output.write.info("New page created as '%s'" % new_page.path)
 
 
 
@@ -114,11 +113,11 @@ def create_draft(title):
     else:
         new_draft = draft.create(title)
 
-    filename.info(new_draft)
+    output.filename.info(new_draft)
     if move:
-        write.info("File moved to draft '%s'" % new_draft)
+        output.write.info("File moved to draft '%s'" % new_draft)
     else:
-        write.info("New draft created as '%s'" % new_draft)
+        output.write.info("New draft created as '%s'" % new_draft)
 
 
 
@@ -181,7 +180,7 @@ def main(argv=None):
 
     # tinkerer should be run from the blog root unless in setup mode or -v
     if not command.setup and not command.version and not os.path.exists(paths.conf_file):
-        write.error("Tinkerer must be run from your blog root "
+        output.write.error("Tinkerer must be run from your blog root "
                     "(directory containing 'conf.py')")
         return -1
 
@@ -189,13 +188,13 @@ def main(argv=None):
     if command.date:
         # --date only works with --post
         if not command.post:
-            write.error("Can only use --date with -p/--post.")
+            output.write.error("Can only use --date with -p/--post.")
             return -1
 
         try:
             post_date = datetime.strptime(command.date[0], "%Y/%m/%d")
         except:
-            write.error("Invalid post date: format should be YYYY/mm/dd")
+            output.write.error("Invalid post date: format should be YYYY/mm/dd")
             return -1
 
     if command.setup:
@@ -211,7 +210,7 @@ def main(argv=None):
     elif command.preview:
         preview_draft(command.preview[0])
     elif command.version:
-        write.info("Tinkerer version %s" % tinkerer.__version__)
+        output.write.info("Tinkerer version %s" % tinkerer.__version__)
     else:
         parser.print_help()
 

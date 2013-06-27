@@ -1,6 +1,8 @@
 Tinkerer
 ========
 
+.. image:: https://travis-ci.org/vladris/tinkerer.png
+
 What is Tinkerer?
 -----------------
 

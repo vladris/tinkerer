@@ -73,7 +73,7 @@ DEFAULT_EXTENSIONS = [
 
 
 
-def write_conf_file(extensions=DEFAULT_EXTENSIONS, theme="modern5"):
+def write_conf_file(extensions=DEFAULT_EXTENSIONS, theme="flat"):
     '''
     Writes the Sphinx configuration file.
     '''
