@@ -28,6 +28,10 @@ def create(title):
                         "drafts"), 
                     name + tinkerer.source_suffix)
 
+    if os.path.exists(path):
+        raise Exception("Draft '%s' already exists at '%s" %
+                        (title, path))
+
     writer.render(paths.post_template, path,
             { "title"     : title,
               "content"   : "",
