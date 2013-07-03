@@ -29,7 +29,8 @@ def create(title):
                     name + tinkerer.source_suffix)
 
     if os.path.exists(path):
-        raise RuntimeError("Draft '%s' already exists, cancel." % title)
+        raise Exception("Draft '%s' already exists at '%s" %
+                        (title, path))
 
     writer.render(paths.post_template, path,
             { "title"     : title,

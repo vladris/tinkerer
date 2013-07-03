@@ -111,11 +111,7 @@ def create_draft(title):
     if move:
         new_draft = draft.move(title)
     else:
-        try:
-            new_draft = draft.create(title)
-        except RuntimeError as e:
-            output.write.info(e)
-            return
+        new_draft = draft.create(title)
 
     output.filename.info(new_draft)
     if move:
