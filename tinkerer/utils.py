@@ -17,6 +17,7 @@ from docutils.core import publish_doctree
 from docutils.nodes import GenericNodeVisitor
 import docutils.parsers.rst.directives
 
+
 def name_from_title(title):
     '''
     Returns a doc name from a title by replacing all characters which are not
@@ -56,7 +57,11 @@ def split_date(date=None):
 
     return date.strftime("%Y/%m/%d").split("/")
 
+
+
 # ============== About Move a Post ===============
+
+
 
 def related_images(post_path):
     '''
