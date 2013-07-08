@@ -28,10 +28,6 @@ def create(title):
                         "drafts"), 
                     name + tinkerer.source_suffix)
 
-    if os.path.exists(path):
-        raise Exception("Draft '%s' already exists at '%s" %
-                        (title, path))
-
     writer.render(paths.post_template, path,
             { "title"     : title,
               "content"   : "",
@@ -56,7 +52,9 @@ def move(path):
     draft = os.path.join(utils.get_path(paths.root, "drafts"), filename)
 
     # move file
-    shutil.move(path, draft)
+    # shutil.move(path, draft)
+    target_dir = utils.get_path(paths.root, "drafts")
+    utils.move(path, target_dir)
 
     # check if file is a post or a page
     if os.path.basename(dirname) == "pages":
