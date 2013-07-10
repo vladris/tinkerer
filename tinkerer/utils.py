@@ -117,17 +117,17 @@ def move(original_post, target_dir):
     # Avoid overwrite or file lost.
     for here, there in here_and_there:
         if not os.path.exists(here):
-            Exception('Attach image "%s" are not exist!' % here)
+            raise Exception('Attach image "%s" are not exist!' % here)
         elif os.path.exists(there):
-            Exception('Image "%s" exists at "%s"!' %
+            raise Exception('Image "%s" exists at "%s"!' %
                       (os.path.basename(there), target_dir))
 
     # Avoid ... for .reST file.
     target_post = os.path.join(target_dir, post_filename)
     if not os.path.exists(original_post):
-        Exception('Post file are not exists!')
+        raise Exception('Post file are not exists!')
     elif os.path.exists(target_post):
-        Exception('Post "%s" already exists at "%s"' % 
+        raise Exception('Post "%s" already exists at "%s"' % 
                   (post_filename, target_dir))
 
     # Real move
