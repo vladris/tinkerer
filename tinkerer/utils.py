@@ -12,6 +12,10 @@ import datetime
 import os
 import re
 import shutil
+try:
+    from imp import reload
+except ImportError:
+    pass
 
 from docutils.core import publish_doctree
 from docutils.nodes import GenericNodeVisitor
@@ -68,10 +72,6 @@ def related_images(post_path):
     find all related images about the post, return images filename. 
     '''
     # reload for directive register re-initialize
-    try:
-        from imp import reload
-    except ImportError:
-        pass
     reload(docutils.parsers.rst.directives)
 
     class ImageExtractor(GenericNodeVisitor):
