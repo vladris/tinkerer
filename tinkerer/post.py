@@ -87,10 +87,10 @@ def move(path, date=None):
     Moves a post given its path.
     '''
     post = Post(title=None, path=path, date=date)
-    if os.path.exists(post.path):
-        raise Exception("Post '%s' already exists at '%s" %
-                        (title, post.path))
-    shutil.move(path, post.path)
+
+    target_dir = os.path.dirname(post.path)
+    utils.move(path, target_dir)
+
     if not master.exists_doc(post.docname):
         master.prepend_doc(post.docname)
     return post
