@@ -39,12 +39,12 @@ def setup():
 
 
 
-def build():
+def build(build_all):
     '''
     Runs a clean Sphinx build of the blog.
     '''
     # clean build directory
-    if os.path.exists(paths.blog):
+    if build_all and os.path.exists(paths.blog):
         shutil.rmtree(paths.blog)
 
     flags = ["sphinx-build"]
@@ -165,6 +165,10 @@ def main(argv=None):
     group.add_argument("-v", "--version", action="store_true",
             help="display version information")
 
+    parser.add_argument("-a", action="store_true",
+            help="write all files; default is to only write new and changed files"
+                 " with -b/--build")
+
     parser.add_argument("--date", nargs=1,
             help="optionally specify a date as 'YYYY/mm/dd' for the post, useful when "
                  " migrating blogs; can only be used together with -p/--post")
@@ -200,7 +204,7 @@ def main(argv=None):
     if command.setup:
         setup()
     elif command.build:
-        return build()
+        return build(command.a)
     elif command.post:
         create_post(command.post[0], post_date)
     elif command.page:
