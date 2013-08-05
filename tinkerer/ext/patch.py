@@ -91,12 +91,14 @@ def patch_aggregated_metadata(context):
             metadata.body,
             metadata.link[:11], # first 11 characters is path (YYYY/MM/DD/)
             metadata.link[11:], # following characters represent filename
-            True)      # hyperlink title to post
+            True, # hyperlink title to post
+            True, # replace read more link
+            context["html_link_suffix"])
         metadata.body = strip_xml_declaration(metadata.body)
 
 
 
-def patch_links(body, docpath, docname=None, link_title=False, replace_read_more_link=True):
+def patch_links(body, docpath, docname=None, link_title=False, replace_read_more_link=True, docsuffix=".html"):
     '''
     Parses the document body and calls patch_node from the document root
     to fix hyperlinks. Also hyperlinks document title. Returns resulting
@@ -104,32 +106,32 @@ def patch_links(body, docpath, docname=None, link_title=False, replace_read_more
     '''
     in_str = convert(body).encode("utf-8")
     doc = xml.dom.minidom.parseString(in_str)
-    patch_node(doc, docpath, docname)
+    patch_node(doc, docpath, docname, docsuffix)
 
     body = doc.toxml()
     if docname and replace_read_more_link:
-        body = make_read_more_link(body, docpath, docname)
+        body = make_read_more_link(body, docpath, docname, docsuffix)
 
     if link_title:
-        return hyperlink_title(body, docpath, docname)
+        return hyperlink_title(body, docpath, docname, docsuffix)
     else:
         return body
 
 
 
-def hyperlink_title(body, docpath, docname):
+def hyperlink_title(body, docpath, docname, docsuffix):
     """
     Hyperlink titles by embedding appropriate a tag inside
     h1 tags (which should only be post titles).
     """
-    body = body.replace("<h1>", '<h1><a href="%s.html">' %
-            (docpath + docname), 1)
+    body = body.replace("<h1>", '<h1><a href="%s%s">' %
+            (docpath + docname, docsuffix), 1)
     body = body.replace("</h1>", "</a></h1>", 1)
     return body
 
 
 
-def make_read_more_link(body, docpath, docname):
+def make_read_more_link(body, docpath, docname, docsuffix):
     """
     Create "read more" link if marker exists.
     """
@@ -144,8 +146,8 @@ def make_read_more_link(body, docpath, docname):
     # when the .. more:: directive comes after a subsection:
     body += "</div>" * (body.count("<div") - body.count("</div") - 1)
 
-    return body + ('<p><a class="readmore" href="%s.html#more">%s</a></p></div>' %
-                (docpath + docname, UIStr.READ_MORE))
+    return body + ('<p><a class="readmore" href="%s%s#more">%s</a></p></div>' %
+                (docpath + docname, docsuffix, UIStr.READ_MORE))
 
 
 
@@ -157,7 +159,7 @@ def collapse_path(path_url):
 
 
 
-def patch_node(node, docpath, docname=None):
+def patch_node(node, docpath, docname=None, docsuffix=".html"):
     '''
     Recursively patches links in nodes.
     '''
@@ -184,7 +186,7 @@ def patch_node(node, docpath, docname=None):
             # html anchor with missing post.html
             # e.g. href="2012/08/23/#the-cross-compiler"
             # now href="2012/08/23/a_post.html#the-cross-compiler"
-            ref.value = ref.value.replace("/#", "/%s.html#" % docname)
+            ref.value = ref.value.replace("/#", "/%s%s#" % (docname, docsuffix))
 
             # normalize urls so "2012/08/23/../../../_static/" becomes
             # "_static/" - we can use normpath for this, just make sure
@@ -194,7 +196,7 @@ def patch_node(node, docpath, docname=None):
 
     # recurse
     for node in node.childNodes:
-        patch_node(node, docpath, docname)
+        patch_node(node, docpath, docname, docsuffix)
 
 
 

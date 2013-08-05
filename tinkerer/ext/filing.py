@@ -42,8 +42,10 @@ def create_filing_directive(name):
                 if item not in env.filing[name]:
                     env.filing[name][item] = []
                 env.filing[name][item].append(env.docname)
+
+                # "link + html_suffix" is TypeError???
                 env.blog_metadata[env.docname].filing[name].append(
-                        (utils.name_from_title(item), item))
+                        ("%s%s" % (utils.name_from_title(item), env.blog_metadata[env.docname].html_link_suffix), item))
 
             return []
 
