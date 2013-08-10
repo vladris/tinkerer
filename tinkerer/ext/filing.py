@@ -14,7 +14,7 @@ from tinkerer.ext.uistr import UIStr
 
 
 
-def create_filing_directive(name):
+def create_filing_directive(app, name):
     class FilingDirective(Directive):
         '''
         Filing directive used to groups posts. The directive is not rendered, 
@@ -45,7 +45,7 @@ def create_filing_directive(name):
 
                 # "link + html_suffix" is TypeError???
                 env.blog_metadata[env.docname].filing[name].append(
-                        ("%s%s" % (utils.name_from_title(item), env.blog_metadata[env.docname].html_link_suffix), item))
+                        ("%s%s" % (utils.name_from_title(item), app.config.html_link_suffix), item))
 
             return []
 

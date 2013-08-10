@@ -32,8 +32,6 @@ def make_aggregated_pages(app):
             "next": {},
             "posts": []
         }
-    
-        context["html_link_suffix"] = app.config.html_link_suffix
 
         # add posts to context
         for post in posts:
@@ -62,7 +60,7 @@ def make_aggregated_pages(app):
         else:
             # other pages next-link to following page (titled as "Older")
             context["next"]["title"] = UIStr.OLDER
-            context["next"]["link"] = "page%d%s" % ((i + 2), context["html_link_suffix"])
+            context["next"]["link"] = "page%d%s" % ((i + 2), app.config.html_link_suffix)
 
         context["archive_title"] = UIStr.BLOG_ARCHIVE
 

@@ -82,7 +82,7 @@ def convert(s):
 
 
 
-def patch_aggregated_metadata(context):
+def patch_aggregated_metadata(app, context):
     """
     Patches context in aggregated pages
     """
@@ -93,7 +93,7 @@ def patch_aggregated_metadata(context):
             metadata.link[11:], # following characters represent filename
             True, # hyperlink title to post
             True, # replace read more link
-            context["html_link_suffix"])
+            app.config.html_link_suffix)
         metadata.body = strip_xml_declaration(metadata.body)
 
 

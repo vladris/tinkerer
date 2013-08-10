@@ -50,7 +50,6 @@ class Metadata:
         self.author = None
         self.filing = { "tags": [], "categories": [] }
         self.comments, self.comment_count = False, False
-        self.html_link_suffix = None
         self.num = Metadata.num
         Metadata.num += 1
 
@@ -99,7 +98,6 @@ def get_metadata(app, docname):
     if not match:
         return
 
-    metadata.html_link_suffix = app.config.html_link_suffix
     metadata.is_post = True
     metadata.link = docname
     metadata.date = datetime.datetime.strptime(match.group(), "%Y/%m/%d/")
@@ -157,9 +155,6 @@ def add_metadata(app, pagename, context):
 
     # page data
     context['website'] = app.config.website
-
-    # blog html link suffix
-    context["html_link_suffix"] = app.config.html_link_suffix
 
     # blog tagline and pages
     context["tagline"] = app.config.tagline
