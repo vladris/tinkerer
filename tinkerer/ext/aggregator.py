@@ -52,7 +52,8 @@ def make_aggregated_pages(app):
             # following pages prev-link to previous page (titled as "Newer")
             pagename = "page%d" % (i + 1)
             context["prev"]["title"] = UIStr.NEWER
-            context["prev"]["link"] = "index" if i == 1 else "page%d%s" % (i, context["html_link_suffix"])
+            context["prev"]["link"] = "index%s" % app.config.html_link_suffix if i == 1 \
+                else "page%d%s" % (i, app.config.html_link_suffix)
             context["title"] = UIStr.PAGE_FMT % (i + 1)
 
         if i == len(groups) - 1:
