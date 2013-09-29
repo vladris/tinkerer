@@ -1,0 +1,165 @@
+# Russian translations for Tinkerer.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the Tinkerer project.
+# Zaur Nasibov <zaur@znasibov.info>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Tinkerer 0.4b\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-08-18 20:13+0100\n"
+"PO-Revision-Date: 2013-09-29 15:15+0200\n"
+"Last-Translator: Zaur Nasibov <contact@znasibov.info>\n"
+"Language-Team: LANGUAGE <LL@ru.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: Russian\n"
+
+#: tinkerer/ext/uistr.py:34
+msgid "Home"
+msgstr "Главная"
+
+#: tinkerer/ext/uistr.py:35
+msgid "Recent Posts"
+msgstr "Недавние Записи"
+
+#: tinkerer/ext/uistr.py:36
+msgid "Posted by"
+msgstr "Запись сделана"
+
+#: tinkerer/ext/uistr.py:37
+msgid "Blog Archive"
+msgstr "Архив Блога"
+
+#: tinkerer/ext/uistr.py:38
+msgid "Filed under"
+msgstr "Записано как"
+
+#: tinkerer/ext/uistr.py:39
+msgid "Tags"
+msgstr "Тэги"
+
+#: tinkerer/ext/uistr.py:40
+msgid "Tags Cloud"
+msgstr "Облако Тэгов"
+
+#: tinkerer/ext/uistr.py:41
+msgid "Categories"
+msgstr "Категории"
+
+#: tinkerer/ext/uistr.py:42
+#, python-format
+msgid "%B %d, %Y"
+msgstr "%B %d, %Y"
+
+#: tinkerer/ext/uistr.py:43
+#, python-format
+msgid "Posts tagged with <span class=\"title_tag\">%s</span>"
+msgstr "Посты с тегам(и) <span class=\"title_tag\">%s</span>"
+
+#: tinkerer/ext/uistr.py:44
+#, python-format
+msgid "Filed under <span class=\"title_category\">%s</span>"
+msgstr "Записано как <span class=\"title_category\">%s</span>"
+
+#: tinkerer/ext/uistr.py:45
+msgid "Newer"
+msgstr "Новее"
+
+#: tinkerer/ext/uistr.py:46
+msgid "Older"
+msgstr "Старее"
+
+#: tinkerer/ext/uistr.py:47
+#, python-format
+msgid "Page %d"
+msgstr "Страница %d"
+
+#: tinkerer/ext/uistr.py:48
+msgid "Read more..."
+msgstr "Читать далее..."
+
+#: tinkerer/ext/uistr.py:49
+msgid "Javascript must be enabled to see this e-mail address"
+msgstr "Для отображения этого e-mail адреса должен быть включён Javascript"
+
+#: tinkerer/themes/boilerplate/layout.html:198
+#, python-format
+msgid "Search within %(docstitle)s"
+msgstr "Искать в %(docstitle)s"
+
+#: tinkerer/themes/boilerplate/layout.html:204
+msgid "About these documents"
+msgstr "Об этих документах"
+
+#: tinkerer/themes/boilerplate/layout.html:207
+msgid "Index"
+msgstr "Индекс"
+
+#: tinkerer/themes/boilerplate/layout.html:210
+#: tinkerer/themes/boilerplate/search.html:12
+#: tinkerer/themes/boilerplate/search.html:21
+msgid "Search"
+msgstr "Поиск"
+
+#: tinkerer/themes/boilerplate/layout.html:213
+msgid "Copyright"
+msgstr "Копирайт"
+
+#: tinkerer/themes/boilerplate/layout.html:288
+#, python-format
+msgid "&copy; Copyright %(copyright)s. "
+msgstr "&copy; Копирайт %(copyright)s. "
+
+#: tinkerer/themes/boilerplate/search.html:25
+msgid ""
+"Please activate JavaScript to enable the search\n"
+"    functionality."
+msgstr ""
+"Пожалуйста, активируйте JavaScript чтобы\n"
+"    включить функцию поиска"
+
+#: tinkerer/themes/boilerplate/search.html:30
+msgid ""
+"From here you can search these documents. Enter your search\n"
+"    words into the box below and click \"search\". Note that the search\n"
+"    function will automatically search for all of the words. Pages\n"
+"    containing fewer words won't appear in the result list."
+msgstr ""
+"С этого места вы можете начать поиск в этих документах. Введите \n"
+"    слова для поиска в поле и кликните \"искать\". Учтите, что фунция "
+"поиска\n"
+"    обрабатывает слова запроса как единое целое. Страницы \n"
+"    в которых нет искомого сочетания не будут отображены."
+
+#: tinkerer/themes/boilerplate/search.html:37
+msgid "search"
+msgstr "поиск"
+
+#: tinkerer/themes/boilerplate/search.html:41
+msgid "Search Results"
+msgstr "Результаты Поиска"
+
+#: tinkerer/themes/boilerplate/search.html:43
+msgid "Your search did not match any results."
+msgstr "Ваш поиск не принёс никаких результатов"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:154
+msgid "Permalink to this headline"
+msgstr "Постоянная ссылка на этот заголовок"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:160
+msgid "Permalink to this definition"
+msgstr "Постоянная ссылка на это определение"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:189
+msgid "Hide Search Matches"
+msgstr "Скрыть Найденные Сочетания"
+
+#: tinkerer/themes/tinkerbase/layout.html:209
+#, python-format
+msgid "&copy; Copyright %(copyright)s."
+msgstr "&copy; Копирайт %(copyright)s."
