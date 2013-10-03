@@ -1,0 +1,161 @@
+# Translations template for Tinkerer.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the Tinkerer project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Tinkerer 0.4b\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-08-18 20:13+0100\n"
+"PO-Revision-Date: 2013-10-03 23:05+0800\n"
+"Last-Translator: Tolbkni Kao <tolbkni@gmail.com>\n"
+"Language-Team: Chinese Simplified <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: tinkerer/ext/uistr.py:34
+msgid "Home"
+msgstr "首页"
+
+#: tinkerer/ext/uistr.py:35
+msgid "Recent Posts"
+msgstr "近期的文章"
+
+#: tinkerer/ext/uistr.py:36
+msgid "Posted by"
+msgstr "发布者"
+
+#: tinkerer/ext/uistr.py:37
+msgid "Blog Archive"
+msgstr "博客归档"
+
+#: tinkerer/ext/uistr.py:38
+msgid "Filed under"
+msgstr "归类为"
+
+#: tinkerer/ext/uistr.py:39
+msgid "Tags"
+msgstr "标签"
+
+#: tinkerer/ext/uistr.py:40
+msgid "Tags Cloud"
+msgstr "标签云"
+
+#: tinkerer/ext/uistr.py:41
+msgid "Categories"
+msgstr "分类"
+
+#: tinkerer/ext/uistr.py:42
+#, python-format
+msgid "%B %d, %Y"
+msgstr ""
+
+#: tinkerer/ext/uistr.py:43
+#, python-format
+msgid "Posts tagged with <span class=\"title_tag\">%s</span>"
+msgstr "带有标签 <span class=\"title_tag\">%s</span> 的文章"
+
+#: tinkerer/ext/uistr.py:44
+#, python-format
+msgid "Filed under <span class=\"title_category\">%s</span>"
+msgstr "归类为 <span class=\"title_category\">%s</span>"
+
+#: tinkerer/ext/uistr.py:45
+msgid "Newer"
+msgstr "较新"
+
+#: tinkerer/ext/uistr.py:46
+msgid "Older"
+msgstr "较旧"
+
+#: tinkerer/ext/uistr.py:47
+#, python-format
+msgid "Page %d"
+msgstr "第 %d 页"
+
+#: tinkerer/ext/uistr.py:48
+msgid "Read more..."
+msgstr "继续阅读..."
+
+#: tinkerer/ext/uistr.py:49
+msgid "Javascript must be enabled to see this e-mail address"
+msgstr "必须启用 Javascript 才能看见电子邮件地址"
+
+#: tinkerer/themes/boilerplate/layout.html:198
+#, python-format
+msgid "Search within %(docstitle)s"
+msgstr "在 %(docstitle)s 内搜索"
+
+#: tinkerer/themes/boilerplate/layout.html:204
+msgid "About these documents"
+msgstr "关于这些文档"
+
+#: tinkerer/themes/boilerplate/layout.html:207
+msgid "Index"
+msgstr "索引"
+
+#: tinkerer/themes/boilerplate/layout.html:210
+#: tinkerer/themes/boilerplate/search.html:12
+#: tinkerer/themes/boilerplate/search.html:21
+msgid "Search"
+msgstr "搜索"
+
+#: tinkerer/themes/boilerplate/layout.html:213
+msgid "Copyright"
+msgstr "版权"
+
+#: tinkerer/themes/boilerplate/layout.html:288
+#, python-format
+msgid "&copy; Copyright %(copyright)s. "
+msgstr ""
+
+#: tinkerer/themes/boilerplate/search.html:25
+msgid ""
+"Please activate JavaScript to enable the search\n"
+"    functionality."
+msgstr "请激活 JavaScript 以启用搜索功能。"
+
+#: tinkerer/themes/boilerplate/search.html:30
+msgid ""
+"From here you can search these documents. Enter your search\n"
+"    words into the box below and click \"search\". Note that the search\n"
+"    function will automatically search for all of the words. Pages\n"
+"    containing fewer words won't appear in the result list."
+msgstr ""
+"您可以在此搜索文档。在下方的输入框中输入您要搜索的词语，\n"
+"然后点击“搜寻”。注意：搜索功能会自动搜索所有词语。页面内\n"
+"没有包含所有词语时，不会出现在显示结果中。"
+
+#: tinkerer/themes/boilerplate/search.html:37
+msgid "search"
+msgstr "搜索"
+
+#: tinkerer/themes/boilerplate/search.html:41
+msgid "Search Results"
+msgstr "搜索结果"
+
+#: tinkerer/themes/boilerplate/search.html:43
+msgid "Your search did not match any results."
+msgstr "您的搜索没有匹配到任何结果。"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:154
+msgid "Permalink to this headline"
+msgstr "永久链接到这个标题"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:160
+msgid "Permalink to this definition"
+msgstr "永久链接到这个定义"
+
+#: tinkerer/themes/boilerplate/static/doctools.js:189
+msgid "Hide Search Matches"
+msgstr "隐藏搜索结果"
+
+#: tinkerer/themes/tinkerbase/layout.html:209
+#, python-format
+msgid "&copy; Copyright %(copyright)s."
+msgstr ""
+
