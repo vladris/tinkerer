@@ -64,7 +64,7 @@ def build():
 
 
 
-def create_post(title, date=None):
+def create_post(title, date=None, word_sep='_'):
     '''
     Creates a new post with the given title or makes an existing file a post.
     '''
@@ -73,7 +73,7 @@ def create_post(title, date=None):
     if move:
         new_post = post.move(title, date)
     else:
-        new_post = post.create(title, date)
+        new_post = post.create(title, date, word_sep=word_sep)
 
     output.filename.info(new_post.path)
     if move:
@@ -169,6 +169,9 @@ def main(argv=None):
             help="optionally specify a date as 'YYYY/mm/dd' for the post, useful when "
                  " migrating blogs; can only be used together with -p/--post")
 
+    parser.add_argument("--word-sep-dash", action="store_true",
+            help="when making page and post names, separate words with dashes instead of underscores")
+
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-q", "--quiet", action="store_true", help="quiet mode")
     group.add_argument("-f", "--filename", action="store_true",
@@ -196,13 +199,17 @@ def main(argv=None):
         except:
             output.write.error("Invalid post date: format should be YYYY/mm/dd")
             return -1
+    
+    word_sep = "_"
+    if command.word_sep_dash:
+        word_sep = '-'
 
     if command.setup:
         setup()
     elif command.build:
         return build()
     elif command.post:
-        create_post(command.post[0], post_date)
+        create_post(command.post[0], post_date, word_sep=word_sep)
     elif command.page:
         create_page(command.page[0])
     elif command.draft:
