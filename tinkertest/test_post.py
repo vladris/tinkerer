@@ -58,7 +58,7 @@ class TestPost(utils.BaseTinkererTest):
 
     def test_create_dashed(self):
         # create post with current date and dash as word separator
-        new_post = post.create("My __Second  Post", word_sep='-')
+        new_post = post.create("My __Second  Post.", word_sep='-')
 
         year, month, day = tinkerer.utils.split_date()
         self.assertEquals(year, new_post.year)

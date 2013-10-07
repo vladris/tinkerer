@@ -83,7 +83,7 @@ def create_post(title, date=None, word_sep='_'):
 
 
 
-def create_page(title):
+def create_page(title, word_sep='_'):
     '''
     Creates a new page with the given title or makes an existing file a page.
     '''
@@ -92,7 +92,7 @@ def create_page(title):
     if move:
         new_page = page.move(title)
     else:
-        new_page = page.create(title)
+        new_page = page.create(title, word_sep=word_sep)
 
     output.filename.info(new_page.path)
     if move:
@@ -102,7 +102,7 @@ def create_page(title):
 
 
 
-def create_draft(title):
+def create_draft(title, word_sep='_'):
     '''
     Creates a new draft with the given title or makes an existing file a draft.
     '''
@@ -111,7 +111,7 @@ def create_draft(title):
     if move:
         new_draft = draft.move(title)
     else:
-        new_draft = draft.create(title)
+        new_draft = draft.create(title, word_sep=word_sep)
 
     output.filename.info(new_draft)
     if move:
@@ -211,9 +211,9 @@ def main(argv=None):
     elif command.post:
         create_post(command.post[0], post_date, word_sep=word_sep)
     elif command.page:
-        create_page(command.page[0])
+        create_page(command.page[0], word_sep=word_sep)
     elif command.draft:
-        create_draft(command.draft[0])
+        create_draft(command.draft[0], word_sep=word_sep)
     elif command.preview:
         preview_draft(command.preview[0])
     elif command.version:

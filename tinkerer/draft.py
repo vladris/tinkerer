@@ -16,11 +16,11 @@ from tinkerer import master, paths, utils, writer
 
 
 
-def create(title):
+def create(title, word_sep='_'):
     '''
     Creates a new post draft.
     '''
-    name = utils.name_from_title(title)
+    name = utils.name_from_title(title, word_sep=word_sep)
 
     path = os.path.join(
                     utils.get_path(
