@@ -56,6 +56,25 @@ class TestPost(utils.BaseTinkererTest):
         self.assertTrue(os.path.exists(new_post.path))
         self.assertEquals("2010/10/01/date_post", new_post.docname)
 
+    def test_create_dashed(self):
+        # create post with current date and dash as word separator
+        new_post = post.create("My __Second  Post.", word_sep='-')
+
+        year, month, day = tinkerer.utils.split_date()
+        self.assertEquals(year, new_post.year)
+        self.assertEquals(month, new_post.month)
+        self.assertEquals(day, new_post.day)
+
+        self.assertEquals(
+                os.path.abspath(os.path.join(
+                                    utils.TEST_ROOT, 
+                                    year, 
+                                    month, 
+                                    day, 
+                                    "my-second-post.rst")),
+                new_post.path)                                        
+
+        self.assertTrue(os.path.exists(new_post.path))
 
     # test moving existing file to post
     def test_move(self):
