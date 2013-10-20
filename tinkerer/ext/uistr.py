@@ -15,10 +15,10 @@ try:
 except:
     # Python 2
     import __builtin__
-    
 
 
-# check whether unicode builtin exists, otherwise strings are unicode by 
+
+# check whether unicode builtin exists, otherwise strings are unicode by
 # default so it can be stubbed
 if "unicode" not in __builtin__.__dict__:
     def unicode(ret, ignore):
@@ -39,8 +39,8 @@ class UIStr:
         UIStr.TAGS = unicode(_("Tags"), "utf-8")
         UIStr.TAGS_CLOUD = unicode(_("Tags Cloud"), "utf-8")
         UIStr.CATEGORIES = unicode(_("Categories"), "utf-8")
-        UIStr.TIMESTAMP_FMT = unicode(_('%B %d, %Y'), "utf-8")
-        UIStr.TIMESTAMP_FMT_SHORT = unicode(_('%b %d'), "utf-8")
+        UIStr.TIMESTAMP_FMT = unicode(_('MMMM dd, yyyy'), "utf-8")
+        UIStr.TIMESTAMP_FMT_SHORT = unicode(_('MMM dd'), "utf-8")
         UIStr.TAGGED_WITH_FMT = unicode(_('Posts tagged with <span class="title_tag">%s</span>'), "utf-8")
         UIStr.FILED_UNDER_FMT = unicode(_('Filed under <span class="title_category">%s</span>'), "utf-8")
         UIStr.NEWER = unicode(_("Newer"), "utf-8")
@@ -48,4 +48,3 @@ class UIStr:
         UIStr.PAGE_FMT = unicode(_("Page %d"), "utf-8")
         UIStr.READ_MORE = unicode(_("Read more..."), "utf-8")
         UIStr.MAIL_HIDDEN_BY_JAVASCRIPT = unicode(_("Javascript must be enabled to see this e-mail address"), "utf-8")
-
