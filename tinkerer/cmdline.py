@@ -8,6 +8,7 @@
     build - to clean build blog
     post - to create a new post
     page - to create a new page
+    serve - to serve the blog locally for testing
 
     :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
@@ -19,7 +20,7 @@ import os
 import shutil
 import sphinx
 import tinkerer
-from tinkerer import draft, output, page, paths, post, writer
+from tinkerer import draft, output, page, paths, post, writer, server
 
 
 
@@ -142,6 +143,20 @@ def preview_draft(draft_file):
 
 
 
+def serve_blog(port):
+    '''
+    Serve the blog at http://localhost:8000 for local debugging purposes.
+    '''
+    output.write.info("Serving your blog at %s:%i. Use Ctrl-C to shut down the server." % ('127.0.0.1', port))
+
+    # serve the blog for review
+    server.serve(port)
+    
+    output.write.info("Shutting down the server based on user input.\nFinished.")
+
+
+
+
 def main(argv=None):
     '''
     Parses command line and executes required action.
@@ -162,6 +177,9 @@ def main(argv=None):
     group.add_argument("--preview", nargs=1,
             help="rebuilds the blog, including the draft PREVIEW, without permanently "
                  "promoting the draft to a post")
+    group.add_argument("-S", "--serve", nargs='?', const=8000, default=8000,
+            type=int, metavar='PORT', help="serve blog locally for review at "
+            "http://localhost:PORT (default: %(default)i)")
     group.add_argument("-v", "--version", action="store_true",
             help="display version information")
 
@@ -216,6 +234,8 @@ def main(argv=None):
         create_draft(command.draft[0], word_sep=word_sep)
     elif command.preview:
         preview_draft(command.preview[0])
+    elif command.serve:
+        serve_blog(command.serve)
     elif command.version:
         output.write.info("Tinkerer version %s" % tinkerer.__version__)
     else:

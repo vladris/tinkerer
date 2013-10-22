@@ -104,6 +104,9 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.assertNotEqual(0,
                 cmdline.main(["--build", "--date", "2011/11/20"]))
 
+        self.assertNotEqual(0,
+                cmdline.main(["--serve", "--date", "2011/11/20"]))
+
 
     # test page from title
     def test_page_from_title(self):
@@ -143,7 +146,6 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.assertTrue(os.path.exists(file_path))
 
 
-
     # test build
     def test_build(self):
         # create a new post
@@ -171,6 +173,9 @@ class TestCmdLine(utils.BaseTinkererTest):
 
         self.assertNotEqual(0,
                 cmdline.main(["--build", "--quiet"]))
+
+        self.assertNotEqual(0,
+                cmdline.main(["--serve", "8000", "--quiet"]))
 
         # setup should work fine from anywhere
         self.assertEqual(0,
