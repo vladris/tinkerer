@@ -20,4 +20,5 @@ Raniere Silva - Brazilian Portuguese localization, fix "Blog Archive" localizati
 Civa Lin - Chinese (Traditional) localization, draft overwrite fix
 Tolbkni Kao - Chinese (Simplified) localization
 Zaur Nasibov - Russian localization
-Sebastian Wiesner - Install argparse only when needed
+Sebastian Wiesner - Install argparse only when needed, use Babel to format dates
+Sean Gillies - Configurable slug word separator
