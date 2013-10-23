@@ -20,7 +20,7 @@ class Page():
     The class provides methods to create a new page and insert it into the
     master document.
     '''
-    def __init__(self, title=None, path=None, word_sep='_'):
+    def __init__(self, title=None, path=None):
         '''
         Determines page filename based on title or given path and creates the 
         path to the page if it doesn't already exist.
@@ -31,7 +31,7 @@ class Page():
         if path:
             self.name = utils.name_from_path(path)
         else:
-            self.name = utils.name_from_title(title, word_sep=word_sep)
+            self.name = utils.name_from_title(title)
 
         # create page directory if it doesn't exist and get page path
         self.path = os.path.join(
@@ -54,11 +54,11 @@ class Page():
 
 
 
-def create(title, word_sep='_'):
+def create(title):
     '''
     Creates a new page given its title.
     '''
-    page = Page(title, path=None, word_sep=word_sep)
+    page = Page(title, path=None)
     if os.path.exists(page.path):
         raise Exception("Page '%s' already exists at '%s" %
                         (title, page.path))

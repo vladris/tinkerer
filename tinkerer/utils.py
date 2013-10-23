@@ -9,17 +9,23 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
+import imp
 import os
 import re
 
 
 
-def name_from_title(title, word_sep='_'):
+def name_from_title(title):
     '''
     Returns a doc name from a title by replacing all groups of 
     characters which are not alphanumeric or '_' with the word 
     separator character.
     '''
+    try:
+        word_sep = get_conf().slug_word_separator
+    except:
+        word_sep = "_"
+
     return re.sub(r"[\W_]+", word_sep, title
         ).lower().strip(word_sep)
 
@@ -54,3 +60,11 @@ def split_date(date=None):
         date = datetime.datetime.today()
 
     return date.strftime("%Y/%m/%d").split("/")
+
+
+
+def get_conf():
+    '''
+    Import conf.py from current directory.
+    '''
+    return imp.load_source("conf", "./conf.py")
