@@ -82,7 +82,7 @@ def get_metadata(app, docname):
     '''
     env = app.builder.env
     language = app.config.language
-    locale = Locale.parse(language) if language else Locale.default()
+    locale = Locale.parse(language) if language else Locale('en', 'US')
     format_ui_date = partial(
         format_date, format=UIStr.TIMESTAMP_FMT, locale=locale)
     format_short_ui_short = partial(
