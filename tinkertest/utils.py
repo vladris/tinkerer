@@ -12,7 +12,7 @@ import datetime
 import os
 import shutil
 import sys
-from tinkerer import cmdline, output, page, paths, post, writer
+from tinkerer import cmdline, output, page, paths, post, writer, server
 import types
 import unittest
 

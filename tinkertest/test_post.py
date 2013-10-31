@@ -66,7 +66,7 @@ class TestPost(utils.BaseTinkererTest):
             lines = f.write("slug_word_separator = '-'")
 
         # create post with current date and dash as word separator
-        new_post = post.create("My __Second  Post.")
+        new_post = post.create("My __Second  Post.", word_sep='-')
 
         os.chdir(cwd)
 

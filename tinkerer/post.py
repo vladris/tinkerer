@@ -22,7 +22,7 @@ class Post():
     master document.
     '''
 
-    def __init__(self, title=None, path=None, date=None):
+    def __init__(self, title=None, path=None, date=None, word_sep='_'):
         '''
         Initializes a new post and creates path to it if it doesn't already
         exist.
@@ -36,7 +36,7 @@ class Post():
         if path:
             self.name = utils.name_from_path(path)
         else:
-            self.name = utils.name_from_title(title)
+            self.name = utils.name_from_title(title, word_sep=word_sep)
 
         # create post directory if it doesn't exist and get post path
         self.path = os.path.join(
@@ -66,11 +66,11 @@ class Post():
 
 
 
-def create(title, date=None):
+def create(title, date=None, word_sep='_'):
     '''
     Creates a new post given its title.
     '''
-    post = Post(title, path=None, date=date)
+    post = Post(title, path=None, date=date, word_sep=word_sep)
     if os.path.exists(post.path):
         raise Exception("Post '%s' already exists at '%s" %
                         (title, post.path))

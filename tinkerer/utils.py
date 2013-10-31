@@ -15,7 +15,7 @@ import re
 
 
 
-def name_from_title(title):
+def name_from_title(title, word_sep='_'):
     '''
     Returns a doc name from a title by replacing all groups of 
     characters which are not alphanumeric or '_' with the word 
