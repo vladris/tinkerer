@@ -11,6 +11,7 @@
 import os
 import sys
 import datetime
+import time
 from multiprocessing import Process
 import tinkerer
 from tinkertest import utils
@@ -58,6 +59,7 @@ class TestServe(utils.BaseTinkererTest):
         p.start()
 
         if p.is_alive():
+            time.sleep(10)
             page = request.urlopen(baseUrl)
             response = page.read()
 
@@ -65,6 +67,7 @@ class TestServe(utils.BaseTinkererTest):
         self.assertTrue(response)
 
         if p.is_alive():
+            time.sleep(10)
             path = baseUrl + os.path.relpath(utils.TEST_ROOT) + '/blog/html/' + self.new_post.docname + '.html'
             page = request.urlopen(path)
             response = page.read()
