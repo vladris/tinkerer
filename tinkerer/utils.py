@@ -14,6 +14,8 @@ import os
 import re
 
 
+UNICODE_ALNUM_PTN = re.compile(r"[\W_]+", re.U)
+
 
 def name_from_title(title):
     '''
@@ -26,7 +28,7 @@ def name_from_title(title):
     except:
         word_sep = "_"
 
-    return re.sub(r"[\W_]+", word_sep, title
+    return UNICODE_ALNUM_PTN.sub(word_sep, title
         ).lower().strip(word_sep)
 
 
