@@ -12,6 +12,7 @@ import datetime
 import imp
 import os
 import re
+import urllib
 
 
 UNICODE_ALNUM_PTN = re.compile(r"[\W_]+", re.U)
@@ -28,8 +29,9 @@ def name_from_title(title):
     except:
         word_sep = "_"
 
-    return UNICODE_ALNUM_PTN.sub(word_sep, title
-        ).lower().strip(word_sep)
+    name = UNICODE_ALNUM_PTN.sub(word_sep, title).lower().strip(word_sep)
+
+    return urllib.quote(name.encode("utf-8"))
 
 
 
@@ -38,7 +40,8 @@ def name_from_path(path):
     Returns a doc name from a path by extracting the filename without
     extension.
     '''
-    return os.path.splitext(os.path.basename(path))[0]
+    name = os.path.splitext(os.path.basename(path))[0]
+    return urllib.unquote(name).decode("utf-8")
 
 
 
