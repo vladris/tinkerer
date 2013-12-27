@@ -8,6 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+import sys
 from setuptools import setup, find_packages
 import tinkerer
 
@@ -23,8 +24,11 @@ RSS feed generation, comments powered by Disqus and more.
 Tinkerer is also highly customizable through Sphinx extensions.
 '''
 
+requires = ["Jinja2>=2.3", "Sphinx>=1.1", "Babel>=1.3"]
+if sys.version_info[:2] < (2,7) or (sys.version_info.major == 3 and
+                                    sys.version_info.minor < 2):
+    requires.append("argparse>=1.2")
 
-requires = ["Jinja2>=2.3", "Sphinx>=1.1", "argparse>=1.2"]
 test_requires = ['nose', 'tox']
 
 setup(

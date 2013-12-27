@@ -9,17 +9,27 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
+import imp
 import os
 import re
 
 
+UNICODE_ALNUM_PTN = re.compile(r"[\W_]+", re.U)
+
 
 def name_from_title(title):
     '''
-    Returns a doc name from a title by replacing all characters which are not
-    alphanumeric or '_' with '_'.
+    Returns a doc name from a title by replacing all groups of 
+    characters which are not alphanumeric or '_' with the word 
+    separator character.
     '''
-    return re.sub(r"[\W_]", "_", title).lower()
+    try:
+        word_sep = get_conf().slug_word_separator
+    except:
+        word_sep = "_"
+
+    return UNICODE_ALNUM_PTN.sub(word_sep, title
+        ).lower().strip(word_sep)
 
 
 
@@ -52,3 +62,11 @@ def split_date(date=None):
         date = datetime.datetime.today()
 
     return date.strftime("%Y/%m/%d").split("/")
+
+
+
+def get_conf():
+    '''
+    Import conf.py from current directory.
+    '''
+    return imp.load_source("conf", "./conf.py")

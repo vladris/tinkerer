@@ -196,7 +196,7 @@ def main(argv=None):
         except:
             output.write.error("Invalid post date: format should be YYYY/mm/dd")
             return -1
-
+    
     if command.setup:
         setup()
     elif command.build:

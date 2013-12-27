@@ -12,7 +12,10 @@
 import re
 import datetime
 import locale
+from functools import partial
 from sphinx.util.compat import Directive
+from babel.core import Locale
+from babel.dates import format_date
 import tinkerer
 from tinkerer.ext.uistr import UIStr
 from tinkerer.utils import name_from_title
@@ -24,10 +27,6 @@ def initialize(app):
     Initializes metadata in environment.
     '''
     app.builder.env.blog_metadata = dict()
-
-    # make sure we use system locale for date formatting
-    locale.setlocale(locale.LC_TIME, '')
-
 
 
 class Metadata:
@@ -82,6 +81,12 @@ def get_metadata(app, docname):
     Extracts metadata from a document.
     '''
     env = app.builder.env
+    language = app.config.language
+    locale = Locale.parse(language) if language else Locale('en', 'US')
+    format_ui_date = partial(
+        format_date, format=UIStr.TIMESTAMP_FMT, locale=locale)
+    format_short_ui_short = partial(
+        format_date, format=UIStr.TIMESTAMP_FMT_SHORT, locale=locale)
 
     env.blog_metadata[docname] = Metadata()
     metadata = env.blog_metadata[docname]
@@ -104,14 +109,8 @@ def get_metadata(app, docname):
 
     # we format date here instead of inside template due to localization issues
     # and Python2 vs Python3 incompatibility
-    metadata.formatted_date = metadata.date.strftime(UIStr.TIMESTAMP_FMT)
-    metadata.formatted_date_short = metadata.date.strftime(UIStr.TIMESTAMP_FMT_SHORT)
-
-    if (hasattr(metadata.formatted_date, "decode")):
-        metadata.formatted_date = metadata.formatted_date.decode("utf-8")
-    if (hasattr(metadata.formatted_date_short, "decode")):
-        metadata.formatted_date_short = metadata.formatted_date_short.decode("utf-8")
-
+    metadata.formatted_date = format_ui_date(metadata.date)
+    metadata.formatted_date_short = format_short_ui_short(metadata.date)
 
 
 def process_metadata(app, env):

@@ -2,6 +2,7 @@ Tinkerer
 ========
 
 .. image:: https://travis-ci.org/vladris/tinkerer.png
+   :target: https://travis-ci.org/vladris/tinkerer/
 
 What is Tinkerer?
 -----------------

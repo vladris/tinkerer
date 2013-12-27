@@ -9,7 +9,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import logging
-
+import sys
 
 
 # output writer
@@ -41,7 +41,7 @@ def init(quiet_mode, filename_only):
     if filename_only:
         # in filename-only mode, also handle filename and suppress other
         # messages below ERROR level
-        filename.addHandler(logging.StreamHandler())
+        filename.addHandler(logging.StreamHandler(sys.stdout))
         write.setLevel(logging.ERROR)
         filename.setLevel(logging.INFO)
     elif quiet:
