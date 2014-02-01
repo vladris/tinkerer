@@ -116,7 +116,7 @@ def html_collected_context(app, name, template, context):
     Patches HTML in aggregated pages
     '''
     if template == "aggregated.html":
-        patch.patch_aggregated_metadata(context)
+        patch.patch_aggregated_metadata(app, context)
 
 
 
@@ -140,9 +140,9 @@ def setup(app):
     app.add_directive("author", author.AuthorDirective)
     app.add_directive("comments", metadata.CommentsDirective)
     app.add_directive("tags", 
-            filing.create_filing_directive("tags"))
+            filing.create_filing_directive(app, "tags"))
     app.add_directive("categories", 
-            filing.create_filing_directive("categories"))
+            filing.create_filing_directive(app, "categories"))
     app.add_directive("more", readmore.InsertReadMoreLink)
  
     # create a new Sphinx event which gets called when we generate aggregated

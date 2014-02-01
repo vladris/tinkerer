@@ -120,7 +120,7 @@
             <span>
                 {{ text_filed_under }}:
                 {% for link, category in post_categories -%}
-                    <a href="{{ pathto('categories/' + link + '.html', 1) }}">{{ category }}</a>
+                    <a href="{{ pathto('categories/' + link, 1) }}">{{ category }}</a>
                     {%- if not loop.last -%}, {% endif -%}
                 {% endfor -%}
             </span>
@@ -135,7 +135,7 @@
             <span>
                 {{ text_tags }}:
                 {% for link, tag in post_tags -%}
-                    <a href="{{ pathto('tags/' + link + '.html', 1) }}">{{ tag }}</a>
+                    <a href="{{ pathto('tags/' + link, 1) }}">{{ tag }}</a>
                     {%- if not loop.last -%}, {% endif -%}
                 {% endfor -%}
             </span>
