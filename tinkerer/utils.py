@@ -61,7 +61,7 @@ def split_date(date=None):
     if not date:
         date = datetime.datetime.today()
 
-    return date.strftime("%Y/%m/%d").split("/")
+    return "%04d" % date.year, "%02d" % date.month, "%02d" % date.day
 
 
 
