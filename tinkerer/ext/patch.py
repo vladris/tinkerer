@@ -13,6 +13,9 @@
 from os import path
 import re
 import xml.dom.minidom
+
+import pyquery
+
 from tinkerer.ext.uistr import UIStr
 
 try:
@@ -103,10 +106,10 @@ def patch_links(body, docpath, docname=None, link_title=False, replace_read_more
     XML as string.
     '''
     in_str = convert(body).encode("utf-8")
-    doc = xml.dom.minidom.parseString(in_str)
+    doc = pyquery.PyQuery(in_str)
     patch_node(doc, docpath, docname)
 
-    body = doc.toxml()
+    body = doc.html()
     if docname and replace_read_more_link:
         body = make_read_more_link(body, docpath, docname)
 
@@ -156,46 +159,35 @@ def collapse_path(path_url):
     return path.normpath(path_url).replace("\\", "/").replace(":/", "://")
 
 
-
 def patch_node(node, docpath, docname=None):
-    '''
-    Recursively patches links in nodes.
-    '''
-    node_name = node.localName
+    for img in node.find('img'):
+        src = img.get('src', '')
+        if src.startswith(".."):
+            src = docpath + src
+        src = collapse_path(src)
+        img.set('src', src)
 
-    # if node is <img>
-    if node_name == "img":
-        src = node.getAttributeNode("src")
-        # if this is relative path (internal link)
-        if src.value.startswith(".."):
-            src.value = docpath + src.value
-        src.value = collapse_path(src.value)
-    # if node is hyperlink
-    elif node_name == "a":
-        ref = node.getAttributeNode("href")
+    for anchor in node.find('a'):
+        ref = anchor.get('href')
         # skip anchor links <a name="anchor1"></a>, <a name="more"/>
         if ref != None:
             # patch links only - either starting with "../" or having
             # "internal" class
-            is_relative = ref.value.startswith("../")
-            if is_relative or "internal" in node.getAttribute("class"):
-                ref.value = docpath + ref.value
+            is_relative = ref.startswith("../")
+            if is_relative or "internal" in anchor.get('class'):
+                ref = docpath + ref
 
             # html anchor with missing post.html
             # e.g. href="2012/08/23/#the-cross-compiler"
             # now href="2012/08/23/a_post.html#the-cross-compiler"
-            ref.value = ref.value.replace("/#", "/%s.html#" % docname)
+            ref = ref.replace("/#", "/%s.html#" % docname)
 
             # normalize urls so "2012/08/23/../../../_static/" becomes
             # "_static/" - we can use normpath for this, just make sure
             # to revert change on protocol prefix as normpath deduplicates
             # // (http:// becomes http:/)
-            ref.value = collapse_path(ref.value)
-
-    # recurse
-    for node in node.childNodes:
-        patch_node(node, docpath, docname)
-
+            ref = collapse_path(ref)
+            anchor.set('href', ref)
 
 
 def strip_xml_declaration(body):
