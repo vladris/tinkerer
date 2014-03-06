@@ -136,19 +136,13 @@ def make_read_more_link(body, docpath, docname):
     """
     Create "read more" link if marker exists.
     """
-    marker_more = '<div id="more"> </div>'
-    pos = body.find(marker_more)
-
-    if pos == -1:
-        return body
-
-    body = body[:pos]
-
-    # when the .. more:: directive comes after a subsection:
-    body += "</div>" * (body.count("<div") - body.count("</div") - 1)
-
-    return body + ('<p><a class="readmore" href="%s.html#more">%s</a></p></div>' %
-                (docpath + docname, UIStr.READ_MORE))
+    doc = pyquery.PyQuery(body)
+    link_p = ('<p class="readmorewrapper"><a class="readmore" '
+              'href="%s.html#more">%s</a></p>' %
+              (docpath + docname, UIStr.READ_MORE))
+    doc('div#more').replaceWith(link_p)
+    doc('p.readmorewrapper').next_all().remove()
+    return doc.html()
 
 
 
