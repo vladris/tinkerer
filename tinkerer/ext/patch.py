@@ -105,8 +105,7 @@ def patch_links(body, docpath, docname=None, link_title=False, replace_read_more
     to fix hyperlinks. Also hyperlinks document title. Returns resulting
     XML as string.
     '''
-    in_str = convert(body).encode("utf-8")
-    doc = pyquery.PyQuery(in_str)
+    doc = pyquery.PyQuery(body)
     patch_node(doc, docpath, docname)
 
     body = doc.html()
