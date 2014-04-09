@@ -3,6 +3,9 @@ Tinkerer
 
 .. image:: https://travis-ci.org/vladris/tinkerer.png
    :target: https://travis-ci.org/vladris/tinkerer/
+   
+.. image:: https://coveralls.io/repos/vladris/tinkerer/badge.png 
+   :target: https://coveralls.io/r/vladris/tinkerer
 
 What is Tinkerer?
 -----------------
