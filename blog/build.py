@@ -42,7 +42,7 @@ def update_index(theme):
     '''
     index = os.path.join("blog", "html", "index_%s.html" % (theme,))
 
-    text = open(index).read()
+    text = open(index, encoding="utf-8").read()
     text = text.replace("_static", "_static_%s" % (theme, ))
 
     open(index, "w").write(text)
