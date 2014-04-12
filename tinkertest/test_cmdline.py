@@ -185,15 +185,16 @@ class TestCmdLine(utils.BaseTinkererTest):
 
     def test_filename_only(self):
         # hook up test log handler
-        with StringIO() as test_stream:
-            # restore logging for this particular test
-            logging.disable(logging.NOTSET)
+        test_stream = StringIO()
 
-            output.filename.addHandler(logging.StreamHandler(test_stream))
+        # restore logging for this particular test
+        logging.disable(logging.NOTSET)
 
-            # setup new blog with --filename flag
-            cmdline.main(["--setup", "--filename"])
+        output.filename.addHandler(logging.StreamHandler(test_stream))
 
-            # output should be `conf.py`
-            self.assertEquals("conf.py", test_stream.getvalue().strip())
+        # setup new blog with --filename flag
+        cmdline.main(["--setup", "--filename"])
+
+        # output should be `conf.py`
+        self.assertEquals("conf.py", test_stream.getvalue().strip())
 
