@@ -21,7 +21,9 @@ class TestCategories(utils.BaseTinkererTest):
         utils.test = self
 
         # create some posts with categories
-        for new_post in [("Post1", "category #1"),
+
+        # missing category for Post1 ("cateogry #1,") should work, just issue a warning
+        for new_post in [("Post1", "category #1,"),
                          ("Post2", "category #2"),
                          ("Post12", "category #1, category #2")]:
             post.create(new_post[0], datetime.date(2010, 10, 1)).write(

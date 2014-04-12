@@ -9,6 +9,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
+from nose.tools import raises
 import os
 from tinkerer import post
 import tinkerer
@@ -168,4 +169,23 @@ class TestPost(utils.BaseTinkererTest):
                      ".. tags:: tag 1, tag 2\n",
                      ".. comments::\n"])
 
+
+    # test that create duplicate post raises exception
+    @raises(Exception)
+    def test_create_duplicate(self):
+        # create initial post
+        post.create("Post1")
+
+        # should raise
+        post.create("Post1")
+
+
+    # test that moving post to existing post raises exception
+    @raises(Exception)
+    def test_move_duplicate(self):
+        # create initial post
+        post.create("Post1")
+
+        # should raise
+        post.move("Post1")
 

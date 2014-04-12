@@ -9,6 +9,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
+from nose.tools import raises
 import os
 from tinkerer import page
 import tinkerer
@@ -78,4 +79,23 @@ class TestPage(utils.BaseTinkererTest):
                     ["My Page\n",
                      "=======\n",
                      "\n"])
+
+    # test that create duplicate page raises exception
+    @raises(Exception)
+    def test_create_duplicate(self):
+        # create initial post
+        page.create("Page1")
+
+        # should raise
+        page.create("Page1")
+
+
+    # test that moving page to existing page raises exception
+    @raises(Exception)
+    def test_move_duplicate(self):
+        # create initial page
+        page.create("Page1")
+
+        # should raise
+        page.move("Page1")
 
