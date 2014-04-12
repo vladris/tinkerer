@@ -11,8 +11,14 @@
 import datetime
 import logging
 import os
+try:
+    # Python 2
+    from StringIO import StringIO
+except:
+    # Python 3
+    from io import StringIO
 import tinkerer
-from tinkerer import cmdline, paths, post
+from tinkerer import cmdline, output, paths, post
 from tinkertest import utils
 
 
@@ -175,4 +181,19 @@ class TestCmdLine(utils.BaseTinkererTest):
         # setup should work fine from anywhere
         self.assertEqual(0,
                 cmdline.main(["--setup", "--quiet"]))
+
+
+    def test_filename_only(self):
+        # hook up test log handler
+        with StringIO() as test_stream:
+            # restore logging for this particular test
+            logging.disable(logging.NOTSET)
+
+            output.filename.addHandler(logging.StreamHandler(test_stream))
+
+            # setup new blog with --filename flag
+            cmdline.main(["--setup", "--filename"])
+
+            # output should be `conf.py`
+            self.assertEquals("conf.py", test_stream.getvalue().strip())
 
