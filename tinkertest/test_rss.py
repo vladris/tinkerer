@@ -122,3 +122,10 @@ class TestRSS(utils.BaseTinkererTest):
                     child)[0].childNodes[0].nodeValue
 
         return data
+
+    def test_empty_blog(self):
+        # empty blog should not generate rss
+        self.build()
+
+        self.assertFalse(os.path.exists(os.path.join(paths.html, "rss.html")))
+
