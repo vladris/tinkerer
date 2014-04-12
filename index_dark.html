@@ -30,7 +30,7 @@
         <script src="_static_dark/main.js"></script>
         <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -63,18 +63,18 @@
         #fork_me { display: inline; }
     } 
 </style></head>
-    <body>
+    <body role="document">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
       <div id="container"><div class="header-container">
-    <header class="wrapper clearfix">
+    <header class="wrapper clearfix" role="banner">
         <div class="title">
           <h1><a href="#">Tinkerer</a></h1>
           <h4>Blogging for Pythonistas</h4>
         </div>
-        <nav class="big_nav">
+        <nav class="big_nav"role="navigation">
           <ul>
             <li class="main-nav">
               <a href="#">Home</a>
@@ -92,13 +92,12 @@
     </header>
 </div>
 
-<div class="main-container"><div class="main wrapper clearfix"><article><div class="timestamp postmeta">
+<div class="main-container" role="main"><div class="main wrapper clearfix"><article role="article"><div class="timestamp postmeta">
             <span>December 27, 2013</span>
         </div>
-        <div class="section" id="tinkerer-1-3-released">
-<h1><a href="2013/12/27/tinkerer_1_3_released.html">Tinkerer 1.3 Released</a></h1>
+        <h1><a href="2013/12/27/tinkerer_1_3_released.html">Tinkerer 1.3 Released</a></h1>
 <div class="section" id="what-s-new">
-<h2>What‚Äôs New</h2>
+<h2>Whatís New</h2>
 <ul class="simple">
 <li>Brazilian Portuguese localization</li>
 <li>Russian localization</li>
@@ -112,7 +111,7 @@
 <h2>Aknowledgments</h2>
 <p>As always, many thanks to the community for the great work!</p>
 </div>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -132,10 +131,9 @@
         </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>June 05, 2013</span>
         </div>
-        <div class="section" id="tinkerer-1-2-released">
-<h1><a href="2013/06/05/tinkerer_1_2_released.html">Tinkerer 1.2 Released</a></h1>
+        <h1><a href="2013/06/05/tinkerer_1_2_released.html">Tinkerer 1.2 Released</a></h1>
 <div class="section" id="what-s-new">
-<h2>What‚Äôs New</h2>
+<h2>Whatís New</h2>
 <ul class="simple">
 <li>Tinkerer moved to GitHub! Old repositories on BitBucket are still there for
 the time being, but going forward, all developement will take place on GitHub.
@@ -154,7 +152,7 @@ of full posts even when using the <span class="docutils literal"><span class="pr
 <p>Thanks to the great Tinkerer community for all their contributions!
 <a class="reference external" href="https://github.com/vladris/tinkerer/blob/master/CONTRIBUTORS">You</a> are awesome!</p>
 </div>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -174,10 +172,9 @@ of full posts even when using the <span class="docutils literal"><span class="pr
         </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>March 17, 2013</span>
         </div>
-        <div class="section" id="tinkerer-1-1-released">
-<h1><a href="2013/03/17/tinkerer_1_1_released.html">Tinkerer 1.1 Released</a></h1>
+        <h1><a href="2013/03/17/tinkerer_1_1_released.html">Tinkerer 1.1 Released</a></h1>
 <div class="section" id="what-s-new">
-<h2>What‚Äôs New</h2>
+<h2>Whatís New</h2>
 <ul class="simple">
 <li>Tinkerer extension repository at <a class="reference external" href="https://github.com/vladris/tinkerer-contrib">tinkerer-contrib</a>.</li>
 <li>Improved extension mechanism and documentation</li>
@@ -193,7 +190,7 @@ of full posts even when using the <span class="docutils literal"><span class="pr
 <p>Important notes on upgrading:</p>
 <ul class="simple">
 <li>Run <span class="docutils literal"><span class="pre">tinkerer</span> <span class="pre">--setup</span></span> in your blog root. This will copy <span class="docutils literal"><span class="pre">page.rst</span></span> and
-<span class="docutils literal"><span class="pre">post.rst</span></span> to your blog‚Äô <span class="docutils literal"><span class="pre">_templates</span></span> directory. You can customize them
+<span class="docutils literal"><span class="pre">post.rst</span></span> to your blogí <span class="docutils literal"><span class="pre">_templates</span></span> directory. You can customize them
 to tweak your default posts and pages (other contrib extensions can also
 leverage this).</li>
 <li>If you are using <span class="docutils literal"><span class="pre">hidemail</span></span> or <span class="docutils literal"><span class="pre">fbcomments</span></span> extensions, the extensions
@@ -222,7 +219,7 @@ might have different tags/classes/ids.</p>
 <p>As usual, many thanks to everyone involved for your suggestions, bug reports
 and pull requests!</p>
 </div>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -242,8 +239,7 @@ and pull requests!</p>
         </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>December 16, 2012</span>
         </div>
-        <div class="section" id="tinkerer-1-0-released">
-<h1><a href="2012/12/16/tinkerer_1_0_released.html">Tinkerer 1.0 Released</a></h1>
+        <h1><a href="2012/12/16/tinkerer_1_0_released.html">Tinkerer 1.0 Released</a></h1>
 <div class="section" id="out-of-beta">
 <h2>Out of Beta</h2>
 <p>After one year, Tinkerer is finally going out of Beta! Thanks to everyone who
@@ -251,7 +247,7 @@ helped out by trying Tinkerer out, opening bugs or fixing them. This is a big
 milestone for the project.</p>
 </div>
 <div class="section" id="what-s-new">
-<h2>What‚Äôs New</h2>
+<h2>Whatís New</h2>
 <ul class="simple">
 <li>Updated <a class="reference external" href="http://html5bolierplate.com">HTML5 Boilerplate</a> base template</li>
 <li>New <em>Responsive</em> theme</li>
@@ -263,7 +259,7 @@ to Tinkerer)</li>
 <li>Many bug fixes</li>
 </ul>
 </div>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -283,8 +279,7 @@ to Tinkerer)</li>
         </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>November 13, 2012</span>
         </div>
-        <div class="section" id="tinkerer-private-blogs">
-<h1><a href="2012/11/13/tinkerer_private_blogs.html">Tinkerer Private Blogs</a></h1>
+        <h1><a href="2012/11/13/tinkerer_private_blogs.html">Tinkerer Private Blogs</a></h1>
 <p>Jan Wrobel prepared some scripts to easily setup a Tinkerer blog behind wwwhisper
 authorization layer on OpenShift platform. This can be useful for people wanting to
 have private blogs accessible only to select visitors. wwwhisper uses Persona to
@@ -295,9 +290,9 @@ specified, no site-specific password is created.</p>
 <p>A demo blog can be found here:
 <a class="reference external" href="https://io-mixedbit.rhcloud.com/blog">https://io-mixedbit.rhcloud.com/blog/</a></p>
 <p>The demo blog is configured to allow anyone access. You can use an <em>anything@mockmyid.com</em>
-address if you don‚Äôt want to create a real Persona just to see a demo.</p>
+address if you donít want to create a real Persona just to see a demo.</p>
 <p>Thanks Jan!</p>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -317,10 +312,9 @@ address if you don‚Äôt want to create a real Persona just to see a demo.</p>
         </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>July 05, 2012</span>
         </div>
-        <div class="section" id="tinkerer-0-4-beta-released">
-<h1><a href="2012/07/05/tinkerer_0_4_beta_released.html">Tinkerer 0.4 Beta Released</a></h1>
+        <h1><a href="2012/07/05/tinkerer_0_4_beta_released.html">Tinkerer 0.4 Beta Released</a></h1>
 <div class="section" id="what-s-new">
-<h2>What‚Äôs New</h2>
+<h2>Whatís New</h2>
 <div class="section" id="new-html5-themes">
 <h3>New HTML5 Themes</h3>
 <ul class="simple">
@@ -357,7 +351,7 @@ HTML5-based themes.</p>
 <li>Polish translation</li>
 </ul>
 <p>Just update your <span class="docutils literal"><span class="pre">conf.py</span></span> with the following setting:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">&quot;de&quot;</span> <span class="c"># or &quot;fr&quot; or &quot;pl&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">"de"</span> <span class="c"># or "fr" or "pl"</span>
 </pre></div>
 </div>
 </div>
@@ -368,7 +362,7 @@ HTML5-based themes.</p>
 and pull requests and special thanks to the people on the ever-growing
 <a class="reference external" href="https://raw.github.com/vladris/tinkerer/master/CONTRIBUTORS">contributors</a> list for their valuable contributions.</p>
 </div>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -388,19 +382,18 @@ and pull requests and special thanks to the people on the ever-growing
         </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>February 09, 2012</span>
         </div>
-        <div class="section" id="tinkerer-0-3-beta-released">
-<h1><a href="2012/02/09/tinkerer_beta_0_3_released.html">Tinkerer 0.3 Beta Released</a></h1>
+        <h1><a href="2012/02/09/tinkerer_beta_0_3_released.html">Tinkerer 0.3 Beta Released</a></h1>
 <div class="section" id="what-s-new">
-<h2>What‚Äôs New</h2>
+<h2>Whatís New</h2>
 <ul>
 <li><p class="first">Tinkerer went international! Spanish and Catalan translations are now
 available. To have your Tinkerer blog displayed in Spanish, add the
 following line to your <span class="docutils literal"><span class="pre">conf.py</span></span>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">&quot;es&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">"es"</span>
 </pre></div>
 </div>
 <p>For Catalan, add:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">&quot;ca&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">"ca"</span>
 </pre></div>
 </div>
 </li>
@@ -412,7 +405,7 @@ following line to your <span class="docutils literal"><span class="pre">conf.py<
 </li>
 </ul>
 </div>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -432,10 +425,9 @@ following line to your <span class="docutils literal"><span class="pre">conf.py<
         </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>December 19, 2011</span>
         </div>
-        <div class="section" id="tinkerer-0-2-beta-released">
-<h1><a href="2011/12/19/tinkerer_0_2_beta_released.html">Tinkerer 0.2 Beta Released</a></h1>
+        <h1><a href="2011/12/19/tinkerer_0_2_beta_released.html">Tinkerer 0.2 Beta Released</a></h1>
 <div class="section" id="what-s-new">
-<h2>What‚Äôs New</h2>
+<h2>Whatís New</h2>
 <ul class="simple">
 <li>Support for <a class="reference internal" href="doc/tinkering.html#drafts"><em>Drafts</em></a>.</li>
 <li>Fixes for cross-references and embedded images which were not displaying
@@ -460,7 +452,7 @@ retina displays, many other small tweaks).</li>
 </div>
 <p>with:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># Add file patterns to exclude from build</span>
-<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;drafts/*&quot;</span><span class="p">]</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s">"drafts/*"</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>This will make Sphinx stop warning you about drafts not being included in
@@ -476,7 +468,7 @@ a blank line at the end of it.</p>
 <p>A big <strong>Thank You</strong> to everyone who showed interest in the project and for the
 valuable feedback you provided.</p>
 </div>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -496,8 +488,7 @@ valuable feedback you provided.</p>
         </div></div><div class="separator post_separator"></div><div class="timestamp postmeta">
             <span>December 13, 2011</span>
         </div>
-        <div class="section" id="tinkerer-0-1-beta-is-out">
-<h1><a href="2011/12/13/tinkerer_0_1_beta_is_out_.html">Tinkerer 0.1 Beta is Out!</a></h1>
+        <h1><a href="2011/12/13/tinkerer_0_1_beta_is_out_.html">Tinkerer 0.1 Beta is Out!</a></h1>
 <div class="section" id="what-is-tinkerer">
 <h2>What is Tinkerer?</h2>
 <p>Tinkerer is a blogging engine/static website generator powered by Sphinx.</p>
@@ -509,7 +500,7 @@ RSS feed generation, comments powered by Disqus and more.</p>
 <div class="section" id="why-tinkerer">
 <h2>Why Tinkerer?</h2>
 <ul class="simple">
-<li>Because <em>‚Äúhacker‚Äù</em> is way overused nowadays.</li>
+<li>Because <em>ìhackerî</em> is way overused nowadays.</li>
 <li>Because static websites are cool.</li>
 <li>Because you already write documentation in RST format and you love it.</li>
 <li>Because you have Pygments for sharing highlighted code.</li>
@@ -524,7 +515,7 @@ RSS feed generation, comments powered by Disqus and more.</p>
 </div>
 <p>Skim through the <a class="reference external" href="http://tinkerer.me/pages/documentation.html">Documentation</a>.</p>
 </div>
-</div>
+
         <div class="postmeta">
         <div class="author">
             <span>Posted by Vlad Riscutia</span>
@@ -574,7 +565,7 @@ RSS feed generation, comments powered by Disqus and more.</p>
         </div>
     </div>
     <p>Skim through the <a href="http://tinkerer.me/pages/documentation.html">Documentation</a>.</p>
-</div></section><section><div class="widget" id="searchbox">
+</div></section><section><div class="widget" id="searchbox" role="search">
     <h1>Search</h1>
     <form action="search.html" method="get">
         <input type="text" name="q" />
@@ -605,7 +596,7 @@ the <a href="http://sphinx.pocoo.org">Sphinx webiste</a>.
 
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container"><footer class="wrapper">&copy; Copyright 2011-2013, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2013, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="_static_dark/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->
