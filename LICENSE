@@ -40,7 +40,6 @@ tinkerer/themes/boilerplate/static directory are licensed under the
 Open Font License: SIL OFL 1.1
 URL: http://scripts.sil.org/OFL
 
-* font-awesome.min.css
 * fontawesome-webfont.eot
 * fontawesome-webfont.svg
 * fontawesome-webfont.ttf
@@ -50,6 +49,8 @@ The following code file distributed with Tinkerer under
 tinkerer/themes/boilerplate/static directory is licensed under the
 MIT License
 URL: http://opensource.org/licenses/mit-license.html 
+
+* font-awesome.min.css
 
 License for HTML5 Boilerplate
 =============================
