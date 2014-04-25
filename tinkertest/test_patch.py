@@ -136,3 +136,27 @@ class TestPatch(utils.BaseTinkererTest):
         ]
 
         self.check_posts(filenames, posts, expected)
+        
+
+    def test_patch_bad_link(self):
+        # post with an invalid link, which doesn't produce a proper <a> tag
+        posts = [
+            ("Post1", 
+                    # bad link
+                "`http://book.cakephp.org/3.0/en/appendices/3-0-migration-\n"
+                "guide.html`_"
+            )
+        ]
+
+        expected = [
+            (["2010", "10", "01", "post1.html"],
+             [
+                # should be marked as problematic by Sphinx
+                '<a href="#id1"><span class="problematic" id="id2">'
+                '`http://book.cakephp.org/3.0/en/appendices/3-0-migration-\n'
+                'guide.html`_</span></a>'
+             ])
+        ]
+
+        self.check_posts([], posts, expected)
+
