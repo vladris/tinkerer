@@ -103,7 +103,11 @@ def patch_node(node, docpath, docname=None):
             # patch links only - either starting with "../" or having
             # "internal" class
             is_relative = ref.startswith("../")
-            if is_relative or "internal" in anchor.get('class'):
+
+            classes = anchor.get('class')
+            is_internal = classes and "internal" in classes
+
+            if is_relative or is_internal:
                 ref = docpath + ref
 
             # html anchor with missing post.html
