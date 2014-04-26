@@ -9,11 +9,16 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
-from nose.tools import raises
 import os
+
 from tinkerer import post
 import tinkerer
+from tinkerer import paths
+
 from tinkertest import utils
+
+import mock
+from nose.tools import raises
 
 
 # test creating new post
@@ -189,3 +194,20 @@ class TestPost(utils.BaseTinkererTest):
         # should raise
         post.move("Post1")
 
+    @mock.patch('tinkerer.writer.render')
+    def test_create_without_template(self, render):
+        post.create('no-template')
+        render.assert_called_once_with(
+            paths.post_template,
+            mock.ANY,
+            mock.ANY,
+        )
+
+    @mock.patch('tinkerer.writer.render')
+    def test_create_with_template(self, render):
+        post.create('with-template', template='the_template.rst')
+        render.assert_called_once_with(
+            'the_template.rst',
+            mock.ANY,
+            mock.ANY,
+        )
