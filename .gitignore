@@ -9,3 +9,4 @@ blog/themes/*
 build/*
 .tox/*
 .ropeproject
+.coverage
