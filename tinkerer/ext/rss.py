@@ -27,13 +27,11 @@ def remove_header_link(body):
     return body
 
 
-
 def add_rss(app, context):
     '''
     Adds RSS service link to page context.
     '''
     context["rss_service"] = app.config.rss_service
-
 
 
 def generate_feed(app):
@@ -97,6 +95,7 @@ def make_feed_context(app, feed_name, posts):
     context["language"] = "en-us"
 
     # feed pubDate is equal to latest post pubDate
-    context["pubDate"] = context["items"][0]["pubDate"]
+    if context['items']:
+        context["pubDate"] = context["items"][0]["pubDate"]
 
     return context
