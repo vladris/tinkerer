@@ -135,6 +135,7 @@ def setup(app):
     # added here for consistency, slug_word_separator is used by Tinkerer
     # command line and not really needed by the Sphinx environment
     app.add_config_value("slug_word_separator", "_", True)
+    app.add_config_value("rss_max_items", 0, True)
 
     # new directives
     app.add_directive("author", author.AuthorDirective)
