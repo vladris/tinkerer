@@ -64,7 +64,7 @@ def build():
 
 
 
-def create_post(title, date=None):
+def create_post(title, date, template):
     '''
     Creates a new post with the given title or makes an existing file a post.
     '''
@@ -73,7 +73,7 @@ def create_post(title, date=None):
     if move:
         new_post = post.move(title, date)
     else:
-        new_post = post.create(title, date)
+        new_post = post.create(title, date, template)
 
     output.filename.info(new_post.path)
     if move:
@@ -83,7 +83,7 @@ def create_post(title, date=None):
 
 
 
-def create_page(title):
+def create_page(title, template):
     '''
     Creates a new page with the given title or makes an existing file a page.
     '''
@@ -92,7 +92,7 @@ def create_page(title):
     if move:
         new_page = page.move(title)
     else:
-        new_page = page.create(title)
+        new_page = page.create(title, template)
 
     output.filename.info(new_page.path)
     if move:
@@ -102,7 +102,7 @@ def create_page(title):
 
 
 
-def create_draft(title):
+def create_draft(title, template):
     '''
     Creates a new draft with the given title or makes an existing file a draft.
     '''
@@ -111,7 +111,7 @@ def create_draft(title):
     if move:
         new_draft = draft.move(title)
     else:
-        new_draft = draft.create(title)
+        new_draft = draft.create(title, template)
 
     output.filename.info(new_draft)
     if move:
@@ -165,6 +165,10 @@ def main(argv=None):
     group.add_argument("-v", "--version", action="store_true",
             help="display version information")
 
+    parser.add_argument(
+        '-t', '--template', action='store', default=None,
+        help="specify a body template, defaults to page or post",
+    )
     parser.add_argument("--date", nargs=1,
             help="optionally specify a date as 'YYYY/mm/dd' for the post, useful when "
                  " migrating blogs; can only be used together with -p/--post")
@@ -202,11 +206,11 @@ def main(argv=None):
     elif command.build:
         return build()
     elif command.post:
-        create_post(command.post[0], post_date)
+        create_post(command.post[0], post_date, command.template)
     elif command.page:
-        create_page(command.page[0])
+        create_page(command.page[0], command.template)
     elif command.draft:
-        create_draft(command.draft[0])
+        create_draft(command.draft[0], command.template)
     elif command.preview:
         preview_draft(command.preview[0])
     elif command.version:
