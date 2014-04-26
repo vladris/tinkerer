@@ -45,32 +45,35 @@ def patch_links(body, docpath, docname=None, link_title=False, replace_read_more
 
     body = doc.html()
     if docname and replace_read_more_link:
-        body = make_read_more_link(body, docpath, docname)
+        body = make_read_more_link(body, docpath, docname, doc=doc)
 
     if link_title:
-        return hyperlink_title(body, docpath, docname)
+        return hyperlink_title(body, docpath, docname, doc=doc)
     else:
         return body
 
 
 
-def hyperlink_title(body, docpath, docname):
+def hyperlink_title(body, docpath, docname, doc=None):
     """
     Hyperlink titles by embedding appropriate a tag inside
     h1 tags (which should only be post titles).
     """
-    body = body.replace("<h1>", '<h1><a href="%s.html">' %
-            (docpath + docname), 1)
-    body = body.replace("</h1>", "</a></h1>", 1)
+    prefix = '<a href="%s.html">' % (docpath + docname)
+    suffix = '</a>'
+    doc = doc or pyquery.PyQuery(body)
+    h1 = doc.find('h1')
+    h1.prepend(prefix)
+    h1.append(suffix)
     return body
 
 
 
-def make_read_more_link(body, docpath, docname):
+def make_read_more_link(body, docpath, docname, doc=None):
     """
     Create "read more" link if marker exists.
     """
-    doc = pyquery.PyQuery(body)
+    doc = doc or pyquery.PyQuery(body)
     link_p = ('<p class="readmorewrapper"><a class="readmore" '
               'href="%s.html#more">%s</a></p>' %
               (docpath + docname, UIStr.READ_MORE))
