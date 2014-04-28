@@ -24,4 +24,5 @@ Sebastian Wiesner - Install argparse only when needed, use Babel to format dates
 Sean Gillies - Configurable slug word separator
 Tatsuo Ikeda - Bug fixes
 Wes Turner - WAI-ARIA roles
-Doug Hellmann - Rewrite patch.py with PyQuery for improved robustness
+Doug Hellmann - Rewrite patch.py with PyQuery for improved robustness, --template flag, rss_max_items and enhanced tox config
+Konstantin Molchanov - Updated Russian localization
