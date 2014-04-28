@@ -224,8 +224,8 @@ class TestRSSTitle(utils.BaseTinkererTest):
 
     def test_with_title(self):
         context = rss.make_feed_context(self.app, 'title here', [])
-        self.assertIn('faux project', context['title'])
-        self.assertIn('title here', context['title'])
+        self.assertTrue('faux project' in context['title'])
+        self.assertTrue('title here' in context['title'])
 
     def test_without_title(self):
         context = rss.make_feed_context(self.app, None, [])
