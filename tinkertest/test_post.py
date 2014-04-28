@@ -194,6 +194,8 @@ class TestPost(utils.BaseTinkererTest):
         # should raise
         post.move("Post1")
 
+
+    # test creating post with no template
     @mock.patch('tinkerer.writer.render')
     def test_create_without_template(self, render):
         post.create('no-template')
@@ -203,6 +205,7 @@ class TestPost(utils.BaseTinkererTest):
             mock.ANY,
         )
 
+    # test creating post with given template
     @mock.patch('tinkerer.writer.render')
     def test_create_with_template(self, render):
         post.create('with-template', template='the_template.rst')
