@@ -1,8 +1,0 @@
-include LICENSE
-include CONTRIBUTORS
-
-recursive-include tinkerer/__templates *
-recursive-include tinkerer/themes *
-recursive-include tinkerer/templates *
-recursive-include tinkerer/static *
-recursive-include tinkerer/ext/locale *.mo

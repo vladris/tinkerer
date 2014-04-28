@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /index_minimal.html
-Disallow: /index_responsive.html
-Disallow: /index_dark.html
