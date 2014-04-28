@@ -5,8 +5,67 @@
         <link>http://tinkerer.me/</link>
         <description>Blogging for Pythonistas</description>
         <language>en-us</language>
-        <pubDate>Fri, 27 Dec 2013 00:00:00 -0800</pubDate>
+        <pubDate>Mon, 28 Apr 2014 00:00:00 +0000</pubDate>
         
+        <item>
+            <link>http://tinkerer.me/2014/04/28/tinkerer_1_4_released.html</link>
+            <guid>http://tinkerer.me/2014/04/28/tinkerer_1_4_released.html</guid>
+            <title><![CDATA[Tinkerer 1.4 Released]]></title>
+            <description><![CDATA[<h1>Tinkerer 1.4 Released</h1>
+<div class="section" id="what-s-new">
+<h2>What’s New</h2>
+<ul class="simple"><li>New <span class="docutils literal"><span class="pre">--template</span></span> flag that allows using a custom RST template for a given
+post or page</li>
+<li>New <span class="docutils literal"><span class="pre">rss_max_items</span></span> config option to limit the number of RSS items to be
+placed in the feed</li>
+<li>Tinkerer now uses <a class="reference external" href="http://fortawesome.github.io/Font-Awesome">Font Awesome</a>
+(also see deprecation warning below)</li>
+<li>Generated HTML now has <a class="reference external" href="http://www.w3.org/WAI/intro/aria">WAI-ARIA roles</a></li>
+<li>Updated Russian localization</li>
+<li>Updated site-search JS script to newer version from Sphinx project</li>
+<li>Other bug fixes and improvements under the hood</li>
+</ul></div>
+<div class="section" id="deprecation-warning">
+<h2>Deprecation Warning</h2>
+<p>Until the previous version, Tinkerer shipped with Web Symbols font used for
+RSS feed and search button symbols. With this release, Tinkerer moves to use
+Font Awesome.</p>
+<p>If you are using any other of the Web Symbols glyphs on a modified website (to
+render, for example, the Twitter logo), you will need to update your HTML/CSS
+to use the equivalent Font Awesome symbol instead.</p>
+<p>Out-of-the-box Tinkerer with no modifications should not be impacted by this
+change.</p>
+</div>
+<div class="section" id="upgrade-notes">
+<h2>Upgrade Notes</h2>
+<p>Tinkerer does some internal HTML processing to patch some tags produced by the
+Sphinx build. With this release, Tinkerer moved to use PyQuery to do this which
+improves robustness. With this move, Tinkerer now has a dependency on LXML
+library which has to be built from source. If you encounter any issues during
+upgrade regarding LXML:</p>
+<div class="section" id="on-windows">
+<h3>On Windows</h3>
+<p>There is a binary distribution of LXML maintained by Christoph Gohlke. You can
+download it from <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/tinkerer_1_4_released.html#lxml">here</a>.</p>
+<p>Download, install, then re-run Tinkerer upgrade.</p>
+</div>
+<div class="section" id="on-linux">
+<h3>On Linux</h3>
+<p>If LXML bulid or link fails, make sure you have the following packages:
+<span class="docutils literal"><span class="pre">python-dev</span></span>, <span class="docutils literal"><span class="pre">libxml2-dev</span></span>, <span class="docutils literal"><span class="pre">libxslt-dev</span></span> and <span class="docutils literal"><span class="pre">zlib1g-dev</span></span>. Get them
+with <span class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">python-dev</span> <span class="pre">libxml2-dev</span> <span class="pre">libxslt-dev</span> <span class="pre">zlib1g-dev</span></span> or
+equivalent.</p>
+</div>
+</div>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments</h2>
+<p>Many thanks to <a class="reference external" href="https://github.com/vladris/tinkerer/blob/master/CONTRIBUTORS">the contributors</a>
+for all the geat work!</p>
+</div>]]></description>
+            <category><![CDATA[ tinkerer ]]></category>
+             <pubDate>Mon, 28 Apr 2014 00:00:00 +0000</pubDate>
+        </item>
+    
         <item>
             <link>http://tinkerer.me/2013/12/27/tinkerer_1_3_released.html</link>
             <guid>http://tinkerer.me/2013/12/27/tinkerer_1_3_released.html</guid>
@@ -14,22 +73,19 @@
             <description><![CDATA[<h1>Tinkerer 1.3 Released</h1>
 <div class="section" id="what-s-new">
 <h2>What’s New</h2>
-<ul class="simple">
-<li>Brazilian Portuguese localization</li>
+<ul class="simple"><li>Brazilian Portuguese localization</li>
 <li>Russian localization</li>
 <li>Simplified Chinese localization</li>
 <li>Traditional Chinese localization</li>
 <li>Tinkerer now uses the Babel package for date formatting</li>
 <li>Other bug fixes</li>
-</ul>
-</div>
+</ul></div>
 <div class="section" id="aknowledgments">
 <h2>Aknowledgments</h2>
 <p>As always, many thanks to the community for the great work!</p>
-</div>
-]]></description>
+</div>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Fri, 27 Dec 2013 00:00:00 -0800</pubDate>
+             <pubDate>Fri, 27 Dec 2013 00:00:00 +0000</pubDate>
         </item>
     
         <item>
@@ -39,8 +95,7 @@
             <description><![CDATA[<h1>Tinkerer 1.2 Released</h1>
 <div class="section" id="what-s-new">
 <h2>What’s New</h2>
-<ul class="simple">
-<li>Tinkerer moved to GitHub! Old repositories on BitBucket are still there for
+<ul class="simple"><li>Tinkerer moved to GitHub! Old repositories on BitBucket are still there for
 the time being, but going forward, all developement will take place on GitHub.
 Make sure to star/fork Tinkerer <a class="reference external" href="https://github.com/vladris/tinkerer">here</a></li>
 <li>A brand new <em>flat</em> theme optimized around distraction-free reading and a
@@ -50,16 +105,14 @@ customized Pygments style displaying code in the
 of full posts even when using the <span class="docutils literal"><span class="pre">readmore</span></span> directive on the website</li>
 <li>Italian localization</li>
 <li>Other bug fixes</li>
-</ul>
-</div>
+</ul></div>
 <div class="section" id="aknowledgements">
 <h2>Aknowledgements</h2>
 <p>Thanks to the great Tinkerer community for all their contributions!
 <a class="reference external" href="https://github.com/vladris/tinkerer/blob/master/CONTRIBUTORS">You</a> are awesome!</p>
-</div>
-]]></description>
+</div>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Wed, 05 Jun 2013 00:00:00 -0700</pubDate>
+             <pubDate>Wed, 05 Jun 2013 00:00:00 +0000</pubDate>
         </item>
     
         <item>
@@ -69,21 +122,18 @@ of full posts even when using the <span class="docutils literal"><span class="pr
             <description><![CDATA[<h1>Tinkerer 1.1 Released</h1>
 <div class="section" id="what-s-new">
 <h2>What’s New</h2>
-<ul class="simple">
-<li>Tinkerer extension repository at <a class="reference external" href="https://github.com/vladris/tinkerer-contrib">tinkerer-contrib</a>.</li>
+<ul class="simple"><li>Tinkerer extension repository at <a class="reference external" href="https://github.com/vladris/tinkerer-contrib">tinkerer-contrib</a>.</li>
 <li>Improved extension mechanism and documentation</li>
 <li>Easier to customize post and page templates for your blog</li>
 <li>Improved HTML5 compliance</li>
 <li>HTML meta description for blogs</li>
 <li><em>Minimal5</em> theme similar to <em>Minimal</em> theme but based on HTML5 Boilerplate</li>
 <li>Other bug fixes</li>
-</ul>
-</div>
+</ul></div>
 <div class="section" id="upgrading">
 <h2>Upgrading</h2>
 <p>Important notes on upgrading:</p>
-<ul class="simple">
-<li>Run <span class="docutils literal"><span class="pre">tinkerer</span> <span class="pre">--setup</span></span> in your blog root. This will copy <span class="docutils literal"><span class="pre">page.rst</span></span> and
+<ul class="simple"><li>Run <span class="docutils literal"><span class="pre">tinkerer</span> <span class="pre">--setup</span></span> in your blog root. This will copy <span class="docutils literal"><span class="pre">page.rst</span></span> and
 <span class="docutils literal"><span class="pre">post.rst</span></span> to your blog’ <span class="docutils literal"><span class="pre">_templates</span></span> directory. You can customize them
 to tweak your default posts and pages (other contrib extensions can also
 leverage this).</li>
@@ -95,8 +145,7 @@ your blog.</li>
 will become an HTML meta description on the generated pages. This appears
 automatically in newly setup blogs but, by design, Tinkerer upgrade does not
 alter existing <span class="docutils literal"><span class="pre">conf.py</span></span> files in any way.</li>
-</ul>
-</div>
+</ul></div>
 <div class="section" id="deprecation-notice">
 <h2>Deprecation Notice</h2>
 <p>The old themes not based on HTML5 Boilerplate will be removed in the next
@@ -112,10 +161,9 @@ might have different tags/classes/ids.</p>
 <h2>Acknowledgements</h2>
 <p>As usual, many thanks to everyone involved for your suggestions, bug reports
 and pull requests!</p>
-</div>
-]]></description>
+</div>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Sun, 17 Mar 2013 00:00:00 -0700</pubDate>
+             <pubDate>Sun, 17 Mar 2013 00:00:00 +0000</pubDate>
         </item>
     
         <item>
@@ -131,8 +179,7 @@ milestone for the project.</p>
 </div>
 <div class="section" id="what-s-new">
 <h2>What’s New</h2>
-<ul class="simple">
-<li>Updated <a class="reference external" href="http://html5bolierplate.com">HTML5 Boilerplate</a> base template</li>
+<ul class="simple"><li>Updated <a class="reference external" href="http://html5bolierplate.com">HTML5 Boilerplate</a> base template</li>
 <li>New <em>Responsive</em> theme</li>
 <li><span class="docutils literal"><span class="pre">--preview</span></span> command line argument enabling draft preview</li>
 <li><span class="docutils literal"><span class="pre">--date</span></span> command line argument for specifying post dates (useful when
@@ -140,11 +187,9 @@ writing a script for migrating from your previous crappy blogging engine
 to Tinkerer)</li>
 <li>French, Japanese, Polish and UK English localizations</li>
 <li>Many bug fixes</li>
-</ul>
-</div>
-]]></description>
+</ul></div>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Sun, 16 Dec 2012 00:00:00 -0800</pubDate>
+             <pubDate>Sun, 16 Dec 2012 00:00:00 +0000</pubDate>
         </item>
     
         <item>
@@ -163,10 +208,9 @@ specified, no site-specific password is created.</p>
 <a class="reference external" href="https://io-mixedbit.rhcloud.com/blog">https://io-mixedbit.rhcloud.com/blog/</a></p>
 <p>The demo blog is configured to allow anyone access. You can use an <em>anything@mockmyid.com</em>
 address if you don’t want to create a real Persona just to see a demo.</p>
-<p>Thanks Jan!</p>
-]]></description>
+<p>Thanks Jan!</p>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Tue, 13 Nov 2012 00:00:00 -0800</pubDate>
+             <pubDate>Tue, 13 Nov 2012 00:00:00 +0000</pubDate>
         </item>
     
         <item>
@@ -178,40 +222,32 @@ address if you don’t want to create a real Persona just to see a demo.</p>
 <h2>What’s New</h2>
 <div class="section" id="new-html5-themes">
 <h3>New HTML5 Themes</h3>
-<ul class="simple">
-<li><em>boilerplate</em> is a brand new theme based on
+<ul class="simple"><li><em>boilerplate</em> is a brand new theme based on
 <a class="reference external" href="http://html5boilerplate.com">HTML5 Boilerplate</a></li>
 <li><em>modern5</em> is a rewrite of the old <em>modern</em> theme based on the new
 <em>boilerplate</em> and including a lot more detail-work</li>
-</ul>
-<p>The old themes (<em>tinkerbase</em>, <em>modern</em> and <em>minimal</em>) are still around for
+</ul><p>The old themes (<em>tinkerbase</em>, <em>modern</em> and <em>minimal</em>) are still around for
 backwards compatiblity, though future development will happen around
 HTML5-based themes.</p>
 </div>
 <div class="section" id="new-built-in-extensions">
 <h3>New Built-in Extensions</h3>
-<ul class="simple">
-<li>An email obfuscator</li>
+<ul class="simple"><li>An email obfuscator</li>
 <li>A new <span class="docutils literal"><span class="pre">Read</span> <span class="pre">more</span></span> directive - more info under <a class="reference internal" href="http://tinkerer.me/doc/tinkering.html#posts"><em>Posts</em></a></li>
-</ul>
-</div>
+</ul></div>
 <div class="section" id="new-sidebard-widgets">
 <h3>New Sidebard Widgets</h3>
-<ul class="simple">
-<li>A <em>Categories List</em> widget</li>
+<ul class="simple"><li>A <em>Categories List</em> widget</li>
 <li>A <em>Tag List</em> widget</li>
 <li>A <em>Tag Cloud</em> widget</li>
-</ul>
-<p>Details here: <a class="reference internal" href="http://tinkerer.me/doc/more_tinkering.html#sidebar"><em>Sidebar</em></a>.</p>
+</ul><p>Details here: <a class="reference internal" href="http://tinkerer.me/doc/more_tinkering.html#sidebar"><em>Sidebar</em></a>.</p>
 </div>
 <div class="section" id="new-translations">
 <h3>New Translations</h3>
-<ul class="simple">
-<li>German translation</li>
+<ul class="simple"><li>German translation</li>
 <li>French translation</li>
 <li>Polish translation</li>
-</ul>
-<p>Just update your <span class="docutils literal"><span class="pre">conf.py</span></span> with the following setting:</p>
+</ul><p>Just update your <span class="docutils literal"><span class="pre">conf.py</span></span> with the following setting:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">"de"</span> <span class="c"># or "fr" or "pl"</span>
 </pre></div>
 </div>
@@ -222,10 +258,9 @@ HTML5-based themes.</p>
 <p>Many thanks to everyone who helped out with suggestions, bug reports, patches
 and pull requests and special thanks to the people on the ever-growing
 <a class="reference external" href="https://raw.github.com/vladris/tinkerer/master/CONTRIBUTORS">contributors</a> list for their valuable contributions.</p>
-</div>
-]]></description>
+</div>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Thu, 05 Jul 2012 00:00:00 -0700</pubDate>
+             <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
         </item>
     
         <item>
@@ -235,8 +270,7 @@ and pull requests and special thanks to the people on the ever-growing
             <description><![CDATA[<h1>Tinkerer 0.3 Beta Released</h1>
 <div class="section" id="what-s-new">
 <h2>What’s New</h2>
-<ul>
-<li><p class="first">Tinkerer went international! Spanish and Catalan translations are now
+<ul><li><p class="first">Tinkerer went international! Spanish and Catalan translations are now
 available. To have your Tinkerer blog displayed in Spanish, add the
 following line to your <span class="docutils literal"><span class="pre">conf.py</span></span>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">"es"</span>
@@ -253,11 +287,9 @@ following line to your <span class="docutils literal"><span class="pre">conf.py<
 </li>
 <li><p class="first">Multiple bugfixes and minor style tweaks to the Modern theme</p>
 </li>
-</ul>
-</div>
-]]></description>
+</ul></div>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Thu, 09 Feb 2012 00:00:00 -0800</pubDate>
+             <pubDate>Thu, 09 Feb 2012 00:00:00 +0000</pubDate>
         </item>
     
         <item>
@@ -267,8 +299,7 @@ following line to your <span class="docutils literal"><span class="pre">conf.py<
             <description><![CDATA[<h1>Tinkerer 0.2 Beta Released</h1>
 <div class="section" id="what-s-new">
 <h2>What’s New</h2>
-<ul class="simple">
-<li>Support for <a class="reference internal" href="http://tinkerer.me/doc/tinkering.html#drafts"><em>Drafts</em></a>.</li>
+<ul class="simple"><li>Support for <a class="reference internal" href="http://tinkerer.me/doc/tinkering.html#drafts"><em>Drafts</em></a>.</li>
 <li>Fixes for cross-references and embedded images which were not displaying
 correctly on home page and RSS feed.</li>
 <li>Ensure Tinkerer runs only from the blog root directory unless when setting up
@@ -278,13 +309,11 @@ on pages under <span class="docutils literal"><span class="pre">doc/</span></spa
 <li>Many other small extension fixes.</li>
 <li>CSS fixes (gradient not showing in Firefox, page not scaling correctly on
 retina displays, many other small tweaks).</li>
-</ul>
-</div>
+</ul></div>
 <div class="section" id="upgrading-from-0-1">
 <h2>Upgrading from 0.1</h2>
 <p>There are a couple of steps required if upgrading from 0.1:</p>
-<ul>
-<li><p class="first">In your <span class="docutils literal"><span class="pre">conf.py</span></span> replace:</p>
+<ul><li><p class="first">In your <span class="docutils literal"><span class="pre">conf.py</span></span> replace:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># Add file patterns to exclude from build</span>
 <span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
@@ -300,16 +329,14 @@ the build.</p>
 <li><p class="first">Make sure your <span class="docutils literal"><span class="pre">master.rst</span></span> file ends with a blank line. If not, append
 a blank line at the end of it.</p>
 </li>
-</ul>
-</div>
+</ul></div>
 <div class="section" id="thank-you">
 <h2>Thank You!</h2>
 <p>A big <strong>Thank You</strong> to everyone who showed interest in the project and for the
 valuable feedback you provided.</p>
-</div>
-]]></description>
+</div>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Mon, 19 Dec 2011 00:00:00 -0800</pubDate>
+             <pubDate>Mon, 19 Dec 2011 00:00:00 +0000</pubDate>
         </item>
     
         <item>
@@ -327,14 +354,12 @@ RSS feed generation, comments powered by Disqus and more.</p>
 </div>
 <div class="section" id="why-tinkerer">
 <h2>Why Tinkerer?</h2>
-<ul class="simple">
-<li>Because <em>“hacker”</em> is way overused nowadays.</li>
+<ul class="simple"><li>Because <em>“hacker”</em> is way overused nowadays.</li>
 <li>Because static websites are cool.</li>
 <li>Because you already write documentation in RST format and you love it.</li>
 <li>Because you have Pygments for sharing highlighted code.</li>
 <li>Because you can use your favorite Sphinx extensions right away.</li>
-</ul>
-</div>
+</ul></div>
 <div class="section" id="how-to-tinker">
 <h2>How to Tinker?</h2>
 <p>Get Tinkerer:</p>
@@ -342,10 +367,9 @@ RSS feed generation, comments powered by Disqus and more.</p>
 </pre></div>
 </div>
 <p>Skim through the <a class="reference external" href="http://tinkerer.me/pages/documentation.html">Documentation</a>.</p>
-</div>
-]]></description>
+</div>]]></description>
             <category><![CDATA[ tinkerer ]]></category>
-             <pubDate>Tue, 13 Dec 2011 00:00:00 -0800</pubDate>
+             <pubDate>Tue, 13 Dec 2011 00:00:00 +0000</pubDate>
         </item>
     
     </channel>
