@@ -11,10 +11,15 @@
 import datetime
 import email.utils
 import os
-from tinkerer import paths, post
-from tinkertest import utils
 import time
 import xml.dom.minidom
+
+from tinkerer import paths, post
+from tinkerer.ext import rss
+
+from tinkertest import utils
+
+import mock
 
 
 # get expected pubdate based on date
@@ -129,3 +134,99 @@ class TestRSS(utils.BaseTinkererTest):
 
         self.assertFalse(os.path.exists(os.path.join(paths.html, "rss.html")))
 
+
+# Set up a fake app with some "blog posts" -- since we aren't
+# going to process the posts, it doesn't matter what type of
+# object we use.
+class FauxConfig(object):
+    rss_max_items = 0
+    website = None
+    project = 'faux project'
+    tagline = 'faux tagline'
+
+
+class FauxEnv(object):
+
+    def __init__(self, num_posts=5):
+        self.blog_posts = [
+            'post %d' % i
+            for i in range(num_posts)
+        ]
+
+
+class FauxBuilder(object):
+
+    def __init__(self):
+        self.env = FauxEnv()
+
+
+class FauxApp(object):
+
+    def __init__(self):
+        self.builder = FauxBuilder()
+        self.config = FauxConfig()
+
+
+class TestRSSItemCount(utils.BaseTinkererTest):
+
+    def setUp(self):
+        super(utils.BaseTinkererTest, self).setUp()
+        self.app = FauxApp()
+
+    @mock.patch('tinkerer.ext.rss.make_feed_context')
+    def test_more_posts_than_max(self, make_feed_context):
+        self.app.config.rss_max_items = 1
+        # Call the mocked function for creating the feed context and
+        # verify the number of items it contains.
+        list(rss.generate_feed(self.app))
+        make_feed_context.assert_called_once_with(
+            self.app,
+            None,
+            [self.app.builder.env.blog_posts[0]],
+        )
+
+    @mock.patch('tinkerer.ext.rss.make_feed_context')
+    def test_fewer_posts_than_max(self, make_feed_context):
+        self.app.config.rss_max_items = 10
+        # Call the mocked function for creating the feed context and
+        # verify the number of items it contains.
+        list(rss.generate_feed(self.app))
+        make_feed_context.assert_called_once_with(
+            self.app,
+            None,
+            self.app.builder.env.blog_posts,
+        )
+
+    @mock.patch('tinkerer.ext.rss.make_feed_context')
+    def test_same_posts_and_max(self, make_feed_context):
+        self.app.config.rss_max_items = len(self.app.builder.env.blog_posts)
+        # Call the mocked function for creating the feed context and
+        # verify the number of items it contains.
+        list(rss.generate_feed(self.app))
+        make_feed_context.assert_called_once_with(
+            self.app,
+            None,
+            self.app.builder.env.blog_posts,
+        )
+
+    @mock.patch('tinkerer.ext.rss.make_feed_context')
+    def test_no_posts(self, make_feed_context):
+        make_feed_context.side_effect = AssertionError('should not be called')
+        self.app.builder.env.blog_posts = []
+        list(rss.generate_feed(self.app))
+
+
+class TestRSSTitle(utils.BaseTinkererTest):
+
+    def setUp(self):
+        super(utils.BaseTinkererTest, self).setUp()
+        self.app = FauxApp()
+
+    def test_with_title(self):
+        context = rss.make_feed_context(self.app, 'title here', [])
+        self.assertIn('faux project', context['title'])
+        self.assertIn('title here', context['title'])
+
+    def test_without_title(self):
+        context = rss.make_feed_context(self.app, None, [])
+        self.assertEqual('faux project', context['title'])

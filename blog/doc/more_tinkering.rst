@@ -58,7 +58,8 @@ Tinkerer generates an RSS feed as ``blog/html/rss.html``. A link to the feed is
 automatically added to the navigation bar. In case you use a service like
 `FeedBurner <http://www.feedburner.com>`_, you can change the ``rss_service``
 value in ``conf.py`` to the address of your feed and Tinkerer will change the
-link to point to the provided address.
+link to point to the provided address. Set ``rss_max_items`` to the number of
+items to include in the feed, or ``0`` to include everything.
 
 Favicon
 -------
