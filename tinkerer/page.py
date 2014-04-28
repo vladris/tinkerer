@@ -44,17 +44,18 @@ class Page():
         self.docname = "pages/" + self.name
 
 
-    def write(self, content=""):
+    def write(self, content="", template=None):
         '''
         Writes the page template.
         '''
-        writer.render(paths.page_template, self.path,
+        template = template or paths.page_template
+        writer.render(template, self.path,
                 { "title": self.title,
                   "content": content })
 
 
 
-def create(title):
+def create(title, template=None):
     '''
     Creates a new page given its title.
     '''
@@ -62,7 +63,7 @@ def create(title):
     if os.path.exists(page.path):
         raise Exception("Page '%s' already exists at '%s" %
                         (title, page.path))
-    page.write()
+    page.write(template=template)
     if not master.exists_doc(page.docname):
         master.append_doc(page.docname)
     return page

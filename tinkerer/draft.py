@@ -16,11 +16,12 @@ from tinkerer import master, paths, utils, writer
 
 
 
-def create(title):
+def create(title, template=None):
     '''
     Creates a new post draft.
     '''
     name = utils.name_from_title(title)
+    template = template or paths.post_template
 
     path = os.path.join(
                     utils.get_path(
@@ -32,7 +33,7 @@ def create(title):
         raise Exception("Draft '%s' already exists at '%s" %
                         (title, path))
 
-    writer.render(paths.post_template, path,
+    writer.render(template, path,
             { "title"     : title,
               "content"   : "",
               "author"    : "default",

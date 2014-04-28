@@ -9,11 +9,15 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
-from nose.tools import raises
 import os
+
 from tinkerer import page
+from tinkerer import paths
 import tinkerer
 from tinkertest import utils
+
+import mock
+from nose.tools import raises
 
 
 # test creating new page
@@ -99,3 +103,20 @@ class TestPage(utils.BaseTinkererTest):
         # should raise
         page.move("Page1")
 
+    @mock.patch('tinkerer.writer.render')
+    def test_create_without_template(self, render):
+        page.create('no-template')
+        render.assert_called_once_with(
+            paths.page_template,
+            mock.ANY,
+            mock.ANY,
+        )
+
+    @mock.patch('tinkerer.writer.render')
+    def test_create_with_template(self, render):
+        page.create('with-template', template='the_template.rst')
+        render.assert_called_once_with(
+            'the_template.rst',
+            mock.ANY,
+            mock.ANY,
+        )
