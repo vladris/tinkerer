@@ -90,8 +90,8 @@ def move(path, date=None):
     '''
     post = Post(title=None, path=path, date=date)
     if os.path.exists(post.path):
-        raise Exception("Post '%s' already exists at '%s" %
-                        (title, post.path))
+        raise Exception("Post '%s' already exists" %
+                        (post.path,))
     shutil.move(path, post.path)
     if not master.exists_doc(post.docname):
         master.prepend_doc(post.docname)

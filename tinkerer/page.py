@@ -76,8 +76,8 @@ def move(path, date=None):
     '''
     page = Page(title=None, path=path)
     if os.path.exists(page.path):
-        raise Exception("Page '%s' already exists at '%s" %
-                        (title, page.path))
+        raise Exception("Page '%s' already exists" %
+                        (page.path, ))
     shutil.move(path, page.path)
     if not master.exists_doc(page.docname):
         master.append_doc(page.docname)
