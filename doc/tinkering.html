@@ -1,0 +1,273 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Tinkerer is a Python blogging engine/static website generator powered by Sphinx">
+        <meta name="viewport" content="width=device-width">
+        <title>Tinkering &mdash; Tinkerer</title>
+            <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../_static/plugins.js"></script>
+        <script src="../_static/main.js"></script>
+        <link rel="next" title="More Tinkering" href="more_tinkering.html" /><link rel="prev" title="Documentation" href="../pages/documentation.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script>
+<style media="screen" type="text/css">
+    #fork_me { display: none; }
+
+    @media only screen and (min-width: 768px) {
+        #fork_me { display: inline; }
+    } 
+</style></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header role="banner">
+            <hgroup>
+              <h1><a href="../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
+          </header>
+      <nav role="navigation">
+            <ul><li class="main-nav">
+                  <a href="../index.html">Home</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../pages/documentation.html">Documentation</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../pages/extensions.html">Extensions</a>
+                </li>
+              </ul>
+          </nav><div class="main-container" role="main"><div class="main wrapper clearfix"><article>
+    <div class="section" id="tinkering">
+<h1>Tinkering</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>Tinkerer is using <a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> to generate your blog.
+The <span class="docutils literal"><span class="pre">conf.py</span></span> file is a Sphinx project configuration file extended with
+Tinkerer settings. Similarly, the directories (<span class="docutils literal"><span class="pre">_static</span></span>, <span class="docutils literal"><span class="pre">_templates</span></span>
+etc.) and the master document (<span class="docutils literal"><span class="pre">master.rst</span></span>) are part of a standard Sphinx
+project.</p>
+<p>The logic to extract the post metadata and build the blog pages is implemented
+as a Sphinx extension (<span class="docutils literal"><span class="pre">tinkerer.ext.blog</span></span>). Since your blog is in fact a
+Sphinx project, all tinkering enabled by Sphinx will work on your blog too.</p>
+<p>The Tinkerer command line is just facilitating authoring and build - for
+example creating a new post requires creating a path for the current date as
+<span class="docutils literal"><span class="pre">$(YEAR)/$(MONTH)/$(DAY)</span></span>, creating the post file, populating the file with
+the Tinkerer directives and inserting it in the master document. Tinkerer
+command line takes care of all of these steps. For build, the destination
+directory is cleaned up and Sphinx build is invoked.</p>
+<p>Tinkerer command line should be run from your blog&#8217;s root (the directory
+containing the <span class="docutils literal"><span class="pre">conf.py</span></span> file), except when setting up a new blog.</p>
+</div>
+<div class="section" id="posts">
+<span id="id1"></span><h2>Posts</h2>
+<p>From your blog root directory, call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --post <span class="s1">&#39;Hello World!&#39;</span>
+</pre></div>
+</div>
+<p>A new post will be created and inserted at the top of the TOC in
+<span class="docutils literal"><span class="pre">master.rst</span></span>. Tinkerer will let you know where the file was created (path is
+based on current date and filename is normalized). Your post file looks like
+this:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span class="gh">Hello World!</span>
+<span class="gh">============</span>
+
+<span class="p">..</span> <span class="ow">author</span><span class="p">::</span> default
+<span class="p">..</span> <span class="ow">categories</span><span class="p">::</span> none
+<span class="p">..</span> <span class="ow">tags</span><span class="p">::</span> none
+<span class="p">..</span> <span class="ow">comments</span><span class="p">::</span>
+</pre></div>
+</div>
+<p>Add content below the title.</p>
+<p><strong>author</strong></p>
+<blockquote>
+<div>If left to <span class="docutils literal"><span class="pre">default</span></span>, Tinkerer will use the author specified in
+<span class="docutils literal"><span class="pre">conf.py</span></span>. For colaborative blogs, this can be replaced with any string
+containing the name of the author.</div></blockquote>
+<p><strong>categories</strong></p>
+<blockquote>
+<div>Specify a comma-separated list of categories under which the post will be
+filed.</div></blockquote>
+<p><strong>tags</strong></p>
+<blockquote>
+<div>Specify a comma-separated list of tags for the post.</div></blockquote>
+<p><strong>comments</strong></p>
+<blockquote>
+<div>This tells Tinkerer comments are enabled for this post. Remove the
+directive to disable posts.</div></blockquote>
+<p><strong>more</strong></p>
+<blockquote>
+<div><p>At any point in your text, you can insert the <span class="docutils literal"><span class="pre">more</span></span> directive:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span class="gh">Hello World!</span>
+<span class="gh">============</span>
+
+Some text.
+
+<span class="p">..</span> <span class="ow">more</span><span class="p">::</span>
+
+More text.
+</pre></div>
+</div>
+<p>This tells Tinkerer to insert a &#8220;Read more...&#8221; link into the blog post.
+A &#8220;Read more...&#8221; link will appear on the front page and the text after the
+directive will be hidden. The full text will be displayed only on the page
+of the post.</p>
+</div></blockquote>
+</div>
+<div class="section" id="pages">
+<span id="id2"></span><h2>Pages</h2>
+<p>From your blog root directory, call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --page <span class="s1">&#39;About&#39;</span>
+</pre></div>
+</div>
+<p>A new page named <span class="docutils literal"><span class="pre">About</span></span> will be created as <span class="docutils literal"><span class="pre">pages/about.rst</span></span> and inserted
+at the bottom of the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span> (pages are always placed under the
+<span class="docutils literal"><span class="pre">pages</span></span> directory, filename is normalized). Your page file looks like this:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span class="gh">About</span>
+<span class="gh">=====</span>
+</pre></div>
+</div>
+<p>Unlike posts, pages do not have metadata associated with them. Pages are added
+to the top navigation bar in the order in which they were created. Pages do not
+display <cite>previous</cite> and <cite>next</cite> navigation links.</p>
+</div>
+<div class="section" id="drafts">
+<span id="id3"></span><h2>Drafts</h2>
+<p>From your blog root directory, call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --draft <span class="s1">&#39;Hello World!&#39;</span>
+</pre></div>
+</div>
+<p>A new draft named <span class="docutils literal"><span class="pre">Hello</span> <span class="pre">World!</span></span> will be created under the <span class="docutils literal"><span class="pre">drafts</span></span>
+directory as <span class="docutils literal"><span class="pre">hello_world_.rst</span></span> (filename is normalized). The content of the
+file is identical to a post file but unlike posts, the draft will not be added
+to the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span> file and will be ignored by the build. You can
+take your time to edit it. When it&#8217;s ready, from your blog root directory
+call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --post drafts/hello_world_.rst
+</pre></div>
+</div>
+<p>This will promote your draft to a post by moving it to the appropriate
+<span class="docutils literal"><span class="pre">$(YEAR)/$(MONTH)/$(DAY)</span></span> path and adding it to the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span>.</p>
+<p>If you change your mind and want to tinker with it some more, from your blog
+root directory call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --draft 2011/12/25/hello_world_.rst
+</pre></div>
+</div>
+<p>This will demote your post to a draft by moving it to the <span class="docutils literal"><span class="pre">drafts</span></span> directory
+and removing it from the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span>.</p>
+</div>
+<div class="section" id="build">
+<span id="id4"></span><h2>Build</h2>
+<p>From your blog root directory, call:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --build
+</pre></div>
+</div>
+<p>Your blog will be generated under <span class="docutils literal"><span class="pre">blog/html</span></span>.</p>
+<div class="section" id="generated-pages">
+<h3>Generated pages</h3>
+<p>The Sphinx build will convert all the RST documents of your blog to HTML pages.
+Besides these, Tinkerer will also generate the following:</p>
+<dl class="docutils">
+<dt><strong>index.html</strong></dt>
+<dd>The page will contain the latest 10 posts of your blog with titles hyperlinked
+to the post pages.</dd>
+<dt><strong>page*.html</strong></dt>
+<dd>After the latest 10 posts, all other posts grouped by 10 will be written to
+<span class="docutils literal"><span class="pre">page2.html</span></span>, <span class="docutils literal"><span class="pre">page3.html</span></span> and so on.</dd>
+<dt><strong>categories/*</strong></dt>
+<dd>For each category posts were filed under, Tinkerer will generate a page under
+the <span class="docutils literal"><span class="pre">categories</span></span> directory, hyperlinking all instances of the category to it.</dd>
+<dt><strong>tags/*</strong></dt>
+<dd>Like categories above, Tinkerer will generate similar pages and hyperlinks for
+tags.</dd>
+<dt><strong>archive.html</strong></dt>
+<dd>Additionally, Tinkerer will generate a blog archive containing all posts
+grouped by publishing year and ordered by publishing date as <span class="docutils literal"><span class="pre">archive.html</span></span>.</dd>
+<dt><strong>rss.html</strong></dt>
+<dd>An RSS feed will be generated as <span class="docutils literal"><span class="pre">rss.html</span></span>.</dd>
+</dl>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><em>Tinkerer Reference</em></a>.</p>
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        
+        
+        
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../pages/documentation.html">Documentation</a></li>
+            <li class="right"><a href="more_tinkering.html">More Tinkering</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+<h1>On This Page</h1>
+<p><ul>
+<li><a class="reference internal" href="#">Tinkering</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#posts">Posts</a></li>
+<li><a class="reference internal" href="#pages">Pages</a></li>
+<li><a class="reference internal" href="#drafts">Drafts</a></li>
+<li><a class="reference internal" href="#build">Build</a><ul>
+<li><a class="reference internal" href="#generated-pages">Generated pages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p><h1>Previous Topic</h1>
+<p><a href="../pages/documentation.html">Documentation</a></p><h1>Next Topic</h1>
+<p><a href="more_tinkering.html">More Tinkering</a></p></div></section><section><div class="widget" id="searchbox" role="search">
+    <h1>Search</h1>
+    <form action="../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2013, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+    <a id="fork_me" href="http://github.com/vladris/tinkerer">
+        <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
+    </a></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "tinkerer";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

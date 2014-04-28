@@ -1,0 +1,187 @@
+/* Typography */body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .9em; }
+
+header h1 * { font-size: 1.6em; font-weight: normal; }
+header h2 { font-size: 1.4em; font-weight: normal; margin: 0; padding: 0; }
+
+nav { font-size: 1.4em; }
+
+article h1 { font-size: 2.2em; }
+article h2 { font-size: 1.8em; }
+article h3 { font-size: 1.2em; }
+article p { line-height: 1.5; }
+
+.highlight { font-size: .8em; }
+
+aside.sidebar h1 { font-size: 1.2em; }
+aside.sidebar { font-size: 1em; }
+aside.sidebar.highlight { font-size: .8em; }
+
+footer { font-size: 0.8em; }
+
+/* Layout */
+body { margin: auto; max-width: 1000px; }
+
+ul { padding: 0 0 0 20px; list-style: square; }
+
+header { padding: 20px 0; }
+header h1, span { margin: 0; }
+header h1 { padding: 0 20px; }
+header h2 { padding: 0 20px; display: block; }
+
+nav { padding: 5px 0; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+nav li { text-align: center; width: 100%; }
+nav li.main-nav { padding: 10px 0; }
+li.quicklink { display: none; }
+
+ul.related { padding: 20px 0 20px 0; list-style: none; }
+ul.related li { line-height: 2em; list-style-type: none; text-align: center; }
+article { padding: 20px 20px 10px 20px; }
+article li { line-height: 1.5em; }
+article h1 { margin-top: 0; }
+ul.related:first-child { padding: 0 0 20px 0; }
+
+div.highlight { padding: 5px 10px; }
+
+div.section + div.postmeta { padding-top: 10px; }
+div.post_separator { margin: 10px 0; }
+
+aside.sidebar h1 { margin-top: 0; }
+aside.sidebar div.widget { margin: 20px 0; padding: 0 20px; }
+
+div.archive_link { padding-top: 10px; text-align: center; }
+
+footer { padding: 5px 20px; }
+
+@media only screen and (min-width: 480px) {
+    header { padding: 40px 0; }
+    header h1 { padding: 0 40px; }
+    header h2 { padding: 0 40px; }
+
+    nav { padding: 10px 0; }
+    nav ul { margin: 0 40px 0 20px; padding: 0; }
+    nav li { display: inline; list-style-type: none; text-align: left; width: auto; }
+    nav li.main-nav { margin: 0; padding: 0; }
+    nav li.main-nav a { padding: 0 20px; }
+    nav li.quicklink { padding: 0 0 0 10px; }
+    nav li.quicklink a { padding: 0; }
+
+    article { padding: 40px 40px 20px 40px; }
+    ul.related { margin: 0 0 8px 0; padding: 20px 0 20px 0; }
+    ul.related li { display: inline; line-height: 1em; }
+    ul.related li.right { display: inline; float: right; }
+    ul.related:first-child { padding-bottom: 20px; }
+
+    div.highlight { padding: 10px 20px; }
+
+    div.section + div.postmeta { padding-top: 20px; }
+    div.post_separator { margin: 20px 0; }
+
+    aside.sidebar div.widget { margin: 40px 0; padding: 0 40px; }
+
+    div.archive_link { padding-top: 20px; text-align: center; }
+
+    footer { padding: 10px 40px; }
+}
+
+@media only screen and (min-width: 768px) {
+    footer { margin-bottom: 20px; }
+    li.quicklink { display: inline; float: right; }
+}
+
+@media only screen and (min-width: 999px) {
+    article { float: left; width: 583px; }
+
+    aside { display: block; margin-left: 669px; width: 330px; }
+}
+
+/* Palette */body { background-color: #93a4ad; }
+
+header { background-color: #074e78; }
+header a, header a:visited, header a:hover, headera:active { color: #f8f8f8; text-decoration: none; }
+header h2 { color: #93a4ad; }
+
+nav li a, nav li a:visited, footer { color: #93a4ad; text-decoration: none; }
+nav li a:hover { color: #f8f8f8; text-decoration: none; }
+footer a, footer a:visited, footer a:hover { color: #f8f8f8; }
+
+a, a:visited { color: #0b7dc0; text-decoration: none; }
+a:hover { color: #0b7dc0; text-decoration: underline; }
+a.footnote-reference { vertical-align: super; }
+div.section h1 a { color: #0c0501; text-decoration: none; }
+.docutils.literal { background-color: #e6edf2; }
+
+div.main { background-color: #e6edf2; }
+article { background: #f8fafb url('paper.png') repeat; }
+
+div.postmeta { color: #93a4ad; }
+div.post_separator { border-bottom: 1px dotted #93a4ad; }
+
+/* Effects */
+header h1 * { text-shadow: 0 2px 3px #021724; }
+
+header, nav { border-bottom: 1px solid #021724; }
+footer { border-top: 1px solid #021724; }
+
+nav, footer { background: #354550; }
+
+aside.sidebar { border-top: 1px solid #cfd5da; }
+
+@media only screen and (min-width: 480px) {
+    header { background-image: url('header.png'); background-repeat: repeat; }
+
+    nav, footer {
+        background: -moz-linear-gradient(top, #354550 0%, #021520 50%, #02121d 51%, #011019 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#354550), color-stop(50%,#021520), color-stop(51%,#02121d), color-stop(100%,#011019));
+        background: -webkit-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
+        background: -o-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
+        background: -ms-linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
+        background: linear-gradient(top, #354550 0%,#021520 50%,#02121d 51%,#011019 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#354550', endColorstr='#011019',GradientType=0 );
+    }
+
+    footer, nav li { text-shadow: 0 2px 3px #021724; }
+}
+
+@media only screen and (min-width: 768px) {
+    div#container {
+        -moz-box-shadow:    0 0 10px 5px #011019;
+        -webkit-box-shadow: 0 0 10px 5px #011019;
+        box-shadow:         0 0 10px 5px #011019; 
+    }
+
+    article { border-left: 1px solid #cfd5da; border-right: 1px solid #cfd5da; }
+}
+
+@media only screen and (min-width: 999px) {
+    div.main { border-right: 1px solid #cfd5da; }
+    aside.sidebar { border-top: none; }
+}
+
+/* Archive page */
+div.archive h1 { border-bottom: 1px dotted #93a4ad; margin-bottom: 20px; }
+
+span.title_tag, span.title_category { font-style: italic; }
+
+div.year h1 { border: none; font-size: 1.6em; margin-bottom: 0; margin-top: 20px; }
+
+div.year ul { display: inline; list-style-type: none; margin: 0; }
+
+div.year div.postmeta { margin: 10px 0 10px 0; }
+
+div.year div.timestamp { color: #0c0501; font-size: 1.4em; font-style: normal; font-weight: none; line-height: 1.5; margin-top: 0; }
+
+div.year h2 { margin-bottom: 0; margin-top: 0; }
+
+div.year_separator { width: 100%; border-top: 1px dotted #93a4ad; }
+
+@media only screen and (min-width: 480px) {
+    div.year h1 { float: left; margin-right: -100%; }
+
+    div.year div.postmeta { margin: 0 0 40px 40%; }
+    div.year div.timestamp { float: left; margin-left: 20%; }
+    div.year h2 { margin-left: 40%; }
+}
+
+/* Sidebar */
+aside.sidebar h1 { border-bottom: 1px solid #93a4ad; box-shadow: #f8fafb 0 1px 0 0; }

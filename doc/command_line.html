@@ -1,0 +1,195 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Tinkerer is a Python blogging engine/static website generator powered by Sphinx">
+        <meta name="viewport" content="width=device-width">
+        <title>Command Line Reference &mdash; Tinkerer</title>
+            <link rel="stylesheet" href="../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../_static/flat.css" type="text/css">
+            <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../_static/font-awesome.min.css" type="text/css">
+        <link rel="shortcut icon" href="../_static/tinkerer.ico" /><!-- Load modernizr and JQuery -->
+        <script src="../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../_static/plugins.js"></script>
+        <script src="../_static/main.js"></script>
+        <link rel="next" title="Internals" href="internals.html" /><link rel="prev" title="Deploying" href="deploying.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Scroll to content if on small screen
+            if (screen.width < 480)
+            {
+                $(document).scrollTop(document.getElementsByTagName("article")[0].offsetTop - 44);
+            }
+        });
+    </script>
+<style media="screen" type="text/css">
+    #fork_me { display: none; }
+
+    @media only screen and (min-width: 768px) {
+        #fork_me { display: inline; }
+    } 
+</style></head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header role="banner">
+            <hgroup>
+              <h1><a href="../index.html">Tinkerer</a></h1><h2>Blogging for Pythonistas</h2></hgroup>
+          </header>
+      <nav role="navigation">
+            <ul><li class="main-nav">
+                  <a href="../index.html">Home</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../pages/documentation.html">Documentation</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../pages/extensions.html">Extensions</a>
+                </li>
+              </ul>
+          </nav><div class="main-container" role="main"><div class="main wrapper clearfix"><article>
+    <div class="section" id="command-line-reference">
+<h1>Command Line Reference</h1>
+<p>Tinkerer is invoked using the <span class="docutils literal"><span class="pre">tinker</span></span> command with one of the following
+arguments:</p>
+<p><span class="docutils literal"><span class="pre">--setup</span></span> or <span class="docutils literal"><span class="pre">-s</span></span></p>
+<blockquote>
+<div>Sets up a new blog in the current directory. This command creates
+the required files and directories.</div></blockquote>
+<p><span class="docutils literal"><span class="pre">--post</span> <span class="pre">&lt;POST&gt;</span></span> or <span class="docutils literal"><span class="pre">-p</span> <span class="pre">&lt;POST&gt;</span></span></p>
+<blockquote>
+<div><p>Creates a new post with the title <span class="docutils literal"><span class="pre">&lt;POST&gt;</span></span>. The filename is
+normalized by replacing all non-alphanumeric characters with <span class="docutils literal"><span class="pre">_</span></span>. The
+file path is determined based on date as <span class="docutils literal"><span class="pre">$(YEAR)/$(MONTH)/$(DAY)</span></span>. By
+default, current date is used.</p>
+<p>The new document is automatically inserted in the master document file so
+it is picked up by the build.</p>
+<p>Alternately, if <span class="docutils literal"><span class="pre">&lt;POST&gt;</span></span> is the path to an already existing file,
+Tinkerer will move the given file to the <span class="docutils literal"><span class="pre">$(YEAR)/$(MONTH)/$(DAY)</span></span>
+directory corresponding to the current date and will insert the document
+in the master document so it is picked up by the build. This is how drafts
+are promoted to posts.</p>
+</div></blockquote>
+<p><span class="docutils literal"><span class="pre">--date</span> <span class="pre">&lt;yyyy/mm/dd&gt;</span></span> (can only be used with <span class="docutils literal"><span class="pre">--post</span></span> command above)</p>
+<blockquote>
+<div>Creates a new post (or publishes a draft) at the specified date.</div></blockquote>
+<p><span class="docutils literal"><span class="pre">--page</span> <span class="pre">&lt;PAGE&gt;</span></span></p>
+<blockquote>
+<div><p>Creates a new page with the title <span class="docutils literal"><span class="pre">&lt;PAGE&gt;</span></span> under the <span class="docutils literal"><span class="pre">pages</span></span>
+directory. The filename is normalized and the new document is
+automatically appended to the master document file so it is picked up
+by the build.</p>
+<p>Alternately, if <span class="docutils literal"><span class="pre">&lt;PAGE&gt;</span></span> is the path to an already existing file,
+Tinkerer will move the given file to the <span class="docutils literal"><span class="pre">pages</span></span> directory and will
+append the document at the end of the master document file so it is picked
+up by the build. This is how drafts are promoted to pages.</p>
+</div></blockquote>
+<p><span class="docutils literal"><span class="pre">--draft</span> <span class="pre">&lt;DRAFT&gt;</span></span> or <span class="docutils literal"><span class="pre">-d</span> <span class="pre">&lt;DRAFT&gt;</span></span></p>
+<blockquote>
+<div><p>Creates a new draft with the title <span class="docutils literal"><span class="pre">&lt;DRAFT&gt;</span></span> under the <span class="docutils literal"><span class="pre">drafts</span></span>
+directory. The filename is normalized. The new document will be ignored by
+the Sphinx build until it is promoted to a post or a page (see above).</p>
+<p>Alternately, is <span class="docutils literal"><span class="pre">&lt;DRAFT&gt;</span></span> is the path to an already existing file,
+Tinkerer will move the given file to the <span class="docutils literal"><span class="pre">drafts</span></span> directory and will
+remove the document from the master document file so it will no longer get
+built. This is how posts and pages are demoted to drafts.</p>
+</div></blockquote>
+<p><span class="docutils literal"><span class="pre">--build</span></span> or <span class="docutils literal"><span class="pre">-b</span></span></p>
+<blockquote>
+<div>Runs a clean Sphinx build. First, the <span class="docutils literal"><span class="pre">blog/</span></span> directory is cleaned up
+(all files are removed) then Sphinx build is invoked.</div></blockquote>
+<p><span class="docutils literal"><span class="pre">--preview</span> <span class="pre">&lt;PREVIEW&gt;</span></span></p>
+<blockquote>
+<div>Runs a clean Sphinx build including the draft specified by <span class="docutils literal"><span class="pre">&lt;PREVIEW&gt;</span></span>.
+The draft can then be previewed in the browser.</div></blockquote>
+<p><span class="docutils literal"><span class="pre">-v</span></span></p>
+<blockquote>
+<div>Prints Tinkerer version information.</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Tinkerer does not support incremental builds because items like <em>Recent
+Posts</em> change with each new post. Clean build is always performed.</p>
+</div>
+<div class="section" id="optional-flags">
+<h2>Optional Flags</h2>
+<p>Verbosity can be change with one of the mutually exclusive flags:</p>
+<p><span class="docutils literal"><span class="pre">-q</span></span></p>
+<blockquote>
+<div>Quiet - no stdout output.</div></blockquote>
+<p><span class="docutils literal"><span class="pre">-f</span></span></p>
+<blockquote>
+<div><p>Outputs filename only. A call to <span class="docutils literal"><span class="pre">--setup</span></span> will output <span class="docutils literal"><span class="pre">conf.py</span></span>, a
+call to <span class="docutils literal"><span class="pre">--post</span></span> will output the post file path, a call to <span class="docutils literal"><span class="pre">--page</span></span>
+will output the page file path and a call to <span class="docutils literal"><span class="pre">--build</span></span> will output
+<span class="docutils literal"><span class="pre">index.html</span></span>. This can be used to pipe Tinkerer, for example:</p>
+<div class="highlight-bash"><div class="highlight"><pre>tinker --post <span class="sb">`</span>Hello World!<span class="sb">`</span> -f | xargs vim
+</pre></div>
+</div>
+</div></blockquote>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><em>Tinkerer Reference</em></a>.</p>
+</div>
+</div>
+
+    <div class="postmeta">
+        
+        
+        
+        </div><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="deploying.html">Deploying</a></li>
+            <li class="right"><a href="internals.html">Internals</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="widget">
+<h1>On This Page</h1>
+<p><ul>
+<li><a class="reference internal" href="#">Command Line Reference</a><ul>
+<li><a class="reference internal" href="#optional-flags">Optional Flags</a></li>
+</ul>
+</li>
+</ul>
+</p><h1>Previous Topic</h1>
+<p><a href="deploying.html">Deploying</a></p><h1>Next Topic</h1>
+<p><a href="internals.html">Internals</a></p></div></section><section><div class="widget" id="searchbox" role="search">
+    <h1>Search</h1>
+    <form action="../search.html" method="get">
+        <input type="text" name="q" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+    </form>
+</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2013, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+    <a id="fork_me" href="http://github.com/vladris/tinkerer">
+        <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
+    </a></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><script type="text/javascript">    var disqus_shortname = "tinkerer";    disqus_count();</script><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>
