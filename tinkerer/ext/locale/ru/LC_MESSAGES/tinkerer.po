@@ -24,15 +24,15 @@ msgstr "Главная"
 
 #: tinkerer/ext/uistr.py:35
 msgid "Recent Posts"
-msgstr "Недавние Записи"
+msgstr "Недавние записи"
 
 #: tinkerer/ext/uistr.py:36
 msgid "Posted by"
-msgstr "Запись сделана"
+msgstr "Автор:"
 
 #: tinkerer/ext/uistr.py:37
 msgid "Blog Archive"
-msgstr "Архив Блога"
+msgstr "Архив блога"
 
 #: tinkerer/ext/uistr.py:38
 msgid "Filed under"
@@ -44,7 +44,7 @@ msgstr "Тэги"
 
 #: tinkerer/ext/uistr.py:40
 msgid "Tags Cloud"
-msgstr "Облако Тэгов"
+msgstr "Облако тэгов"
 
 #: tinkerer/ext/uistr.py:41
 msgid "Categories"
@@ -53,12 +53,12 @@ msgstr "Категории"
 #: tinkerer/ext/uistr.py:42
 #, python-format
 msgid "%B %d, %Y"
-msgstr "%B %d, %Y"
+msgstr "%d %B, %Y"
 
 #: tinkerer/ext/uistr.py:43
 #, python-format
 msgid "Posts tagged with <span class=\"title_tag\">%s</span>"
-msgstr "Посты с тегам(и) <span class=\"title_tag\">%s</span>"
+msgstr "Посты с тегами <span class=\"title_tag\">%s</span>"
 
 #: tinkerer/ext/uistr.py:44
 #, python-format
@@ -67,11 +67,11 @@ msgstr "Записано как <span class=\"title_category\">%s</span>"
 
 #: tinkerer/ext/uistr.py:45
 msgid "Newer"
-msgstr "Новее"
+msgstr "Новые посты"
 
 #: tinkerer/ext/uistr.py:46
 msgid "Older"
-msgstr "Старее"
+msgstr "Старые посты"
 
 #: tinkerer/ext/uistr.py:47
 #, python-format
@@ -80,11 +80,11 @@ msgstr "Страница %d"
 
 #: tinkerer/ext/uistr.py:48
 msgid "Read more..."
-msgstr "Читать далее..."
+msgstr "Читать дальше..."
 
 #: tinkerer/ext/uistr.py:49
-msgid "Javascript must be enabled to see this e-mail address"
-msgstr "Для отображения этого e-mail адреса должен быть включён Javascript"
+msgid "JavaScript must be enabled to see this e-mail address"
+msgstr "Для отображения этого адреса эл. почты должен быть включён JavaScript"
 
 #: tinkerer/themes/boilerplate/layout.html:198
 #, python-format
@@ -132,20 +132,20 @@ msgstr ""
 "С этого места вы можете начать поиск в этих документах. Введите \n"
 "    слова для поиска в поле и кликните \"искать\". Учтите, что фунция "
 "поиска\n"
-"    обрабатывает слова запроса как единое целое. Страницы \n"
-"    в которых нет искомого сочетания не будут отображены."
+"    обрабатывает слова запроса как единое целое. Страницы, \n"
+"    в которых нет искомого сочетания, не будут отображены."
 
 #: tinkerer/themes/boilerplate/search.html:37
 msgid "search"
-msgstr "поиск"
+msgstr "искать"
 
 #: tinkerer/themes/boilerplate/search.html:41
 msgid "Search Results"
-msgstr "Результаты Поиска"
+msgstr "Результаты поиска"
 
 #: tinkerer/themes/boilerplate/search.html:43
 msgid "Your search did not match any results."
-msgstr "Ваш поиск не принёс никаких результатов"
+msgstr "Ничего не найдено :-("
 
 #: tinkerer/themes/boilerplate/static/doctools.js:154
 msgid "Permalink to this headline"
@@ -157,7 +157,7 @@ msgstr "Постоянная ссылка на это определение"
 
 #: tinkerer/themes/boilerplate/static/doctools.js:189
 msgid "Hide Search Matches"
-msgstr "Скрыть Найденные Сочетания"
+msgstr "Не показывать совпадения"
 
 #: tinkerer/themes/tinkerbase/layout.html:209
 #, python-format
