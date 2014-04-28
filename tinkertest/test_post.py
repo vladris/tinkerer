@@ -196,9 +196,9 @@ class TestPost(utils.BaseTinkererTest):
 
 
     # test creating post with no template
-    @mock.patch('tinkerer.writer.render')
+    @mock.patch("tinkerer.writer.render")
     def test_create_without_template(self, render):
-        post.create('no-template')
+        post.create("no-template")
         render.assert_called_once_with(
             paths.post_template,
             mock.ANY,
@@ -206,11 +206,12 @@ class TestPost(utils.BaseTinkererTest):
         )
 
     # test creating post with given template
-    @mock.patch('tinkerer.writer.render')
+    @mock.patch("tinkerer.writer.render")
     def test_create_with_template(self, render):
-        post.create('with-template', template='the_template.rst')
+        post.create("with-template", template="the_template.rst")
         render.assert_called_once_with(
-            'the_template.rst',
+            "the_template.rst",
             mock.ANY,
             mock.ANY,
         )
+

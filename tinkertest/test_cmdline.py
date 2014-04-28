@@ -149,6 +149,13 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.assertTrue(os.path.exists(file_path))
 
 
+    # test missing template
+    def test_missing_template(self):
+        # creating a post with a missing template file should fail
+        self.assertNotEqual(
+            0,
+            cmdline.main(["--post", "test", "--template", "missing", "--quiet"]))
+
 
     # test build
     def test_build(self):

@@ -200,6 +200,13 @@ def main(argv=None):
         except:
             output.write.error("Invalid post date: format should be YYYY/mm/dd")
             return -1
+
+    if command.template:
+        if not os.path.exists(os.path.join(paths.templates, command.template)):
+            output.write.error("The specified template does not exist. "
+                    " Make sure the template is placed inside the _templates"
+                    " subdirectory of your blog.")
+            return -1
     
     if command.setup:
         setup()
