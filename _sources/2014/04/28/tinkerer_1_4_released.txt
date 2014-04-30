@@ -15,6 +15,8 @@ What's New
 * Updated site-search JS script to newer version from Sphinx project
 * Other bug fixes and improvements under the hood
 
+Also check out the new :ref:`atomfeed` extension.
+
 Deprecation Warning
 -------------------
 

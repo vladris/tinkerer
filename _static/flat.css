@@ -106,13 +106,13 @@ footer { margin-bottom: 20px; padding: 20px; text-align: center; }
 
 /* Palette */body { background-color: #f8fafb; }
 
-header a, header a:visited, header a:hover, headera:active { color: #0c0501; text-decoration: none; }
+header a, header a:visited, header a:hover, header a:active { color: #0c0501; text-decoration: none; }
 header h2 { color: #93a4ad; }
 
 a, a:visited { font-weight: bold; color: #3bbc46; text-decoration: none; }
 a:hover { font-weight: bold; color: #3bbc46; text-decoration: underline; }
 a.footnote-reference { vertical-align: super; }
-div.section h1 a { color: #0c0501; text-decoration: none; }
+article h1 a, article h1 a:visited, article h1 a:hover, article h1 a:active { color: #0c0501; text-decoration: none; }
 .docutils.literal { background-color: #e6edf2; border: 1px solid #f8fafb; border-radius: 8px; padding: 2px 4px; }
 
 blockquote { border-left: 10px solid #3bbc46; }
