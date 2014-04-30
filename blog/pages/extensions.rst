@@ -27,6 +27,7 @@ This is the list of community extensions with descriptions by the authors:
     ../exts/hidemail
     ../exts/jinjafilters
     ../exts/withgithub
+    ../exts/atomfeed
 
 Contribute
 ----------
