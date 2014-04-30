@@ -8,7 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-__version__ = "1.4.1"
+__version__ = "1.4.2"
 
 master_doc = "master"
 source_suffix = ".rst"
