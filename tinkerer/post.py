@@ -8,17 +8,15 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENCE file
 '''
-from datetime import datetime
 import os
 import shutil
 import tinkerer
 from tinkerer import master, paths, utils, writer
 
 
-
 class Post():
     '''
-    The class provides methods to create a new post and insert it into the 
+    The class provides methods to create a new post and insert it into the
     master document.
     '''
 
@@ -40,19 +38,17 @@ class Post():
 
         # create post directory if it doesn't exist and get post path
         self.path = os.path.join(
-                            utils.get_path(
-                                    paths.root,
-                                    self.year,
-                                    self.month,
-                                    self.day),
-                            self.name) + tinkerer.source_suffix
+            utils.get_path(
+                paths.root,
+                self.year,
+                self.month,
+                self.day),
+            self.name) + tinkerer.source_suffix
 
         # docname as it should appear in TOC
         self.docname = "/".join([self.year, self.month, self.day, self.name])
 
-
-
-    def write(self, content="", author="default", 
+    def write(self, content="", author="default",
               categories="none", tags="none",
               template=None):
         '''
@@ -60,12 +56,11 @@ class Post():
         '''
         template = template or paths.post_template
         writer.render(template, self.path,
-               { "title"     : self.title,
-                 "content"   : content,
-                 "author"    : author,
-                 "categories": categories,
-                 "tags"      : tags})
-
+                      {"title":      self.title,
+                       "content":    content,
+                       "author":     author,
+                       "categories": categories,
+                       "tags":       tags})
 
 
 def create(title, date=None, template=None):
@@ -83,7 +78,6 @@ def create(title, date=None, template=None):
     return post
 
 
-
 def move(path, date=None):
     '''
     Moves a post given its path.
@@ -96,4 +90,3 @@ def move(path, date=None):
     if not master.exists_doc(post.docname):
         master.prepend_doc(post.docname)
     return post
-

@@ -4,21 +4,18 @@
 
     Handler for `comments` directive using Disqus.
     Disqus shortname must be provided in `conf.py` as `disqus_shortname`.
-    
+
     :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from sphinx.util.compat import Directive
-from docutils import nodes
 
-
+# flake8: noqa
 
 '''
 Disqus JS script file.
 '''
 DISQUS_SCRIPT = "_static/disqus.js"
-
 
 
 def create_thread(disqus_shortname, identifier):
@@ -35,7 +32,6 @@ def create_thread(disqus_shortname, identifier):
 '<noscript>Please enable JavaScript to view the '
 '   <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a>'
 '</noscript>' % (disqus_shortname, identifier))
-
 
 
 def enable_count(disqus_shortname):

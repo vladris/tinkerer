@@ -24,7 +24,6 @@ filename = logging.getLogger("filename")
 quiet = False
 
 
-
 def init(quiet_mode, filename_only):
     """
     Initialize output based on quiet/filename-only flags
@@ -50,4 +49,3 @@ def init(quiet_mode, filename_only):
     else:
         # otherwise display INFO
         write.setLevel(logging.INFO)
-

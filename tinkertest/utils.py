@@ -8,11 +8,10 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-import datetime
 import os
 import shutil
 import sys
-from tinkerer import cmdline, output, page, paths, post, writer
+from tinkerer import cmdline, output, paths, writer
 import types
 import unittest
 
@@ -32,12 +31,10 @@ class BaseTinkererTest(unittest.TestCase):
         output.quiet = True
         setup()
 
-
     # invoke build
     def build(self):
         print("")
         self.assertEquals(0, cmdline.build())
-
 
     # common teardown - cleanup working directory
     def tearDown(self):
@@ -70,7 +67,7 @@ def cleanup():
 # nose mistakenly calls Sphinx extension setup functions thinking they are
 # test setups with a module parameter
 def is_module(m):
-    return type(m) is types.ModuleType
+    return isinstance(m, types.ModuleType)
 
 
 # used by Sphinx to lookup extensions

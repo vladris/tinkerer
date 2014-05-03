@@ -9,7 +9,6 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
-import unittest
 from tinkertest import utils
 import tinkerer
 from tinkerer import page, post
@@ -20,7 +19,7 @@ class TestOrdering(utils.BaseTinkererTest):
     def test_ordering(self):
         utils.test = self
 
-        # create some pages and posts 
+        # create some pages and posts
         page.create("First Page")
         post.create("Oldest Post", datetime.date(2010, 10, 1))
         post.create("Newer Post", datetime.date(2010, 10, 1))
@@ -32,11 +31,15 @@ class TestOrdering(utils.BaseTinkererTest):
 
 
 ordering = {
-    tinkerer.master_doc : [None, None, "2010/10/01/newest_post"],
-    "2010/10/01/newest_post": [tinkerer.master_doc, tinkerer.master_doc, "2010/10/01/newer_post"],
-    "2010/10/01/newer_post": [tinkerer.master_doc, "2010/10/01/newest_post", "2010/10/01/oldest_post"],
-    "2010/10/01/oldest_post": [tinkerer.master_doc, "2010/10/01/newer_post", "pages/first_page"],
-    "pages/first_page": [tinkerer.master_doc, "2010/10/01/oldest_post", "pages/another_page"],
+    tinkerer.master_doc: [None, None, "2010/10/01/newest_post"],
+    "2010/10/01/newest_post": [tinkerer.master_doc, tinkerer.master_doc,
+                               "2010/10/01/newer_post"],
+    "2010/10/01/newer_post": [tinkerer.master_doc, "2010/10/01/newest_post",
+                              "2010/10/01/oldest_post"],
+    "2010/10/01/oldest_post": [tinkerer.master_doc, "2010/10/01/newer_post",
+                               "pages/first_page"],
+    "pages/first_page": [tinkerer.master_doc, "2010/10/01/oldest_post",
+                         "pages/another_page"],
     "pages/another_page": [tinkerer.master_doc, "pages/first_page", None]
 }
 
@@ -52,19 +55,19 @@ def build_finished(app, exception):
         utils.test.assertEquals(relations[docname], ordering[docname])
 
     # check metadata ordering is correct
-    utils.test.assertEquals([
-            "2010/10/01/newest_post",
-            "2010/10/01/newer_post",
-            "2010/10/01/oldest_post"],
-            env.blog_posts)
+    utils.test.assertEquals(
+        ["2010/10/01/newest_post",
+         "2010/10/01/newer_post",
+         "2010/10/01/oldest_post"],
+        env.blog_posts)
 
-    utils.test.assertEquals([
-            "pages/first_page",
-            "pages/another_page"],
-            env.blog_pages)
+    utils.test.assertEquals(
+        ["pages/first_page",
+         "pages/another_page"],
+        env.blog_pages)
 
 
-# extension setup    
+# extension setup
 def setup(app):
     if utils.is_module(app):
         return

@@ -12,7 +12,6 @@ import copy
 from tinkerer.ext.uistr import UIStr
 
 
-
 def make_aggregated_pages(app):
     '''
     Generates aggregated pages.
@@ -21,13 +20,13 @@ def make_aggregated_pages(app):
     posts_per_page = app.config.posts_per_page
 
     # get post groups
-    groups = [env.blog_posts[i:i+posts_per_page] for i in range(0, 
-                    len(env.blog_posts), posts_per_page)]
+    groups = [env.blog_posts[i:i+posts_per_page]
+              for i in range(0, len(env.blog_posts), posts_per_page)]
 
     # for each group
     for i, posts in enumerate(groups):
         # initialize context
-        context = { 
+        context = {
             "prev": {},
             "next": {},
             "posts": []
@@ -39,7 +38,6 @@ def make_aggregated_pages(app):
             metadata = copy.deepcopy(env.blog_metadata[post])
             context["posts"].append(metadata)
 
-
         # handle navigation
         if i == 0:
             # first page doesn't have prev link and its title is "Home"
@@ -50,7 +48,9 @@ def make_aggregated_pages(app):
             # following pages prev-link to previous page (titled as "Newer")
             pagename = "page%d" % (i + 1)
             context["prev"]["title"] = UIStr.NEWER
-            context["prev"]["link"] = "index.html" if i == 1 else "page%d.html" % i
+            context["prev"]["link"] = (
+                "index.html" if i == 1 else "page%d.html" % i
+            )
             context["title"] = UIStr.PAGE_FMT % (i + 1)
 
         if i == len(groups) - 1:
@@ -64,4 +64,3 @@ def make_aggregated_pages(app):
         context["archive_title"] = UIStr.BLOG_ARCHIVE
 
         yield (pagename, context, "aggregated.html")
-

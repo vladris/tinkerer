@@ -11,7 +11,6 @@
 import datetime
 import os
 from tinkerer import paths, post
-import unittest
 from tinkertest import utils
 
 
@@ -24,7 +23,8 @@ class TestTags(utils.BaseTinkererTest):
         for new_post in [("Post1", "tag #1"),
                          ("Post2", "tag #2"),
                          ("Post12", "tag #1, tag #2")]:
-            post.create(new_post[0], datetime.date(2010, 10, 1)).write(tags=new_post[1])
+            p = post.create(new_post[0], datetime.date(2010, 10, 1))
+            p.write(tags=new_post[1])
 
         utils.hook_extension("test_tags")
         self.build()
@@ -45,13 +45,16 @@ def build_finished(app, exception):
     # check post metadata
     for result in [([("tag__1", "tag #1")], "2010/10/01/post1"),
                    ([("tag__2", "tag #2")], "2010/10/01/post2"),
-                   ([("tag__1", "tag #1"), ("tag__2", "tag #2")], "2010/10/01/post12")]:
-        utils.test.assertEquals(result[0], 
-                app.builder.env.blog_metadata[result[1]].filing["tags"])
+                   ([("tag__1", "tag #1"), ("tag__2", "tag #2")],
+                    "2010/10/01/post12")]:
+        utils.test.assertEquals(
+            result[0],
+            app.builder.env.blog_metadata[result[1]].filing["tags"])
 
     # check tag pages were generated
     for page in ["tag__1.html", "tag__2.html"]:
-        utils.test.assertTrue(os.path.exists(os.path.join(paths.html, "tags", page)))
+        utils.test.assertTrue(os.path.exists(os.path.join(paths.html, "tags",
+                                                          page)))
 
 
 # extension setup
@@ -59,4 +62,3 @@ def setup(app):
     if utils.is_module(app):
         return
     app.connect("build-finished", build_finished)
- 

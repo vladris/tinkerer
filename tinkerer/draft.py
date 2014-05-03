@@ -15,7 +15,6 @@ import tinkerer
 from tinkerer import master, paths, utils, writer
 
 
-
 def create(title, template=None):
     '''
     Creates a new post draft.
@@ -24,24 +23,22 @@ def create(title, template=None):
     template = template or paths.post_template
 
     path = os.path.join(
-                    utils.get_path(
-                        paths.root, 
-                        "drafts"), 
-                    name + tinkerer.source_suffix)
+        utils.get_path(paths.root, "drafts"),
+        name + tinkerer.source_suffix,
+    )
 
     if os.path.exists(path):
         raise Exception("Draft '%s' already exists at '%s" %
                         (title, path))
 
     writer.render(template, path,
-            { "title"     : title,
-              "content"   : "",
-              "author"    : "default",
-              "categories": "none",
-              "tags"      : "none"})
+                  {"title":      title,
+                   "content":    "",
+                   "author":     "default",
+                   "categories": "none",
+                   "tags":       "none"})
 
     return path
-
 
 
 def move(path):

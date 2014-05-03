@@ -43,7 +43,8 @@ def set_paths(root_path="."):
     blog = os.path.join(root, "blog")
     doctree = os.path.join(blog, "doctrees")
     html = os.path.join(blog, "html")
-    master_file = os.path.join(root, tinkerer.master_doc + tinkerer.source_suffix)
+    master_file = os.path.join(root,
+                               tinkerer.master_doc + tinkerer.source_suffix)
     index_file = os.path.join(root, "index.html")
     conf_file = os.path.join(root, "conf.py")
 

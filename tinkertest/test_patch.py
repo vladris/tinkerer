@@ -19,7 +19,7 @@ import sys
 class TestPatch(utils.BaseTinkererTest):
 
     def check_posts(self, filenames, posts, expected):
-        # helper function which creates given list of files and posts, runs a 
+        # helper function which creates given list of files and posts, runs a
         # build, then ensures expected content exists in each file
         for filename in filenames:
             with open(os.path.join(paths.root, filename), "w") as f:
@@ -29,12 +29,13 @@ class TestPatch(utils.BaseTinkererTest):
         # all posts are created on 2010/10/1 as date is not relevant here
         for new_post in posts:
             post.create(new_post[0], datetime.date(2010, 10, 1)).write(
-                    content = new_post[1])
+                content=new_post[1]
+            )
 
         # build and check output
         self.build()
 
-        # tests are tuples consisting of file path (as a list) and the list of 
+        # tests are tuples consisting of file path (as a list) and the list of
         # expected content
         for test in expected:
             with open(os.path.join(paths.html, *test[0]), "r") as f:
@@ -45,8 +46,6 @@ class TestPatch(utils.BaseTinkererTest):
                         print(content)
                     self.assertTrue(data in content)
 
-
-
     def test_patch_a_and_img(self):
         filenames = ["img.png"]
         posts = [
@@ -55,66 +54,58 @@ class TestPatch(utils.BaseTinkererTest):
         ]
 
         expected = [
-            (["2010", "10", "01", "post1.html"], 
-             [
-                # Sphinx running on Python3 has an achor here, Python2 doesn't
-                'href="post2.html#x"' if sys.version_info[0] == 3 else 
-                        'href="post2.html"',
-                'href="www.archlinux.org"'
-             ]),
+            # Sphinx running on Python3 has an achor here, Python2 doesn't
+            (["2010", "10", "01", "post1.html"],
+             [('href="post2.html#x"' if sys.version_info[0] == 3 else
+               'href="post2.html"'),
+              'href="www.archlinux.org"']),
+
+            # images get places in _images directory under root
             (["2010", "10", "01", "post2.html"],
-             [
-                # images get places in _images directory under root
-                'src="../../../_images/img.png"'
-             ]),
+             ['src="../../../_images/img.png"']),
+
+            # index.html should have links patched with relative address
             (["index.html"],
-             [
-                # index.html should have links patched with relative address
-                'href="2010/10/01/post2.html#x"',
-                'href="www.archlinux.org"',
-                'src="_images/img.png"'
-             ]),
+             ['href="2010/10/01/post2.html#x"',
+              'href="www.archlinux.org"',
+              'src="_images/img.png"']),
+
+            # RSS feed should have links patched with absolute address
             (["rss.html"],
-             [
-                # RSS feed should have links patched with absolute address
-                'href="http://127.0.0.1/blog/html/2010/10/01/post2.html#x"',
-                'href="www.archlinux.org"',
-                'src="http://127.0.0.1/blog/html/_images/img.png"'
-             ])
+             ['href="http://127.0.0.1/blog/html/2010/10/01/post2.html#x"',
+              'href="www.archlinux.org"',
+              'src="http://127.0.0.1/blog/html/_images/img.png"'])
         ]
 
         self.check_posts(filenames, posts, expected)
-
-
 
     def test_patch_target(self):
         # tests patching links for images with :target: specified
         filenames = ["img1.png", "img2.png", "img3.png"]
 
         posts = [
-            ("Post1", 
-                    # relative target
-                    ".. image:: ../../../img1.png\n"
-                    "   :target: ../../../_images/img1.png\n"
-                    "\n"
-                    # absolute target
-                    ".. image:: ../../../img2.png\n"
-                    "   :target: /_images/img2.png\n"
-                    "\n"
-                    # external target
-                    ".. image:: ../../../img3.png\n"
-                    "   :target: www.archlinux.org\n"
-            )
+            ("Post1",
+             # relative target
+             ".. image:: ../../../img1.png\n"
+             "   :target: ../../../_images/img1.png\n"
+             "\n"
+             # absolute target
+             ".. image:: ../../../img2.png\n"
+             "   :target: /_images/img2.png\n"
+             "\n"
+             # external target
+             ".. image:: ../../../img3.png\n"
+             "   :target: www.archlinux.org\n")
         ]
 
         expected = [
             (["2010", "10", "01", "post1.html"],
              [
-                # nothing should be changed
-                'href="../../../_images/img1.png"',
-                'href="/_images/img2.png"',
-                'href="www.archlinux.org"'
-             ]),
+                 # nothing should be changed
+                 'href="../../../_images/img1.png"',
+                 'href="/_images/img2.png"',
+                 'href="www.archlinux.org"']),
+
             (["index.html"],
              [
                 # relative target should get patched
@@ -122,8 +113,7 @@ class TestPatch(utils.BaseTinkererTest):
 
                 # absolute and external targets should be unchanged
                 'href="/_images/img2.png"',
-                'href="www.archlinux.org"'
-             ]),
+                'href="www.archlinux.org"']),
             (["rss.html"],
              [
                 # relative and absolute targets should get patched
@@ -131,21 +121,18 @@ class TestPatch(utils.BaseTinkererTest):
 
                 # absolute target doesn't get patched
                 # 'href="http://127.0.0.1/_images/img2.png"',
-                'href="www.archlinux.org"'
-             ])
+                'href="www.archlinux.org"'])
         ]
 
         self.check_posts(filenames, posts, expected)
-        
 
     def test_patch_bad_link(self):
         # post with an invalid link, which doesn't produce a proper <a> tag
         posts = [
-            ("Post1", 
-                    # bad link
-                "`http://book.cakephp.org/3.0/en/appendices/3-0-migration-\n"
-                "guide.html`_"
-            )
+            ("Post1",
+             # bad link
+             "`http://book.cakephp.org/3.0/en/appendices/3-0-migration-\n"
+             "guide.html`_")
         ]
 
         expected = [
@@ -154,9 +141,7 @@ class TestPatch(utils.BaseTinkererTest):
                 # should be marked as problematic by Sphinx
                 '<a href="#id1"><span class="problematic" id="id2">'
                 '`http://book.cakephp.org/3.0/en/appendices/3-0-migration-\n'
-                'guide.html`_</span></a>'
-             ])
+                'guide.html`_</span></a>'])
         ]
 
         self.check_posts([], posts, expected)
-

@@ -7,10 +7,11 @@ python:
 # command to install dependencies
 install: 
   - python setup.py develop
-  - pip install coveralls
+  - pip install coveralls flake8
 
 # command to run tests
-script: 
+script:
+  - flake8 tinkerer tinkertest
   - nosetests --with-coverage --cover-package=tinkerer
 
 # after test run

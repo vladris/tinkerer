@@ -14,7 +14,6 @@ import tinkerer
 from tinkerer import master, paths, utils, writer
 
 
-
 class Page():
     '''
     The class provides methods to create a new page and insert it into the
@@ -22,7 +21,7 @@ class Page():
     '''
     def __init__(self, title=None, path=None):
         '''
-        Determines page filename based on title or given path and creates the 
+        Determines page filename based on title or given path and creates the
         path to the page if it doesn't already exist.
         '''
         self.title = title
@@ -35,14 +34,11 @@ class Page():
 
         # create page directory if it doesn't exist and get page path
         self.path = os.path.join(
-                            utils.get_path(
-                                paths.root, 
-                                "pages"), 
-                            self.name) + tinkerer.source_suffix
+            utils.get_path(paths.root, "pages"),
+            self.name) + tinkerer.source_suffix
 
         # docname as it should appear in TOC
         self.docname = "pages/" + self.name
-
 
     def write(self, content="", template=None):
         '''
@@ -50,9 +46,8 @@ class Page():
         '''
         template = template or paths.page_template
         writer.render(template, self.path,
-                { "title": self.title,
-                  "content": content })
-
+                      {"title": self.title,
+                       "content": content})
 
 
 def create(title, template=None):
@@ -67,7 +62,6 @@ def create(title, template=None):
     if not master.exists_doc(page.docname):
         master.append_doc(page.docname)
     return page
-
 
 
 def move(path, date=None):
