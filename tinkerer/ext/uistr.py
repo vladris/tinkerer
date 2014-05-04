@@ -17,13 +17,11 @@ except:
     import __builtin__
 
 
-
 # check whether unicode builtin exists, otherwise strings are unicode by
 # default so it can be stubbed
 if "unicode" not in __builtin__.__dict__:
     def unicode(ret, ignore):
         return ret
-
 
 
 class UIStr:
@@ -41,10 +39,14 @@ class UIStr:
         UIStr.CATEGORIES = unicode(_("Categories"), "utf-8")
         UIStr.TIMESTAMP_FMT = unicode(_('MMMM dd, yyyy'), "utf-8")
         UIStr.TIMESTAMP_FMT_SHORT = unicode(_('MMM dd'), "utf-8")
-        UIStr.TAGGED_WITH_FMT = unicode(_('Posts tagged with <span class="title_tag">%s</span>'), "utf-8")
-        UIStr.FILED_UNDER_FMT = unicode(_('Filed under <span class="title_category">%s</span>'), "utf-8")
+        UIStr.TAGGED_WITH_FMT = unicode(
+            _('Posts tagged with <span class="title_tag">%s</span>'), "utf-8")
+        UIStr.FILED_UNDER_FMT = unicode(
+            _('Filed under <span class="title_category">%s</span>'), "utf-8")
         UIStr.NEWER = unicode(_("Newer"), "utf-8")
         UIStr.OLDER = unicode(_("Older"), "utf-8")
         UIStr.PAGE_FMT = unicode(_("Page %d"), "utf-8")
         UIStr.READ_MORE = unicode(_("Read more..."), "utf-8")
-        UIStr.MAIL_HIDDEN_BY_JAVASCRIPT = unicode(_("Javascript must be enabled to see this e-mail address"), "utf-8")
+        UIStr.MAIL_HIDDEN_BY_JAVASCRIPT = unicode(
+            _("Javascript must be enabled to see this e-mail address"),
+            "utf-8")

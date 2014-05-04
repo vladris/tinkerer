@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# flake8: noqa
+
 import tinkerer
 import tinkerer.paths
 
@@ -39,7 +41,7 @@ html_favicon = 'tinkerer.ico'
 html_theme = "{{ theme }}"
 
 # Theme-specific options, see docs
-html_theme_options = { }
+html_theme_options = {}
 
 # Link to RSS service like FeedBurner if any, otherwise feed is
 # linked directly

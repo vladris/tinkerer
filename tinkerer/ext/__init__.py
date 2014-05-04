@@ -8,4 +8,3 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-

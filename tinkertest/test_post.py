@@ -34,13 +34,13 @@ class TestPost(utils.BaseTinkererTest):
         self.assertEquals(day, new_post.day)
 
         self.assertEquals(
-                os.path.abspath(os.path.join(
-                                    utils.TEST_ROOT, 
-                                    year, 
-                                    month, 
-                                    day, 
-                                    "my_post.rst")),
-                new_post.path)                                        
+            os.path.abspath(os.path.join(
+                utils.TEST_ROOT,
+                year,
+                month,
+                day,
+                "my_post.rst")),
+            new_post.path)
 
         self.assertTrue(os.path.exists(new_post.path))
 
@@ -51,13 +51,13 @@ class TestPost(utils.BaseTinkererTest):
         self.assertEquals("01", new_post.day)
 
         self.assertEquals(
-                os.path.abspath(os.path.join(
-                                    utils.TEST_ROOT,
-                                    "2010",
-                                    "10",
-                                    "01",
-                                    "date_post.rst")),
-                new_post.path)
+            os.path.abspath(os.path.join(
+                utils.TEST_ROOT,
+                "2010",
+                "10",
+                "01",
+                "date_post.rst")),
+            new_post.path)
 
         self.assertTrue(os.path.exists(new_post.path))
         self.assertEquals("2010/10/01/date_post", new_post.docname)
@@ -69,7 +69,7 @@ class TestPost(utils.BaseTinkererTest):
         os.chdir(utils.TEST_ROOT)
 
         with open("conf.py", "w") as f:
-            lines = f.write("slug_word_separator = '-'")
+            f.write("slug_word_separator = '-'")
 
         # create post with current date and dash as word separator
         new_post = post.create("My __Second  Post.")
@@ -82,13 +82,13 @@ class TestPost(utils.BaseTinkererTest):
         self.assertEquals(day, new_post.day)
 
         self.assertEquals(
-                os.path.abspath(os.path.join(
-                                    utils.TEST_ROOT, 
-                                    year, 
-                                    month, 
-                                    day, 
-                                    "my-second-post.rst")),
-                new_post.path)                                        
+            os.path.abspath(os.path.join(
+                utils.TEST_ROOT,
+                year,
+                month,
+                day,
+                "my-second-post.rst")),
+            new_post.path)
 
         self.assertTrue(os.path.exists(new_post.path))
 
@@ -96,7 +96,7 @@ class TestPost(utils.BaseTinkererTest):
     def test_move(self):
         # create a "pre-existing" file
         draft_file = os.path.join(utils.TEST_ROOT, "drafts", "afile.rst")
-        
+
         with open(draft_file, "w") as f:
             f.write("Content")
 
@@ -107,18 +107,17 @@ class TestPost(utils.BaseTinkererTest):
         self.assertEquals("01", moved_post.day)
 
         self.assertEquals(
-                os.path.abspath(os.path.join(
-                                    utils.TEST_ROOT,
-                                    "2010",
-                                    "10",
-                                    "01",
-                                    "afile.rst")),
-                 moved_post.path)
+            os.path.abspath(os.path.join(
+                utils.TEST_ROOT,
+                "2010",
+                "10",
+                "01",
+                "afile.rst")),
+            moved_post.path)
 
         self.assertTrue(os.path.exists(moved_post.path))
         self.assertFalse(os.path.exists(draft_file))
         self.assertEquals("2010/10/01/afile", moved_post.docname)
-
 
     # test updating master document
     def test_master_update(self):
@@ -137,7 +136,6 @@ class TestPost(utils.BaseTinkererTest):
             self.assertEquals("   2010/10/01/post_1\n", lines[lineno+3])
             self.assertEquals("\n", lines[lineno+4])
 
-
     # test content
     def test_content(self):
         # create post with no content
@@ -147,33 +145,34 @@ class TestPost(utils.BaseTinkererTest):
 
         # check expected empty post content
         with open(new_post.path) as f:
-            self.assertEquals(f.readlines(),
-                    ["My Post\n",
-                     "=======\n",
-                     "\n",
-                     "\n",
-                     "\n",
-                     ".. author:: default\n",
-                     ".. categories:: none\n",
-                     ".. tags:: none\n",
-                     ".. comments::\n"])
+            self.assertEquals(
+                f.readlines(),
+                ["My Post\n",
+                 "=======\n",
+                 "\n",
+                 "\n",
+                 "\n",
+                 ".. author:: default\n",
+                 ".. categories:: none\n",
+                 ".. tags:: none\n",
+                 ".. comments::\n"])
 
         # update post
-        new_post.write(author="Mr. Py", categories="category 1, category 2", 
-                tags="tag 1, tag 2", content="Lorem ipsum")
+        new_post.write(author="Mr. Py", categories="category 1, category 2",
+                       tags="tag 1, tag 2", content="Lorem ipsum")
 
         with open(new_post.path) as f:
-            self.assertEquals(f.readlines(),
-                    ["My Post\n",
-                     "=======\n",
-                     "\n",
-                     "Lorem ipsum\n",
-                     "\n",
-                     ".. author:: Mr. Py\n",
-                     ".. categories:: category 1, category 2\n",
-                     ".. tags:: tag 1, tag 2\n",
-                     ".. comments::\n"])
-
+            self.assertEquals(
+                f.readlines(),
+                ["My Post\n",
+                 "=======\n",
+                 "\n",
+                 "Lorem ipsum\n",
+                 "\n",
+                 ".. author:: Mr. Py\n",
+                 ".. categories:: category 1, category 2\n",
+                 ".. tags:: tag 1, tag 2\n",
+                 ".. comments::\n"])
 
     # test that create duplicate post raises exception
     @raises(Exception)
@@ -184,7 +183,6 @@ class TestPost(utils.BaseTinkererTest):
         # should raise
         post.create("Post1")
 
-
     # test that moving post to existing post raises exception
     @raises(Exception)
     def test_move_duplicate(self):
@@ -193,7 +191,6 @@ class TestPost(utils.BaseTinkererTest):
 
         # should raise
         post.move("Post1")
-
 
     # test creating post with no template
     @mock.patch("tinkerer.writer.render")
@@ -214,4 +211,3 @@ class TestPost(utils.BaseTinkererTest):
             mock.ANY,
             mock.ANY,
         )
-

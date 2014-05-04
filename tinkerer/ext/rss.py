@@ -2,20 +2,18 @@
     rss
     ~~~
 
-    RSS feed generator for blog. 
+    RSS feed generator for blog.
 
     :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-import cgi
 import email.utils
 import time
 
 import pyquery
 
 from tinkerer.ext import patch
-from tinkerer import utils
 
 
 def remove_header_link(body):
@@ -62,28 +60,31 @@ def make_feed_context(app, feed_name, posts):
         link = "%s%s.html" % (app.config.website, post)
 
         timestamp = email.utils.formatdate(
-                time.mktime(env.blog_metadata[post].date.timetuple()),
-                localtime=True)
+            time.mktime(env.blog_metadata[post].date.timetuple()),
+            localtime=True)
 
-        categories = [category[1] for category in env.blog_metadata[post].filing["categories"]]
+        categories = [category[1] for category in
+                      env.blog_metadata[post].filing["categories"]]
 
         description = patch.strip_xml_declaration(
             patch.patch_links(
                 env.blog_metadata[post].body,
-                app.config.website + post[:11], # first 11 characters is path (YYYY/MM/DD/)
-                post[11:], # following characters represent filename
+                # first 11 characters of post is the path (YYYY/MM/DD/)
+                app.config.website + post[:11],
+                # following characters represent filename
+                post[11:],
                 replace_read_more_link=not app.config.rss_generate_full_posts,
             ),
         )
         description = remove_header_link(description)
 
         context["items"].append({
-                    "title": env.titles[post].astext(),
-                    "link": link,
-                    "description": description,
-                    "categories": categories,
-                    "pubDate": timestamp
-                })
+            "title": env.titles[post].astext(),
+            "link": link,
+            "description": description,
+            "categories": categories,
+            "pubDate": timestamp
+        })
 
     # feed metadata
     if feed_name:

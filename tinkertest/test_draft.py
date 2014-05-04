@@ -24,14 +24,13 @@ class TestDraft(utils.BaseTinkererTest):
         new_draft = draft.create("My Draft")
 
         self.assertEquals(
-                os.path.abspath(os.path.join(
-                                    utils.TEST_ROOT,
-                                    "drafts",
-                                    "my_draft.rst")),
-                new_draft)
+            os.path.abspath(os.path.join(
+                utils.TEST_ROOT,
+                "drafts",
+                "my_draft.rst")),
+            new_draft)
 
         self.assertTrue(os.path.exists(new_draft))
-
 
     # test moving draft from existing files
     def test_move(self):
@@ -45,7 +44,7 @@ class TestDraft(utils.BaseTinkererTest):
         self.assertTrue("   %s\n" % new_page.docname in lines)
 
         new_draft = draft.move(os.path.join(
-                            utils.TEST_ROOT, "pages", "a_page.rst"))
+            utils.TEST_ROOT, "pages", "a_page.rst"))
         self.assertTrue(os.path.exists(new_draft))
 
         # page should no longer be in TOC
@@ -54,14 +53,13 @@ class TestDraft(utils.BaseTinkererTest):
         self.assertFalse("   %s\n" % new_page.docname in lines)
 
         new_draft = draft.move(os.path.join(
-                            utils.TEST_ROOT, "2010", "10", "01", "a_post.rst"))
+            utils.TEST_ROOT, "2010", "10", "01", "a_post.rst"))
         self.assertTrue(os.path.exists(new_draft))
 
         # post should no longer be in TOC either
         lines = master.read_master()
         self.assertFalse("   %s\n" % new_post.docname in lines)
         self.assertFalse("   %s\n" % new_page.docname in lines)
-
 
     # test draft preview
     def test_preview(self):
@@ -80,12 +78,10 @@ class TestDraft(utils.BaseTinkererTest):
         self.assertEqual(
             0,
             cmdline.main(["--preview", new_draft, "-q"]))
-        
+
         # draft should not be in TOC
         for line in master.read_master():
             self.assertFalse("draft" in line)
-
-
 
     # test content
     def test_content(self):
@@ -94,16 +90,17 @@ class TestDraft(utils.BaseTinkererTest):
 
         # check expected empty post content
         with open(new_draft) as f:
-            self.assertEquals(f.readlines(),
-                    ["My Draft\n",
-                     "========\n",
-                     "\n",
-                     "\n",
-                     "\n",
-                     ".. author:: default\n",
-                     ".. categories:: none\n",
-                     ".. tags:: none\n",
-                     ".. comments::\n"])
+            self.assertEquals(
+                f.readlines(),
+                ["My Draft\n",
+                 "========\n",
+                 "\n",
+                 "\n",
+                 "\n",
+                 ".. author:: default\n",
+                 ".. categories:: none\n",
+                 ".. tags:: none\n",
+                 ".. comments::\n"])
 
     @mock.patch('tinkerer.writer.render')
     def test_create_without_template(self, render):
