@@ -4,7 +4,7 @@
 
     Tinkerer utility functions.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -61,7 +61,7 @@ def split_date(date=None):
     if not date:
         date = datetime.datetime.today()
 
-    return date.strftime("%Y/%m/%d").split("/")
+    return "%04d" % date.year, "%02d" % date.month, "%02d" % date.day
 
 
 

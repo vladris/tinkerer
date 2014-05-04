@@ -5,7 +5,14 @@ python:
   - "3.3"
 
 # command to install dependencies
-install: "python setup.py develop"
+install: 
+  - python setup.py develop
+  - pip install coveralls
 
 # command to run tests
-script: nosetests
+script: 
+  - nosetests --with-coverage --cover-package=tinkerer
+
+# after test run
+after_success:
+  - coveralls

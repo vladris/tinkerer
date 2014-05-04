@@ -4,7 +4,7 @@
 
     Handles creating new pages and inserting them in the master document.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -44,17 +44,18 @@ class Page():
         self.docname = "pages/" + self.name
 
 
-    def write(self, content=""):
+    def write(self, content="", template=None):
         '''
         Writes the page template.
         '''
-        writer.render(paths.page_template, self.path,
+        template = template or paths.page_template
+        writer.render(template, self.path,
                 { "title": self.title,
                   "content": content })
 
 
 
-def create(title):
+def create(title, template=None):
     '''
     Creates a new page given its title.
     '''
@@ -62,7 +63,7 @@ def create(title):
     if os.path.exists(page.path):
         raise Exception("Page '%s' already exists at '%s" %
                         (title, page.path))
-    page.write()
+    page.write(template=template)
     if not master.exists_doc(page.docname):
         master.append_doc(page.docname)
     return page
@@ -75,8 +76,8 @@ def move(path, date=None):
     '''
     page = Page(title=None, path=path)
     if os.path.exists(page.path):
-        raise Exception("Page '%s' already exists at '%s" %
-                        (title, page.path))
+        raise Exception("Page '%s' already exists" %
+                        (page.path, ))
     shutil.move(path, page.path)
     if not master.exists_doc(page.docname):
         master.append_doc(page.docname)

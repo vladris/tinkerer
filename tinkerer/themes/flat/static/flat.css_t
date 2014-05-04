@@ -117,13 +117,13 @@ footer { margin-bottom: 20px; padding: 20px; text-align: center; }
 
 body { background-color: {{ background_color }}; }
 
-header a, header a:visited, header a:hover, headera:active { color: {{ text_color }}; text-decoration: none; }
+header a, header a:visited, header a:hover, header a:active { color: {{ text_color }}; text-decoration: none; }
 header h2 { color: {{ theme_color_light }}; }
 
 a, a:visited { font-weight: bold; color: {{ theme_accent_color }}; text-decoration: none; }
 a:hover { font-weight: bold; color: {{ theme_accent_color }}; text-decoration: underline; }
 a.footnote-reference { vertical-align: super; }
-div.section h1 a { color: {{ text_color }}; text-decoration: none; }
+article h1 a, article h1 a:visited, article h1 a:hover, article h1 a:active { color: {{ text_color }}; text-decoration: none; }
 .docutils.literal { background-color: {{ box_color }}; border: 1px solid {{ background_color }}; border-radius: 8px; padding: 2px 4px; }
 
 blockquote { border-left: 10px solid {{ theme_accent_color }}; }

@@ -4,7 +4,7 @@
 
     Post author extension.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''

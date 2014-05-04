@@ -4,7 +4,7 @@
 
     Internal template writer - handles template rendering and blog setup.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -18,7 +18,7 @@ from tinkerer import paths, utils
 # jinja environment
 env = Environment(loader=ChoiceLoader([
         # first choice is _templates subdir from blog root
-        FileSystemLoader(os.path.join(paths.root, "_templates")),
+        FileSystemLoader(paths.templates),
         # if template is not there, use tinkerer builtin
         PackageLoader("tinkerer", "__templates")]))
 

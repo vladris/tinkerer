@@ -4,15 +4,21 @@
 
     Tests Tinkerer command line (setup, post, page and build)
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
 import logging
 import os
+try:
+    # Python 2
+    from StringIO import StringIO
+except:
+    # Python 3
+    from io import StringIO
 import tinkerer
-from tinkerer import cmdline, paths, post
+from tinkerer import cmdline, output, paths, post
 from tinkertest import utils
 
 
@@ -143,6 +149,13 @@ class TestCmdLine(utils.BaseTinkererTest):
         self.assertTrue(os.path.exists(file_path))
 
 
+    # test missing template
+    def test_missing_template(self):
+        # creating a post with a missing template file should fail
+        self.assertNotEqual(
+            0,
+            cmdline.main(["--post", "test", "--template", "missing", "--quiet"]))
+
 
     # test build
     def test_build(self):
@@ -175,4 +188,20 @@ class TestCmdLine(utils.BaseTinkererTest):
         # setup should work fine from anywhere
         self.assertEqual(0,
                 cmdline.main(["--setup", "--quiet"]))
+
+
+    def test_filename_only(self):
+        # hook up test log handler
+        test_stream = StringIO()
+
+        # restore logging for this particular test
+        logging.disable(logging.NOTSET)
+
+        output.filename.addHandler(logging.StreamHandler(test_stream))
+
+        # setup new blog with --filename flag
+        cmdline.main(["--setup", "--filename"])
+
+        # output should be `conf.py`
+        self.assertEquals("conf.py", test_stream.getvalue().strip())
 

@@ -5,7 +5,7 @@
     Layout for Initializr theme.
 
     :copyright: Copyright 2012 by Robert Zaremba 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 -#}
@@ -39,12 +39,12 @@
 {%- block header -%}
 
 <div class="header-container">
-    <header class="wrapper clearfix">
+    <header class="wrapper clearfix" role="banner">
         <div class="title">
           <h1><a href="{{ pathto(pages[0][0]) }}">{{ shorttitle|e }}</a></h1>
           <h4>{{ tagline|e }}</h4>
         </div>
-        <nav {%- if pages|count > 2 %} class="big_nav"{%- endif -%}>
+        <nav {%- if pages|count > 2 %} class="big_nav"{%- endif -%} role="navigation">
           <ul>
             {% for page in pages -%}
             <li class="main-nav">
@@ -69,7 +69,7 @@
 
 
 {%- if render_sidebar -%}
-  <aside class="sidebar">
+  <aside class="sidebar" role="complementary">
     {%- if sidebars != None -%}
       {%- for sidebartemplate in sidebars -%}
       <section>

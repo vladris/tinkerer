@@ -4,11 +4,11 @@
 
     Blogging with Sphinx. Like a boss.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-__version__ = "1.3.0"
+__version__ = "1.4.2"
 
 master_doc = "master"
 source_suffix = ".rst"

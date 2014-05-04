@@ -4,14 +4,16 @@
 
     Tests creating drafts.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
 import os
-from tinkerer import cmdline, draft, master, page, post
+from tinkerer import cmdline, draft, master, page, paths, post
 from tinkertest import utils
+
+import mock
 
 
 # test creating drafts
@@ -102,3 +104,21 @@ class TestDraft(utils.BaseTinkererTest):
                      ".. categories:: none\n",
                      ".. tags:: none\n",
                      ".. comments::\n"])
+
+    @mock.patch('tinkerer.writer.render')
+    def test_create_without_template(self, render):
+        draft.create('no-template')
+        render.assert_called_once_with(
+            paths.post_template,
+            mock.ANY,
+            mock.ANY,
+        )
+
+    @mock.patch('tinkerer.writer.render')
+    def test_create_with_template(self, render):
+        draft.create('with-template', template='the_template.rst')
+        render.assert_called_once_with(
+            'the_template.rst',
+            mock.ANY,
+            mock.ANY,
+        )

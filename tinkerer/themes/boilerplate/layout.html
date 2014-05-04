@@ -4,7 +4,7 @@
 
     Master layout template for Tinkerer blog themes.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file).
     :license: FreeBSD. Parts of this file are licensed under BSD license. See
     LICENSE file.
@@ -71,7 +71,7 @@
 {%- macro rss_link() -%}
     <div class="rss">
         <a href="{{ rss_feed_link }}" title="Subscribe via RSS">
-            {%- if rss_symbol -%}<span class="webfont">B</span>{%- endif -%}
+            {%- if rss_symbol -%}<span class="fa fa-lg fa-rss"></span>{%- endif -%}
             {% if rss_link_text -%}{{ rss_link_text }}{% endif -%}
         </a>
     </div>
@@ -193,7 +193,7 @@
             <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css">
             {%- endif %}
             <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
-            <link rel="stylesheet" href="{{ pathto('_static/webfont.css', 1) }}" type="text/css">
+            <link rel="stylesheet" href="{{ pathto('_static/font-awesome.min.css', 1) }}" type="text/css">
         {%- endblock %}
         {{ css() }}
         {%- if not embedded -%}
@@ -241,7 +241,7 @@
 
       {%- block extrahead -%} {% endblock -%}
     </head>
-    <body>
+    <body role="document">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -249,7 +249,7 @@
       <div id="container">
 
       {%- block header -%}
-          <header>
+          <header role="banner">
             <hgroup>
               <h1><a href="{{ pathto(pages[0][0]) }}">{{ shorttitle|e }}</a></h1>
               {%- if tagline -%}<h2>{{ tagline|e }}</h2>{%- endif -%}
@@ -258,7 +258,7 @@
       {% endblock -%}
 
       {%- block navigation -%}
-          <nav>
+          <nav role="navigation">
             <ul>
               {%- block quicklinks -%}
                 {%- if rss_in_page_nav -%}
@@ -274,11 +274,11 @@
           </nav>
       {%- endblock -%}
 
-          <div class="main-container">
+          <div class="main-container" role="main">
       {%- block content -%}
             <div class="main wrapper clearfix">
             {%- block document -%}
-                  <article>
+                  <article role="article">
                     {%- block relbar1 -%}{{ relbar() }}{% endblock -%}
                     {% block body -%} {% endblock -%}
                     {%- block relbar2 -%}{{ relbar() }}{% endblock -%}
@@ -299,7 +299,7 @@
       {%- endblock -%}
           </div> <!-- #main-container -->
 
-        <div class="footer-container">
+        <div class="footer-container" role="contentinfo">
       {%- block footer -%}
           <footer class="wrapper">
           {%- if show_copyright -%}

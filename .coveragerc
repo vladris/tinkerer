@@ -1,0 +1,5 @@
+[run]
+omit = 
+    */python?.?/*
+    *tinkerer/__templates/*
+    *tinkertest*

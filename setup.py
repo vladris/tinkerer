@@ -4,7 +4,7 @@
 
     Package setup script.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -24,7 +24,7 @@ RSS feed generation, comments powered by Disqus and more.
 Tinkerer is also highly customizable through Sphinx extensions.
 '''
 
-requires = ["Jinja2>=2.3", "Sphinx>=1.1", "Babel>=1.3"]
+requires = ["Jinja2>=2.3", "Sphinx>=1.1", "Babel>=1.3", "pyquery>=1.2.8"]
 if sys.version_info[:2] < (2,7) or (sys.version_info.major == 3 and
                                     sys.version_info.minor < 2):
     requires.append("argparse>=1.2")

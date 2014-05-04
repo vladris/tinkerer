@@ -4,7 +4,7 @@
 
     Tinkerer path information.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
@@ -19,6 +19,7 @@ __package_path = os.path.abspath(os.path.dirname(__file__))
 
 # absolute path to assets
 __internal_templates_abs_path = os.path.join(__package_path, "__templates")
+templates = os.path.join(os.path.abspath("."), "_templates")
 themes = os.path.join(__package_path, "themes")
 static = os.path.join(__package_path, "static")
 

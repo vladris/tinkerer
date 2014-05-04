@@ -4,15 +4,21 @@
 
     Tests creating posts.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
 import os
+
 from tinkerer import post
 import tinkerer
+from tinkerer import paths
+
 from tinkertest import utils
+
+import mock
+from nose.tools import raises
 
 
 # test creating new post
@@ -168,4 +174,44 @@ class TestPost(utils.BaseTinkererTest):
                      ".. tags:: tag 1, tag 2\n",
                      ".. comments::\n"])
 
+
+    # test that create duplicate post raises exception
+    @raises(Exception)
+    def test_create_duplicate(self):
+        # create initial post
+        post.create("Post1")
+
+        # should raise
+        post.create("Post1")
+
+
+    # test that moving post to existing post raises exception
+    @raises(Exception)
+    def test_move_duplicate(self):
+        # create initial post
+        post.create("Post1")
+
+        # should raise
+        post.move("Post1")
+
+
+    # test creating post with no template
+    @mock.patch("tinkerer.writer.render")
+    def test_create_without_template(self, render):
+        post.create("no-template")
+        render.assert_called_once_with(
+            paths.post_template,
+            mock.ANY,
+            mock.ANY,
+        )
+
+    # test creating post with given template
+    @mock.patch("tinkerer.writer.render")
+    def test_create_with_template(self, render):
+        post.create("with-template", template="the_template.rst")
+        render.assert_called_once_with(
+            "the_template.rst",
+            mock.ANY,
+            mock.ANY,
+        )
 

@@ -4,7 +4,7 @@
 
     Handles creating new posts and inserting them in the master document.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENCE file
 '''
@@ -53,11 +53,13 @@ class Post():
 
 
     def write(self, content="", author="default", 
-            categories="none", tags="none"):
+              categories="none", tags="none",
+              template=None):
         '''
         Writes the post template with given arguments.
         '''
-        writer.render(paths.post_template, self.path,
+        template = template or paths.post_template
+        writer.render(template, self.path,
                { "title"     : self.title,
                  "content"   : content,
                  "author"    : author,
@@ -66,7 +68,7 @@ class Post():
 
 
 
-def create(title, date=None):
+def create(title, date=None, template=None):
     '''
     Creates a new post given its title.
     '''
@@ -75,7 +77,7 @@ def create(title, date=None):
         raise Exception("Post '%s' already exists at '%s" %
                         (title, post.path))
 
-    post.write()
+    post.write(template=template)
     if not master.exists_doc(post.docname):
         master.prepend_doc(post.docname)
     return post
@@ -88,8 +90,8 @@ def move(path, date=None):
     '''
     post = Post(title=None, path=path, date=date)
     if os.path.exists(post.path):
-        raise Exception("Post '%s' already exists at '%s" %
-                        (title, post.path))
+        raise Exception("Post '%s' already exists" %
+                        (post.path,))
     shutil.move(path, post.path)
     if not master.exists_doc(post.docname):
         master.prepend_doc(post.docname)

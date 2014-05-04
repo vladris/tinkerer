@@ -18,6 +18,9 @@ templates_path = ['_templates']
 html_static_path = ['_static', tinkerer.paths.static]
 html_theme_path = [tinkerer.paths.themes]                 
 exclude_patterns = ["drafts/*", "_templates/*"]
+
+doc_sidebar = ['reference.html', 'searchbox.html']
+
 html_sidebars = {
     '**': ['recent.html', 
            'get_tinkerer.html', 
@@ -25,8 +28,14 @@ html_sidebars = {
            'sphinx.html', 
            'get_involved.html',
            'themes.html'],
-    'doc/*': ['reference.html', 'searchbox.html'],
-    'pages/documentation': ['reference.html', 'searchbox.html']
+    'doc/command_line': doc_sidebar,
+    'doc/deploying': doc_sidebar,
+    'doc/extensions': doc_sidebar,
+    'doc/internals': doc_sidebar,
+    'doc/more_tinkering': doc_sidebar,
+    'doc/theming': doc_sidebar,
+    'doc/tinkering': doc_sidebar,
+    'pages/documentation': doc_sidebar,
 }
 
 source_suffix = tinkerer.source_suffix
