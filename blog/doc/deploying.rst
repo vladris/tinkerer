@@ -11,7 +11,7 @@ Hosting on GitHub
 Create a repository named ``$(USERNAME).github.io`` where ``$(USERNAME)`` is
 your GitHub username, for example ``johndoe.github.io``. If you create such a
 repository, when accessing ``http://johndoe.github.io``, GitHub will
-automatically server the ``index.html`` found under the root of the repository.
+automatically serve the ``index.html`` found under the root of the repository.
 
 You can also easily create websites for individual projects, by creating a
 ``gh-pages`` branch and placing the blog there. More information on GitHub
