@@ -27,3 +27,4 @@ Wes Turner - WAI-ARIA roles
 Doug Hellmann - Rewrite patch.py with PyQuery for improved robustness, --template flag, rss_max_items and enhanced tox config, code cleanup
 Konstantin Molchanov - Updated Russian localization
 Ferdinand Majerech - Slovak localization
+David Boucha - Spelling fixes
