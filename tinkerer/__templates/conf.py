@@ -80,6 +80,9 @@ html_sidebars = {
     "**": ["recent.html", "searchbox.html"]
 }
 
+# Add an index to the HTML documents.
+html_use_index = False
+
 # **************************************************************
 # Do not modify below lines as the values are required by
 # Tinkerer to play nice with Sphinx
@@ -90,6 +93,5 @@ master_doc = tinkerer.master_doc
 version = tinkerer.__version__
 release = tinkerer.__version__
 html_title = project
-html_use_index = False
 html_show_sourcelink = False
 html_add_permalinks = None
