@@ -4,7 +4,7 @@ Tinkering
 Overview
 --------
 
-Tinkerer is using `Sphinx <http://sphinx.pocoo.org/>`_ to generate your blog. 
+Tinkerer uses `Sphinx <http://sphinx.pocoo.org/>`_ to generate your blog. 
 The ``conf.py`` file is a Sphinx project configuration file extended with 
 Tinkerer settings. Similarly, the directories (``_static``, ``_templates``
 etc.) and the master document (``master.rst``) are part of a standard Sphinx
@@ -54,7 +54,7 @@ Add content below the title.
 **author**
 
     If left to ``default``, Tinkerer will use the author specified in 
-    ``conf.py``. For colaborative blogs, this can be replaced with any string
+    ``conf.py``. For collaborative blogs, this can be replaced with any string
     containing the name of the author.
 
 **categories**
