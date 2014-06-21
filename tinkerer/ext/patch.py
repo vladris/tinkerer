@@ -101,8 +101,10 @@ def patch_node(node, docpath, docname=None):
             classes = anchor.get('class')
             is_internal = classes and "internal" in classes
 
-            if is_relative or is_internal:
-                ref = docpath + ref
+            if not is_relative and not is_internal:
+                continue
+
+            ref = docpath + ref
 
             # html anchor with missing post.html
             # e.g. href="2012/08/23/#the-cross-compiler"
