@@ -152,6 +152,14 @@
     {%- endif -%}
 {%- endmacro -%}
 
+{#- Twitter button -#}
+{%- macro twitter_button(code) -%}
+    {%- if code -%}
+        <div class="twitterbutton">
+            {{ code }}
+        </div>
+    {%- endif -%}
+{%- endmacro -%}
 
 {#- Post metadata -#}
 {%- macro post_meta(metadata, comment_count_code=None) -%}
@@ -160,6 +168,7 @@
         {{ category_list(metadata.filing["categories"]) }}
         {{ tag_list(metadata.filing["tags"]) }}
         {{ comment_count(comment_count_code) }}
+        {{ twitter_button(metadata.twitter_button) }}
         {%- block post_meta_extra -%}{%- endblock -%}
     </div>
 {%- endmacro -%}
