@@ -71,6 +71,7 @@ def make_read_more_link(body, docpath, docname):
               (docpath + docname, UIStr.READ_MORE))
     doc('div#more').replaceWith(link_p)
     doc('p.readmorewrapper').next_all().remove()
+    doc('p.readmorewrapper').parents().nextAll().remove()
     return doc.html()
 
 
