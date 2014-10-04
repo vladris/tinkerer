@@ -10,6 +10,7 @@
 '''
 import datetime
 import os
+import sys
 from tinkerer import cmdline, draft, master, page, paths, post
 from tinkertest import utils
 
@@ -75,9 +76,9 @@ class TestDraft(utils.BaseTinkererTest):
         self.assertTrue(os.path.exists(new_draft))
 
         # preview it (build should succeed)
-        self.assertEqual(
-            0,
-            cmdline.main(["--preview", new_draft, "-q"]))
+        with mock.patch.object(sys, 'exit') as mock_exit:
+            cmdline.main(["--preview", new_draft, "-q"])
+            mock_exit.assert_called_once_with(0)
 
         # draft should not be in TOC
         for line in master.read_master():
