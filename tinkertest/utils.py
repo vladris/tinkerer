@@ -8,6 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+import mock
 import os
 import shutil
 import sys
@@ -34,7 +35,10 @@ class BaseTinkererTest(unittest.TestCase):
     # invoke build
     def build(self):
         print("")
-        self.assertEquals(0, cmdline.build())
+
+        with mock.patch.object(sys, 'exit') as mock_exit:
+            cmdline.build()
+            mock_exit.assert_called_once_with(0)
 
     # common teardown - cleanup working directory
     def tearDown(self):
