@@ -91,6 +91,17 @@ def copy_templates():
             )
 
 
+def copy_static():
+    '''
+    Copies Tinkerer favicon to blog _static directory.
+    '''
+    if not os.path.exists(os.path.join(paths.root, "_static", paths.favicon)):
+        shutil.copy(
+            os.path.join(paths.static, paths.favicon),
+            os.path.join(paths.root, "_static")
+        )
+
+
 def setup_blog():
     '''
     Sets up a new blog.
@@ -99,6 +110,7 @@ def setup_blog():
     utils.get_path(paths.root, "_templates")
     utils.get_path(paths.root, "drafts")
     copy_templates()
+    copy_static()
     write_master_file()
     write_index_file()
     return write_conf_file()

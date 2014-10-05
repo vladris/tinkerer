@@ -29,6 +29,10 @@ post_template = "post.rst"
 page_template = "page.rst"
 
 
+# favicon
+favicon = "tinkerer.ico"
+
+
 # add "./exts" path to os search path so Sphinx can pick up any extensions
 # from there
 sys.path.append(os.path.abspath("./_exts"))

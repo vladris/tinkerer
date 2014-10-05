@@ -52,6 +52,11 @@ class TestCmdLine(utils.BaseTinkererTest):
                 tinkerer.master_doc + ".rst"
             ]))
 
+        # favicon should be copied to the blog _static folder
+        self.assertTrue(os.path.exists(
+            os.path.join(utils.TEST_ROOT, "_static", paths.favicon)
+            ))
+
     # test post from title
     def test_post_from_title(self):
         cmdline.main(["--post", "My Test Post", "--quiet"])
