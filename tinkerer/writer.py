@@ -56,7 +56,8 @@ def write_index_file():
     '''
     Writes the root index.html file.
     '''
-    return render_safe("index.html", paths.index_file)
+    return render_safe("index.html", paths.index_file,
+        {"redirect_url": "./blog/html/index.html"})
 
 
 '''

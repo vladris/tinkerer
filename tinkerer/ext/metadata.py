@@ -139,7 +139,8 @@ def process_metadata(app, env):
                 elif env.blog_metadata[doc].is_page:
                     env.blog_pages.append(doc)
 
-    env.blog_page_list = [("index", UIStr.HOME)] + \
+    first_page = "page1" if app.config.landing_page else "index"
+    env.blog_page_list = [(first_page, UIStr.HOME)] + \
                          [(page, env.titles[page].astext())
                           for page in env.blog_pages]
 

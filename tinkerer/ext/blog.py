@@ -124,6 +124,7 @@ def setup(app):
     app.add_config_value("rss_generate_full_posts", False, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
     app.add_config_value("posts_per_page", 10, True)
+    app.add_config_value("landing_page", None, True)
     # added here for consistency, slug_word_separator is used by Tinkerer
     # command line and not really needed by the Sphinx environment
     app.add_config_value("slug_word_separator", "_", True)
