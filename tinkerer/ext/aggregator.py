@@ -21,8 +21,11 @@ def make_aggregated_pages(app):
     landing_page = app.config.landing_page
 
     if landing_page:
-        yield ("index",
-            {"redirect_url": "./pages/%s.html" % landing_page}, "index.html")
+        yield (
+            "index",
+            {"redirect_url": "./pages/%s.html" % landing_page},
+            "index.html"
+        )
 
     # get post groups
     groups = [env.blog_posts[i:i+posts_per_page]
