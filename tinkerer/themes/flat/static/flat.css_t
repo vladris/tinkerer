@@ -84,7 +84,6 @@ footer { margin-bottom: 20px; padding: 20px; text-align: center; }
     div.highlight { padding: 10px 20px; }
 
     div.section + div.postmeta { margin: 40px 0; }
-    div.postmeta ~ div.postmeta { margin: 40px 0; }
 
     aside.sidebar div.widget { margin: 40px 0; padding: 0 40px; }
 
