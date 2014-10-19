@@ -3,10 +3,10 @@ Bernhard Grotz - German localization
 Jordi Bofill - Tinkerer internationalization, Spanish and Catalan localizations
 Rod Morehead - Non-XML entity patch for HTML-to-XML conversion, other bug fixes
 Yoshihisa Tanaka - Fixed problem caused by non-ascii content
-I�igo Serna - Sidebar widgets for categories, tags and tag cloud
+Iñigo Serna - Sidebar widgets for categories, tags and tag cloud
 Emil Oppeln-Bronikowski - Polish localization
 Christian Jann - Configurable number of posts/page, "Read more" implementation, Dark theme and theme showcase for Tinkerer website, other enhancements and numerous bug fixes
-�ric de la Musse - Localization bugfix, French localization
+Éric de la Musse - Localization bugfix, French localization
 Antti Kaihola - Bugfix for "more" directive
 Visa Kopu - Fix category links, XML declaration introduced in patch.py
 Robert Zaremba - Added Responsive theme, HTML5 bolierplate upgrade
