@@ -21,6 +21,9 @@ def make_aggregated_pages(app):
     landing_page = app.config.landing_page
 
     if landing_page:
+        if "pages/%s" % landing_page not in env.blog_pages:
+            raise Exception("Missing landing page: %s" % landing_page)
+
         yield (
             "index",
             {"redirect_url": "./pages/%s.html" % landing_page},

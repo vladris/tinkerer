@@ -33,12 +33,12 @@ class BaseTinkererTest(unittest.TestCase):
         setup()
 
     # invoke build
-    def build(self):
+    def build(self, expected_return=0):
         print("")
 
         with mock.patch.object(sys, 'exit') as mock_exit:
             cmdline.build()
-            mock_exit.assert_called_once_with(0)
+            mock_exit.assert_called_once_with(expected_return)
 
     # common teardown - cleanup working directory
     def tearDown(self):

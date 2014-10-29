@@ -9,9 +9,11 @@
     :license: FreeBSD, see LICENSE file
 '''
 import os
+import sys
 
 from tinkerer import page, post
 
+import mock
 from tinkertest import utils
 
 
@@ -54,6 +56,22 @@ class TestLandingPage(utils.BaseTinkererTest):
         self.assertFalse(
             '<meta http-equiv="REFRESH" content="0; url=./pages/%s.html" />'
             % LANDING_PAGE in self.__get_index_text())
+
+
+    # missing landing page should fail build
+    def test_missing(self):
+        # set landing_page option in conf.py
+        utils.update_conf(
+            {"landing_page = None": 'landing_page = "%s"' % LANDING_PAGE})
+
+        # create some posts
+        for new_post in [("Post1", "Post2", "Post3")]:
+            post.create(new_post[0]).write()
+
+        # hide Sphinx stderr output for the extension exception
+        with mock.patch.object(sys, "stderr"):
+            # build should fail
+            self.build(expected_return = 1)
 
 
     # helper function to get content of index.html file
