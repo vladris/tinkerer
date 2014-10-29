@@ -22,12 +22,9 @@ class TestDisqus(utils.BaseTinkererTest):
         TEST_SHORTNAME = "test_shortname"
 
         # add disqus_shortname in conf.py
-        conf_path = os.path.join(utils.TEST_ROOT, "conf.py")
-        conf_text = open(conf_path, "r").read()
-
-        open(conf_path, "w").write(
-            conf_text.replace("disqus_shortname = None",
-                              'disqus_shortname = "%s"' % TEST_SHORTNAME))
+        utils.update_conf(
+            {"disqus_shortname = None":
+             'disqus_shortname = "%s"' % TEST_SHORTNAME})
 
         # create a post
         post.create("post1", datetime.date(2010, 10, 1))

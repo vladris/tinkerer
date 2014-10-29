@@ -22,12 +22,8 @@ class TestLandingPage(utils.BaseTinkererTest):
         LANDING_PAGE = "test_page"
 
         # set landing_page option in conf.py
-        conf_path = os.path.join(utils.TEST_ROOT, "conf.py")
-        conf_text = open(conf_path, "r").read()
-
-        open(conf_path, "w").write(
-            conf_text.replace("landing_page = None",
-                              'landing_page = "%s"' % LANDING_PAGE))
+        utils.update_conf(
+            {"landing_page = None": 'landing_page = "%s"' % LANDING_PAGE})
 
         # create some posts
         for new_post in [("Post1", "Post2", "Post3")]:

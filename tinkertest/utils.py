@@ -68,6 +68,17 @@ def cleanup():
         shutil.rmtree(TEST_ROOT)
 
 
+# update conf.py given a dictionary of strings to replace (from -> to)
+def update_conf(settings):
+    conf_path = os.path.join(TEST_ROOT, "conf.py")
+    conf_text = open(conf_path, "r").read()
+
+    for setting in settings:
+        conf_text = conf_text.replace(setting, settings[setting])
+
+    open(conf_path, "w").write(conf_text)
+
+
 # nose mistakenly calls Sphinx extension setup functions thinking they are
 # test setups with a module parameter
 def is_module(m):
