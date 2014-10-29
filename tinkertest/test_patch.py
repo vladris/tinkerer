@@ -9,7 +9,6 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
-import mock
 import os
 import sys
 from tinkerer import paths, post
@@ -145,7 +144,4 @@ class TestPatch(utils.BaseTinkererTest):
                 'guide.html`_</span></a>'])
         ]
 
-        # Sphinx stderr output for the invalid link
-        with mock.patch.object(sys.stderr, "write") as mock_stderr:
-            self.check_posts([], posts, expected)
-            mock_stderr.assert_called_once()
+        self.check_posts([], posts, expected)

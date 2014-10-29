@@ -9,9 +9,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
-import mock
 import os
-import sys
 from tinkerer import paths, post
 from tinkertest import utils
 
@@ -33,10 +31,7 @@ class TestCategories(utils.BaseTinkererTest):
 
         utils.hook_extension("test_categories")
 
-        # Sphinx stderr output for the warning
-        with mock.patch.object(sys.stderr, "write") as mock_stderr:
-            self.build()
-            mock_stderr.assert_called_once()
+        self.build()
 
 
 # test categories through extension
