@@ -41,7 +41,6 @@ class TestLandingPage(utils.BaseTinkererTest):
             '<meta http-equiv="REFRESH" content="0; url=./pages/%s.html" />'
             % LANDING_PAGE in self.__get_index_text())
 
-
     # not using landing page should not have redirect in index.html
     def test_nolandingpage(self):
         # create some posts
@@ -57,7 +56,6 @@ class TestLandingPage(utils.BaseTinkererTest):
             '<meta http-equiv="REFRESH" content="0; url=./pages/%s.html" />'
             % LANDING_PAGE in self.__get_index_text())
 
-
     # missing landing page should fail build
     def test_missing(self):
         # set landing_page option in conf.py
@@ -71,8 +69,7 @@ class TestLandingPage(utils.BaseTinkererTest):
         # hide Sphinx stderr output for the extension exception
         with mock.patch.object(sys, "stderr"):
             # build should fail
-            self.build(expected_return = 1)
-
+            self.build(expected_return=1)
 
     # helper function to get content of index.html file
     def __get_index_text(self):
@@ -81,4 +78,3 @@ class TestLandingPage(utils.BaseTinkererTest):
                                   "html",
                                   "index.html")
         return open(index_path, "r").read()
-
