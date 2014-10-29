@@ -37,9 +37,18 @@ class TestLandingPage(utils.BaseTinkererTest):
 
         self.build()
 
+        # index.html should redirect to landing page
         self.assertTrue(
             '<meta http-equiv="REFRESH" content="0; url=./pages/%s.html" />'
             % LANDING_PAGE in self.__get_index_text())
+
+        # there should be page1.html aggregated page
+        self.assertTrue(
+            os.path.exists(os.path.join(
+                utils.TEST_ROOT,
+                "blog",
+                "html",
+                "page1.html")))
 
     # not using landing page should not have redirect in index.html
     def test_nolandingpage(self):
@@ -52,9 +61,18 @@ class TestLandingPage(utils.BaseTinkererTest):
 
         self.build()
 
+        # index.html should not redirect to landing page
         self.assertFalse(
             '<meta http-equiv="REFRESH" content="0; url=./pages/%s.html" />'
             % LANDING_PAGE in self.__get_index_text())
+
+        # there should be no page1.html aggregated page
+        self.assertFalse(
+            os.path.exists(os.path.join(
+                utils.TEST_ROOT,
+                "blog",
+                "html",
+                "page1.html")))
 
     # missing landing page should fail build
     def test_missing(self):
