@@ -38,7 +38,7 @@ disqus_shortname = None
 html_favicon = '_static/tinkerer.ico'
 
 # Pick another Tinkerer theme or use your own
-html_theme = "{{ theme }}"
+html_theme = '{{ theme }}'
 
 # Theme-specific options, see docs
 html_theme_options = {}
@@ -76,11 +76,11 @@ html_static_path = ['_static', tinkerer.paths.static]
 html_theme_path = ['_themes', tinkerer.paths.themes]
 
 # Add file patterns to exclude from build
-exclude_patterns = ["drafts/*", "_templates/*"]
+exclude_patterns = ['drafts/*', '_templates/*']
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {
-    "**": ["recent.html", "searchbox.html"]
+    '**': ['recent.html', 'searchbox.html']
 }
 
 # Add an index to the HTML documents.
