@@ -51,6 +51,10 @@ def initialize(app):
     # initialize localized strings
     uistr.UIStr(app)
 
+    # override for "Home"
+    if app.config.first_page_title:
+        uistr.UIStr.HOME = app.config.first_page_title
+
 
 def source_read(app, docname, source):
     '''
@@ -125,6 +129,7 @@ def setup(app):
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
     app.add_config_value("posts_per_page", 10, True)
     app.add_config_value("landing_page", None, True)
+    app.add_config_value("first_page_title", None, True)
     # added here for consistency, slug_word_separator is used by Tinkerer
     # command line and not really needed by the Sphinx environment
     app.add_config_value("slug_word_separator", "_", True)
