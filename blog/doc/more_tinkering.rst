@@ -71,6 +71,19 @@ of your icon file (path is not required, only filename).
 
 .. _sidebar:
 
+Landing Page
+------------
+
+By default, the landing page for a blog is the first aggregated page,
+containing the latest 10 posts. This can be changed by setting ``landing_page``
+in ``conf.py`` to a different page under the blog's ``/pages`` directory. For
+example, to land users on ``/pages/about.html``, update ``landing_page = None``
+to ``landing_page = "about"``.
+
+The title of the first aggregated page is "Home". To change the title from
+"Home" to something else, change the ``first_page_title`` setting in
+``conf.py``.
+
 Sidebar
 -------
 
