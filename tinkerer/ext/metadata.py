@@ -139,10 +139,16 @@ def process_metadata(app, env):
                 elif env.blog_metadata[doc].is_page:
                     env.blog_pages.append(doc)
 
-    first_page = "page1" if app.config.landing_page else "index"
-    env.blog_page_list = [(first_page, UIStr.HOME)] + \
-                         [(page, env.titles[page].astext())
+    # navigation menu consists of first aggregated page and all user pages
+    env.blog_page_list = [(page, env.titles[page].astext())
                           for page in env.blog_pages]
+
+    # if using a custom landing page, that should be at the top of the nav menu
+    if app.config.landing_page:
+        env.blog_page_list.insert(1, ("page1", UIStr.HOME))
+    # otherwise first aggregated page is at the top
+    else:
+        env.blog_page_list.insert(0, ("index", UIStr.HOME))
 
 
 def add_metadata(app, pagename, context):
