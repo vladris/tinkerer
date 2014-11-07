@@ -18,6 +18,7 @@ from datetime import datetime
 import os
 import shutil
 import sphinx
+import sys
 import tinkerer
 from tinkerer import draft, output, page, paths, post, writer
 
@@ -59,6 +60,9 @@ def build():
     if os.path.exists("_copy"):
         shutil.copytree("_copy/", paths.html)
 
+    # Sphinx relies on sys.argv since version 1.3
+    # we can safely override ours since we're done with them at this point
+    sys.argv = flags
     return sphinx.main(flags)
 
 
