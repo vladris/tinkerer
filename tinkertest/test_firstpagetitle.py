@@ -8,10 +8,8 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-import mock
 import os
-import sys
-from tinkerer import page, post
+from tinkerer import post
 from tinkertest import utils
 
 
@@ -23,8 +21,8 @@ class TestFirstPageTitle(utils.BaseTinkererTest):
     # test using conf.py option
     def test_firstpagetitle(self):
         utils.update_conf(
-            {"first_page_title = None": 'first_page_title = "%s"' % 
-            FIRST_PAGE_TITLE})
+            {"first_page_title = None": 'first_page_title = "%s"' %
+             FIRST_PAGE_TITLE})
 
         # create a post
         post.create("Post1").write()
