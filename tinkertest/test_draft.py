@@ -11,7 +11,6 @@
 import datetime
 import mock
 import os
-import sys
 from tinkerer import cmdline, draft, master, page, paths, post
 from tinkertest import utils
 

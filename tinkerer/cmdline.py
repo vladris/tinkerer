@@ -18,7 +18,6 @@ from datetime import datetime
 import os
 import shutil
 import subprocess
-import sys
 import tinkerer
 from tinkerer import draft, output, page, paths, post, writer
 
