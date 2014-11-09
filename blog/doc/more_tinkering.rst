@@ -69,7 +69,7 @@ replace this with your own icon by placing your icon under the blog's
 ``_static`` directory and changing the ``html_favicon`` value to the name
 of your icon file (path is not required, only filename).
 
-.. _sidebar:
+.. _landingpage:
 
 Landing Page
 ------------
@@ -83,6 +83,8 @@ to ``landing_page = "about"``.
 The title of the first aggregated page is "Home". To change the title from
 "Home" to something else, change the ``first_page_title`` setting in
 ``conf.py``.
+
+.. _sidebar:
 
 Sidebar
 -------
