@@ -9,12 +9,11 @@
     :license: FreeBSD, see LICENSE file
 '''
 import datetime
+import mock
 import os
 import sys
 from tinkerer import cmdline, draft, master, page, paths, post
 from tinkertest import utils
-
-import mock
 
 
 # test creating drafts
@@ -76,9 +75,7 @@ class TestDraft(utils.BaseTinkererTest):
         self.assertTrue(os.path.exists(new_draft))
 
         # preview it (build should succeed)
-        with mock.patch.object(sys, 'exit') as mock_exit:
-            cmdline.main(["--preview", new_draft, "-q"])
-            mock_exit.assert_called_once_with(0)
+        self.assertEquals(0, cmdline.main(["--preview", new_draft, "-q"]))
 
         # draft should not be in TOC
         for line in master.read_master():
