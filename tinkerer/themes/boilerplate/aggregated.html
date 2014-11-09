@@ -16,7 +16,9 @@
 {%- block body -%}
     {%- for metadata in posts -%}
         {{ timestamp(metadata.formatted_date) }}
-        {{ metadata.body }}
+        <div class="section">
+            {{ metadata.body }}
+        </div>
         {{ post_meta(metadata, metadata.comment_count) }}
         {%- if not loop.last -%}<div class="separator post_separator"></div>{%- endif -%}
     {%- endfor -%}
