@@ -45,7 +45,7 @@ def build_finished(app, exception):
 
     # body should contain the whole 100 word string
     utils.test.assertTrue(" ".join("a" * 100) in
-            env.blog_metadata[env.blog_posts[0]].body)
+                          env.blog_metadata[env.blog_posts[0]].body)
 
 
 # extension setup

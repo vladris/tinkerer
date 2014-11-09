@@ -8,10 +8,9 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from tinkerer.ext import aggregator, author, filing, html5, metadata, patch, \
-                         readmore, rss, uistr
+from tinkerer.ext import (aggregator, author, filing, html5, metadata, patch,
+                          readmore, rss, uistr)
 import gettext
-
 
 
 def initialize(app):
@@ -43,15 +42,18 @@ def initialize(app):
             pass
 
     app.t = gettext.translation(
-                    "tinkerer",
-                    locale_dir,
-                    languages=languages,
-                    fallback=True)
+        "tinkerer",
+        locale_dir,
+        languages=languages,
+        fallback=True)
     app.t.install()
 
     # initialize localized strings
     uistr.UIStr(app)
 
+    # override for "Home"
+    if app.config.first_page_title:
+        uistr.UIStr.HOME = app.config.first_page_title
 
 
 def source_read(app, docname, source):
@@ -61,13 +63,11 @@ def source_read(app, docname, source):
     metadata.get_metadata(app, docname)
 
 
-
 def env_updated(app, env):
     '''
     Processes data after environment is updated (all docs are read).
     '''
     metadata.process_metadata(app, env)
-
 
 
 def html_page_context(app, pagename, templatename, context, doctree):
@@ -76,7 +76,6 @@ def html_page_context(app, pagename, templatename, context, doctree):
     '''
     metadata.add_metadata(app, pagename, context)
     rss.add_rss(app, context)
-
 
 
 def collect_additional_pages(app):
@@ -99,16 +98,14 @@ def collect_additional_pages(app):
         yield (name, context, template)
 
 
-
 def html_collect_pages(app):
     '''
     Collect html pages and emit event
-    '''        
+    '''
     for name, context, template in collect_additional_pages(app):
         # emit event
         app.emit("html-collected-context", name, template, context)
         yield (name, context, template)
-
 
 
 def html_collected_context(app, name, template, context):
@@ -117,7 +114,6 @@ def html_collected_context(app, name, template, context):
     '''
     if template == "aggregated.html":
         patch.patch_aggregated_metadata(context)
-
 
 
 def setup(app):
@@ -132,6 +128,8 @@ def setup(app):
     app.add_config_value("rss_generate_full_posts", False, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
     app.add_config_value("posts_per_page", 10, True)
+    app.add_config_value("landing_page", None, True)
+    app.add_config_value("first_page_title", None, True)
     # added here for consistency, slug_word_separator is used by Tinkerer
     # command line and not really needed by the Sphinx environment
     app.add_config_value("slug_word_separator", "_", True)
@@ -140,16 +138,16 @@ def setup(app):
     # new directives
     app.add_directive("author", author.AuthorDirective)
     app.add_directive("comments", metadata.CommentsDirective)
-    app.add_directive("tags", 
-            filing.create_filing_directive("tags"))
-    app.add_directive("categories", 
-            filing.create_filing_directive("categories"))
+    app.add_directive("tags",
+                      filing.create_filing_directive("tags"))
+    app.add_directive("categories",
+                      filing.create_filing_directive("categories"))
     app.add_directive("more", readmore.InsertReadMoreLink)
- 
+
     # create a new Sphinx event which gets called when we generate aggregated
     # pages
     app._events["html-collected-context"] = "pagename, templatename, context"
- 
+
     # event handlers
     app.connect("builder-inited", initialize)
     app.connect("source-read", source_read)

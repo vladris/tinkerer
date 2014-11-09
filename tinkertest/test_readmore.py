@@ -1,5 +1,5 @@
 '''
-    ReadMore Directive Test 
+    ReadMore Directive Test
     ~~~~~~~~~~~~~~~~~~~~~~~
 
     Tests readmore directive.
@@ -10,7 +10,7 @@
 '''
 import datetime
 import os
-from tinkerer import cmdline, draft, master, page, post
+from tinkerer import post
 from tinkertest import utils
 
 
@@ -22,7 +22,8 @@ class TestReadMore(utils.BaseTinkererTest):
 
         self.build()
 
-        post_path = os.path.join(utils.TEST_ROOT, 
+        post_path = os.path.join(
+            utils.TEST_ROOT,
             "blog", "html", "2010", "10", "01", "post1.html")
         post_html = open(post_path, "r").read()
 
@@ -30,11 +31,13 @@ class TestReadMore(utils.BaseTinkererTest):
         self.assertTrue('<div id="more"> </div>' in post_html)
 
         # ensure readmore is patched in aggregated page
-        index_path = os.path.join(utils.TEST_ROOT, 
+        index_path = os.path.join(
+            utils.TEST_ROOT,
             "blog", "html", "index.html")
         index_html = open(index_path, "r").read()
 
-        self.assertTrue(
+        expected = (
             '<p class="readmorewrapper"><a class="readmore"'
-            ' href="2010/10/01/post1.html#more">Read more...</a></p>' in index_html)
- 
+            ' href="2010/10/01/post1.html#more">Read more...</a></p>'
+        )
+        self.assertTrue(expected in index_html)

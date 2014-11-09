@@ -11,13 +11,10 @@
     :license: FreeBSD, see LICENSE file
 '''
 from os import path
-import re
-import xml.dom.minidom
 
 import pyquery
 
 from tinkerer.ext.uistr import UIStr
-
 
 
 def patch_aggregated_metadata(context):
@@ -27,14 +24,14 @@ def patch_aggregated_metadata(context):
     for metadata in context["posts"]:
         metadata.body = patch_links(
             metadata.body,
-            metadata.link[:11], # first 11 characters is path (YYYY/MM/DD/)
-            metadata.link[11:], # following characters represent filename
+            metadata.link[:11],  # first 11 characters is path (YYYY/MM/DD/)
+            metadata.link[11:],  # following characters represent filename
             True)      # hyperlink title to post
         metadata.body = strip_xml_declaration(metadata.body)
 
 
-
-def patch_links(body, docpath, docname=None, link_title=False, replace_read_more_link=True):
+def patch_links(body, docpath, docname=None, link_title=False,
+                replace_read_more_link=True):
     '''
     Parses the document body and calls patch_node from the document root
     to fix hyperlinks. Also hyperlinks document title. Returns resulting
@@ -53,17 +50,15 @@ def patch_links(body, docpath, docname=None, link_title=False, replace_read_more
         return body
 
 
-
 def hyperlink_title(body, docpath, docname):
     """
     Hyperlink titles by embedding appropriate a tag inside
     h1 tags (which should only be post titles).
     """
     body = body.replace("<h1>", '<h1><a href="%s.html">' %
-            (docpath + docname), 1)
+                        (docpath + docname), 1)
     body = body.replace("</h1>", "</a></h1>", 1)
     return body
-
 
 
 def make_read_more_link(body, docpath, docname):
@@ -76,16 +71,16 @@ def make_read_more_link(body, docpath, docname):
               (docpath + docname, UIStr.READ_MORE))
     doc('div#more').replaceWith(link_p)
     doc('p.readmorewrapper').next_all().remove()
+    doc('p.readmorewrapper').parents().nextAll().remove()
     return doc.html()
-
 
 
 def collapse_path(path_url):
     '''
-    Normalize relative path and patch protocol prefix and Windows path separator
+    Normalize relative path and patch protocol prefix
+    and Windows path separator
     '''
     return path.normpath(path_url).replace("\\", "/").replace(":/", "://")
-
 
 
 def patch_node(node, docpath, docname=None):
@@ -99,7 +94,7 @@ def patch_node(node, docpath, docname=None):
     for anchor in node.find('a'):
         ref = anchor.get('href')
         # skip anchor links <a name="anchor1"></a>, <a name="more"/>
-        if ref != None:
+        if ref is not None:
             # patch links only - either starting with "../" or having
             # "internal" class
             is_relative = ref.startswith("../")
@@ -107,8 +102,10 @@ def patch_node(node, docpath, docname=None):
             classes = anchor.get('class')
             is_internal = classes and "internal" in classes
 
-            if is_relative or is_internal:
-                ref = docpath + ref
+            if not is_relative and not is_internal:
+                continue
+
+            ref = docpath + ref
 
             # html anchor with missing post.html
             # e.g. href="2012/08/23/#the-cross-compiler"
@@ -128,4 +125,3 @@ def strip_xml_declaration(body):
     Remove XML declaration from document body.
     """
     return body.replace('<?xml version="1.0" ?>', '')
-

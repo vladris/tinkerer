@@ -9,13 +9,11 @@
     :license: FreeBSD, see LICENSE file
 '''
 from sphinx.util.compat import Directive
-import tinkerer.utils
-
 
 
 class AuthorDirective(Directive):
     '''
-    Author directive. The directive is not rendered, just stored in the 
+    Author directive. The directive is not rendered, just stored in the
     metadata and passed to the templating engine.
     '''
     required_arguments = 0
@@ -31,9 +29,7 @@ class AuthorDirective(Directive):
         # store author in metadata
         author = " ".join(self.arguments)
         if author == "default":
-            author = env.config.author 
+            author = env.config.author
         env.blog_metadata[env.docname].author = author
 
         return []
-
-

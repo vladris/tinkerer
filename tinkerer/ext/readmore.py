@@ -13,7 +13,6 @@ from docutils import nodes
 from sphinx.util.compat import Directive
 
 
-
 class InsertReadMoreLink(Directive):
     '''
     Sphinx extension for inserting a "Read more..." link.
@@ -22,7 +21,5 @@ class InsertReadMoreLink(Directive):
     has_content = True
     required_arguments = 0
 
-
     def run(self):
         return [nodes.raw("", '<div id="more"> </div>', format="html")]
-

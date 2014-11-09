@@ -11,13 +11,11 @@
 from sphinx.writers.html import HTMLTranslator
 
 
-
 def visit_desc_addname(self, node):
     '''
     Similar to Sphinx but using a <span> node instead of <tt>.
     '''
     self.body.append(self.starttag(node, 'span', '', CLASS='descclassname'))
-
 
 
 def depart_desc_addname(self, node):
@@ -27,7 +25,6 @@ def depart_desc_addname(self, node):
     self.body.append('</span>')
 
 
-
 def visit_desc_name(self, node):
     '''
     Similar to Sphinx but using a <span> node instead of <tt>.
@@ -35,13 +32,11 @@ def visit_desc_name(self, node):
     self.body.append(self.starttag(node, 'span', '', CLASS='descname'))
 
 
-
 def depart_desc_name(self, node):
     '''
     Similar to Sphinx but using a <span> node instead of <tt>.
     '''
     self.body.append('</span>')
-
 
 
 def visit_literal(self, node):
@@ -53,14 +48,12 @@ def visit_literal(self, node):
     self.protect_literal_text += 1
 
 
-
 def depart_literal(self, node):
     '''
     Similar to Sphinx but using a <span> node instead of <tt>.
     '''
     self.protect_literal_text -= 1
     self.body.append('</span>')
-
 
 
 def patch_translator():
@@ -73,4 +66,3 @@ def patch_translator():
     HTMLTranslator.depart_desc_name = depart_desc_name
     HTMLTranslator.visit_literal = visit_literal
     HTMLTranslator.depart_literal = depart_literal
-

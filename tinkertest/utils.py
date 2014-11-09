@@ -8,11 +8,12 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-import datetime
+import mock
 import os
 import shutil
+import sphinx
 import sys
-from tinkerer import cmdline, output, page, paths, post, writer
+from tinkerer import output, paths, writer
 import types
 import unittest
 
@@ -32,12 +33,15 @@ class BaseTinkererTest(unittest.TestCase):
         output.quiet = True
         setup()
 
-
     # invoke build
-    def build(self):
+    def build(self, expected_return=0):
         print("")
-        self.assertEquals(0, cmdline.build())
 
+        with mock.patch.object(sys, 'exit') as mock_exit:
+            sys.argv = ["sphinx-build", "-q", "-d", paths.doctree, "-b",
+                        "html", paths.root, paths.html]
+            sphinx.main(sys.argv)
+            mock_exit.assert_called_once_with(expected_return)
 
     # common teardown - cleanup working directory
     def tearDown(self):
@@ -67,10 +71,21 @@ def cleanup():
         shutil.rmtree(TEST_ROOT)
 
 
+# update conf.py given a dictionary of strings to replace (from -> to)
+def update_conf(settings):
+    conf_path = os.path.join(TEST_ROOT, "conf.py")
+    conf_text = open(conf_path, "r").read()
+
+    for setting in settings:
+        conf_text = conf_text.replace(setting, settings[setting])
+
+    open(conf_path, "w").write(conf_text)
+
+
 # nose mistakenly calls Sphinx extension setup functions thinking they are
 # test setups with a module parameter
 def is_module(m):
-    return type(m) is types.ModuleType
+    return isinstance(m, types.ModuleType)
 
 
 # used by Sphinx to lookup extensions

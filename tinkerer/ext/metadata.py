@@ -11,7 +11,6 @@
 '''
 import re
 import datetime
-import locale
 from functools import partial
 from sphinx.util.compat import Directive
 from babel.core import Locale
@@ -19,7 +18,6 @@ from babel.dates import format_date
 import tinkerer
 from tinkerer.ext.uistr import UIStr
 from tinkerer.utils import name_from_title
-
 
 
 def initialize(app):
@@ -34,6 +32,7 @@ class Metadata:
     Metadata associated with each post/page.
     '''
     num = 1
+
     def __init__(self):
         '''
         Initializes metadata with default values.
@@ -47,11 +46,10 @@ class Metadata:
         self.formatted_date_short = None
         self.body = None
         self.author = None
-        self.filing = { "tags": [], "categories": [] }
+        self.filing = {"tags": [], "categories": []}
         self.comments, self.comment_count = False, False
         self.num = Metadata.num
         Metadata.num += 1
-
 
 
 class CommentsDirective(Directive):
@@ -75,7 +73,6 @@ class CommentsDirective(Directive):
         return []
 
 
-
 def get_metadata(app, docname):
     '''
     Extracts metadata from a document.
@@ -93,8 +90,8 @@ def get_metadata(app, docname):
 
     # if it's a page
     if docname.startswith("pages/"):
-      metadata.is_page = True
-      return
+        metadata.is_page = True
+        return
 
     # posts are identified by ($YEAR)/($MONTH)/($DAY) paths
     match = re.match(r"\d{4}/\d{2}/\d{2}/", docname)
@@ -142,8 +139,16 @@ def process_metadata(app, env):
                 elif env.blog_metadata[doc].is_page:
                     env.blog_pages.append(doc)
 
-    env.blog_page_list = [("index", UIStr.HOME)] + [(page, env.titles[page].astext()) for page in env.blog_pages]
+    # navigation menu consists of first aggregated page and all user pages
+    env.blog_page_list = [(page, env.titles[page].astext())
+                          for page in env.blog_pages]
 
+    # if using a custom landing page, that should be at the top of the nav menu
+    if app.config.landing_page:
+        env.blog_page_list.insert(1, ("page1", UIStr.HOME))
+    # otherwise first aggregated page is at the top
+    else:
+        env.blog_page_list.insert(0, ("index", UIStr.HOME))
 
 
 def add_metadata(app, pagename, context):
@@ -171,12 +176,13 @@ def add_metadata(app, pagename, context):
 
     # recent posts
     context["recent"] = [(post, env.titles[post].astext()) for post
-            in env.blog_posts[:20]]
+                         in env.blog_posts[:20]]
     # tags & categories
     tags = dict((t, 0) for t in env.filing["tags"])
     taglinks = dict((t, name_from_title(t)) for t in env.filing["tags"])
     categories = dict((c, 0) for c in env.filing["categories"])
-    catlinks = dict([(c, name_from_title(c)) for c in env.filing["categories"]])
+    catlinks = dict([(c, name_from_title(c))
+                     for c in env.filing["categories"]])
     for post in env.blog_posts:
         p = env.blog_metadata[post]
         for tag in p.filing["tags"]:

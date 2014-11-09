@@ -10,7 +10,7 @@
 -#}
 
 <div class="widget" id="searchbox" role="search">
-    <h1>Search</h1>
+    <h1><a href="#searchbox">{{ _('Search') }}</a></h1>
     <form action="{{ pathto('search') }}" method="get">
         <input type="text" name="q" />
         <button type="submit"><span class="fa fa-search"></span></button>
