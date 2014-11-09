@@ -38,8 +38,9 @@ class BaseTinkererTest(unittest.TestCase):
         print("")
 
         with mock.patch.object(sys, 'exit') as mock_exit:
-            sphinx.main(["sphinx-build", "-q", "-d", paths.doctree, "-b",
-                         "html", paths.root, paths.html])
+            sys.argv = ["sphinx-build", "-q", "-d", paths.doctree, "-b",
+                        "html", paths.root, paths.html]
+            sphinx.main(sys.argv)
             mock_exit.assert_called_once_with(expected_return)
 
     # common teardown - cleanup working directory
