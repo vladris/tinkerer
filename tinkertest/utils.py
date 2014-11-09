@@ -8,10 +8,12 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+import mock
 import os
 import shutil
+import sphinx
 import sys
-from tinkerer import cmdline, output, paths, writer
+from tinkerer import output, paths, writer
 import types
 import unittest
 
@@ -35,7 +37,10 @@ class BaseTinkererTest(unittest.TestCase):
     def build(self, expected_return=0):
         print("")
 
-        self.assertEquals(expected_return, cmdline.build())
+        with mock.patch.object(sys, 'exit') as mock_exit:
+            sphinx.main(["sphinx-build", "-q", "-d", paths.doctree, "-b",
+                         "html", paths.root, paths.html])
+            mock_exit.assert_called_once_with(expected_return)
 
     # common teardown - cleanup working directory
     def tearDown(self):
