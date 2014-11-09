@@ -31,7 +31,7 @@
         <link rel="next" title="Deploying" href="deploying.html" /><link rel="prev" title="Tinkering" href="tinkering.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.4.2',
+        VERSION:     '1.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -74,7 +74,7 @@
                   <a href="../pages/extensions.html">Extensions</a>
                 </li>
               </ul>
-          </nav><div class="main-container" role="main"><div class="main wrapper clearfix"><article>
+          </nav><div class="main-container" role="main"><div class="main wrapper body clearfix"><article>
     <div class="section" id="more-tinkering">
 <h1>More Tinkering</h1>
 <div class="section" id="enabling-disqus-comments">
@@ -134,6 +134,17 @@ replace this with your own icon by placing your icon under the blog&#8217;s
 <span class="docutils literal"><span class="pre">_static</span></span> directory and changing the <span class="docutils literal"><span class="pre">html_favicon</span></span> value to the name
 of your icon file (path is not required, only filename).</p>
 </div>
+<div class="section" id="landing-page">
+<span id="landingpage"></span><h2>Landing Page</h2>
+<p>By default, the landing page for a blog is the first aggregated page,
+containing the latest 10 posts. This can be changed by setting <span class="docutils literal"><span class="pre">landing_page</span></span>
+in <span class="docutils literal"><span class="pre">conf.py</span></span> to a different page under the blog&#8217;s <span class="docutils literal"><span class="pre">/pages</span></span> directory. For
+example, to land users on <span class="docutils literal"><span class="pre">/pages/about.html</span></span>, update <span class="docutils literal"><span class="pre">landing_page</span> <span class="pre">=</span> <span class="pre">None</span></span>
+to <span class="docutils literal"><span class="pre">landing_page</span> <span class="pre">=</span> <span class="pre">&quot;about&quot;</span></span>.</p>
+<p>The title of the first aggregated page is &#8220;Home&#8221;. To change the title from
+&#8220;Home&#8221; to something else, change the <span class="docutils literal"><span class="pre">first_page_title</span></span> setting in
+<span class="docutils literal"><span class="pre">conf.py</span></span>.</p>
+</div>
 <div class="section" id="sidebar">
 <span id="id1"></span><h2>Sidebar</h2>
 <p>The <span class="docutils literal"><span class="pre">html_sidebars</span></span> list contains the list of templates to be rendered on the
@@ -177,6 +188,7 @@ distribution and can be easily added by updating the <span class="docutils liter
 <li><a class="reference internal" href="#localization">Localization</a></li>
 <li><a class="reference internal" href="#rss">RSS</a></li>
 <li><a class="reference internal" href="#favicon">Favicon</a></li>
+<li><a class="reference internal" href="#landing-page">Landing Page</a></li>
 <li><a class="reference internal" href="#sidebar">Sidebar</a></li>
 </ul>
 </li>
@@ -184,7 +196,7 @@ distribution and can be easily added by updating the <span class="docutils liter
 </p><h1>Previous Topic</h1>
 <p><a href="tinkering.html">Tinkering</a></p><h1>Next Topic</h1>
 <p><a href="deploying.html">Deploying</a></p></div></section><section><div class="widget" id="searchbox" role="search">
-    <h1>Search</h1>
+    <h1><a href="#searchbox">Search</a></h1>
     <form action="../search.html" method="get">
         <input type="text" name="q" />
         <button type="submit"><span class="fa fa-search"></span></button>
