@@ -178,11 +178,11 @@ def add_metadata(app, pagename, context):
     context["recent"] = [(post, env.titles[post].astext()) for post
                          in env.blog_posts[:20]]
     # tags & categories
-    tags = dict((t, 0) for t in env.filing["tags"])
-    taglinks = dict((t, name_from_title(t)) for t in env.filing["tags"])
-    categories = dict((c, 0) for c in env.filing["categories"])
-    catlinks = dict([(c, name_from_title(c))
-                     for c in env.filing["categories"]])
+    tags = dict((t, 0) for t in env.filing["tags"] if not t.startswith('{{'))
+    taglinks = dict((t, name_from_title(t)) for t in tags)
+    categories = dict((c, 0) for c in env.filing["categories"] if not c.startswith('{{'))
+    catlinks = dict([(c, name_from_title(c)) for c in categories])
+
     for post in env.blog_posts:
         p = env.blog_metadata[post]
         for tag in p.filing["tags"]:
