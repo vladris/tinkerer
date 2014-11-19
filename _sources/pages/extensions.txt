@@ -28,6 +28,7 @@ This is the list of community extensions with descriptions by the authors:
     ../exts/jinjafilters
     ../exts/withgithub
     ../exts/atomfeed
+    ../exts/sitemap
 
 Contribute
 ----------
