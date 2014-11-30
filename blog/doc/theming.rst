@@ -69,7 +69,7 @@ You will probably also want to add at least a custom CSS file in its ``static``
 subdirectory and maybe extend some boilerplate templates.
 
 To understand how this works, take a peek at the sources of other
-`Tinkerer themes <https://github.com/vladris/tinkerer/src/tip/tinkerer/themes>`_.
+`Tinkerer themes <https://github.com/vladris/tinkerer/tree/master/tinkerer/themes>`_.
 
 Tinkerer boilerplate theme
 --------------------------
