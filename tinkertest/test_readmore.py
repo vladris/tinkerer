@@ -4,7 +4,7 @@
 
     Tests readmore directive.
 
-    :copyright: Copyright 2011-2014 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2015 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
