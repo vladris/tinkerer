@@ -47,7 +47,7 @@ msgstr ""
 
 #: tinkerer/ext/uistr.py:41
 msgid "Categories"
-msgstr ""
+msgstr "Kategorien"
 
 #: tinkerer/ext/uistr.py:42
 #, python-format
@@ -79,30 +79,30 @@ msgstr "Seite %d"
 
 #: tinkerer/ext/uistr.py:48
 msgid "Read more..."
-msgstr ""
+msgstr "Weiter lesen..."
 
 #: tinkerer/ext/uistr.py:49
 msgid "Javascript must be enabled to see this e-mail address"
-msgstr ""
+msgstr "Um die E-Mail-Adresse zu sehen, muss Javascript aktiviert sein."
 
 #: tinkerer/themes/boilerplate/layout.html:198
 #, python-format
 msgid "Search within %(docstitle)s"
-msgstr ""
+msgstr "Suche in %(docstitle)s"
 
 #: tinkerer/themes/boilerplate/layout.html:204
 msgid "About these documents"
-msgstr ""
+msgstr "Über diese Dokumente"
 
 #: tinkerer/themes/boilerplate/layout.html:207
 msgid "Index"
-msgstr ""
+msgstr "Index"
 
 #: tinkerer/themes/boilerplate/layout.html:210
 #: tinkerer/themes/boilerplate/search.html:12
 #: tinkerer/themes/boilerplate/search.html:21
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: tinkerer/themes/boilerplate/layout.html:213
 msgid "Copyright"
@@ -117,7 +117,8 @@ msgstr ""
 msgid ""
 "Please activate JavaScript to enable the search\n"
 "    functionality."
-msgstr ""
+msgstr "Bitte aktivieren Sie Javascript, um die\n"
+"    Suchfunktion zu aktivieren."
 
 #: tinkerer/themes/boilerplate/search.html:30
 msgid ""
@@ -126,30 +127,34 @@ msgid ""
 "    function will automatically search for all of the words. Pages\n"
 "    containing fewer words won't appear in the result list."
 msgstr ""
+"Hier können sie die Dokumente durchsuchen. Geben Sie Ihren\n"
+"    Suchbegriff in das Eingabefeld unten ein und klicken Sie\n"
+"    auf \"suchen\". Die Suche sucht nach allen eingegebenen Suchbegriffen.\n"
+"    Seiten, in denen nicht alle Begriffe vorkommen, werden nicht angezeigt."
 
 #: tinkerer/themes/boilerplate/search.html:37
 msgid "search"
-msgstr ""
+msgstr "suchen"
 
 #: tinkerer/themes/boilerplate/search.html:41
 msgid "Search Results"
-msgstr ""
+msgstr "Suchergebnisse"
 
 #: tinkerer/themes/boilerplate/search.html:43
 msgid "Your search did not match any results."
-msgstr ""
+msgstr "Ihre Suche ergab keine Treffer."
 
 #: tinkerer/themes/boilerplate/static/doctools.js:154
 msgid "Permalink to this headline"
-msgstr ""
+msgstr "Permalink zu dieser Überschrift"
 
 #: tinkerer/themes/boilerplate/static/doctools.js:160
 msgid "Permalink to this definition"
-msgstr ""
+msgstr "Permalink zu dieser Definition"
 
 #: tinkerer/themes/boilerplate/static/doctools.js:189
 msgid "Hide Search Matches"
-msgstr ""
+msgstr "Suchtreffer verbergen"
 
 #: tinkerer/themes/tinkerbase/layout.html:209
 #, python-format
