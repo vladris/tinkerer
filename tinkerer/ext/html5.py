@@ -38,6 +38,7 @@ def depart_desc_name(self, node):
     '''
     self.body.append('</span>')
 
+
 def patch_translator():
     '''
     Monkey-patch Sphinx translator to emit proper HTML5.
