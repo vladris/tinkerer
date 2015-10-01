@@ -38,24 +38,6 @@ def depart_desc_name(self, node):
     '''
     self.body.append('</span>')
 
-
-def visit_literal(self, node):
-    '''
-    Similar to Sphinx but using a <span> node instead of <tt>.
-    '''
-    self.body.append(self.starttag(node, 'span', '',
-                                   CLASS='docutils literal'))
-    self.protect_literal_text += 1
-
-
-def depart_literal(self, node):
-    '''
-    Similar to Sphinx but using a <span> node instead of <tt>.
-    '''
-    self.protect_literal_text -= 1
-    self.body.append('</span>')
-
-
 def patch_translator():
     '''
     Monkey-patch Sphinx translator to emit proper HTML5.
@@ -64,5 +46,3 @@ def patch_translator():
     HTMLTranslator.depart_desc_addname = depart_desc_addname
     HTMLTranslator.visit_desc_name = visit_desc_name
     HTMLTranslator.depart_desc_name = depart_desc_name
-    HTMLTranslator.visit_literal = visit_literal
-    HTMLTranslator.depart_literal = depart_literal
