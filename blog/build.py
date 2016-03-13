@@ -5,7 +5,7 @@
     Builds the blog with all themes and either generates the theme previews or
     opens each theme in the browser.
 
-    :copyright: Copyright 2011-2013 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2016 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
