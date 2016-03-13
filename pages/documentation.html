@@ -83,32 +83,32 @@
 <h3>Setup</h3>
 <p>After you installed the Tinkerer package, create your blog directory and cd
 into it:</p>
-<div class="highlight-bash"><div class="highlight"><pre>mkdir myblog
-<span class="nb">cd </span>myblog
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mkdir myblog
+<span class="nb">cd</span> myblog
 </pre></div>
 </div>
 <p>Run Tinkerer setup:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --setup
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --setup
 </pre></div>
 </div>
 <p>There is some minimal configuration required in <span class="docutils literal"><span class="pre">conf.py</span></span>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Change this to the name of your blog</span>
-<span class="n">project</span> <span class="o">=</span> <span class="s">&#39;My blog&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Change this to the name of your blog</span>
+<span class="n">project</span> <span class="o">=</span> <span class="s1">&#39;My blog&#39;</span>
 
-<span class="c"># Change this to the tagline of your blog</span>
-<span class="n">tagline</span> <span class="o">=</span> <span class="s">&#39;Add intelligent tagline here&#39;</span>
+<span class="c1"># Change this to the tagline of your blog</span>
+<span class="n">tagline</span> <span class="o">=</span> <span class="s1">&#39;Add intelligent tagline here&#39;</span>
 
-<span class="c"># Change this to the description of your blog</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s">&#39;This is an awesome blog&#39;</span>
+<span class="c1"># Change this to the description of your blog</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;This is an awesome blog&#39;</span>
 
-<span class="c"># Change this to your name</span>
-<span class="n">author</span> <span class="o">=</span> <span class="s">&#39;Winston Smith&#39;</span>
+<span class="c1"># Change this to your name</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;Winston Smith&#39;</span>
 
-<span class="c"># Change this to your copyright string</span>
-<span class="n">copyright</span> <span class="o">=</span> <span class="s">&#39;1984, &#39;</span> <span class="o">+</span> <span class="n">author</span>
+<span class="c1"># Change this to your copyright string</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="s1">&#39;1984, &#39;</span> <span class="o">+</span> <span class="n">author</span>
 
-<span class="c"># Change this to your blog root URL (required for RSS feed)</span>
-<span class="n">website</span> <span class="o">=</span> <span class="s">&#39;http://127.0.0.1/blog/html/&#39;</span>
+<span class="c1"># Change this to your blog root URL (required for RSS feed)</span>
+<span class="n">website</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1/blog/html/&#39;</span>
 </pre></div>
 </div>
 <p><strong>project</strong></p>
@@ -135,30 +135,30 @@ will be consumed by search engines crawling your blog.</div></blockquote>
 <div class="section" id="create-a-post">
 <h3>Create a post</h3>
 <p>From your blog root directory, call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --post <span class="s1">&#39;Hello World!&#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --post <span class="s1">&#39;Hello World!&#39;</span>
 </pre></div>
 </div>
 <p>Tinkerer will let you know where the file was created. You can edit it right
-away, using reStructuredText! Read more about <a class="reference internal" href="../doc/tinkering.html#posts"><em>Posts</em></a>.</p>
+away, using reStructuredText! Read more about <a class="reference internal" href="../doc/tinkering.html#posts"><span>Posts</span></a>.</p>
 </div>
 <div class="section" id="create-a-page">
 <h3>Create a page</h3>
 <p>Create an <em>About</em> page to tell your readers about yourself. From your blog
 root directory, call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --page <span class="s1">&#39;About&#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --page <span class="s1">&#39;About&#39;</span>
 </pre></div>
 </div>
 <p>Tinkerer will let you know where the file was created. Read more about
-<a class="reference internal" href="../doc/tinkering.html#pages"><em>Pages</em></a>.</p>
+<a class="reference internal" href="../doc/tinkering.html#pages"><span>Pages</span></a>.</p>
 </div>
 <div class="section" id="build-your-blog">
 <h3>Build your blog</h3>
 <p>From your blog root directory call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --build
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --build
 </pre></div>
 </div>
 <p>Open the <span class="docutils literal"><span class="pre">index.html</span></span> file in your blog&#8217;s root to preview your blog. Read
-more about <a class="reference internal" href="../doc/tinkering.html#build"><em>Build</em></a>.</p>
+more about <a class="reference internal" href="../doc/tinkering.html#build"><span>Build</span></a>.</p>
 </div>
 </div>
 <div class="section" id="tinkerer-reference">
@@ -209,6 +209,7 @@ more about <a class="reference internal" href="../doc/tinkering.html#build"><em>
 <li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#add-a-custom-stylesheet">Add a custom stylesheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#create-your-own-theme">Create your own theme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#tinkerer-boilerplate-theme">Tinkerer boilerplate theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc/theming.html#other-tweaks">Other tweaks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../doc/extensions.html">Creating Custom Extensions</a><ul>
@@ -247,7 +248,7 @@ more about <a class="reference internal" href="../doc/tinkering.html#build"><em>
     </form>
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2015, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

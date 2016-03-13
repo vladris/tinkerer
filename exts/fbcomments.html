@@ -81,13 +81,13 @@
 blog. To enable Facebook comments, download <span class="docutils literal"><span class="pre">fbcomments.py</span></span> in your blog&#8217;s
 <span class="docutils literal"><span class="pre">_exts</span></span> directory and replace the default <span class="docutils literal"><span class="pre">tinkerer.ext.disqus</span></span> extension
 in <span class="docutils literal"><span class="pre">conf.py</span></span> with <span class="docutils literal"><span class="pre">fbcomments</span></span>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add other Sphinx extensions here</span>
-<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;tinkerer.ext.blog&#39;</span><span class="p">,</span> <span class="s">&#39;tinkerer.ext.disqus&#39;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Add other Sphinx extensions here</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tinkerer.ext.blog&#39;</span><span class="p">,</span> <span class="s1">&#39;tinkerer.ext.disqus&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>should become:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add other Sphinx extensions here</span>
-<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;tinkerer.ext.blog&#39;</span><span class="p">,</span> <span class="s">&#39;fbcomments&#39;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Add other Sphinx extensions here</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tinkerer.ext.blog&#39;</span><span class="p">,</span> <span class="s1">&#39;fbcomments&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Blog posts don&#8217;t need to change as this extension is a different handler for
@@ -101,10 +101,10 @@ the <a class="reference external" href="https://developers.facebook.com/docs/ref
 using a meta tag. You can do this by extending the <span class="docutils literal"><span class="pre">page.html</span></span> template:
 create a <span class="docutils literal"><span class="pre">page.html</span></span> file under your blog&#8217;s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the
 following content:</p>
-<div class="highlight-html"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
+<div class="highlight-html"><div class="highlight"><pre><span></span>{% extends &quot;!page.html&quot; %}
 
 {%- block extrahead %}
-    <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;fb:admins&quot;</span> <span class="na">content=</span><span class="s">&quot;$(YOUR_FACEBOOK_USER_ID)&quot;</span><span class="nt">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;fb:admins&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;$(YOUR_FACEBOOK_USER_ID)&quot;</span><span class="p">/&gt;</span>
     {{ super() }}
 {% endblock %}
 </pre></div>
@@ -123,10 +123,10 @@ blog&#8217;s URL. Once you have an App ID connected to your website, you no long
 need to list yourself as an administrator, rather you need to provide the App
 ID using a meta tag. Create a <span class="docutils literal"><span class="pre">page.html</span></span> under <span class="docutils literal"><span class="pre">_templates</span></span> directory as
 above, but with the following content:</p>
-<div class="highlight-html"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
+<div class="highlight-html"><div class="highlight"><pre><span></span>{% extends &quot;!page.html&quot; %}
 
 {%- block extrahead %}
-    <span class="nt">&lt;meta</span> <span class="na">property=</span><span class="s">&quot;fb:app_id&quot;</span> <span class="na">content=</span><span class="s">&quot;$(YOUR_APP_ID)&quot;</span><span class="nt">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;fb:app_id&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;$(YOUR_APP_ID)&quot;</span><span class="p">/&gt;</span>
     {{ super() }}
 {% endblock %}
 </pre></div>
@@ -208,7 +208,7 @@ the <a href="http://sphinx.pocoo.org">Sphinx website</a>.
 
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2015, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

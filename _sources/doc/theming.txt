@@ -115,3 +115,33 @@ but which also contains a number of other popular symbols you can use.
 
 Back to :ref:`tinkerer_reference`.
 
+Other tweaks
+------------
+
+Add logo to your tinkerer website, modern5 theme
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To modify the modern5 theme, to add a logo instead of a written 'project'
+title, follow these instructions.
+
+Add the following lines to conf.py::
+
+  # add logo  (your logo goes in _static directory)
+  html_logo = '_static/yourlogo.png'
+
+Add the following block to the theme's layout.html at the bottom to overwrite
+the boilerplate theme definition::
+
+  {%- block header -%}
+      <header role="banner">
+        <hgroup>
+          <a href="#">
+               <h1><img src="{{ pathto('_static/' + logo, 1) }}"  alt="alternative project title"/></h1>
+          </a>
+         {# <h1><a href="{{ pathto(pages[0][0]) }}">{{ shorttitle|e }}</a></h1> #}
+          {%- if tagline -%}<h2>{{ tagline|e }}</h2>{%- endif -%}
+        </hgroup>
+      </header>
+  {% endblock -%}
+
+Back to :ref:`tinkerer_reference`.

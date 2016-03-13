@@ -147,13 +147,13 @@ etc.</p>
 <h2>Creating custom 404 and 403 error pages</h2>
 <p>If your webserver supports <span class="docutils literal"><span class="pre">.htaccess</span></span> files you can create these pages by placing
 an <span class="docutils literal"><span class="pre">.htaccess</span></span> file under <span class="docutils literal"><span class="pre">_copy/.htaccess</span></span> with the following content:</p>
-<div class="highlight-bash"><div class="highlight"><pre>ErrorDocument 404 http://www.yoursite.com/404.html
-ErrorDocument 403 http://www.yoursite.com/403.html
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ErrorDocument <span class="m">404</span> http://www.yoursite.com/404.html
+ErrorDocument <span class="m">403</span> http://www.yoursite.com/403.html
 Options -Indexes
 </pre></div>
 </div>
 <p>Add an file <span class="docutils literal"><span class="pre">404.rst</span></span> to the document root:</p>
-<div class="highlight-rst"><div class="highlight"><pre><span class="gh">The URL you requested was not found.</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="gh">The URL you requested was not found.</span>
 <span class="gh">====================================</span>
 
 <span class="p">..</span> <span class="ow">comments</span><span class="p">::</span>
@@ -162,7 +162,7 @@ Your own text.
 </pre></div>
 </div>
 <p>Add an file <span class="docutils literal"><span class="pre">403.rst</span></span> to the document root:</p>
-<div class="highlight-rst"><div class="highlight"><pre><span class="gh">403 Permission Denied</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="gh">403 Permission Denied</span>
 <span class="gh">=====================</span>
 
 <span class="p">..</span> <span class="ow">comments</span><span class="p">::</span>
@@ -171,7 +171,7 @@ Your own text.
 </pre></div>
 </div>
 <p>And add these two pages to the <span class="docutils literal"><span class="pre">master.rst</span></span> file:</p>
-<div class="highlight-rst"><div class="highlight"><pre><span class="gh">Sitemap</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="gh">Sitemap</span>
 <span class="gh">=======</span>
 
 <span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
@@ -193,7 +193,7 @@ Your own text.
 <p>If you don&#8217;t want to use Google Analytics and for example <a class="reference external" href="http://piwik.org/">Piwik</a>
 you can add custom JavaScript code by placing an file named <span class="docutils literal"><span class="pre">page.html</span></span> under
 <span class="docutils literal"><span class="pre">_templates/page.html</span></span>:</p>
-<div class="highlight-html"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
+<div class="highlight-html"><div class="highlight"><pre><span></span>{% extends &quot;!page.html&quot; %}
 
 {% block footer %}
     {{ super() }}
@@ -202,21 +202,21 @@ you can add custom JavaScript code by placing an file named <span class="docutil
 </pre></div>
 </div>
 <p>And the analytics code inside <span class="docutils literal"><span class="pre">_static/piwik.js</span></span>:</p>
-<div class="highlight-html"><div class="highlight"><pre><span class="c">&lt;!-- Piwik --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Piwik --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
 <span class="kd">var</span> <span class="nx">pkBaseURL</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;https:&quot;</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span><span class="p">)</span> <span class="o">?</span> <span class="s2">&quot;https://piwik.yoursite.com/piwik/&quot;</span> <span class="o">:</span> <span class="s2">&quot;http://piwik.yoursite.com/piwik/&quot;</span><span class="p">);</span>
 <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">unescape</span><span class="p">(</span><span class="s2">&quot;%3Cscript src=&#39;&quot;</span> <span class="o">+</span> <span class="nx">pkBaseURL</span> <span class="o">+</span> <span class="s2">&quot;piwik.js&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;</span><span class="p">));</span>
-<span class="nt">&lt;/script&gt;&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
 <span class="k">try</span> <span class="p">{</span>
 <span class="kd">var</span> <span class="nx">piwikTracker</span> <span class="o">=</span> <span class="nx">Piwik</span><span class="p">.</span><span class="nx">getTracker</span><span class="p">(</span><span class="nx">pkBaseURL</span> <span class="o">+</span> <span class="s2">&quot;piwik.php&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nx">piwikTracker</span><span class="p">.</span><span class="nx">trackPageView</span><span class="p">();</span>
 <span class="nx">piwikTracker</span><span class="p">.</span><span class="nx">enableLinkTracking</span><span class="p">();</span>
 <span class="p">}</span> <span class="k">catch</span><span class="p">(</span> <span class="nx">err</span> <span class="p">)</span> <span class="p">{}</span>
-<span class="nt">&lt;/script&gt;&lt;noscript&gt;&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;http://piwik.yoursite.com/piwik/piwik.php?idsite=1&quot;</span> <span class="na">style=</span><span class="s">&quot;border:0&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;&lt;/p&gt;&lt;/noscript&gt;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;&lt;</span><span class="nt">noscript</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://piwik.yoursite.com/piwik/piwik.php?idsite=1&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;border:0&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">noscript</span><span class="p">&gt;</span>
 <span class="c">&lt;!-- End Piwik Tracking Code --&gt;</span>
 </pre></div>
 </div>
-<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><em>Tinkerer Reference</em></a>.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
 </div>
 </div>
 
@@ -254,7 +254,7 @@ you can add custom JavaScript code by placing an file named <span class="docutil
     </form>
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2015, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

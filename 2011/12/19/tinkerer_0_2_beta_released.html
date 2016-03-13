@@ -82,7 +82,7 @@
 <div class="section" id="what-s-new">
 <h2>What&#8217;s New</h2>
 <ul class="simple">
-<li>Support for <a class="reference internal" href="../../../doc/tinkering.html#drafts"><em>Drafts</em></a>.</li>
+<li>Support for <a class="reference internal" href="../../../doc/tinkering.html#drafts"><span>Drafts</span></a>.</li>
 <li>Fixes for cross-references and embedded images which were not displaying
 correctly on home page and RSS feed.</li>
 <li>Ensure Tinkerer runs only from the blog root directory unless when setting up
@@ -99,13 +99,13 @@ retina displays, many other small tweaks).</li>
 <p>There are a couple of steps required if upgrading from 0.1:</p>
 <ul>
 <li><p class="first">In your <span class="docutils literal"><span class="pre">conf.py</span></span> replace:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add file patterns to exclude from build</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Add file patterns to exclude from build</span>
 <span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
 <p>with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add file patterns to exclude from build</span>
-<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;drafts/*&quot;</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Add file patterns to exclude from build</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;drafts/*&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>This will make Sphinx stop warning you about drafts not being included in
@@ -204,7 +204,7 @@ the <a href="http://sphinx.pocoo.org">Sphinx website</a>.
 
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2015, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../../../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

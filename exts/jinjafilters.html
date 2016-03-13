@@ -80,14 +80,14 @@
 <p>This is an example how to add custom Jinja filters to Sphinx&#8217;s
 HTML builder.</p>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">add_jinja_filters</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">templates</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s">&#39;cleanurl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_from_title</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_jinja_filters</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">templates</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">filters</span><span class="p">[</span><span class="s1">&#39;cleanurl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_from_title</span>
 
 <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Adds extra jinja filters.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;builder-inited&quot;</span><span class="p">,</span> <span class="n">add_jinja_filters</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;builder-inited&quot;</span><span class="p">,</span> <span class="n">add_jinja_filters</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now <span class="docutils literal"><span class="pre">{{</span> <span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">title&quot;|cleanurl</span> <span class="pre">}}</span></span> will be replaced with <span class="docutils literal"><span class="pre">this_is_a_title</span></span>.</p>
@@ -165,7 +165,7 @@ the <a href="http://sphinx.pocoo.org">Sphinx website</a>.
 
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2015, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

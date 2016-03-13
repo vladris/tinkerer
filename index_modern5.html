@@ -98,9 +98,9 @@
 <h2>What’s New</h2>
 <ul class="simple">
 <li>Support for custom landing page with new <span class="docutils literal"><span class="pre">landing_page</span></span> option in
-<span class="docutils literal"><span class="pre">conf.py</span></span> (see <a class="reference internal" href="doc/more_tinkering.html#landingpage"><em>Landing Page</em></a>)</li>
+<span class="docutils literal"><span class="pre">conf.py</span></span> (see <a class="reference internal" href="doc/more_tinkering.html#landingpage"><span>Landing Page</span></a>)</li>
 <li>Ability to rename <em>“Home”</em> to a custom string with <span class="docutils literal"><span class="pre">conf.py</span></span> setting
-(see <a class="reference internal" href="doc/more_tinkering.html#landingpage"><em>Landing Page</em></a>)</li>
+(see <a class="reference internal" href="doc/more_tinkering.html#landingpage"><span>Landing Page</span></a>)</li>
 <li>Moved up to minimum supported Sphinx version 1.2.3. Support for Sphinx
 1.3b.</li>
 <li>Slovak localization</li>
@@ -148,7 +148,7 @@ placed in the feed</li>
 <li>Updated site-search JS script to newer version from Sphinx project</li>
 <li>Other bug fixes and improvements under the hood</li>
 </ul>
-<p>Also check out the new <a class="reference internal" href="exts/atomfeed.html#atomfeed"><em>Atom Feed</em></a> extension.</p>
+<p>Also check out the new <a class="reference internal" href="exts/atomfeed.html#atomfeed"><span>Atom Feed</span></a> extension.</p>
 </div>
 <div class="section" id="deprecation-warning">
 <h2>Deprecation Warning</h2>
@@ -455,7 +455,7 @@ HTML5-based themes.</p>
 <h3>New Built-in Extensions</h3>
 <ul class="simple">
 <li>An email obfuscator</li>
-<li>A new <span class="docutils literal"><span class="pre">Read</span> <span class="pre">more</span></span> directive - more info under <a class="reference internal" href="doc/tinkering.html#posts"><em>Posts</em></a></li>
+<li>A new <span class="docutils literal"><span class="pre">Read</span> <span class="pre">more</span></span> directive - more info under <a class="reference internal" href="doc/tinkering.html#posts"><span>Posts</span></a></li>
 </ul>
 </div>
 <div class="section" id="new-sidebard-widgets">
@@ -465,7 +465,7 @@ HTML5-based themes.</p>
 <li>A <em>Tag List</em> widget</li>
 <li>A <em>Tag Cloud</em> widget</li>
 </ul>
-<p>Details here: <a class="reference internal" href="doc/more_tinkering.html#sidebar"><em>Sidebar</em></a>.</p>
+<p>Details here: <a class="reference internal" href="doc/more_tinkering.html#sidebar"><span>Sidebar</span></a>.</p>
 </div>
 <div class="section" id="new-translations">
 <h3>New Translations</h3>
@@ -475,7 +475,7 @@ HTML5-based themes.</p>
 <li>Polish translation</li>
 </ul>
 <p>Just update your <span class="docutils literal"><span class="pre">conf.py</span></span> with the following setting:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">"de"</span> <span class="c"># or "fr" or "pl"</span>
+<div class="highlight-python"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"de"</span> <span class="c1"># or "fr" or "pl"</span>
 </pre></div>
 </div>
 </div>
@@ -515,11 +515,11 @@ and pull requests and special thanks to the people on the ever-growing
 <li><p class="first">Tinkerer went international! Spanish and Catalan translations are now
 available. To have your Tinkerer blog displayed in Spanish, add the
 following line to your <span class="docutils literal"><span class="pre">conf.py</span></span>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">"es"</span>
+<div class="highlight-python"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"es"</span>
 </pre></div>
 </div>
 <p>For Catalan, add:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">language</span> <span class="o">=</span> <span class="s">"ca"</span>
+<div class="highlight-python"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"ca"</span>
 </pre></div>
 </div>
 </li>
@@ -557,7 +557,7 @@ following line to your <span class="docutils literal"><span class="pre">conf.py<
 <div class="section" id="what-s-new">
 <h2>What’s New</h2>
 <ul class="simple">
-<li>Support for <a class="reference internal" href="doc/tinkering.html#drafts"><em>Drafts</em></a>.</li>
+<li>Support for <a class="reference internal" href="doc/tinkering.html#drafts"><span>Drafts</span></a>.</li>
 <li>Fixes for cross-references and embedded images which were not displaying
 correctly on home page and RSS feed.</li>
 <li>Ensure Tinkerer runs only from the blog root directory unless when setting up
@@ -574,13 +574,13 @@ retina displays, many other small tweaks).</li>
 <p>There are a couple of steps required if upgrading from 0.1:</p>
 <ul>
 <li><p class="first">In your <span class="docutils literal"><span class="pre">conf.py</span></span> replace:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add file patterns to exclude from build</span>
+<div class="highlight-python"><div class="highlight"><pre><span/><span class="c1"># Add file patterns to exclude from build</span>
 <span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
 <p>with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add file patterns to exclude from build</span>
-<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s">"drafts/*"</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span/><span class="c1"># Add file patterns to exclude from build</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"drafts/*"</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>This will make Sphinx stop warning you about drafts not being included in
@@ -683,7 +683,7 @@ the <a href="http://sphinx.pocoo.org">Sphinx website</a>.
 
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2015, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="_static_modern5/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

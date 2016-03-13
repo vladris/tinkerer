@@ -99,14 +99,14 @@ containing the <span class="docutils literal"><span class="pre">conf.py</span></
 <div class="section" id="posts">
 <span id="id1"></span><h2>Posts</h2>
 <p>From your blog root directory, call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --post <span class="s1">&#39;Hello World!&#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --post <span class="s1">&#39;Hello World!&#39;</span>
 </pre></div>
 </div>
 <p>A new post will be created and inserted at the top of the TOC in
 <span class="docutils literal"><span class="pre">master.rst</span></span>. Tinkerer will let you know where the file was created (path is
 based on current date and filename is normalized). Your post file looks like
 this:</p>
-<div class="highlight-rst"><div class="highlight"><pre><span class="gh">Hello World!</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="gh">Hello World!</span>
 <span class="gh">============</span>
 
 <span class="p">..</span> <span class="ow">author</span><span class="p">::</span> default
@@ -135,7 +135,7 @@ directive to disable posts.</div></blockquote>
 <p><strong>more</strong></p>
 <blockquote>
 <div><p>At any point in your text, you can insert the <span class="docutils literal"><span class="pre">more</span></span> directive:</p>
-<div class="highlight-rst"><div class="highlight"><pre><span class="gh">Hello World!</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="gh">Hello World!</span>
 <span class="gh">============</span>
 
 Some text.
@@ -154,13 +154,13 @@ of the post.</p>
 <div class="section" id="pages">
 <span id="id2"></span><h2>Pages</h2>
 <p>From your blog root directory, call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --page <span class="s1">&#39;About&#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --page <span class="s1">&#39;About&#39;</span>
 </pre></div>
 </div>
 <p>A new page named <span class="docutils literal"><span class="pre">About</span></span> will be created as <span class="docutils literal"><span class="pre">pages/about.rst</span></span> and inserted
 at the bottom of the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span> (pages are always placed under the
 <span class="docutils literal"><span class="pre">pages</span></span> directory, filename is normalized). Your page file looks like this:</p>
-<div class="highlight-rst"><div class="highlight"><pre><span class="gh">About</span>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="gh">About</span>
 <span class="gh">=====</span>
 </pre></div>
 </div>
@@ -171,7 +171,7 @@ display <cite>previous</cite> and <cite>next</cite> navigation links.</p>
 <div class="section" id="drafts">
 <span id="id3"></span><h2>Drafts</h2>
 <p>From your blog root directory, call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --draft <span class="s1">&#39;Hello World!&#39;</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --draft <span class="s1">&#39;Hello World!&#39;</span>
 </pre></div>
 </div>
 <p>A new draft named <span class="docutils literal"><span class="pre">Hello</span> <span class="pre">World!</span></span> will be created under the <span class="docutils literal"><span class="pre">drafts</span></span>
@@ -180,14 +180,14 @@ file is identical to a post file but unlike posts, the draft will not be added
 to the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span> file and will be ignored by the build. You can
 take your time to edit it. When it&#8217;s ready, from your blog root directory
 call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --post drafts/hello_world_.rst
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --post drafts/hello_world_.rst
 </pre></div>
 </div>
 <p>This will promote your draft to a post by moving it to the appropriate
 <span class="docutils literal"><span class="pre">$(YEAR)/$(MONTH)/$(DAY)</span></span> path and adding it to the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span>.</p>
 <p>If you change your mind and want to tinker with it some more, from your blog
 root directory call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --draft 2011/12/25/hello_world_.rst
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --draft 2011/12/25/hello_world_.rst
 </pre></div>
 </div>
 <p>This will demote your post to a draft by moving it to the <span class="docutils literal"><span class="pre">drafts</span></span> directory
@@ -196,7 +196,7 @@ and removing it from the TOC in <span class="docutils literal"><span class="pre"
 <div class="section" id="build">
 <span id="id4"></span><h2>Build</h2>
 <p>From your blog root directory, call:</p>
-<div class="highlight-bash"><div class="highlight"><pre>tinker --build
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --build
 </pre></div>
 </div>
 <p>Your blog will be generated under <span class="docutils literal"><span class="pre">blog/html</span></span>.</p>
@@ -223,7 +223,7 @@ grouped by publishing year and ordered by publishing date as <span class="docuti
 <dt><strong>rss.html</strong></dt>
 <dd>An RSS feed will be generated as <span class="docutils literal"><span class="pre">rss.html</span></span>.</dd>
 </dl>
-<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><em>Tinkerer Reference</em></a>.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
 </div>
 </div>
 </div>
@@ -260,7 +260,7 @@ grouped by publishing year and ordered by publishing date as <span class="docuti
     </form>
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2015, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

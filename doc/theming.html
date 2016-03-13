@@ -86,15 +86,15 @@ on HTML5 Boilerplate. Custom themes should inherit from it.</p>
 <h2>Tweaking the flat theme</h2>
 <p>You can change the accent color by setting the <cite>accent_color</cite> option in
 <cite>conf.py</cite>, for example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">&#39;accent_color&#39;</span><span class="p">:</span> <span class="s">&#39;#e74c3c&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;accent_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#e74c3c&#39;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>You can also hide various elements, for example the nav menu on the left if you
 don&#8217;t plan to have any pages. This can be done by creating a <span class="docutils literal"><span class="pre">page.html</span></span> file
 under your blog&#8217;s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the following content:</p>
-<div class="highlight-html"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
+<div class="highlight-html"><div class="highlight"><pre><span></span>{% extends &quot;!page.html&quot; %}
 
 {% block navigation %}{% endblock %}
 </pre></div>
@@ -105,7 +105,7 @@ under your blog&#8217;s <span class="docutils literal"><span class="pre">_templa
 <p>Create your own <span class="docutils literal"><span class="pre">style.css</span></span> (filename is not important) and place it under
 the blog&#8217;s <span class="docutils literal"><span class="pre">_static</span></span> directory and create a new <span class="docutils literal"><span class="pre">page.html</span></span> file under
 your blog&#8217;s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the following content:</p>
-<div class="highlight-html"><div class="highlight"><pre>{% extends &quot;!page.html&quot; %}
+<div class="highlight-html"><div class="highlight"><pre><span></span>{% extends &quot;!page.html&quot; %}
 
 {% set css_files = css_files + [&quot;_static/style.css&quot;] %}
 </pre></div>
@@ -163,7 +163,36 @@ number of posts.</div></blockquote>
 <p>Boilerplate theme style is based on HTML5 boilerplate. You also get the awesome
 Web Symbols font included by default, which Tinkerer uses for its RSS symbol
 but which also contains a number of other popular symbols you can use.</p>
-<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><em>Tinkerer Reference</em></a>.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
+</div>
+<div class="section" id="other-tweaks">
+<h2>Other tweaks</h2>
+<div class="section" id="add-logo-to-your-tinkerer-website-modern5-theme">
+<h3>Add logo to your tinkerer website, modern5 theme</h3>
+<p>To modify the modern5 theme, to add a logo instead of a written &#8216;project&#8217;
+title, follow these instructions.</p>
+<p>Add the following lines to conf.py:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span># add logo  (your logo goes in _static directory)
+html_logo = &#39;_static/yourlogo.png&#39;
+</pre></div>
+</div>
+<p>Add the following block to the theme&#8217;s layout.html at the bottom to overwrite
+the boilerplate theme definition:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>{%- block header -%}
+    <span class="p">&lt;</span><span class="nt">header</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;banner&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">hgroup</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>
+             <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ pathto(&#39;_static/&#39; + logo, 1) }}&quot;</span>  <span class="na">alt</span><span class="o">=</span><span class="s">&quot;alternative project title&quot;</span><span class="p">/&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+       {# <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ pathto(pages[0][0]) }}&quot;</span><span class="p">&gt;</span>{{ shorttitle|e }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span> #}
+        {%- if tagline -%}<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ tagline|e }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>{%- endif -%}
+      <span class="p">&lt;/</span><span class="nt">hgroup</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+{% endblock -%}
+</pre></div>
+</div>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
+</div>
 </div>
 </div>
 
@@ -182,6 +211,10 @@ but which also contains a number of other popular symbols you can use.</p>
 <li><a class="reference internal" href="#add-a-custom-stylesheet">Add a custom stylesheet</a></li>
 <li><a class="reference internal" href="#create-your-own-theme">Create your own theme</a></li>
 <li><a class="reference internal" href="#tinkerer-boilerplate-theme">Tinkerer boilerplate theme</a></li>
+<li><a class="reference internal" href="#other-tweaks">Other tweaks</a><ul>
+<li><a class="reference internal" href="#add-logo-to-your-tinkerer-website-modern5-theme">Add logo to your tinkerer website, modern5 theme</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -195,7 +228,7 @@ but which also contains a number of other popular symbols you can use.</p>
     </form>
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2015, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->
