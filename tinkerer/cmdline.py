@@ -186,8 +186,8 @@ def main(argv=None):
     output.init(command.quiet, command.filename)
 
     # tinkerer should be run from the blog root unless in setup mode or -v
-    if (not command.setup and not command.version
-            and not os.path.exists(paths.conf_file)):
+    if (not command.setup and not command.version and not
+            os.path.exists(paths.conf_file)):
         output.write.error("Tinkerer must be run from your blog root "
                            "(directory containing 'conf.py')")
         return -1
