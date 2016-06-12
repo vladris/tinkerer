@@ -92,3 +92,26 @@ Verbosity can be change with one of the mutually exclusive flags:
         tinker --post `Hello World!` -f | xargs vim
 
 Back to :ref:`tinkerer_reference`.
+
+Custom Blog Path
+----------------
+
+.. highlight:: bash
+
+By default, ``tinker`` will write the newly generated post to the ``blog`` directory.::
+
+    # [Default] Writes to the `blog` directory
+    tinker --post 'Hello World!'
+
+    # Outputs to: `blog/2016/06/12/hello_world.rst`
+
+You can change this by adding the ``TINKERER_BLOG_PATH`` environment variable with the name of another directory to use.::
+
+    # Update your .bash_profile
+    # Generate files in the "posts" directory instead of "blog"
+    export TINKERER_BLOG_PATH="posts"
+
+    # [Custom] Writes to the `posts` directory
+    tinker --post 'Hello World!'
+
+    # Outputs to: `posts/2016/06/12/hello_world.rst`

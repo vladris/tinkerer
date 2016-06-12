@@ -31,3 +31,4 @@ David Boucha - Spelling fixes
 Troels Brødsgaard - Update localization pot file, localize "Search" string
 John McFarlane - Bug fixes
 Karsten Schulz - Updated German localization
+Anil Lakhman - Configurable Blog Path via environment variable "TINKERER_BLOG_PATH" [#98]
