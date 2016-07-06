@@ -38,7 +38,7 @@ def setup():
         output.write.info("Done")
 
 
-def build(incremental):
+def build(incremental=False):
     '''
     Runs a clean Sphinx build of the blog.
     '''
@@ -219,8 +219,10 @@ def main(argv=None):
 
     if command.setup:
         setup()
+    elif command.incremental:
+        return build(True)
     elif command.build:
-        return build(incremental=command.incremental)
+        return build(False)
     elif command.post:
         create_post(command.post[0], post_date, command.template)
     elif command.page:
