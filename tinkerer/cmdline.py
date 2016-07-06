@@ -38,13 +38,14 @@ def setup():
         output.write.info("Done")
 
 
-def build():
+def build(incremental):
     '''
     Runs a clean Sphinx build of the blog.
     '''
     # clean build directory
-    if os.path.exists(paths.blog):
-        shutil.rmtree(paths.blog)
+    if not incremental:
+        if os.path.exists(paths.blog):
+            shutil.rmtree(paths.blog)
 
     flags = ["sphinx-build"]
     # silence Sphinx if in quiet mode
@@ -128,7 +129,7 @@ def preview_draft(draft_file):
 
     try:
         # rebuild
-        result = build()
+        result = build(True)
     finally:
         # demote post back to draft
         draft.move(preview_post.path)
@@ -145,6 +146,7 @@ def main(argv=None):
     group.add_argument("-s", "--setup", action="store_true",
                        help="setup a new blog")
     group.add_argument("-b", "--build", action="store_true", help="build blog")
+    group.add_argument("-i", "--incremental", action="store_true", help="incremental rebuild blog")
     group.add_argument(
         "-p", "--post", nargs=1,
         help="create a new post with the title POST (if a file named POST "
@@ -218,7 +220,7 @@ def main(argv=None):
     if command.setup:
         setup()
     elif command.build:
-        return build()
+        return build(incremental=command.incremental)
     elif command.post:
         create_post(command.post[0], post_date, command.template)
     elif command.page:
