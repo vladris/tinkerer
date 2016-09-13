@@ -30,7 +30,7 @@ def create_thread(disqus_shortname, identifier):
 '    disqus_thread();'
 '</script>'
 '<noscript>Please enable JavaScript to view the '
-'   <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a>'
+'   <a href=\"https://disqus.com/?ref_noscript\">comments powered by Disqus.</a>'
 '</noscript>' % (disqus_shortname, identifier))
 
 
@@ -42,7 +42,7 @@ def enable_count(disqus_shortname):
 '<script type="text/javascript">'
 '    var disqus_shortname = "%s";'
 '    disqus_count();'
-'</script>' 
+'</script>'
             % disqus_shortname)
 
 
@@ -51,7 +51,7 @@ def get_count(link, identifier):
     '''
     Returns HTML required by Disqus to retrieve comment count.
     '''
-    return str('<a href="%s#disqus_thread" data-disqus-identifier="%s">%s</a>' % 
+    return str('<a href="%s#disqus_thread" data-disqus-identifier="%s">%s</a>' %
             (link, identifier, "Leave a comment"))
 
 
@@ -95,4 +95,3 @@ def setup(app):
 
     # connect event
     app.connect("html-page-context", add_disqus_block)
-
