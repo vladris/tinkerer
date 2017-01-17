@@ -5,7 +5,7 @@ project = 'Tinkerer'
 tagline = 'Blogging for Pythonistas'                  
 description = 'Tinkerer is a Python blogging engine/static website generator powered by Sphinx'
 author = 'Vlad Riscutia'
-copyright = '2011-2016, ' + author
+copyright = '2011-2017, ' + author
 website = 'http://tinkerer.me/'                              
 
 disqus_shortname = 'tinkerer'                                   

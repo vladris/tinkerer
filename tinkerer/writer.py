@@ -4,7 +4,7 @@
 
     Internal template writer - handles template rendering and blog setup.
 
-    :copyright: Copyright 2011-2016 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2017 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''

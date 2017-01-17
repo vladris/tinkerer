@@ -9,7 +9,7 @@
     post - to create a new post
     page - to create a new page
 
-    :copyright: Copyright 2011-2016 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2017 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
