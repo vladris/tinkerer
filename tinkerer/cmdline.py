@@ -17,7 +17,7 @@ import argparse
 from datetime import datetime
 import os
 import shutil
-import subprocess
+from sphinx import build_main
 import tinkerer
 from tinkerer import draft, output, page, paths, post, writer
 
@@ -59,7 +59,7 @@ def build():
     if os.path.exists("_copy"):
         shutil.copytree("_copy/", paths.html)
 
-    return subprocess.call(flags)
+    return build_main(flags)
 
 
 def create_post(title, date, template):
