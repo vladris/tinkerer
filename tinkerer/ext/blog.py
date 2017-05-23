@@ -146,7 +146,7 @@ def setup(app):
 
     # create a new Sphinx event which gets called when we generate aggregated
     # pages
-    app._events["html-collected-context"] = "pagename, templatename, context"
+    app.events.events["html-collected-context"] = "pagename, templatename, context"
 
     # event handlers
     app.connect("builder-inited", initialize)

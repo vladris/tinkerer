@@ -8,6 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+from sphinx.util import logging
 from sphinx.util.compat import Directive
 from tinkerer import utils
 from tinkerer.ext.uistr import UIStr
@@ -35,8 +36,9 @@ def create_filing_directive(name):
                     continue
 
                 if not item:
-                    env.warn(env.docname,
-                             "Empty string in '%s' directive" % (name,))
+                    logging.getLogger(__name__).warn(
+                        "%s: empty string in '%s' directive" % 
+                        (env.docname, name,))
                     continue
 
                 if item not in env.filing[name]:
