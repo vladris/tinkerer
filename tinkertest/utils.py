@@ -8,7 +8,6 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-import mock
 import os
 import shutil
 import sphinx
