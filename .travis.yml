@@ -6,7 +6,7 @@ python:
 # command to install dependencies
 install: 
   - python setup.py develop
-  - pip install coveralls flake8
+  - pip install coveralls flake8 mock
 
 # command to run tests
 script:
