@@ -28,12 +28,13 @@
         <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../../../_static/plugins.js"></script>
         <script src="../../../_static/main.js"></script>
-        <link rel="next" title="Tinkerer 0.1 Beta is Out!" href="../13/tinkerer_0_1_beta_is_out_.html" /><link rel="prev" title="Tinkerer 0.3 Beta Released" href="../../../2012/02/09/tinkerer_beta_0_3_released.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+        <link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Tinkerer 0.1 Beta is Out!" href="../13/tinkerer_0_1_beta_is_out_.html" /><link rel="prev" title="Tinkerer 0.3 Beta Released" href="../../../2012/02/09/tinkerer_beta_0_3_released.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.5',
+        VERSION:     '1.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
     </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script>
@@ -80,9 +81,9 @@
     <div class="section" id="tinkerer-0-2-beta-released">
 <h1>Tinkerer 0.2 Beta Released</h1>
 <div class="section" id="what-s-new">
-<h2>What&#8217;s New</h2>
+<h2>What’s New</h2>
 <ul class="simple">
-<li>Support for <a class="reference internal" href="../../../doc/tinkering.html#drafts"><span>Drafts</span></a>.</li>
+<li>Support for <a class="reference internal" href="../../../doc/tinkering.html#drafts"><span class="std std-ref">Drafts</span></a>.</li>
 <li>Fixes for cross-references and embedded images which were not displaying
 correctly on home page and RSS feed.</li>
 <li>Ensure Tinkerer runs only from the blog root directory unless when setting up
@@ -99,12 +100,12 @@ retina displays, many other small tweaks).</li>
 <p>There are a couple of steps required if upgrading from 0.1:</p>
 <ul>
 <li><p class="first">In your <span class="docutils literal"><span class="pre">conf.py</span></span> replace:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Add file patterns to exclude from build</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Add file patterns to exclude from build</span>
 <span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
 <p>with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Add file patterns to exclude from build</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Add file patterns to exclude from build</span>
 <span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;drafts/*&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -143,6 +144,8 @@ valuable feedback you provided.</p>
         </ul><div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "tinkerer";    var disqus_identifier = "2011/12/19/tinkerer_0_2_beta_released";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></article><aside class="sidebar"><section><div class="widget">
     <h1>Recent Posts</h1>
     <ul><li>
+            <a href="../../../2017/05/27/tinkerer_1_6_released.html">Tinkerer 1.6 Released</a>
+        </li><li>
             <a href="../../../2014/11/09/tinkerer_1_5_released.html">Tinkerer 1.5 Released</a>
         </li><li>
             <a href="../../../2014/04/28/tinkerer_1_4_released.html">Tinkerer 1.4 Released</a>
@@ -160,8 +163,6 @@ valuable feedback you provided.</p>
             <a href="../../../2012/07/05/tinkerer_0_4_beta_released.html">Tinkerer 0.4 Beta Released</a>
         </li><li>
             <a href="../../../2012/02/09/tinkerer_beta_0_3_released.html">Tinkerer 0.3 Beta Released</a>
-        </li><li>
-            <a href="#">Tinkerer 0.2 Beta Released</a>
         </li></ul>
 </div>
 </section><section><div class="widget">
@@ -204,7 +205,7 @@ the <a href="http://sphinx.pocoo.org">Sphinx website</a>.
 
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2017, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../../../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

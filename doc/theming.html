@@ -28,12 +28,13 @@
         <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../_static/plugins.js"></script>
         <script src="../_static/main.js"></script>
-        <link rel="next" title="Creating Custom Extensions" href="extensions.html" /><link rel="prev" title="Internals" href="internals.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+        <link rel="search" title="Search" href="../search.html" /><link rel="next" title="Creating Custom Extensions" href="extensions.html" /><link rel="prev" title="Internals" href="internals.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.5',
+        VERSION:     '1.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
     </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
@@ -92,8 +93,8 @@ on HTML5 Boilerplate. Custom themes should inherit from it.</p>
 </pre></div>
 </div>
 <p>You can also hide various elements, for example the nav menu on the left if you
-don&#8217;t plan to have any pages. This can be done by creating a <span class="docutils literal"><span class="pre">page.html</span></span> file
-under your blog&#8217;s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the following content:</p>
+don’t plan to have any pages. This can be done by creating a <span class="docutils literal"><span class="pre">page.html</span></span> file
+under your blog’s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the following content:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span>{% extends &quot;!page.html&quot; %}
 
 {% block navigation %}{% endblock %}
@@ -103,8 +104,8 @@ under your blog&#8217;s <span class="docutils literal"><span class="pre">_templa
 <div class="section" id="add-a-custom-stylesheet">
 <h2>Add a custom stylesheet</h2>
 <p>Create your own <span class="docutils literal"><span class="pre">style.css</span></span> (filename is not important) and place it under
-the blog&#8217;s <span class="docutils literal"><span class="pre">_static</span></span> directory and create a new <span class="docutils literal"><span class="pre">page.html</span></span> file under
-your blog&#8217;s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the following content:</p>
+the blog’s <span class="docutils literal"><span class="pre">_static</span></span> directory and create a new <span class="docutils literal"><span class="pre">page.html</span></span> file under
+your blog’s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the following content:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span>{% extends &quot;!page.html&quot; %}
 
 {% set css_files = css_files + [&quot;_static/style.css&quot;] %}
@@ -163,20 +164,20 @@ number of posts.</div></blockquote>
 <p>Boilerplate theme style is based on HTML5 boilerplate. You also get the awesome
 Web Symbols font included by default, which Tinkerer uses for its RSS symbol
 but which also contains a number of other popular symbols you can use.</p>
-<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span class="std std-ref">Tinkerer Reference</span></a>.</p>
 </div>
 <div class="section" id="other-tweaks">
 <h2>Other tweaks</h2>
-<div class="section" id="add-logo-to-your-tinkerer-website-modern5-theme">
-<h3>Add logo to your tinkerer website, modern5 theme</h3>
-<p>To modify the modern5 theme, to add a logo instead of a written &#8216;project&#8217;
+<div class="section" id="modern5-theme-add-logo-to-your-tinkerer-website">
+<h3>Modern5 theme: add logo to your tinkerer website</h3>
+<p>To modify the modern5 theme, to add a logo instead of a written ‘project’
 title, follow these instructions.</p>
 <p>Add the following lines to conf.py:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span># add logo  (your logo goes in _static directory)
 html_logo = &#39;_static/yourlogo.png&#39;
 </pre></div>
 </div>
-<p>Add the following block to the theme&#8217;s layout.html at the bottom to overwrite
+<p>Add the following block to the theme’s layout.html at the bottom to overwrite
 the boilerplate theme definition:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span>{%- block header -%}
     <span class="p">&lt;</span><span class="nt">header</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;banner&quot;</span><span class="p">&gt;</span>
@@ -191,7 +192,7 @@ the boilerplate theme definition:</p>
 {% endblock -%}
 </pre></div>
 </div>
-<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span class="std std-ref">Tinkerer Reference</span></a>.</p>
 </div>
 </div>
 </div>
@@ -212,7 +213,7 @@ the boilerplate theme definition:</p>
 <li><a class="reference internal" href="#create-your-own-theme">Create your own theme</a></li>
 <li><a class="reference internal" href="#tinkerer-boilerplate-theme">Tinkerer boilerplate theme</a></li>
 <li><a class="reference internal" href="#other-tweaks">Other tweaks</a><ul>
-<li><a class="reference internal" href="#add-logo-to-your-tinkerer-website-modern5-theme">Add logo to your tinkerer website, modern5 theme</a></li>
+<li><a class="reference internal" href="#modern5-theme-add-logo-to-your-tinkerer-website">Modern5 theme: add logo to your tinkerer website</a></li>
 </ul>
 </li>
 </ul>
@@ -220,7 +221,7 @@ the boilerplate theme definition:</p>
 </ul>
 </p><h1>Previous Topic</h1>
 <p><a href="internals.html">Internals</a></p><h1>Next Topic</h1>
-<p><a href="extensions.html">Creating Custom Extensions</a></p></div></section><section><div class="widget" id="searchbox" role="search">
+<p><a href="extensions.html">Creating Custom Extensions</a> &raquo; </p></div></section><section><div class="widget" id="searchbox" role="search">
     <h1><a href="#searchbox">Search</a></h1>
     <form action="../search.html" method="get">
         <input type="text" name="q" />
@@ -228,7 +229,7 @@ the boilerplate theme definition:</p>
     </form>
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2017, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

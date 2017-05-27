@@ -28,12 +28,13 @@
         <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../_static/plugins.js"></script>
         <script src="../_static/main.js"></script>
-        <link rel="next" title="Extensions" href="../pages/extensions.html" /><link rel="prev" title="Theming" href="theming.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+        <link rel="search" title="Search" href="../search.html" /><link rel="next" title="Extensions" href="../pages/extensions.html" /><link rel="prev" title="Theming" href="theming.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.5',
+        VERSION:     '1.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
     </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
@@ -84,7 +85,7 @@ subdirectory of your blog and hook up to the build by updating the
 reading about <a class="reference external" href="http://sphinx-doc.org/extensions.html">Sphinx extensions</a>.</p>
 <p>What Tinkerer adds to this is a set of metadata and other information which is
 passed to the templating engine when rendering each file. This information
-resides in the <a class="reference internal" href="#context"><span>Context</span></a> variable and your extensions can use and/or alter it
+resides in the <a class="reference internal" href="#context"><span class="std std-ref">Context</span></a> variable and your extensions can use and/or alter it
 to extend Tinkerer functionality.</p>
 <p>Going forward, the Tinkerer post and page RST templates can be found in the
 <span class="docutils literal"><span class="pre">_templates</span></span> subdirectory of a blog, so if your custom extension adds, for
@@ -118,7 +119,7 @@ to the templating engine for rendering.</div></blockquote>
 <blockquote>
 <div>Previous and next links. These exist only for posts and for documentation
 pages (pages under <span class="docutils literal"><span class="pre">doc/</span></span> directory). Other pages, for example pages
-under <span class="docutils literal"><span class="pre">pages/</span></span> directory, don&#8217;t have previous/next relationships.</div></blockquote>
+under <span class="docutils literal"><span class="pre">pages/</span></span> directory, don’t have previous/next relationships.</div></blockquote>
 <p><span class="docutils literal"><span class="pre">Metadata</span></span></p>
 <blockquote>
 <div><p>This is an object containig additional metadata:</p>
@@ -158,7 +159,7 @@ comments of a post. Extensions like the built-in <em>disqus</em> or
 <div>This is a number which will be unique for each post during a build. It
 can be used to associate data with posts.</div></blockquote>
 </div></blockquote>
-<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span class="std std-ref">Tinkerer Reference</span></a>.</p>
 </div>
 </div>
 
@@ -179,7 +180,7 @@ can be used to associate data with posts.</div></blockquote>
 </ul>
 </p><h1>Previous Topic</h1>
 <p><a href="theming.html">Theming</a></p><h1>Next Topic</h1>
-<p><a href="../pages/extensions.html">Extensions</a></p></div></section><section><div class="widget" id="searchbox" role="search">
+<p><a href="../pages/extensions.html">Extensions</a> &raquo; </p></div></section><section><div class="widget" id="searchbox" role="search">
     <h1><a href="#searchbox">Search</a></h1>
     <form action="../search.html" method="get">
         <input type="text" name="q" />
@@ -187,7 +188,7 @@ can be used to associate data with posts.</div></blockquote>
     </form>
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2017, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

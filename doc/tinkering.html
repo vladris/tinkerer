@@ -28,12 +28,13 @@
         <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../_static/plugins.js"></script>
         <script src="../_static/main.js"></script>
-        <link rel="next" title="More Tinkering" href="more_tinkering.html" /><link rel="prev" title="Documentation" href="../pages/documentation.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+        <link rel="search" title="Search" href="../search.html" /><link rel="next" title="More Tinkering" href="more_tinkering.html" /><link rel="prev" title="Documentation" href="../pages/documentation.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.5',
+        VERSION:     '1.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
     </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
@@ -93,7 +94,7 @@ example creating a new post requires creating a path for the current date as
 the Tinkerer directives and inserting it in the master document. Tinkerer
 command line takes care of all of these steps. For build, the destination
 directory is cleaned up and Sphinx build is invoked.</p>
-<p>Tinkerer command line should be run from your blog&#8217;s root (the directory
+<p>Tinkerer command line should be run from your blog’s root (the directory
 containing the <span class="docutils literal"><span class="pre">conf.py</span></span> file), except when setting up a new blog.</p>
 </div>
 <div class="section" id="posts">
@@ -145,8 +146,8 @@ Some text.
 More text.
 </pre></div>
 </div>
-<p>This tells Tinkerer to insert a &#8220;Read more...&#8221; link into the blog post.
-A &#8220;Read more...&#8221; link will appear on the front page and the text after the
+<p>This tells Tinkerer to insert a “Read more…” link into the blog post.
+A “Read more…” link will appear on the front page and the text after the
 directive will be hidden. The full text will be displayed only on the page
 of the post.</p>
 </div></blockquote>
@@ -178,7 +179,7 @@ display <cite>previous</cite> and <cite>next</cite> navigation links.</p>
 directory as <span class="docutils literal"><span class="pre">hello_world_.rst</span></span> (filename is normalized). The content of the
 file is identical to a post file but unlike posts, the draft will not be added
 to the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span> file and will be ignored by the build. You can
-take your time to edit it. When it&#8217;s ready, from your blog root directory
+take your time to edit it. When it’s ready, from your blog root directory
 call:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --post drafts/hello_world_.rst
 </pre></div>
@@ -187,7 +188,7 @@ call:</p>
 <span class="docutils literal"><span class="pre">$(YEAR)/$(MONTH)/$(DAY)</span></span> path and adding it to the TOC in <span class="docutils literal"><span class="pre">master.rst</span></span>.</p>
 <p>If you change your mind and want to tinker with it some more, from your blog
 root directory call:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --draft 2011/12/25/hello_world_.rst
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tinker --draft <span class="m">2011</span>/12/25/hello_world_.rst
 </pre></div>
 </div>
 <p>This will demote your post to a draft by moving it to the <span class="docutils literal"><span class="pre">drafts</span></span> directory
@@ -223,7 +224,7 @@ grouped by publishing year and ordered by publishing date as <span class="docuti
 <dt><strong>rss.html</strong></dt>
 <dd>An RSS feed will be generated as <span class="docutils literal"><span class="pre">rss.html</span></span>.</dd>
 </dl>
-<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span class="std std-ref">Tinkerer Reference</span></a>.</p>
 </div>
 </div>
 </div>
@@ -252,7 +253,7 @@ grouped by publishing year and ordered by publishing date as <span class="docuti
 </ul>
 </p><h1>Previous Topic</h1>
 <p><a href="../pages/documentation.html">Documentation</a></p><h1>Next Topic</h1>
-<p><a href="more_tinkering.html">More Tinkering</a></p></div></section><section><div class="widget" id="searchbox" role="search">
+<p><a href="more_tinkering.html">More Tinkering</a> &raquo; </p></div></section><section><div class="widget" id="searchbox" role="search">
     <h1><a href="#searchbox">Search</a></h1>
     <form action="../search.html" method="get">
         <input type="text" name="q" />
@@ -260,7 +261,7 @@ grouped by publishing year and ordered by publishing date as <span class="docuti
     </form>
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2017, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->

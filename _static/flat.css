@@ -133,8 +133,6 @@ div.year div.timestamp { color: #0c0501; font-size: 1.6em; font-weight: normal; 
 div.year h2 { margin-bottom: 20px; margin-top: 0; }
 
 @media only screen and (min-width: 480px) {
-    div.year h1 { float: left; margin-right: -100%; }
-
     div.year div.postmeta { margin: 0 0 40px 40%; }
     div.year div.timestamp { float: left; margin-left: 20%; }
     div.year h2 { margin-left: 40%; }

@@ -5,8 +5,33 @@
         <link>http://tinkerer.me/</link>
         <description>Blogging for Pythonistas</description>
         <language>en-us</language>
-        <pubDate>Sun, 09 Nov 2014 00:00:00 -0800</pubDate>
+        <pubDate>Sat, 27 May 2017 00:00:00 -0700</pubDate>
         
+        <item>
+            <link>http://tinkerer.me/2017/05/27/tinkerer_1_6_released.html</link>
+            <guid>http://tinkerer.me/2017/05/27/tinkerer_1_6_released.html</guid>
+            <title><![CDATA[Tinkerer 1.6 Released]]></title>
+            <description><![CDATA[<h1>Tinkerer 1.6 Released</h1>
+<div class="section" id="what-s-new">
+<h2>What’s New</h2>
+<ul class="simple">
+<li>The most important change with this release is moving minimum supported Sphinx
+version 1.6.1. Tinkerer was relying on a Sphinx implementation detail which
+changed with the 1.6.1 release. This update addresses the issue.</li>
+<li>Minor layout change to the archive page in the flat theme</li>
+<li>Support Disqus over both HTTP and HTTPS</li>
+<li>Other minor changes and bug fixes</li>
+</ul>
+</div>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments</h2>
+<p>Many thanks to the awesome <a class="reference external" href="https://github.com/vladris/tinkerer/blob/master/CONTRIBUTORS">contributors</a>!</p>
+</div>
+]]></description>
+            <category><![CDATA[ tinkerer ]]></category>
+             <pubDate>Sat, 27 May 2017 00:00:00 -0700</pubDate>
+        </item>
+    
         <item>
             <link>http://tinkerer.me/2014/11/09/tinkerer_1_5_released.html</link>
             <guid>http://tinkerer.me/2014/11/09/tinkerer_1_5_released.html</guid>
@@ -16,9 +41,9 @@
 <h2>What’s New</h2>
 <ul class="simple">
 <li>Support for custom landing page with new <span class="docutils literal"><span class="pre">landing_page</span></span> option in
-<span class="docutils literal"><span class="pre">conf.py</span></span> (see <a class="reference internal" href="http://tinkerer.me/doc/more_tinkering.html#landingpage"><span>Landing Page</span></a>)</li>
+<span class="docutils literal"><span class="pre">conf.py</span></span> (see <a class="reference internal" href="http://tinkerer.me/doc/more_tinkering.html#landingpage"><span class="std std-ref">Landing Page</span></a>)</li>
 <li>Ability to rename <em>“Home”</em> to a custom string with <span class="docutils literal"><span class="pre">conf.py</span></span> setting
-(see <a class="reference internal" href="http://tinkerer.me/doc/more_tinkering.html#landingpage"><span>Landing Page</span></a>)</li>
+(see <a class="reference internal" href="http://tinkerer.me/doc/more_tinkering.html#landingpage"><span class="std std-ref">Landing Page</span></a>)</li>
 <li>Moved up to minimum supported Sphinx version 1.2.3. Support for Sphinx
 1.3b.</li>
 <li>Slovak localization</li>
@@ -53,7 +78,7 @@ placed in the feed</li>
 <li>Updated site-search JS script to newer version from Sphinx project</li>
 <li>Other bug fixes and improvements under the hood</li>
 </ul>
-<p>Also check out the new <a class="reference internal" href="http://tinkerer.me/exts/atomfeed.html#atomfeed"><span>Atom Feed</span></a> extension.</p>
+<p>Also check out the new <a class="reference internal" href="http://tinkerer.me/exts/atomfeed.html#atomfeed"><span class="std std-ref">Atom Feed</span></a> extension.</p>
 </div>
 <div class="section" id="deprecation-warning">
 <h2>Deprecation Warning</h2>
@@ -282,7 +307,7 @@ HTML5-based themes.</p>
 <h3>New Built-in Extensions</h3>
 <ul class="simple">
 <li>An email obfuscator</li>
-<li>A new <span class="docutils literal"><span class="pre">Read</span> <span class="pre">more</span></span> directive - more info under <a class="reference internal" href="http://tinkerer.me/doc/tinkering.html#posts"><span>Posts</span></a></li>
+<li>A new <span class="docutils literal"><span class="pre">Read</span> <span class="pre">more</span></span> directive - more info under <a class="reference internal" href="http://tinkerer.me/doc/tinkering.html#posts"><span class="std std-ref">Posts</span></a></li>
 </ul>
 </div>
 <div class="section" id="new-sidebard-widgets">
@@ -292,7 +317,7 @@ HTML5-based themes.</p>
 <li>A <em>Tag List</em> widget</li>
 <li>A <em>Tag Cloud</em> widget</li>
 </ul>
-<p>Details here: <a class="reference internal" href="http://tinkerer.me/doc/more_tinkering.html#sidebar"><span>Sidebar</span></a>.</p>
+<p>Details here: <a class="reference internal" href="http://tinkerer.me/doc/more_tinkering.html#sidebar"><span class="std std-ref">Sidebar</span></a>.</p>
 </div>
 <div class="section" id="new-translations">
 <h3>New Translations</h3>
@@ -302,7 +327,7 @@ HTML5-based themes.</p>
 <li>Polish translation</li>
 </ul>
 <p>Just update your <span class="docutils literal"><span class="pre">conf.py</span></span> with the following setting:</p>
-<div class="highlight-python"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"de"</span> <span class="c1"># or "fr" or "pl"</span>
+<div class="highlight-default"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"de"</span> <span class="c1"># or "fr" or "pl"</span>
 </pre></div>
 </div>
 </div>
@@ -329,11 +354,11 @@ and pull requests and special thanks to the people on the ever-growing
 <li><p class="first">Tinkerer went international! Spanish and Catalan translations are now
 available. To have your Tinkerer blog displayed in Spanish, add the
 following line to your <span class="docutils literal"><span class="pre">conf.py</span></span>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"es"</span>
+<div class="highlight-default"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"es"</span>
 </pre></div>
 </div>
 <p>For Catalan, add:</p>
-<div class="highlight-python"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"ca"</span>
+<div class="highlight-default"><div class="highlight"><pre><span/><span class="n">language</span> <span class="o">=</span> <span class="s2">"ca"</span>
 </pre></div>
 </div>
 </li>
@@ -358,7 +383,7 @@ following line to your <span class="docutils literal"><span class="pre">conf.py<
 <div class="section" id="what-s-new">
 <h2>What’s New</h2>
 <ul class="simple">
-<li>Support for <a class="reference internal" href="http://tinkerer.me/doc/tinkering.html#drafts"><span>Drafts</span></a>.</li>
+<li>Support for <a class="reference internal" href="http://tinkerer.me/doc/tinkering.html#drafts"><span class="std std-ref">Drafts</span></a>.</li>
 <li>Fixes for cross-references and embedded images which were not displaying
 correctly on home page and RSS feed.</li>
 <li>Ensure Tinkerer runs only from the blog root directory unless when setting up
@@ -375,12 +400,12 @@ retina displays, many other small tweaks).</li>
 <p>There are a couple of steps required if upgrading from 0.1:</p>
 <ul>
 <li><p class="first">In your <span class="docutils literal"><span class="pre">conf.py</span></span> replace:</p>
-<div class="highlight-python"><div class="highlight"><pre><span/><span class="c1"># Add file patterns to exclude from build</span>
+<div class="highlight-default"><div class="highlight"><pre><span/><span class="c1"># Add file patterns to exclude from build</span>
 <span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
 <p>with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span/><span class="c1"># Add file patterns to exclude from build</span>
+<div class="highlight-default"><div class="highlight"><pre><span/><span class="c1"># Add file patterns to exclude from build</span>
 <span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"drafts/*"</span><span class="p">]</span>
 </pre></div>
 </div>

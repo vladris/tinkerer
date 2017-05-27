@@ -28,12 +28,13 @@
         <script>window.jQuery || document.write('<script src="../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../_static/plugins.js"></script>
         <script src="../_static/main.js"></script>
-        <link rel="next" title="Deploying" href="deploying.html" /><link rel="prev" title="Tinkering" href="tinkering.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
+        <link rel="search" title="Search" href="../search.html" /><link rel="next" title="Deploying" href="deploying.html" /><link rel="prev" title="Tinkering" href="tinkering.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/tinkerer" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.5',
+        VERSION:     '1.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
     </script><script type="text/javascript" src="../_static/underscore.js"></script><script type="text/javascript" src="../_static/doctools.js"></script><script type="text/javascript" src="../_static/disqus.js"></script><script type="text/javascript" src="../_static/google_analytics.js"></script>
@@ -85,16 +86,16 @@ your Disqus shortname.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">You will not be able to preview comments offline since comment box is
-retrieved via JS from Disqus and the page must match your account&#8217;s URL.</p>
+retrieved via JS from Disqus and the page must match your account’s URL.</p>
 </div>
 </div>
 <div class="section" id="enabling-google-analytics">
 <h2>Enabling Google Analytics</h2>
 <p>To enable <a class="reference external" href="http://google.com/analytics">Google Analytics</a> for your blog,
 setup your Google Analytics account. You will be provided some JS  code.
-Add the JS code (excluding any <span class="docutils literal"><span class="pre">&lt;script&gt;</span></span> tags) to a file in your blog&#8217;s
+Add the JS code (excluding any <span class="docutils literal"><span class="pre">&lt;script&gt;</span></span> tags) to a file in your blog’s
 <span class="docutils literal"><span class="pre">_static</span></span> directory as <span class="docutils literal"><span class="pre">google_analytics.js</span></span> and create a new
-<span class="docutils literal"><span class="pre">page.html</span></span> file under your blog&#8217;s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the
+<span class="docutils literal"><span class="pre">page.html</span></span> file under your blog’s <span class="docutils literal"><span class="pre">_templates</span></span> directory with the
 following content:</p>
 <div class="highlight-html"><div class="highlight"><pre><span></span>{% extends &quot;!page.html&quot; %}
 
@@ -129,8 +130,8 @@ items to include in the feed, or <span class="docutils literal"><span class="pre
 </div>
 <div class="section" id="favicon">
 <h2>Favicon</h2>
-<p>Tinkerer uses a default <span class="docutils literal"><span class="pre">tinkerer.ico</span></span> as your blog&#8217;s favicon. You can
-replace this with your own icon by placing your icon under the blog&#8217;s
+<p>Tinkerer uses a default <span class="docutils literal"><span class="pre">tinkerer.ico</span></span> as your blog’s favicon. You can
+replace this with your own icon by placing your icon under the blog’s
 <span class="docutils literal"><span class="pre">_static</span></span> directory and changing the <span class="docutils literal"><span class="pre">html_favicon</span></span> value to the name
 of your icon file (path is not required, only filename).</p>
 </div>
@@ -138,11 +139,11 @@ of your icon file (path is not required, only filename).</p>
 <span id="landingpage"></span><h2>Landing Page</h2>
 <p>By default, the landing page for a blog is the first aggregated page,
 containing the latest 10 posts. This can be changed by setting <span class="docutils literal"><span class="pre">landing_page</span></span>
-in <span class="docutils literal"><span class="pre">conf.py</span></span> to a different page under the blog&#8217;s <span class="docutils literal"><span class="pre">/pages</span></span> directory. For
+in <span class="docutils literal"><span class="pre">conf.py</span></span> to a different page under the blog’s <span class="docutils literal"><span class="pre">/pages</span></span> directory. For
 example, to land users on <span class="docutils literal"><span class="pre">/pages/about.html</span></span>, update <span class="docutils literal"><span class="pre">landing_page</span> <span class="pre">=</span> <span class="pre">None</span></span>
 to <span class="docutils literal"><span class="pre">landing_page</span> <span class="pre">=</span> <span class="pre">&quot;about&quot;</span></span>.</p>
-<p>The title of the first aggregated page is &#8220;Home&#8221;. To change the title from
-&#8220;Home&#8221; to something else, change the <span class="docutils literal"><span class="pre">first_page_title</span></span> setting in
+<p>The title of the first aggregated page is “Home”. To change the title from
+“Home” to something else, change the <span class="docutils literal"><span class="pre">first_page_title</span></span> setting in
 <span class="docutils literal"><span class="pre">conf.py</span></span>.</p>
 </div>
 <div class="section" id="sidebar">
@@ -168,7 +169,7 @@ distribution and can be easily added by updating the <span class="docutils liter
 <blockquote>
 <div>Tag cloud.</div></blockquote>
 <p><a class="reference external" href="http://sphinx.pocoo.org/config.html#confval-html_sidebars">More information on sidebars</a>.</p>
-<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span>Tinkerer Reference</span></a>.</p>
+<p>Back to <a class="reference internal" href="../pages/documentation.html#tinkerer-reference"><span class="std std-ref">Tinkerer Reference</span></a>.</p>
 </div>
 </div>
 
@@ -195,7 +196,7 @@ distribution and can be easily added by updating the <span class="docutils liter
 </ul>
 </p><h1>Previous Topic</h1>
 <p><a href="tinkering.html">Tinkering</a></p><h1>Next Topic</h1>
-<p><a href="deploying.html">Deploying</a></p></div></section><section><div class="widget" id="searchbox" role="search">
+<p><a href="deploying.html">Deploying</a> &raquo; </p></div></section><section><div class="widget" id="searchbox" role="search">
     <h1><a href="#searchbox">Search</a></h1>
     <form action="../search.html" method="get">
         <input type="text" name="q" />
@@ -203,7 +204,7 @@ distribution and can be easily added by updating the <span class="docutils liter
     </form>
 </div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
-        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2016, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2011-2017, Vlad Riscutia. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer>
     <a id="fork_me" href="http://github.com/vladris/tinkerer">
         <img alt="Fork me" src="../_static/fork_me.png" style="position: fixed; top: 0; right: 0; border 0" />
     </a></div> <!-- footer-container -->
