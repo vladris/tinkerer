@@ -44,7 +44,7 @@ def set_paths(root_path="."):
     '''
     global root, blog, doctree, html, master_file, index_file, conf_file
     root = os.path.abspath(root_path)
-    blog = os.path.join(root, "blog")
+    blog = os.path.join(root, os.getenv("TINKERER_BLOG_PATH", "blog"))
     doctree = os.path.join(blog, "doctrees")
     html = os.path.join(blog, "html")
     master_file = os.path.join(root,
