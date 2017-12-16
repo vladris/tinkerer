@@ -25,9 +25,6 @@ Tinkerer is also highly customizable through Sphinx extensions.
 '''
 
 requires = ["Jinja2>=2.3", "Sphinx>=1.6.1", "Babel>=1.3", "pyquery>=1.2.8"]
-if sys.version_info[:2] < (2,7) or (sys.version_info.major == 3 and
-                                    sys.version_info.minor < 2):
-    requires.append("argparse>=1.2")
 
 test_requires = ['nose', 'tox']
 

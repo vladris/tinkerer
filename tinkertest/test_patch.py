@@ -54,10 +54,8 @@ class TestPatch(utils.BaseTinkererTest):
         ]
 
         expected = [
-            # Sphinx running on Python3 has an achor here, Python2 doesn't
             (["2010", "10", "01", "post1.html"],
-             [('href="post2.html#x"' if sys.version_info[0] == 3 else
-               'href="post2.html"'),
+             ['href="post2.html#x"',
               'href="www.archlinux.org"']),
 
             # images get places in _images directory under root

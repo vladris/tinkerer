@@ -11,12 +11,7 @@
 import datetime
 import logging
 import os
-try:
-    # Python 2
-    from StringIO import StringIO
-except:
-    # Python 3
-    from io import StringIO
+from io import StringIO
 import tinkerer
 from tinkerer import cmdline, output, paths, post
 from tinkertest import utils

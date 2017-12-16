@@ -105,7 +105,6 @@ def get_metadata(app, docname):
     metadata.date = datetime.datetime.strptime(match.group(), "%Y/%m/%d/")
 
     # we format date here instead of inside template due to localization issues
-    # and Python2 vs Python3 incompatibility
     metadata.formatted_date = format_ui_date(metadata.date)
     metadata.formatted_date_short = format_short_ui_short(metadata.date)
 

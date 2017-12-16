@@ -9,12 +9,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-try:
-    # Python 3
-    import builtins as __builtin__
-except:
-    # Python 2
-    import __builtin__
+import builtins as __builtin__
 
 
 # check whether unicode builtin exists, otherwise strings are unicode by
