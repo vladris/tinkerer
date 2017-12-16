@@ -8,11 +8,8 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-import sys
 from setuptools import setup, find_packages
 import tinkerer
-
-
 
 long_desc = '''
 Tinkerer is a blogging engine/static website generator powered by Sphinx.

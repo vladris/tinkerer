@@ -10,7 +10,6 @@
 '''
 import datetime
 import os
-import sys
 from tinkerer import paths, post
 from tinkertest import utils
 
