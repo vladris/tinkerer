@@ -201,7 +201,7 @@ def main(argv=None):
 
         try:
             post_date = datetime.strptime(command.date[0], "%Y/%m/%d")
-        except:
+        except Exception:
             output.write.error(
                 "Invalid post date: format should be YYYY/mm/dd"
             )

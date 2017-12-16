@@ -25,7 +25,7 @@ def name_from_title(title):
     '''
     try:
         word_sep = get_conf().slug_word_separator
-    except:
+    except Exception:
         word_sep = "_"
 
     return UNICODE_ALNUM_PTN.sub(word_sep, title).lower().strip(word_sep)
