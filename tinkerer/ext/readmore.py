@@ -10,7 +10,7 @@
     :license: FreeBSD, see LICENSE file
 '''
 from docutils import nodes
-from sphinx.util.compat import Directive
+from docutils.parsers.rst import Directive
 
 
 class InsertReadMoreLink(Directive):

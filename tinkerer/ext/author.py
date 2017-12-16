@@ -8,7 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
-from sphinx.util.compat import Directive
+from docutils.parsers.rst import Directive
 
 
 class AuthorDirective(Directive):

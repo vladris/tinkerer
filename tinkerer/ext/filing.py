@@ -8,8 +8,8 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+from docutils.parsers.rst import Directive
 from sphinx.util import logging
-from sphinx.util.compat import Directive
 from tinkerer import utils
 from tinkerer.ext.uistr import UIStr
 

@@ -11,8 +11,8 @@
 '''
 import re
 import datetime
+from docutils.parsers.rst import Directive
 from functools import partial
-from sphinx.util.compat import Directive
 from babel.core import Locale
 from babel.dates import format_date
 import tinkerer
