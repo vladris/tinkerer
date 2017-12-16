@@ -5,7 +5,7 @@
     Read more directive.
 
     :copyright: Copyright 2012 by Christian Jann
-    :copyright: Copyright 2011-2017 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2018 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''

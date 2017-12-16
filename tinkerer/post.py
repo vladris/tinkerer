@@ -4,7 +4,7 @@
 
     Handles creating new posts and inserting them in the master document.
 
-    :copyright: Copyright 2011-2017 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2018 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENCE file
 '''

@@ -4,7 +4,7 @@
 
     Tests that Tinkerer adds posts and pages in the correct order
 
-    :copyright: Copyright 2011-2017 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2018 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''

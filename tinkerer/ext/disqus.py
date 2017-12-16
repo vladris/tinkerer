@@ -5,7 +5,7 @@
     Handler for `comments` directive using Disqus.
     Disqus shortname must be provided in `conf.py` as `disqus_shortname`.
 
-    :copyright: Copyright 2011-2017 by Vlad Riscutia and contributors (see
+    :copyright: Copyright 2011-2018 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
