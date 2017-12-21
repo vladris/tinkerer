@@ -1,6 +1,6 @@
 /* Typography */
-@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+@import url(//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(//fonts.googleapis.com/css?family=Source+Code+Pro);
 
 {%- set sans_serif_font = "'PT Sans', Helvetica, Arial, sans-serif" -%}
 {%- set code_font = "'Source Code Pro', monospace, serif" -%} 
