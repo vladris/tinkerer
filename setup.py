@@ -58,7 +58,7 @@ setup(
         ]
     },
     install_requires = requires,
-    test_requires = test_requires,
+    tests_require = test_requires,
     test_suite = 'nose.collector',
     message_extractors = {
         'tinkerer': [
