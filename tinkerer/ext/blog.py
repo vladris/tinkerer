@@ -123,7 +123,6 @@ def setup(app):
     # new config values
     app.add_config_value("tagline", "My blog", True)
     app.add_config_value("description", "My blog", True)
-    app.add_config_value("author", "Winston Smith", True)
     app.add_config_value("rss_service", None, True)
     app.add_config_value("rss_generate_full_posts", False, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
