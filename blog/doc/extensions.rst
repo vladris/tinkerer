@@ -59,7 +59,7 @@ Sphinx. It contains the following extra keys:
 
 ``Metadata``
 
-    This is an object containig additional metadata:
+    This is an object containing additional metadata:
 
     ``is_post``, ``is_page``
 

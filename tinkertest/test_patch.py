@@ -2,7 +2,7 @@
     Patch Test
     ~~~~~~~~~~
 
-    Tests link patching on aggreated pages and RSS feed.
+    Tests link patching on aggregate pages and RSS feed.
 
     :copyright: Copyright 2011-2018 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)

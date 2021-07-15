@@ -13,7 +13,7 @@ New HTML5 Themes
   *boilerplate* and including a lot more detail-work
 
 The old themes (*tinkerbase*, *modern* and *minimal*) are still around for
-backwards compatiblity, though future development will happen around
+backwards compatibility, though future development will happen around
 HTML5-based themes.
 
 New Built-in Extensions

@@ -5,7 +5,7 @@ What's New
 ----------
 
 * Tinkerer moved to GitHub! Old repositories on BitBucket are still there for
-  the time being, but going forward, all developement will take place on GitHub.
+  the time being, but going forward, all development will take place on GitHub.
   Make sure to star/fork Tinkerer `here <https://github.com/vladris/tinkerer>`_
 * A brand new *flat* theme optimized around distraction-free reading and a
   customized Pygments style displaying code in the
