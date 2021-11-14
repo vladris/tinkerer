@@ -34,5 +34,5 @@ Get Tinkerer::
 
     pip install tinkerer
 
-Skim through the `Documentation <http://tinkerer.me/pages/documentation.html>`_.
+Skim through the `Documentation <https://vladris.com/tinkerer/pages/documentation.html>`_.
 
