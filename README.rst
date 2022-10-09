@@ -1,38 +1,23 @@
-Tinkerer
-========
+Announcement
+============
 
-.. image:: https://travis-ci.org/vladris/tinkerer.png
-   :target: https://travis-ci.org/vladris/tinkerer/
-   
-.. image:: https://coveralls.io/repos/vladris/tinkerer/badge.png 
-   :target: https://coveralls.io/r/vladris/tinkerer
+Tinkerer is retired in favor of `Baku <https://github.com/vladris/baku>`_.
 
-What is Tinkerer?
------------------
+Tinkerer has been around since 2011 but hasn't been actively developed for
+a few years now. The project is using Sphinx for rendering, unfortunately
+some of the core functionality required by Tinkerer stopped working in newer
+Sphinx versions. The Sphinx dependency has been pinned at version 1.7.1, but
+this is quite old and it is no longer working properly with the latest
+Python versions.
 
-Tinkerer is a blogging engine/static website generator powered by Sphinx.
+A lot has changed since 2011. Markdown is now ubiquitous and it supports
+some of the content types that used to only work with reStructuredText, like
+math, footnotes, and tables. Developing for the web is easier.
 
-It allows blogging in reStructuredText format, comes with out-of-the-box 
-support for post publishing dates, authors, categories, tags, post archive,
-RSS feed generation, comments powered by Disqus and more.
+`Baku <https://github.com/vladris/baku>`_ takes the learnings from Tinkerer and
+provides the same familiar command line interface but uses Markdown for content,
+achieves the same look & feel with much lighter HTML/CSS, and fewer
+dependencies. It is a modern take on Tinkerer which I hope you try and enjoy.
 
-Tinkerer is also highly customizable through Sphinx extensions.
-
-Why Tinkerer?
--------------
-
-* Because *"hacker"* is way overused nowadays.
-* Because static websites are cool.
-* Because you already write documentation in RST format and you love it.
-* Because you have Pygments for sharing highlighted code.
-* Because you can use your favorite Sphinx extensions right away.
-
-How to Tinker?
---------------
-
-Get Tinkerer::
-
-    pip install tinkerer
-
-Skim through the `Documentation <https://vladris.com/tinkerer/pages/documentation.html>`_.
-
+You can migrate an existing blog using reStructuredText to Markdown by using
+`Pandoc <https://pandoc.org/>`_.
