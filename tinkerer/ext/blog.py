@@ -8,6 +8,7 @@
     CONTRIBUTORS file)
     :license: FreeBSD, see LICENSE file
 '''
+from sphinx.errors import ExtensionError
 from tinkerer.ext import (aggregator, author, filing, html5, metadata, patch,
                           readmore, rss, uistr)
 import gettext
@@ -123,7 +124,10 @@ def setup(app):
     # new config values
     app.add_config_value("tagline", "My blog", True)
     app.add_config_value("description", "My blog", True)
-    app.add_config_value("author", "Winston Smith", True)
+    try:
+        app.add_config_value("author", "Winston Smith", True)  # Sphinx 1.7.1
+    except ExtensionError as e:
+        pass
     app.add_config_value("rss_service", None, True)
     app.add_config_value("rss_generate_full_posts", False, True)
     app.add_config_value("website", "http://127.0.0.1/blog/html/", True)
