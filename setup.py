@@ -21,7 +21,7 @@ RSS feed generation, comments powered by Disqus and more.
 Tinkerer is also highly customizable through Sphinx extensions.
 '''
 
-requires = ["Jinja2>=2.3", "Sphinx==1.7.1", "Babel>=1.3", "pyquery>=1.2.8"]
+requires = ["Jinja2>=2.3", "Sphinx>=2.3.0", "Babel>=1.3", "pyquery>=1.2.8"]
 
 test_requires = ['nose', 'tox']
 
@@ -58,7 +58,7 @@ setup(
         ]
     },
     install_requires = requires,
-    test_requires = test_requires,
+    tests_require = test_requires,
     test_suite = 'nose.collector',
     message_extractors = {
         'tinkerer': [
