@@ -207,7 +207,7 @@ def add_metadata(app, pagename, context):
                 context["prev"] = None
             if pagename == env.blog_posts[-1]:
                 context["next"] = None
-        # if this is not documententation
+        # if this is not documentation
         elif not (pagename.startswith("doc/") or pagename.startswith("docs/")):
             # no rellinks for non-posts/docs
             context["prev"], context["next"] = None, None

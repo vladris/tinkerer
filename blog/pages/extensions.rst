@@ -7,7 +7,7 @@ come with Tinkerer, you can get an assortment of additional extensions.
 Community extensions are Tinkerer extensions contributed and maintained by
 various authors. They are not part of the Tinkerer distribution, but they can
 be acquired separately from the
-`tinkerer-contrib respository <https://github.com/vladris/tinkerer-contrib>`_.
+`tinkerer-contrib repository <https://github.com/vladris/tinkerer-contrib>`_.
 
 Extensions usually go in your blog's ``_exts`` directory. Additional setup
 steps are provided for each extension.

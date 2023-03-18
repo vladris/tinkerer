@@ -37,7 +37,7 @@ class TestMaster(utils.BaseTinkererTest):
 
         master.append_doc(new_docs[0])
 
-        # first doc should be appendend in the correct place
+        # first doc should be appended in the correct place
         self.assertEquals(
             TestMaster.MASTER_HEAD +
             ["   %s\n" % new_docs[0]] +

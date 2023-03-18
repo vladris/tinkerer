@@ -116,7 +116,7 @@ class TestCmdLine(utils.BaseTinkererTest):
 
         file_path = os.path.join(utils.TEST_ROOT, "pages", "my_test_page.rst")
 
-        # assert file exsits
+        # assert file exists
         self.assertTrue(os.path.exists(file_path))
 
     # test page from existing file

@@ -2,7 +2,7 @@
     Categories Test
     ~~~~~~~~~~~~~~~
 
-    Tests Tinkerer post categoires.
+    Tests Tinkerer post categories.
 
     :copyright: Copyright 2011-2018 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
@@ -21,7 +21,7 @@ class TestCategories(utils.BaseTinkererTest):
 
         # create some posts with categories
 
-        # missing category for Post1 ("cateogry #1,") should work,
+        # missing category for Post1 ("category #1,") should work,
         # just issue a warning
         for new_post in [("Post1", "category #1,"),
                          ("Post2", "category #2"),

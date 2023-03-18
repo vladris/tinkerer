@@ -2,7 +2,7 @@
     filing
     ~~~~~~
 
-    Handles post filing by date, caregories and tags.
+    Handles post filing by date, categories and tags.
 
     :copyright: Copyright 2011-2018 by Vlad Riscutia and contributors (see
     CONTRIBUTORS file)
